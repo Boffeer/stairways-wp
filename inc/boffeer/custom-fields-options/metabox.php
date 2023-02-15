@@ -13,26 +13,27 @@ use Carbon_Fields\Field;
 // 		Field::make('image', 'crb_photo'),
 // 	));
 
+/*
+
+	Page
+
+*/
 Container::make('post_meta', 'page_info', 'Страница')
 	->add_fields(array(
-		Field::make('text', 'page_title', 'Page title')
+		Field::make('text', 'page_title', 'Заголовок для соцсетей')
 			->set_width(30),
-		Field::make('textarea', 'page_description', 'Page description')
+		Field::make('textarea', 'page_description', 'Описание для соцсетей')
 			->set_width(30),
-		Field::make('image', 'og_image', 'og:image')
-				->set_width(30)
-			->set_value_type('url'),
-		Field::make('radio', 'show_footer', __('Подвал'))
+		Field::make('image', 'og_image', 'Картинка для соцсетей — og:image')
 			->set_width(30)
-			->set_default_value('Показывать')
-			->set_options(
-				array(
-					'show' => "Показывать",
-					'hide' => "Скрыть",
-				)
-			),
+			->set_value_type('url'),
 	));
 
+/*
+
+	Stairs
+	
+*/
 Container::make('post_meta', 'stairs_info', 'Лестницы')
 	->where('post_type', '=', 'stairs')
 	->add_fields(array(
@@ -41,28 +42,28 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 			->add_fields( array(
 	      Field::make( 'text', 'title', __( 'Название вариации' ) ),
 	      Field::make( 'image', 'photo', __( 'Картинка вариации' ) ),
-	      Field::make( 'text', 'desc', __( 'Описание вариации' ) ),
+	      Field::make( 'textarea', 'desc', __( 'Описание вариации' ) ),
 				Field::make('complex', 'hotspots', 'Плюсики на кратинке вариации')
 					->set_layout('tabbed-horizontal')
 					->add_fields( array(
 			      Field::make( 'image', 'photo', __( 'Кариации' ) ),
 			      Field::make( 'text', 'title', __( 'Заголовок' ) ),
-			      Field::make( 'text', 'desc', __( 'Описание' ) ),
+			      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
 					))
     ))
 	));
-Container::make('post_meta', 'stairs_info', 'Кейсы')
+Container::make('post_meta', 'stairs_cases', 'Кейсы')
 	->where('post_type', '=', 'stairs')
 	->add_fields(array(
     Field::make( 'association', 'product_cases', __( 'Кейсы' ) )
 	    ->set_types( array(
         array(
           'type'      => 'post',
-          'post_type' => 'post',
+          'post_type' => 'cases',
         )
     ) )
   ));
-Container::make('post_meta', 'stairs_info', 'Преимущества')
+Container::make('post_meta', 'c_stairs_features', 'Преимущества')
 	->where('post_type', '=', 'stairs')
 	->add_fields(array(
 		Field::make('complex', 'stairs_features', 'Преимущества')
@@ -70,10 +71,25 @@ Container::make('post_meta', 'stairs_info', 'Преимущества')
 	      Field::make( 'text', 'suptitle', __( 'Над заголовокм' ) )
 		      ->set_attribute('placeholder', 'Надежно'),
 	      Field::make( 'text', 'title', __( 'Заголовок' ) ),
-	      Field::make( 'rich_text', 'desc', __( 'Описание' ) ),
+	      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
 	      Field::make( 'image', 'photo', __( 'Большая картинка' ) ),
 				Field::make('media_gallery', 'pics', __('Картинки под описанием'))
     )),
+	));
+
+
+/*
+
+	Cases
+	
+*/
+Container::make('post_meta', 'cases_info', 'О кейсе')
+	->where('post_type', '=', 'cases')
+	->add_fields(array(
+			Field::make('media_gallery', 'gallery', __('Фото кейсов')),
+      Field::make( 'text', 'title', __( 'Название' ) ),
+      Field::make( 'textarea', 'stats', __( 'Характеристики' ) ),
+      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
 	));
 
 /**
