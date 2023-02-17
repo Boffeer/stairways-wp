@@ -21,7 +21,7 @@ if (!function_exists('get_vd')) {
 }
 
 if (!function_exists('get_crb_contacts')) {
-	function get_crb_contacts()
+	function get_crb_theme_options()
 	{
 		return array(
 			'email' => carbon_get_theme_option('email'),

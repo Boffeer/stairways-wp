@@ -55,6 +55,7 @@ endif;
 
 
 define('THEME_URL', get_stylesheet_directory_uri());
+define('THEME_STATIC', THEME_URL . '/static-bundle/dist');
 define('FORM_URLS', array( 'mail' => get_stylesheet_directory_uri() . "/mail.php"));
 
 
@@ -70,7 +71,7 @@ function ast_register_custom_fields()
 {
 	require get_template_directory() . '/inc/boffeer/custom-fields-options/metabox.php';
 	require get_template_directory() . '/inc/boffeer/custom-fields-options/theme-options.php';
-	define('CONTACTS', get_crb_contacts());
+	define('THEME_OPTIONS', get_crb_theme_options());
 }
 
 
