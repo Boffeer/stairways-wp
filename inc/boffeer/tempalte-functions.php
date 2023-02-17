@@ -1,7 +1,7 @@
 <?php
 
-if (!function_exists('get_header_addon')) :
-	function get_header_addon() {
+if (!function_exists('boffer_get_header_meta')) :
+	function boffeer_get_header_meta() {
 		ob_start(); ?>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />

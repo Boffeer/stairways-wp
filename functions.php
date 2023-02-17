@@ -70,18 +70,6 @@ function stairways_setup() {
 		)
 	);
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'stairways_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -132,7 +120,7 @@ function stairways_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'stairways_widgets_init' );
+// add_action( 'widgets_init', 'stairways_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
@@ -141,13 +129,12 @@ function stairways_scripts() {
 	wp_enqueue_style( 'stairways-style', THEME_STATIC . "/css/style.css", array(), _S_VERSION );
 	wp_enqueue_script( 'stairways-scripts', THEME_STATIC . '/js/index.js', array(), _S_VERSION, true );
 }
-
 add_action( 'wp_enqueue_scripts', 'stairways_scripts' );
 
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -159,17 +146,8 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/template-functions.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-// /**
-//  * Load Jetpack compatibility file.
-//  */
-// if ( defined( 'JETPACK__VERSION' ) ) {
-// 	require get_template_directory() . '/inc/jetpack.php';
-// }
+/** * Customizer additions. */
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load WooCommerce compatibility file.
