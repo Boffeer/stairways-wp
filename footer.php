@@ -15,7 +15,7 @@
                 <div class="footer__about">
                     <a href="#" class="logo footer__logo">
                         <picture class="logo__pic">
-                            <img src="./img/common/logo-white.svg" alt="Первя ступень" class="logo__img">
+                            <img src="<?php echo THEME_STATIC; ?>/img/common/logo-white.svg" alt="Первя ступень" class="logo__img">
                         </picture>
                     </a>
                     <p class="footer__address">Офис в Москве: <br> ул. Большая Полянка, д. 31Г.</p>
@@ -76,19 +76,19 @@
                     <div class="footer__socials-buttons">
                         <a href="" class="button button--secondary button--icon-right footer__button footer__button--has-text">
                             <svg class="button__icon">
-        						<use xlink:href="./img/common/viber.svg#viber" />
+        						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/viber.svg#viber" />
         					</svg>
                             <span class="button__text">Написать в Viber</span>
                         </a>
                         <a href="" class="button button--secondary button--icon-right footer__button footer__button--has-text">
                             <svg class="button__icon">
-        						<use xlink:href="./img/common/whatsapp.svg#whatsapp" />
+        						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/whatsapp.svg#whatsapp" />
         					</svg>
                             <span class="button__text">Написать в WhatsApp</span>
                         </a>
                         <a href="" class="footer__button footer__button-vk button--ghost">
                             <svg class="button__icon">
-        						<use xlink:href="./img/common/vk.svg#vk" />
+        						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/vk.svg#vk" />
         					</svg>
                         </a>
                         <a href="" class="footer__button footer__button-yt button--ghost">
@@ -231,19 +231,19 @@
                 <div class="swiper poppa-slider--swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide poppa-slider--slide">
-                            <img src="./img/common/about-video.jpg" alt="">
+                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-video.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="./img/common/about-1.jpg" alt="">
+                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-1.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="./img/common/about-1.jpg" alt="">
+                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-1.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="./img/common/about-1.jpg" alt="">
+                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-1.jpg" alt="">
                         </div>
                         <div class="swiper-slide">
-                            <img src="./img/common/about-1.jpg" alt="">
+                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-1.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -276,7 +276,7 @@
                             </button>
                             <div class="modal__group--counter">
                                 <div class="modal__group--count">
-                                    <img class="modal__group--count--icon" src="./img/common/arrow-down.svg" alt="">
+                                    <img class="modal__group--count--icon" src="<?php echo THEME_STATIC; ?>/img/common/arrow-down.svg" alt="">
                                     <div class="modal__group--count--n">
                                         <span class="modal__group--count__index"></span>/<span class="modal__group--count__all"></span>
                                     </div>
@@ -349,7 +349,7 @@
                         >
                         <span class="input-attach__box-icon">
                         <svg class="input-attach__icon">
-                          <use xlink:href="./img/common/attach-white.svg#attach-white" />
+                          <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach-white.svg#attach-white" />
                         </svg>
                       </span>
                         <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>

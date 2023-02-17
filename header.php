@@ -76,7 +76,7 @@
         <div class="header__mobile">
             <a href="" class="logo header__logo">
                 <picture class="logo__pic">
-                    <img src="./img/common/logo.svg" alt="Первя ступень" class="logo__img">
+                    <img src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="Первя ступень" class="logo__img">
                 </picture>
             </a>
             <button class="gamburger">
@@ -127,7 +127,7 @@
                 <div class="header__contacts">
                     <a href="#" class="header__contacts-calc">
                         <svg class="header__contacts-calc-icon">
-                            <use xlink:href="./img/common/rocket.svg#rocket"></use>
+                            <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/rocket.svg#rocket"></use>
                           </svg>
                         <span class="button__text">Рассчитать стоимость за 10 минут</span>
                     </a>
@@ -141,7 +141,7 @@
             <div class="header__bottom">
                 <a href="" class="logo header__logo">
                     <picture class="logo__pic">
-                        <img src="./img/common/logo.svg" alt="Первя ступень" class="logo__img">
+                        <img src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="Первя ступень" class="logo__img">
                     </picture>
                 </a>
                 <nav class="header__nav header__bottom-nav">
@@ -152,35 +152,35 @@
                                 <div class="dropdown__body dropdown__body--wide">
                                     <ul class="dropdown__body--list">
                                         <li class="dropdown__body--list-element">
-                                            <img src="./img/catalog/catalog-1.jpg" alt="" class="dropdown__body--list-element-img">
+                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-1.jpg" alt="" class="dropdown__body--list-element-img">
                                             <a href="">Ломаный косоур</a>
                                         </li>
                                         <li class="dropdown__body--list-element">
-                                            <img src="./img/catalog/catalog-2.jpg" alt="" class="dropdown__body--list-element-img">
+                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="dropdown__body--list-element-img">
                                             <a href="">Тетива из листа</a>
                                         </li>
                                         <li class="dropdown__body--list-element">
-                                            <img src="./img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
+                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
                                             <a href="">Монокосоур из листа</a>
                                         </li>
                                         <li class="dropdown__body--list-element">
-                                            <img src="./img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
+                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
                                             <a href="">Монокосоур из листа</a>
                                         </li>
                                         <li class="dropdown__body--list-element">
-                                            <img src="./img/catalog/catalog-1.jpg" alt="" class="dropdown__body--list-element-img">
+                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-1.jpg" alt="" class="dropdown__body--list-element-img">
                                             <a href="">Монокосоур из листа</a>
                                         </li>
                                         <li class="dropdown__body--list-element">
-                                            <img src="./img/catalog/catalog-2.jpg" alt="" class="dropdown__body--list-element-img">
+                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="dropdown__body--list-element-img">
                                             <a href="">Монокосоур из листа</a>
                                         </li>
                                         <li class="dropdown__body--list-element">
-                                            <img src="./img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
+                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
                                             <a href="">Монокосоур из листа</a>
                                         </li>
                                         <li class="dropdown__body--list-element">
-                                            <img src="./img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
+                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
                                             <a href="">Монокосоур из листа</a>
                                         </li>
                                     </ul>
@@ -236,7 +236,7 @@
                             <path d="M6 4.66688L10.6669 0L12 1.33312L7.33312 6L12 10.6669L10.6669 12L6 7.33312L1.33312 12L0 10.6669L4.66688 6L0 1.33312L1.33312 0L6 4.66688Z" fill="#2B3B50"/>
                         </svg>                            
                     </button>
-                    <img class="header_mobile_menu__logo" src="./img/common/logo.svg" alt="">
+                    <img class="header_mobile_menu__logo" src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="">
                     <ul class="header_mobile_menu__list-catalog">
                         <li class="header_mobile_menu__list-element"><a href="">Лестницы</a></li>
                         <li class="header_mobile_menu__list-element"><a href="">На металлокаркасе</a></li>

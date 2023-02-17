@@ -13,46 +13,31 @@
  */
 ?>
 <?php get_header(); ?>
-
   <main class="main">
       <div class="hero-categories">
           <div class="container hero-categories__container">
               <div class="hero-categories__gallery">
                   <article class="hero-categories-card hero-categories-card--current">
                       <picture class="hero-categories-card__pic">
-                          <img src="./img/featured/category.jpg" alt="" class="hero-categories-card__img">
+                          <img src="<?php echo THEME_STATIC; ?>/img/featured/category.jpg" alt="" class="hero-categories-card__img">
                       </picture>
                       <h3 class="hero-categories-card__title">
                           <a href="#" class="hero-categories-card__link">Лестницы на металлокаркасе</a>
                       </h3>
                       <div class="hero-categories-card__subcategories">
                           <a href="#" class="hero-categories-card__subcategory">Ломаный косоур</a>
-                          <picture class="hero-categories-card__subcategory-pic"><img src="./img/catalog/catalog-1.jpg" alt="" class="hero-categories-card__subcategory-img"></picture>
+                          <picture class="hero-categories-card__subcategory-pic"><img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-1.jpg" alt="" class="hero-categories-card__subcategory-img"></picture>
                           <a href="#" class="hero-categories-card__subcategory">Монокосоур</a>
-                          <picture class="hero-categories-card__subcategory-pic"><img src="./img/catalog/catalog-2.jpg" alt="" class="hero-categories-card__subcategory-img"></picture>
+                          <picture class="hero-categories-card__subcategory-pic"><img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="hero-categories-card__subcategory-img"></picture>
                           <a href="#" class="hero-categories-card__subcategory">Тетива из листа</a>
-                          <picture class="hero-categories-card__subcategory-pic"><img src="./img/catalog/catalog-3.jpg" alt="" class="hero-categories-card__subcategory-img"></picture>
+                          <picture class="hero-categories-card__subcategory-pic"><img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-3.jpg" alt="" class="hero-categories-card__subcategory-img"></picture>
                           <a href="#" class="hero-categories-card__subcategory">Монокосоур из листа</a>
-                          <picture class="hero-categories-card__subcategory-pic"><img src="./img/catalog/catalog-4.jpg" alt="" class="hero-categories-card__subcategory-img"></picture>
+                          <picture class="hero-categories-card__subcategory-pic"><img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="hero-categories-card__subcategory-img"></picture>
                       </div>
                   </article>
                   <article class="hero-categories-card">
                       <picture class="hero-categories-card__pic">
-                          <img src="./img/featured/category.jpg" alt="" class="hero-categories-card__img">
-                      </picture>
-                      <h3 class="hero-categories-card__title">
-                          <a href="#" class="hero-categories-card__link">Лестницы на металлокаркасе</a>
-                      </h3>
-                      <div class="hero-categories-card__subcategories">
-                          <a href="#" class="hero-categories-card__subcategory">Ломаный косоур</a>
-                          <a href="#" class="hero-categories-card__subcategory">Монокосоур</a>
-                          <a href="#" class="hero-categories-card__subcategory">Тетива из листа</a>
-                          <a href="#" class="hero-categories-card__subcategory">Монокосоур из листа</a>
-                      </div>
-                  </article>
-                  <article class="hero-categories-card">
-                      <picture class="hero-categories-card__pic">
-                          <img src="./img/featured/category.jpg" alt="" class="hero-categories-card__img">
+                          <img src="<?php echo THEME_STATIC; ?>/img/featured/category.jpg" alt="" class="hero-categories-card__img">
                       </picture>
                       <h3 class="hero-categories-card__title">
                           <a href="#" class="hero-categories-card__link">Лестницы на металлокаркасе</a>
@@ -66,7 +51,21 @@
                   </article>
                   <article class="hero-categories-card">
                       <picture class="hero-categories-card__pic">
-                          <img src="./img/featured/category.jpg" alt="" class="hero-categories-card__img">
+                          <img src="<?php echo THEME_STATIC; ?>/img/featured/category.jpg" alt="" class="hero-categories-card__img">
+                      </picture>
+                      <h3 class="hero-categories-card__title">
+                          <a href="#" class="hero-categories-card__link">Лестницы на металлокаркасе</a>
+                      </h3>
+                      <div class="hero-categories-card__subcategories">
+                          <a href="#" class="hero-categories-card__subcategory">Ломаный косоур</a>
+                          <a href="#" class="hero-categories-card__subcategory">Монокосоур</a>
+                          <a href="#" class="hero-categories-card__subcategory">Тетива из листа</a>
+                          <a href="#" class="hero-categories-card__subcategory">Монокосоур из листа</a>
+                      </div>
+                  </article>
+                  <article class="hero-categories-card">
+                      <picture class="hero-categories-card__pic">
+                          <img src="<?php echo THEME_STATIC; ?>/img/featured/category.jpg" alt="" class="hero-categories-card__img">
                       </picture>
                       <h3 class="hero-categories-card__title">
                           <a href="#" class="hero-categories-card__link">Лестницы на металлокаркасе</a>
@@ -123,27 +122,27 @@
               </div>
               <ul class="offer__bullets">
                   <li class="offer-bullet">
-                      <img src="./img/bullets-about/work-long.svg" alt="Работаем с 2014 года" class="offer-bullet__icon">
+                      <img src="<?php echo THEME_STATIC; ?>/img/bullets-about/work-long.svg" alt="Работаем с 2014 года" class="offer-bullet__icon">
                       <p class="offer-bullet__desc">Работаем <br> с 2014 года</p>
                   </li>
                   <li class="offer-bullet">
-                      <img src="./img/bullets-about/own.svg" alt="Собственное производство в Пензе" class="offer-bullet__icon">
+                      <img src="<?php echo THEME_STATIC; ?>/img/bullets-about/own.svg" alt="Собственное производство в Пензе" class="offer-bullet__icon">
                       <p class="offer-bullet__desc">Собственное производство <br> в Пензе</p>
                   </li>
                   <li class="offer-bullet">
-                      <img src="./img/bullets-about/install.svg" alt="Возможна самостоятельная установка" class="offer-bullet__icon">
+                      <img src="<?php echo THEME_STATIC; ?>/img/bullets-about/install.svg" alt="Возможна самостоятельная установка" class="offer-bullet__icon">
                       <p class="offer-bullet__desc">Возможна самостоятельная установка</p>
                   </li>
                   <li class="offer-bullet">
-                      <img src="./img/bullets-about/warranty.svg" alt="Честная гарантия от 2 до 5 лет" class="offer-bullet__icon">
+                      <img src="<?php echo THEME_STATIC; ?>/img/bullets-about/warranty.svg" alt="Честная гарантия от 2 до 5 лет" class="offer-bullet__icon">
                       <p class="offer-bullet__desc">Честная гарантия <br> от 2 до 5 лет</p>
                   </li>
                   <li class="offer-bullet">
-                      <img src="./img/bullets-about/honets.svg" alt="Честная стоимость и точный расчет" class="offer-bullet__icon">
+                      <img src="<?php echo THEME_STATIC; ?>/img/bullets-about/honets.svg" alt="Честная стоимость и точный расчет" class="offer-bullet__icon">
                       <p class="offer-bullet__desc">Честная стоимость и&nbsp;точный расчет</p>
                   </li>
                   <li class="offer-bullet">
-                      <img src="./img/bullets-about/locations.svg" alt="Уже в 130 городах России" class="offer-bullet__icon">
+                      <img src="<?php echo THEME_STATIC; ?>/img/bullets-about/locations.svg" alt="Уже в 130 городах России" class="offer-bullet__icon">
                       <p class="offer-bullet__desc">Уже <br> в 130 городах <br> России</p>
                   </li>
               </ul>
@@ -162,7 +161,7 @@
                   </p>
                   <a href="tel:+74959746937" class="quiz__phone js-phone">+7 (495) 974-69-37</a>
               </div>
-              <picture class="quiz__pic"><img src="./img/quiz/hero.png" alt="" class="quiz__img"></picture>
+              <picture class="quiz__pic"><img src="<?php echo THEME_STATIC; ?>/img/quiz/hero.png" alt="" class="quiz__img"></picture>
               <form action="./quiz.php" class="quiz__questions">
                   <div class="quiz-status">
                       Шаг <span class="quiz-status__step">1/6</span>
@@ -177,7 +176,7 @@
                                   <span class="quiz-answer__check"></span>
                                   <span class="quiz-answer__desc">Прямой марш</span>
                                   <picture class="quiz-answer__pic">
-                                      <img src="./img/quiz/1-1.png" alt="" class="quiz-answer__img">
+                                      <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-1.png" alt="" class="quiz-answer__img">
                                   </picture>
                               </label>
                               <label class="quiz-answer">
@@ -185,7 +184,7 @@
                                   <span class="quiz-answer__check"></span>
                                   <span class="quiz-answer__desc">Г-образная</span>
                                   <picture class="quiz-answer__pic">
-                                      <img src="./img/quiz/1-2.png" alt="" class="quiz-answer__img">
+                                      <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-2.png" alt="" class="quiz-answer__img">
                                   </picture>
                               </label>
                               <label class="quiz-answer">
@@ -193,7 +192,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">П-образная</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/1-3.png" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-3.png" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -201,7 +200,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Винтовая</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/1-4.png" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-4.png" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -209,7 +208,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Не решили</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/1-5.svg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-5.svg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                           </div>
@@ -219,7 +218,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">На металлокаркасе</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/2-1.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-1.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -227,7 +226,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Консольная</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/2-2.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-2.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -235,7 +234,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Эконом For Life <br> из дерева</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/2-3.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-3.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                           </div>
@@ -245,7 +244,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Ломаный косоур</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/3-1.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-1.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -253,7 +252,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Монокосоур</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/3-2.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-2.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -261,7 +260,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Тетива из листа Perfect</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/3-3.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-3.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -269,7 +268,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Тетива из листа Z</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/3-4.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-4.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -277,7 +276,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Монокосоур из листа</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/3-5.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-5.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -285,7 +284,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Закрытый каркас</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/3-6.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-6.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                           </div>
@@ -295,7 +294,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Ясень</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/4-1.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/4-1.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -303,7 +302,7 @@
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Дуб</span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="./img/quiz/4-2.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/4-2.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
@@ -371,7 +370,7 @@
                                     >
                                     <span class="input-attach__box-icon">
                                     <svg class="input-attach__icon">
-                                      <use xlink:href="./img/common/attach.svg#attach" />
+                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach.svg#attach" />
                                     </svg>
                                   </span>
                                     <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
@@ -412,19 +411,19 @@
                           <div class="swiper why-carousel-top why-gallery">
                               <div class="swiper-wrapper">
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                               </div>
                               <div class="swiper-pagination why-pagination"></div>
@@ -434,19 +433,19 @@
                           <div class="swiper why-carousel-bottom why-gallery">
                               <div class="swiper-wrapper">
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                                   <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="./img/why/why-1.jpg" alt="" class="why__img"></picture>
+                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
                                   </div>
                               </div>
                               <div class="swiper-pagination why-pagination"></div>
@@ -458,7 +457,7 @@
                   <div class="why__faq">
                       <article class="bayan accordion accordion--has-icon">
                           <div class="accordion__head">
-                              <img src="./img/why/i-why-1.svg" alt="" class="accordion__icon">
+                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-1.svg" alt="" class="accordion__icon">
                               <h3 class="accordion__title">Почему мы так любим лестницы на металлическом каркасе?</h3>
                           </div>
                           <div class="accordion__body">
@@ -469,7 +468,7 @@
                       </article>
                       <article class="bayan accordion accordion--has-icon">
                           <div class="accordion__head">
-                              <img src="./img/why/i-why-2.svg" alt="" class="accordion__icon">
+                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-2.svg" alt="" class="accordion__icon">
                               <h3 class="accordion__title">Почему мы красим свои лестницы только порошковыми красками на европейском оборудовании?</h3>
                           </div>
                           <div class="accordion__body">
@@ -480,7 +479,7 @@
                       </article>
                       <article class="bayan accordion accordion--has-icon">
                           <div class="accordion__head">
-                              <img src="./img/why/i-why-3.svg" alt="" class="accordion__icon">
+                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-3.svg" alt="" class="accordion__icon">
                               <h3 class="accordion__title">Почему наши ступени такие долговечные?</h3>
                           </div>
                           <div class="accordion__body">
@@ -491,7 +490,7 @@
                       </article>
                       <article class="bayan accordion accordion--has-icon">
                           <div class="accordion__head">
-                              <img src="./img/why/i-why-4.svg" alt="" class="accordion__icon">
+                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-4.svg" alt="" class="accordion__icon">
                               <h3 class="accordion__title">Почему наши лестницы совсем не скрипят?</h3>
                           </div>
                           <div class="accordion__body">
@@ -502,7 +501,7 @@
                       </article>
                       <article class="bayan accordion accordion--has-icon">
                           <div class="accordion__head">
-                              <img src="./img/why/i-why-5.svg" alt="" class="accordion__icon">
+                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-5.svg" alt="" class="accordion__icon">
                               <h3 class="accordion__title">Почему наши лестницы собираются без сварки и резки?</h3>
                           </div>
                           <div class="accordion__body">
@@ -513,7 +512,7 @@
                       </article>
                       <article class="bayan accordion accordion--has-icon">
                           <div class="accordion__head">
-                              <img src="./img/why/i-why-6.svg" alt="" class="accordion__icon">
+                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-6.svg" alt="" class="accordion__icon">
                               <h3 class="accordion__title">Серьезно? Их можно собрать самостоятельно?</h3>
                           </div>
                           <div class="accordion__body">
@@ -550,7 +549,7 @@
                       </h2>
                   </div>
                   <picture class="shifter__pic">
-                      <img src="./img/shifter/shifter-hero.png" alt="" class="shifter__img">
+                      <img src="<?php echo THEME_STATIC; ?>/img/shifter/shifter-hero.png" alt="" class="shifter__img">
                   </picture>
               </div>
           </div>
@@ -563,7 +562,7 @@
                   <article class="proud-card proud-card--has-callout">
                       <div class="proud-card__hero">
                           <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="./img/proud/case-1.jpg" alt="" class="proud-card__img"></picture>
+                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-1.jpg" alt="" class="proud-card__img"></picture>
                           </a>
                           <div class="proud-card__desc">
                               <div class="proud-card__info">
@@ -599,7 +598,7 @@
                               </h4>
                               <button class="play-button">
                               <svg class="play-button__icon">
-                              <use xlink:href="./img/common/play-icon.svg#play" />
+                              <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play" />
                               </svg>
                               <span class="link link--underlined"><span class="link__text">Смотреть видео</span></span>
                           </button>
@@ -609,7 +608,7 @@
                   <article class="proud-card">
                       <div class="proud-card__hero">
                           <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="./img/proud/case-4.jpg" alt="" class="proud-card__img"></picture>
+                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-4.jpg" alt="" class="proud-card__img"></picture>
                           </a>
                           <div class="proud-card__desc">
                               <div class="proud-card__info">
@@ -643,7 +642,7 @@
                   <article class="proud-card proud-card--has-callout">
                       <div class="proud-card__hero">
                           <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="./img/proud/case-2.jpg" alt="" class="proud-card__img"></picture>
+                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-2.jpg" alt="" class="proud-card__img"></picture>
                           </a>
                           <div class="proud-card__desc">
                               <div class="proud-card__info">
@@ -681,7 +680,7 @@
                   <article class="proud-card">
                       <div class="proud-card__hero">
                           <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="./img/proud/case-3.jpg" alt="" class="proud-card__img"></picture>
+                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-3.jpg" alt="" class="proud-card__img"></picture>
                           </a>
                           <div class="proud-card__desc">
                               <div class="proud-card__info">
@@ -711,7 +710,7 @@
                   <article class="proud-card proud-card--has-callout">
                       <div class="proud-card__hero">
                           <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="./img/proud/case-5.jpg" alt="" class="proud-card__img"></picture>
+                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-5.jpg" alt="" class="proud-card__img"></picture>
                           </a>
                           <div class="proud-card__desc">
                               <div class="proud-card__info">
@@ -752,7 +751,7 @@
                   <article class="proud-card">
                       <div class="proud-card__hero">
                           <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="./img/proud/case-6.jpg" alt="" class="proud-card__img"></picture>
+                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="" class="proud-card__img"></picture>
                           </a>
                           <div class="proud-card__desc">
                               <div class="proud-card__info">
@@ -889,16 +888,16 @@
                                               <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
                                                   <div class="swiper-wrapper">
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                   </div>
                                                   <div class="swiper-pagination"></div>
@@ -926,16 +925,16 @@
                                               <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
                                                   <div class="swiper-wrapper">
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                   </div>
                                                   <div class="swiper-pagination"></div>
@@ -963,16 +962,16 @@
                                               <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
                                                   <div class="swiper-wrapper">
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                   </div>
                                                   <div class="swiper-pagination"></div>
@@ -1001,16 +1000,16 @@
                                               <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
                                                   <div class="swiper-wrapper">
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="./img/proud/case-6.jpg" alt="">
+                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
                                                       </div>
                                                   </div>
                                                   <div class="swiper-pagination"></div>
@@ -1103,7 +1102,7 @@
 
                               <button class="button button--secondary button--icon-left nt-btn">
                 <svg class="button__icon">
-                  <use xlink:href="./img/common/download.svg#download" />
+                  <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/download.svg#download" />
                 </svg>
                 <span class="button__text">Получить каталог</span>
               </button>
@@ -1111,7 +1110,7 @@
                       </form>
                   </div>
                   <picture class="shifter__pic">
-                      <img src="./img/shifter/callback-hero.png" alt="" class="shifter__img">
+                      <img src="<?php echo THEME_STATIC; ?>/img/shifter/callback-hero.png" alt="" class="shifter__img">
                   </picture>
               </div>
           </div>
@@ -1151,92 +1150,39 @@
                                       оказалось заказать дешевле, чем в Москве.
                                     </p>
                                     <div class="reviews__photos">
-                                      <a href="./img/reviews/review-1.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-1.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-2.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-2.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-3.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-3.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <button class="button reviews__photos-more">+5</button>
-                                    </div>
-                                  </article>
-
-                              </div>
-                              <div class="swiper-slide reviews-slide">
-                                  <article class="reviews-card">
-                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
-                                    <p class="reviews-card__desc">
-                                      Я заказывал в этой фирме металлокаркас со ступенями
-                                      по своим размерам. Мне все расчитали, построили 3D
-                                      модель. Я проверил со своими размерами на месте,
-                                      все сошлось. Сделал заказ. Мой заказ исполнили
-                                      за 1 месяц. При монтаже проблем не испытал. Все
-                                      смонтировали за день. Спасибо за работу! В Пензе
-                                      оказалось заказать дешевле, чем в Москве.
-                                    </p>
-                                    <div class="reviews__photos">
-                                      <a href="./img/reviews/review-1.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-1.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-2.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-2.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-3.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-3.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
                                       <button class="button reviews__photos-more">+5</button>
@@ -1257,92 +1203,39 @@
                                       оказалось заказать дешевле, чем в Москве.
                                     </p>
                                     <div class="reviews__photos">
-                                      <a href="./img/reviews/review-1.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-1.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-2.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-2.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-3.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-3.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <button class="button reviews__photos-more">+5</button>
-                                    </div>
-                                  </article>
-
-                              </div>
-                              <div class="swiper-slide reviews-slide">
-                                  <article class="reviews-card">
-                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
-                                    <p class="reviews-card__desc">
-                                      Я заказывал в этой фирме металлокаркас со ступенями
-                                      по своим размерам. Мне все расчитали, построили 3D
-                                      модель. Я проверил со своими размерами на месте,
-                                      все сошлось. Сделал заказ. Мой заказ исполнили
-                                      за 1 месяц. При монтаже проблем не испытал. Все
-                                      смонтировали за день. Спасибо за работу! В Пензе
-                                      оказалось заказать дешевле, чем в Москве.
-                                    </p>
-                                    <div class="reviews__photos">
-                                      <a href="./img/reviews/review-1.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-1.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-2.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-2.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-3.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-3.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
                                       <button class="button reviews__photos-more">+5</button>
@@ -1363,39 +1256,145 @@
                                       оказалось заказать дешевле, чем в Москве.
                                     </p>
                                     <div class="reviews__photos">
-                                      <a href="./img/reviews/review-1.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-1.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-2.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-2.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-3.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-3.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
-                                      <a href="./img/reviews/review-4.jpg" class="reviews__media">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
                                         <picture class="reviews__pic">
-                                          <img src="./img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <button class="button reviews__photos-more">+5</button>
+                                    </div>
+                                  </article>
+
+                              </div>
+                              <div class="swiper-slide reviews-slide">
+                                  <article class="reviews-card">
+                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
+                                    <p class="reviews-card__desc">
+                                      Я заказывал в этой фирме металлокаркас со ступенями
+                                      по своим размерам. Мне все расчитали, построили 3D
+                                      модель. Я проверил со своими размерами на месте,
+                                      все сошлось. Сделал заказ. Мой заказ исполнили
+                                      за 1 месяц. При монтаже проблем не испытал. Все
+                                      смонтировали за день. Спасибо за работу! В Пензе
+                                      оказалось заказать дешевле, чем в Москве.
+                                    </p>
+                                    <div class="reviews__photos">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <button class="button reviews__photos-more">+5</button>
+                                    </div>
+                                  </article>
+
+                              </div>
+                              <div class="swiper-slide reviews-slide">
+                                  <article class="reviews-card">
+                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
+                                    <p class="reviews-card__desc">
+                                      Я заказывал в этой фирме металлокаркас со ступенями
+                                      по своим размерам. Мне все расчитали, построили 3D
+                                      модель. Я проверил со своими размерами на месте,
+                                      все сошлось. Сделал заказ. Мой заказ исполнили
+                                      за 1 месяц. При монтаже проблем не испытал. Все
+                                      смонтировали за день. Спасибо за работу! В Пензе
+                                      оказалось заказать дешевле, чем в Москве.
+                                    </p>
+                                    <div class="reviews__photos">
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
+                                        </picture>
+                                      </a>
+                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
+                                        <picture class="reviews__pic">
+                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
                                         </picture>
                                       </a>
                                       <button class="button reviews__photos-more">+5</button>
@@ -1425,7 +1424,7 @@
                           <div class="swiper-slide news-slide">
                               <article class="news-card">
                                   <picture class="news-card__pic">
-                                      <img src="./img/news/article-4.jpg" alt="" class="news-card__img">
+                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-4.jpg" alt="" class="news-card__img">
                                   </picture>
                                   <h3 class="news-card__title">
                                       <a href="#" class="nes-card__link">
@@ -1437,7 +1436,7 @@
                           <div class="swiper-slide news-slide">
                               <article class="news-card">
                                   <picture class="news-card__pic">
-                                      <img src="./img/news/article-3.jpg" alt="" class="news-card__img">
+                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-3.jpg" alt="" class="news-card__img">
                                   </picture>
                                   <h3 class="news-card__title">
                                       <a href="#" class="nes-card__link">
@@ -1449,7 +1448,7 @@
                           <div class="swiper-slide news-slide">
                               <article class="news-card">
                                   <picture class="news-card__pic">
-                                      <img src="./img/news/article-2.jpg" alt="" class="news-card__img">
+                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-2.jpg" alt="" class="news-card__img">
                                   </picture>
                                   <h3 class="news-card__title">
                                       <a href="#" class="nes-card__link">
@@ -1464,7 +1463,7 @@
                           <div class="swiper-slide news-slide">
                               <article class="news-card">
                                   <picture class="news-card__pic">
-                                      <img src="./img/news/article-1.jpg" alt="" class="news-card__img">
+                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-1.jpg" alt="" class="news-card__img">
                                   </picture>
                                   <h3 class="news-card__title">
                                       <a href="#" class="nes-card__link">
@@ -1478,7 +1477,7 @@
                           <div class="swiper-slide news-slide">
                               <article class="news-card">
                                   <picture class="news-card__pic">
-                                      <img src="./img/news/article-1.jpg" alt="" class="news-card__img">
+                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-1.jpg" alt="" class="news-card__img">
                                   </picture>
                                   <h3 class="news-card__title">
                                       <a href="#" class="nes-card__link">
@@ -1523,11 +1522,11 @@
                                           <article class="videos-card">
                                               <div class="videos-card__media">
                                                   <picture class="videos-card__pic">
-                                                      <img src="./img/videos/video-4.jpg" alt="" class="videos-card__img">
+                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-4.jpg" alt="" class="videos-card__img">
                                                   </picture>
                                                   <button class="videos-card__play">
                                                   <svg class="videos-card__icon">
-                                                      <use xlink:href="./img/common/play-icon.svg#play"></use>
+                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
                                                     </svg>
                                               </button>
                                               </div>
@@ -1544,11 +1543,11 @@
                                           <article class="videos-card">
                                               <div class="videos-card__media">
                                                   <picture class="videos-card__pic">
-                                                      <img src="./img/videos/video-3.jpg" alt="" class="videos-card__img">
+                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-3.jpg" alt="" class="videos-card__img">
                                                   </picture>
                                                   <button class="videos-card__play">
                                                   <svg class="videos-card__icon">
-                                                      <use xlink:href="./img/common/play-icon.svg#play"></use>
+                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
                                                     </svg>
                                               </button>
                                               </div>
@@ -1561,11 +1560,11 @@
                                           <article class="videos-card">
                                               <div class="videos-card__media">
                                                   <picture class="videos-card__pic">
-                                                      <img src="./img/videos/video-2.jpg" alt="" class="videos-card__img">
+                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-2.jpg" alt="" class="videos-card__img">
                                                   </picture>
                                                   <button class="videos-card__play">
                                                   <svg class="videos-card__icon">
-                                                      <use xlink:href="./img/common/play-icon.svg#play"></use>
+                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
                                                     </svg>
                                               </button>
                                               </div>
@@ -1580,11 +1579,11 @@
                                           <article class="videos-card">
                                               <div class="videos-card__media">
                                                   <picture class="videos-card__pic">
-                                                      <img src="./img/videos/video-1.jpg" alt="" class="videos-card__img">
+                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-1.jpg" alt="" class="videos-card__img">
                                                   </picture>
                                                   <button class="videos-card__play">
                                                   <svg class="videos-card__icon">
-                                                      <use xlink:href="./img/common/play-icon.svg#play"></use>
+                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
                                                     </svg>
                                               </button>
                                               </div>
@@ -1599,11 +1598,11 @@
                                           <article class="videos-card">
                                               <div class="videos-card__media">
                                                   <picture class="videos-card__pic">
-                                                      <img src="./img/videos/video-1.jpg" alt="" class="videos-card__img">
+                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-1.jpg" alt="" class="videos-card__img">
                                                   </picture>
                                                   <button class="videos-card__play">
                                                   <svg class="videos-card__icon">
-                                                      <use xlink:href="./img/common/play-icon.svg#play"></use>
+                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
                                                     </svg>
                                               </button>
                                               </div>
@@ -1751,7 +1750,7 @@
                       <button class="button button--primary" data-poppa-open="callback">Заказать звонок</button>
                   </div>
                   <picture class="shifter__pic">
-                      <img src="./img/shifter/question-hero.png" alt="" class="shifter__img">
+                      <img src="<?php echo THEME_STATIC; ?>/img/shifter/question-hero.png" alt="" class="shifter__img">
                   </picture>
               </div>
           </div>
@@ -1853,7 +1852,7 @@
                       </p>
                   </article>
                   <picture class="time__pic">
-                      <img src="./img/time-save/time-hero.png" alt="" class="time__img">
+                      <img src="<?php echo THEME_STATIC; ?>/img/time-save/time-hero.png" alt="" class="time__img">
                   </picture>
                   <article class="time-card">
                       <h3 class="time-card__title">3D проект лестницы за&nbsp;2&nbsp;дня</h3>
@@ -1919,7 +1918,7 @@
                             >
                             <span class="input-attach__box-icon">
                             <svg class="input-attach__icon">
-                              <use xlink:href="./img/common/attach.svg#attach" />
+                              <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach.svg#attach" />
                             </svg>
                           </span>
                             <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
