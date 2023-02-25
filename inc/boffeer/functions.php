@@ -60,6 +60,7 @@ define('FORM_URLS', array( 'mail' => get_stylesheet_directory_uri() . "/mail.php
 
 
 require_once get_template_directory() . "/inc/boffeer/helpers.php";
+require_once get_template_directory() . '/inc/boffeer/helpers/text-helpers.php';
 
 require_once get_template_directory() . "/inc/boffeer/stairways-post-types.php";
 

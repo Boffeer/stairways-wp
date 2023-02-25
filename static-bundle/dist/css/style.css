@@ -4079,7 +4079,7 @@ input[type=search]::-webkit-search-cancel-button {
 
 .dropdown__body--wide .dropdown__body--list-element {
   width: 100%;
-  width: 112px;
+  width: 122px;
   position: relative;
 }
 
@@ -11067,21 +11067,9 @@ select {
   }
 }
 
-.page-contacts__mobile {
-  display: none;
-}
-@media (max-width: 992px) {
-  .page-contacts__mobile {
-    display: block;
-  }
-}
-
-.page-contacts__desc {
-  display: none;
-}
-@media (min-width: 992px) {
-  .page-contacts__desc {
-    display: block;
+@media (any-hover: hover) {
+  .page-contacts-city:hover {
+    background-color: transparent;
   }
 }
 
@@ -11240,7 +11228,7 @@ select {
   align-items: center;
   margin: 16px 0 24px;
 }
-.accordion__mess a:not(:last-child) {
+.accordion__mess a {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -11249,7 +11237,7 @@ select {
   align-items: center;
   justify-content: center;
 }
-.accordion__mess a:not(:last-child):before {
+.accordion__mess a:before {
   width: 12px;
   height: 12px;
   display: block;

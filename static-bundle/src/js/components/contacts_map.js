@@ -11,7 +11,7 @@ if (document.querySelector('.page-contacts__map')) {
         let myMap = new ymaps.Map('map-contact',
             {
                 center: [55.751574, 37.573856],
-                zoom: 12
+                zoom: 20
             },
             {
                 searchControlProvider: 'yandex#search'
@@ -41,6 +41,7 @@ if (document.querySelector('.page-contacts__map')) {
             }
         );
 
+        /*
         let myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856],
             {
                 hintContent: 'Собственный значок метки с контентом',
@@ -63,27 +64,36 @@ if (document.querySelector('.page-contacts__map')) {
                 iconContentLayout: MyIconContentLayout
             }
         );
+        */
 
-        myMap.geoObjects.add(myPlacemark);
+        // myMap.geoObjects.add(myPlacemark);
+        function showInitailMapPins() {
+            document.querySelector('.page-contacts-city').querySelectorAll('.page-contacts-city__location').forEach(location => {
+                addMapPin(getLocationAddress(location));
+            })
+        }
+        showInitailMapPins()
 
 
 
-        function isAddressCardClicked(e) {
+        function getClickedAddressCard(e) {
             return getClickedNotBeyondElement(e, 'page-contacts-city');
         }
         function isAddressCardClosing(card) {
             return !card.classList.contains('bayan--opened');
         }
-        function getCardAddress(card) {
-            return card.dataset.address;
+        function getLocationAddress(location) {
+            return location.dataset.address;
         }
 
         window.addEventListener('click', function(e) {
-            const addressCard = isAddressCardClicked(e);
+            const addressCard = getClickedAddressCard(e);
             if (!addressCard) return;
             if (isAddressCardClosing(addressCard)) return
 
-            redrawMap(getCardAddress(addressCard));
+            addressCard.querySelectorAll('.page-contacts-city__location').forEach(location => {
+                addMapPin(getLocationAddress(location));
+            })
         });
 
         let location = ymaps.geolocation.get();
@@ -111,12 +121,12 @@ if (document.querySelector('.page-contacts__map')) {
             });
         });
 
-        function redrawMap(address) {
+        function addMapPin(address) {
             // myMap.container.fitToViewport();
             myMap.destroy();
             myMap = new ymaps.Map("map-contact", {
                 center: [55.76, 37.64],
-                zoom: 7
+                zoom: 20
             });
 
             ymaps.geocode(address,

@@ -31,19 +31,24 @@
     }
 }
 
-.page-contacts__mobile {
-    display: none;
-    @media (max-width: 992px) {
-        display: block;
+.page-contacts-city:hover {
+    @media (any-hover:hover) {
+        background-color: transparent;
     }
 }
+// .page-contacts__mobile {
+//     display: none;
+//     @media (max-width: 992px) {
+//         display: block;
+//     }
+// }
 
-.page-contacts__desc {
-    display: none;
-    @media (min-width: 992px) {
-        display: block;
-    }
-}
+// .page-contacts__desc {
+//     display: none;
+//     @media (min-width: 992px) {
+//         display: block;
+//     }
+// }
 
 .page-contacts__map {
     height: 720px;
@@ -192,7 +197,8 @@
     display: flex;
     align-items: center;
     margin: 16px 0 24px;
-    a:not(:last-child) {
+    // a:not(:last-child) {
+    a {
         width: 32px;
         height: 32px;
         border-radius: 50%;

@@ -25,7 +25,7 @@ $basic_options_container = Container::make('theme_options', 'theme_header_settin
 // Add second options page under 'Basic Options'
 Container::make('theme_options', 'theme_options', 'Контакты')
 	->set_page_parent($basic_options_container) // reference to a top level container
-	->add_tab('Contacts', array(
+	->add_tab('Ссылки', array(
 		Field::make('text', 'whatsapp_url', 'Whatsapp')
 			->set_width(50),
 		Field::make('text', 'telegram_url', 'Telegram')
@@ -51,4 +51,22 @@ Container::make('theme_options', 'theme_options', 'Контакты')
 		Field::make('image', 'default_og_img', 'Стандартная картинка для соцсетей')
 			->set_width(50)
 			->set_value_type('url'),
+	))
+	->add_tab('Адреса', array(
+		Field::make('complex', 'contacts_cities', 'Города')
+			->set_layout('tabbed-horizontal')
+			->add_fields( array(
+	      Field::make( 'text', 'city', __( 'Город' ) ),
+				Field::make('complex', 'locations', 'Локации')
+				->add_fields( array(
+		      Field::make( 'text', 'title', __( 'Заголовок открытой карточки' ) ),
+		      Field::make( 'text', 'address', __( 'Адрес' ) ),
+		      Field::make( 'text', 'worktime', __( 'Рабочее время' ) ),
+		      Field::make( 'text', 'phone', __( 'Телефон' ) ),
+		      Field::make( 'text', 'email', __( 'Email' ) ),
+		      Field::make( 'text', 'whatsapp', __( 'Whats App ссылка' ) ),
+		      Field::make( 'text', 'viber', __( 'Viber ссылка' ) ),
+		      Field::make( 'text', 'messenger_phone', __( 'Телефон мессенджеров' ) ),
+				))
+    ))
 	));
