@@ -1,6 +1,9 @@
 .vscode/
 node_modules
-static-bundle/dist
+
+# Чтобы перестать отслеживать файлы
+# git rm your-file-name
+static-bundle/dist/*.html
 static-bundle/node_modules
 psd/
 package-lock.json
