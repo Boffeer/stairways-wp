@@ -1,23 +1,29 @@
+// import {isClickedBeyond} from "../utils/helpers.js";
+
 if (document.querySelector('.page-contacts__map')) {
 
     ymaps.ready(() => {
 
-        let myMap = new ymaps.Map('map-contact', {
+        let myMap = new ymaps.Map('map-contact',
+            {
                 center: [55.751574, 37.573856],
                 zoom: 12
-            }, {
+            },
+            {
                 searchControlProvider: 'yandex#search'
-            }),
+            });
 
-            // Создаём макет содержимого.
-            MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-                '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-            ),
+        // Создаём макет содержимого.
+        let MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+            '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+        )
 
-            myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+        let myPlacemark = new ymaps.Placemark(myMap.getCenter(),
+            {
                 hintContent: 'Собственный значок метки',
                 balloonContent: 'Это красивая метка'
-            }, {
+            },
+            {
                 // Опции.
                 // Необходимо указать данный тип макета.
                 iconLayout: 'default#image',
@@ -28,9 +34,11 @@ if (document.querySelector('.page-contacts__map')) {
                 // Смещение левого верхнего угла иконки относительно
                 // её "ножки" (точки привязки).
                 iconImageOffset: [-5, -38]
-            }),
+            }
+        );
 
-            myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
+        let myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856],
+            {
                 hintContent: 'Собственный значок метки с контентом',
                 balloonContent: 'А эта — новогодняя',
                 iconContent: '12'
@@ -49,15 +57,33 @@ if (document.querySelector('.page-contacts__map')) {
                 iconContentOffset: [15, 15],
                 // Макет содержимого.
                 iconContentLayout: MyIconContentLayout
-            });
+            }
+        );
 
-        myMap.geoObjects
-            .add(myPlacemark);
+        myMap.geoObjects.add(myPlacemark);
 
 
 
+        /*
+        function isAddressCardClicked(e) {
+            if ((e.target.classList.contains('bayan__top') && !e.target.classList.contains('_active')) ||
+                (e.target.closest('.bayan__top') && !e.target.closest('._active'))) {
+                // e.target.classList.add('_active');
+
+                // e.target.closest('.bayan').querySelectorAll('.accordion__contacts .link--geo span:first-child').forEach(el => {
+
+                //     setTimeout(() => addAdressMaps(e), 500)
+                // })
+            }
+            // return
+            if (isClickedBeyond())
+        }
+        function isCurrentAddressCardOpened() {
+
+        }
+        */
         window.addEventListener('click', function(e) {
-            console.log(e.target)
+            console.log('Кликнул по адресу', e.target)
             if ((e.target.classList.contains('bayan__top') && !e.target.classList.contains('_active')) ||
                 (e.target.closest('.bayan__top') && !e.target.closest('._active'))) {
                 e.target.classList.add('_active');
@@ -122,17 +148,18 @@ if (document.querySelector('.page-contacts__map')) {
                 zoom: 7
             });
 
-            ymaps.geocode(adress, {
-                /**
-                 * Опции запроса
-                 * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
-                 */
-                // Сортировка результатов от центра окна карты.
-                // boundedBy: myMap.getBounds(),
-                // strictBounds: true,
-                // Вместе с опцией boundedBy будет искать строго внутри области, указанной в boundedBy.
-                // Если нужен только один результат, экономим трафик пользователей.
-                results: 1
+            ymaps.geocode(adress,
+            {
+                    /**
+                     * Опции запроса
+                     * @see https://api.yandex.ru/maps/doc/jsapi/2.1/ref/reference/geocode.xml
+                     */
+                    // Сортировка результатов от центра окна карты.
+                    // boundedBy: myMap.getBounds(),
+                    // strictBounds: true,
+                    // Вместе с опцией boundedBy будет искать строго внутри области, указанной в boundedBy.
+                    // Если нужен только один результат, экономим трафик пользователей.
+                    results: 1
             }).then(function(res) {
                 let firstGeoObject = res.geoObjects.get(0),
                     // Координаты геообъекта.
@@ -152,24 +179,24 @@ if (document.querySelector('.page-contacts__map')) {
                     checkZoomRange: true
                 });
 
-                let myPlacemark = new ymaps.Placemark(coords, {
-                    //  iconContent: 'моя метка',
-                    balloonContent: firstGeoObject.getAddressLine()
-                }, {
-                    // Тип макета.
-                    iconLayout: 'default#image',
-                    // Своё изображение иконки метки.
-                    iconImageHref: './img/common/logo-map.svg',
-                    // Размеры метки.
-                    iconImageSize: [48, 48],
-                    // Смещение левого верхнего угла иконки относительно
-                    // её "ножки" (точки привязки).
-                    iconImageOffset: [-5, -38]
-                });
+                let myPlacemark = new ymaps.Placemark(coords,
+                    {
+                        //  iconContent: 'моя метка',
+                        balloonContent: firstGeoObject.getAddressLine()
+                    }, {
+                        // Тип макета.
+                        iconLayout: 'default#image',
+                        // Своё изображение иконки метки.
+                        iconImageHref: './img/common/logo-map.svg',
+                        // Размеры метки.
+                        iconImageSize: [48, 48],
+                        // Смещение левого верхнего угла иконки относительно
+                        // её "ножки" (точки привязки).
+                        iconImageOffset: [-5, -38]
+                    }
+                );
 
                 myMap.geoObjects.add(myPlacemark);
-
-
             });
         }
     });
