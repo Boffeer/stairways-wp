@@ -7,14 +7,23 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 // Default options page
-$basic_options_container = Container::make('theme_options', 'theme_settings',  'Content edit')
+$basic_options_container = Container::make('theme_options', 'theme_header_settings',  'Настройки темы')
 	->add_fields(array(
 		Field::make('header_scripts', 'crb_header_script', 'Header Script'),
-		Field::make('footer_scripts', 'crb_footer_script', 'Footer Script'),
+		Field::make( 'association', 'header_categories', __( 'Категории в шапке' ) )
+			->set_help_text("Выбрать только категории верхнего уровня")
+			->set_types( array(
+        array(
+          'type' => 'term',
+          'taxonomy' => 'categories',
+          'parent_id' => 0,
+        ),
+	    ))
+		// Field::make('footer_scripts', 'crb_footer_script', 'Footer Script'),
 	));
 
 // Add second options page under 'Basic Options'
-Container::make('theme_options', 'theme_options', 'Contacts')
+Container::make('theme_options', 'theme_options', 'Контакты')
 	->set_page_parent($basic_options_container) // reference to a top level container
 	->add_tab('Contacts', array(
 		Field::make('text', 'whatsapp_url', 'Whatsapp')

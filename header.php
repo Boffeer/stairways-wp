@@ -145,57 +145,67 @@
                     </picture>
                 </a>
                 <nav class="header__nav header__bottom-nav">
+                    <?php 
+                        $header_categories = carbon_get_theme_option('header_categories');
+                        $header_categories_ids = array();
+                        
+                        foreach ($header_categories as $category) :
+                            $header_categories_ids[] = $category['id'];
+                        endforeach;
+
+                        $header_categories = get_terms(array(
+                            'orderby' => 'none',
+                            'taxonomy' => 'categories',
+                            'hide_empty'    => false,
+                            'include' => $header_categories_ids,
+                        ));
+                        // get_vd($header_categories);
+
+                    ?>
                     <ul class="header__nav-list">
-                        <li class="header__nav-item" data-catalog>
-                            <div class="dropdown dropdown--variable">
-                                <span class="dropdown--title" data-dropdown>Лестницы на металлокаркасе</span>
-                                <div class="dropdown__body dropdown__body--wide">
-                                    <ul class="dropdown__body--list">
-                                        <li class="dropdown__body--list-element">
-                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-1.jpg" alt="" class="dropdown__body--list-element-img">
-                                            <a href="">Ломаный косоур</a>
-                                        </li>
-                                        <li class="dropdown__body--list-element">
-                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="dropdown__body--list-element-img">
-                                            <a href="">Тетива из листа</a>
-                                        </li>
-                                        <li class="dropdown__body--list-element">
-                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
-                                            <a href="">Монокосоур из листа</a>
-                                        </li>
-                                        <li class="dropdown__body--list-element">
-                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
-                                            <a href="">Монокосоур из листа</a>
-                                        </li>
-                                        <li class="dropdown__body--list-element">
-                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-1.jpg" alt="" class="dropdown__body--list-element-img">
-                                            <a href="">Монокосоур из листа</a>
-                                        </li>
-                                        <li class="dropdown__body--list-element">
-                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="dropdown__body--list-element-img">
-                                            <a href="">Монокосоур из листа</a>
-                                        </li>
-                                        <li class="dropdown__body--list-element">
-                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
-                                            <a href="">Монокосоур из листа</a>
-                                        </li>
-                                        <li class="dropdown__body--list-element">
-                                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-4.jpg" alt="" class="dropdown__body--list-element-img">
-                                            <a href="">Монокосоур из листа</a>
-                                        </li>
-                                    </ul>
+                        <?php foreach ($header_categories as $category) : ?>
+                            <?php
+                                $child_categories = get_terms(array(
+                                    'orderby' => 'none',
+                                    'taxonomy' => 'categories',
+                                    'hide_empty'    => false,
+                                    'parent' => $category->term_id,
+                                ));
+                            ?>
+                            <?php if (!empty($child_categories)) : ?>
+                            <li class="header__nav-item" data-catalog>
+                                <div class="dropdown dropdown--variable">
+                                    <span class="dropdown--title" data-dropdown><?php echo $category->name; ?></span>
+                                    <div class="dropdown__body dropdown__body--wide">
+                                        <ul class="dropdown__body--list">
+                                            <li class="dropdown__body--list-element">
+                                                <img
+                                                    src="<?php echo boffeer_get_image_url_by_id(carbon_get_term_meta($category->term_id, 'category_pic')); ?>"
+                                                    alt="<?php echo $category->name; ?>"
+                                                    class="dropdown__body--list-element-img">
+                                                <a href="<?php echo get_term_link($category->term_id)?>"><?php echo $category->name; ?></a>
+                                            </li>
+                                            <?php foreach ($child_categories as $child) : ?>
+                                            <li class="dropdown__body--list-element">
+                                                <img
+                                                    src="<?php echo boffeer_get_image_url_by_id(carbon_get_term_meta($child->term_id, 'category_pic')); ?>"
+                                                    alt="<?php echo $child->name; ?>"
+                                                    class="dropdown__body--list-element-img">
+                                                <a href="<?php echo get_term_link($child->term_id)?>"><?php echo $child->name; ?></a>
+                                            </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="header__nav-item" data-catalog>
-                            <a href="#" class="header__nav-link">Консольные</a>
-                        </li>
-                        <li class="header__nav-item" data-catalog>
-                            <a href="#" class="header__nav-link">Винтовые</a>
-                        </li>
-                        <li class="header__nav-item" data-catalog>
-                            <a href="#" class="header__nav-link">Эконом</a>
-                        </li>
+                            </li>
+                            <?php else : ?>
+                                <li class="header__nav-item" data-catalog>
+                                    <a href="<?php echo get_term_link($category->term_id)?>" class="header__nav-link">
+                                        <?php echo $category->name; ?>
+                                    </a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </ul>
                     <ul class="header__nav-list">
                         <li class="header__nav-item">
@@ -206,13 +216,14 @@
                         </li>
                         <li class="header__nav-item header__nav-item-dropdown">
                             <a href="#" class="header__nav-link header__nav-link-dropdown">О компании</a>
-                            <span class="button-more">
+                        <!--<span class="button-more">
                                 <span class="button-more__dot"></span>
                                 <span class="button-more__dot"></span>
                                 <span class="button-more__dot"></span>
-                            </span>
+                            </span> -->                        
                         </li>
                     </ul>
+                    <?php /* Убирает временно меню
                     <ul class="header__nav-list__dropdown-block">
                         <li class="header__nav-list__dropdown-element">
                             <a class="header__nav-list__dropdown-link" href="">Производство</a>
@@ -227,6 +238,8 @@
                             <a class="header__nav-list__dropdown-link" href="">Контакты</a>
                         </li>
                     </ul>
+                    */
+                    ?>
                 </nav>
             </div>
             <div class="header_mobile_menu" data-parent-block>
@@ -238,11 +251,28 @@
                     </button>
                     <img class="header_mobile_menu__logo" src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="">
                     <ul class="header_mobile_menu__list-catalog">
-                        <li class="header_mobile_menu__list-element"><a href="">Лестницы</a></li>
-                        <li class="header_mobile_menu__list-element"><a href="">На металлокаркасе</a></li>
-                        <li class="header_mobile_menu__list-element"><a href="">Консольные</a></li>
-                        <li class="header_mobile_menu__list-element"><a href="">Винтовые</a></li>
-                        <li class="header_mobile_menu__list-element"><a href="">Эконом</a></li>
+                        <?php foreach ($header_categories as $category) : ?>
+                            <?php
+                                $child_categories = get_terms(array(
+                                    'orderby' => 'none',
+                                    'taxonomy' => 'categories',
+                                    'hide_empty'    => false,
+                                    'parent' => $category->term_id,
+                                ));
+                            ?>
+                                <li class="header_mobile_menu__list-element">
+                                    <a href="<?php echo get_term_link($child->term_id); ?>">
+                                        <?php echo $category->name;?>
+                                    </a>
+                                </li>
+                            <?php if (!empty($child_categories)) : ?>
+                                <?php foreach ($child_categories as $child) : ?>
+                                    <li class="header_mobile_menu__list-element">
+                                        <a href="<?php echo get_term_link($child->term_id);?>"><?php echo $child->name; ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            <?php endif;?>
+                        <?php endforeach; ?>
                     </ul>
 
                     <ul class="header_mobile_menu__list-all-menu">

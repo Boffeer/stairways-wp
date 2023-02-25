@@ -191,3 +191,49 @@ if (!function_exists('boffer_get_header_meta')) :
 	}
 endif;
 
+
+if (!function_exists('get_multilevel_menu')) :
+	function get_multilevel_menu($menu_id, $depth = 4) {
+		$header_menu_id = $menu_id;
+		$header_menu_items =  wp_get_nav_menu_items($header_menu_id, [
+			'output_key'  => 'menu_order',
+			'depth' => $depth,
+		]);
+
+		$top_menu = array();
+		$relations = array();
+		$has_children = array();
+		foreach ($header_menu_items as $key => $item) {
+			if (0 == $item->menu_item_parent) {
+				$top_menu[] = $item;
+			}
+			foreach ($header_menu_items as $key_child => $child) {
+				if ($item->db_id == $child->menu_item_parent) {
+					$relations[$child->menu_item_parent][] = $child->db_id;
+				}
+			}
+		}
+
+		$submenus = array();
+		foreach ($header_menu_items as $key => $item) {
+			if (!in_array($item, $top_menu)) {
+				$submenus[] = $item;
+			}
+		}
+
+		foreach ($relations as $key => $item) {
+			$has_children[] = $key;
+		}
+
+		foreach ($header_menu_items as $key => $item) {
+			$current_item = $item;
+			$header_menu_items[$key] = array(
+				'item' => $item,
+			);
+			if (isset($relations[$item->db_id])) {
+				$header_menu_items[$key]['children'] = $relations[$item->db_id];
+			}
+		}
+		return $header_menu_items;
+	}
+endif;

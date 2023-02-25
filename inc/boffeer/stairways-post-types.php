@@ -60,14 +60,16 @@ function register_post_types(){
 			),
 			'description'           => '',
 			'public'                => true,
-			'hierarchical'          => false,
-			'rewrite'               => false,
+			'has_archive'           => true,
+			'hierarchical'          => true,
+			'rewrite'               => true,
 			'query_var'             => 'categories',
 			'capabilities'          => array(),
 			'meta_box_cb'           => 'post_categories_meta_box',
+			'show_in_nav_menus'     => true,
 			'show_admin_column'     => true,
 			'show_in_rest'          => true,
-			'rest_base'             => null,
+			'rest_base'             => 'categories',
 	) );
 
 

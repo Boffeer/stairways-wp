@@ -1,5 +1,6 @@
 .vscode/
 node_modules
+static-bundle/dist
 static-bundle/node_modules
 psd/
 package-lock.json

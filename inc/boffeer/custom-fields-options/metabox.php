@@ -52,6 +52,15 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 					))
     ))
 	));
+
+Container::make('term_meta', 'stairs_category_info', 'Категория')
+	->where('post_type', '=', 'stairs')
+	->where('taxonomy', '=', 'categories')
+	->add_fields(array(
+    Field::make( 'image', 'category_pic', __( 'Картинка категории' ) )
+	));
+
+
 Container::make('post_meta', 'stairs_cases', 'Кейсы')
 	->where('post_type', '=', 'stairs')
 	->add_fields(array(
