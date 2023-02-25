@@ -1,4 +1,8 @@
-// import {isClickedBeyond} from "../utils/helpers.js";
+import {isClickedBeyond, getClickedNotBeyondElement} from "../utils/helpers.js";
+
+function getMapPinImage() {
+    return `//${window.location.host}/wp-content/themes/stairways/static-bundle/dist/img/common/logo-map.svg`
+}
 
 if (document.querySelector('.page-contacts__map')) {
 
@@ -28,7 +32,7 @@ if (document.querySelector('.page-contacts__map')) {
                 // Необходимо указать данный тип макета.
                 iconLayout: 'default#image',
                 // Своё изображение иконки метки.
-                iconImageHref: './img/common/logo-map.svg',
+                iconImageHref: getMapPinImage(),
                 // Размеры метки.
                 iconImageSize: [48, 48],
                 // Смещение левого верхнего угла иконки относительно
@@ -64,35 +68,23 @@ if (document.querySelector('.page-contacts__map')) {
 
 
 
-        /*
         function isAddressCardClicked(e) {
-            if ((e.target.classList.contains('bayan__top') && !e.target.classList.contains('_active')) ||
-                (e.target.closest('.bayan__top') && !e.target.closest('._active'))) {
-                // e.target.classList.add('_active');
-
-                // e.target.closest('.bayan').querySelectorAll('.accordion__contacts .link--geo span:first-child').forEach(el => {
-
-                //     setTimeout(() => addAdressMaps(e), 500)
-                // })
-            }
-            // return
-            if (isClickedBeyond())
+            return getClickedNotBeyondElement(e, 'page-contacts-city');
         }
-        function isCurrentAddressCardOpened() {
-
+        function isAddressCardClosing(card) {
+            return !card.classList.contains('bayan--opened');
         }
-        */
+        function getCardAddress(card) {
+            return card.dataset.address;
+        }
+
         window.addEventListener('click', function(e) {
-            console.log('Кликнул по адресу', e.target)
-            if ((e.target.classList.contains('bayan__top') && !e.target.classList.contains('_active')) ||
-                (e.target.closest('.bayan__top') && !e.target.closest('._active'))) {
-                e.target.classList.add('_active');
-                e.target.closest('.bayan').querySelectorAll('.accordion__contacts .link--geo span:first-child').forEach(el => {
+            const addressCard = isAddressCardClicked(e);
+            if (!addressCard) return;
+            if (isAddressCardClosing(addressCard)) return
 
-                    setTimeout(() => addAdressMaps(e), 500)
-                })
-            }
-        })
+            redrawMap(getCardAddress(addressCard));
+        });
 
         let location = ymaps.geolocation.get();
 
@@ -119,28 +111,7 @@ if (document.querySelector('.page-contacts__map')) {
             });
         });
 
-
-
-
-        function addAdressMaps(e) {
-            if (e.target.classList.contains('_active')) {
-                e.target.classList.remove('_active');
-                return false;
-            }
-            e.target.closest('.bayan').querySelectorAll('.accordion__contacts .link--geo span:first-child').forEach(el => {
-                adress_out(el.innerText)
-            })
-        }
-
-        // document.querySelectorAll('.bayan__top').forEach(el => {
-        //     el.addEventListener('click', function(e) {
-        //         el.classList.add('_active');
-        //         setTimeout(() => addAdressMaps(e), 10)
-        //     });
-        // });
-
-
-        function adress_out(adress) {
+        function redrawMap(address) {
             // myMap.container.fitToViewport();
             myMap.destroy();
             myMap = new ymaps.Map("map-contact", {
@@ -148,7 +119,7 @@ if (document.querySelector('.page-contacts__map')) {
                 zoom: 7
             });
 
-            ymaps.geocode(adress,
+            ymaps.geocode(address,
             {
                     /**
                      * Опции запроса
@@ -187,7 +158,7 @@ if (document.querySelector('.page-contacts__map')) {
                         // Тип макета.
                         iconLayout: 'default#image',
                         // Своё изображение иконки метки.
-                        iconImageHref: './img/common/logo-map.svg',
+                        iconImageHref: getMapPinImage(),
                         // Размеры метки.
                         iconImageSize: [48, 48],
                         // Смещение левого верхнего угла иконки относительно
