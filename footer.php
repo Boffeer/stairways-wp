@@ -27,19 +27,16 @@
                 </div>
                 <nav class="footer-nav">
                     <ul class="footer-nav__list">
-                        <li class="footer-nav__item">Клиентам</li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Как заказать</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Оплата</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Доставка</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Гарантии</a>
-                        </li>
+                        <?php
+                            $clients_menu_id = 11; 
+                            $footer_menu = wp_get_nav_menu_items($clients_menu_id);
+                        ?>
+                        <li class="footer-nav__item"><?php echo wp_get_nav_menu_object($clients_menu_id)->name; ?></li>
+                        <?php foreach ($footer_menu as $nav) : ?>
+                            <li class="footer-nav__item">
+                                <a href="<?php echo $nav->url;?>" class="footer-nav__link <?php echo $nav->object_id == get_the_ID() ? 'footer-nav__link--current' : ''?>"><?php echo $nav->title; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                     <ul class="footer-nav__list">
                         <li class="footer-nav__item">Лестницы</li>

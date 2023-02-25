@@ -110,18 +110,15 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-link">Как заказать</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-link">Доставка и оплата</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-link">Монтаж</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-link">Контакты</a>
-                        </li>
+                        <?php
+                            $clients_pages_menu_id = 11; 
+                            $header_menu = wp_get_nav_menu_items($clients_pages_menu_id);
+                        ?>
+                        <?php foreach ($header_menu as $nav) : ?>
+                            <li class="header__nav-item">
+                                <a href="<?php echo $nav->url;?>" class="header__nav-link <?php echo $nav->object_id == get_the_ID() ? 'header__nav-link--current' : ''?>"><?php echo $nav->title; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </nav>
                 <div class="header__contacts">
@@ -276,11 +273,11 @@
                     </ul>
 
                     <ul class="header_mobile_menu__list-all-menu">
-                        <li class="header_mobile_menu__list-all-element"><a href="">Как заказать?</a></li>
-                        <li class="header_mobile_menu__list-all-element"><a href="">Доставка</a></li>
-                        <li class="header_mobile_menu__list-all-element"><a href="">Монтаж</a></li>
-                        <li class="header_mobile_menu__list-all-element"><a href="">Оплата</a></li>
-                        <li class="header_mobile_menu__list-all-element"><a href="">Контакты</a></li>
+                        <?php foreach ($header_menu as $nav) : ?>
+                            <li class="header_mobile_menu__list-all-element">
+                                <a href="<?php echo $nav->url;?>"><?php echo $nav->title; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                         <li class="header_mobile_menu__list-all-element"><a href="">Наши работы</a></li>
                         <li class="header_mobile_menu__list-all-element"><a href="">О компании</a></li>
                         <li class="header_mobile_menu__list-all-element"><a href="">Отзывы</a></li>
