@@ -13,141 +13,77 @@
       </li>
   </ul>
 </div>
+
+<?php
+    $stair_product = get_stair_info(get_the_ID());
+?>
 <section class="product-page">
     <div class="container">
         <div class="product-page-content">
             <div class="product-page--picture">
-                <div class="product-page__inner-pic _active">
-                    <img class="product-page--picture--img" src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="">
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                </div>
-                <div class="product-page__inner-pic">
-                    <img class="product-page--picture--img" src="<?php echo THEME_STATIC; ?>/img/product/hero-photo-2.png" alt="">
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок 2</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок 3</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок 4</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок 5</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                    <button class="product-page--circle">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
-                        </svg>
-                        <span class="product-page--circle--popup">
-                            <img src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg" alt="" class="product-page--circle--img">
-                            <span class="product-page--circle--title">Подступенок 6</span>
-                            <span class="product-page--circle--text">У наших лестниц прочный и красивый подступенок на балке из стальной трубы, высокая точность конструкции, простая сборка на болтах и это еще не все. Это просто примерное описание</span>
-                        </span>
-                    </button>
-                </div>
+                <?php foreach ($stair_product['variations'] as $key => $variation) : ?>
+                    <div class="product-page__inner-pic <?php echo $key == 0 ? '_active' : '';?>">
+                        <?php $first_variation = $stair_product['variations'][0]; ?>
+                        <img class="product-page--picture--img"
+                            src="<?php echo boffeer_get_image_url_by_id($variation['photo']); ?>"
+                            alt="<?php echo $variation['title'];?>">
+                        <?php foreach ($variation['hotspots'] as $key => $hotspot) : ?>
+                            <?php if (
+                                $hotspot['photo'] != "" || 
+                                $hotspot['title'] != "" || 
+                                $hotspot['desc'] != ""
+                            ) : ?>
+                                <button class="product-page--circle">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
+                                    </svg>
+                                    <span class="product-page--circle--popup">
+                                        <?php if ($hotspot['photo'] != "") : ?>
+                                        <img src="<?php echo boffeer_get_image_url_by_id($hotspot['photo']); ?>"
+                                             alt="Подробнее" class="product-page--circle--img">
+                                        <?php endif; ?>
+                                        <?php if ($hotspot['title'] != "") : ?>
+                                            <span class="product-page--circle--title">
+                                                <?php echo $hotspot['title']; ?>
+                                            </span>
+                                        <?php endif; ?>
+                                        <?php if ($hotspot['desc'] != "") : ?>
+                                            <span class="product-page--circle--text">
+                                                <?php echo nl2br($hotspot['desc'])?>
+                                            </span>
+                                        <?php endif; ?>
+                                    </span>
+                                </button>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
+
             <div class="product-page--right-content">
                 <h1 class="product-page-title section-title">
-                    Монокосур из трубы
+                    <?php the_title(); ?>
                 </h1>
                 <div class="product-page-seciton product-page__product-info">
                     <div class="product-page--views">
-                        <div class="product-page--views--element _active" data-src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg">
-                            <img src="<?php echo THEME_STATIC; ?>/img/proud/pr-st.jpg" alt="" class="product-page--views--picture">
-                            <p class="product-page--views--text">С прямыми <br> подступенками</p>
-                        </div>
-                        <div class="product-page--views--element" data-src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-1.jpg">
-                            <img src="<?php echo THEME_STATIC; ?>/img/proud/gn-st.jpg" alt="" class="product-page--views--picture">
-                            <p class="product-page--views--text">С гнутыми <br> подступенками</p>
-                        </div>
+                        <?php foreach ($stair_product['variations'] as $key => $variation) : ?>
+                            <div class="product-page--views--element <?php echo $key == 0 ? '_active' : ''; ?>"
+                                 data-id="<?php the_ID(); ?>"
+                                 data-src="<?php echo THEME_STATIC; ?>/img/catalog/catalog-2.jpg">
+                                <img
+                                    class="product-page--views--picture"
+                                    src="<?php echo boffeer_get_image_url_by_id($variation['photo']); ?>"
+                                    alt="<?php echo $variation['title']; ?>">
+                                <p class="product-page--views--text"><?php echo $variation['title']; ?></p>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
                     <div class="product-page--views--block-text">
-                        <p class="product-page--views--block-text-descr _active">
-                            Лестницы на монокосоуре “Первая ступень” — стильные и надежные лестницы с единственной несущей наклонной балкой — центральным косоуром, на который укладываются ступени лестничного марша. У наших лестниц прочный и красивый каркас на балке из стальной трубы,
-                            высокая точность конструкции, простая сборка на болтах и это еще не все.
-                        </p>
-                        <p class="product-page--views--block-text-descr">
-                            Лестницы на монокосоуре “Первая ступень” — стильные и надежные лестницы с единственной несущей наклонной балкой — центральным косоуром, на который укладываются ступени лестничного марша. У наших лестниц прочный и красивый каркас на балке из стальной трубы,
-                            высокая точность конструкции, простая сборка на болтах и это еще не все.
-                        </p>
+                        <?php foreach ($stair_product['variations'] as $key => $variation) : ?>
+                            <p class="product-page--views--block-text-descr <?php echo $key == 0 ? '_active' : ''; ?>">
+                                <?php echo nl2br($variation['desc']);?>
+                            </p>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="product-page-list">
@@ -230,6 +166,10 @@
         </div>
     </div>
 </section>
+
+
+
+
 <section id="section-product-cases" class="prod-items section">
     <div class="container">
         <h2 class="section-title">Произвели 130+ лестниц<br> на монокосоуре</h2>

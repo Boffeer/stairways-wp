@@ -3,6 +3,7 @@
 
     const productVariations = [...document.querySelectorAll('.product-page--views--element')];
     const productVariationsPic = [...document.querySelectorAll('.product-page__inner-pic')];
+    const productVariationsDesc = [...document.querySelectorAll('.product-page--views--block-text-descr')];
     productVariations.forEach((variation, index) => {
         variation.addEventListener('click', (e) => {
             productVariations.forEach((variation) => {
@@ -11,8 +12,12 @@
             productVariationsPic.forEach((pic) => {
                 pic.classList.remove('_active')
             })
+            productVariationsDesc.forEach((desc) => {
+                desc.classList.remove('_active')
+            })
             variation.classList.add('_active')
             productVariationsPic[index].classList.add('_active');
+            productVariationsDesc[index].classList.add('_active');
         });
     });
 })();

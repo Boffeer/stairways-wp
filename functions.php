@@ -161,3 +161,8 @@ if ( class_exists( 'WooCommerce' ) ) {
  * Boffeer Functions
  */
 require get_template_directory() . '/inc/boffeer/functions.php';
+
+/**
+ * Boffeer Functions
+ */
+require get_template_directory() . '/inc/stairs-functions.php';
