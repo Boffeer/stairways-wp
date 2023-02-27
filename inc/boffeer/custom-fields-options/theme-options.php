@@ -51,6 +51,8 @@ Container::make('theme_options', 'theme_options', 'Контакты')
 		Field::make('image', 'default_og_img', 'Стандартная картинка для соцсетей')
 			->set_width(50)
 			->set_value_type('url'),
+		Field::make('text', 'reviews_yandex_url', 'Ссылка на отзывы на Яндекс.Картах')
+			->set_width(50),
 	))
 	->add_tab('Адреса', array(
 		Field::make('complex', 'contacts_cities', 'Города')

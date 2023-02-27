@@ -9,6 +9,7 @@ if (document.querySelector('.reviews__container')) {
         if (e.target.classList.contains('reviews__photos-more')) {
             e.target.parentElement.classList.toggle('reviews__photos--active');
             // mediaMin('650') ? msnr.layout() : '';
+            msnr.layout();
 
             if (e.target.parentElement.classList.contains('reviews__photos--active')) {
                 e.target.innerText = '-'
@@ -27,5 +28,7 @@ if (document.querySelector('.reviews__container')) {
         let countPhoto = el.querySelectorAll('.reviews__media').length - countInMedia();
         el.querySelector('.reviews__photos-more').innerText = `+${countPhoto}`
     });
-
+    setTimeout(() => {
+        msnr.layout();
+    }, 500)
 }

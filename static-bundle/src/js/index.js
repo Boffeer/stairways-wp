@@ -6,15 +6,15 @@
 
 import "./components/header.js"
 import "./components/controls.js"
-// import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
 
-// Fancybox.bind('[data-fancybox]', {
-//   Toolbar: {
-//     display: [
-//       "close",
-//     ],
-//   },
-// });
+import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
+Fancybox.bind('[data-fancybox]', {
+  Toolbar: {
+    display: [
+      "close",
+    ],
+  },
+});
 
 import './sliders.js';
 import "./components/element_position.js";

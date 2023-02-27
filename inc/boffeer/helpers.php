@@ -36,6 +36,7 @@ if (!function_exists('get_crb_contacts')) {
 			'designer_url' => carbon_get_theme_option('designer_url'),
 			'worktime' => carbon_get_theme_option('worktime'),
 			'og_default' => carbon_get_theme_option('default_og_img'),
+			'reviews_yandex_url' => carbon_get_theme_option('reviews_yandex_url'),
 		);
 	}
 }

@@ -109,23 +109,8 @@ Container::make('post_meta', 'review_info', 'Отзывы')
 	->add_fields(
 		array(
 			Field::make('text', 'review_name', 'Имя отзыва'),
-			Field::make('text', 'review_link', 'Ссылка на отзыв'),
+			Field::make('text', 'review_city', 'Город отзыва'),
 			Field::make('textarea', 'review_desc', 'Текст отзыва'),
-			Field::make('image', 'review_photo', 'Фото отзыва')
-				->set_width(30)
-				->set_value_type('url'),
-			Field::make('radio', 'stars', __('Звездность отзыва'))
-				->set_width(30)
-				->set_default_value('5')
-				->set_options(
-					array(
-						'5' => 5,
-						'4' => 4,
-						'3' => 3,
-						'2' => 2,
-						'1' => 1,
-					)
-				),
 			Field::make('media_gallery', 'review_gallery', __('Картинки отзыва'))
 				->set_width(70)
 				->set_type(array('image'))
