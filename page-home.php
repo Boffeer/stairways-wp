@@ -558,231 +558,77 @@
       <section class="proud section">
           <div class="container proud__container">
               <h2 class="proud__title section-title">Мы гордимся своими лестницами</h2>
+              <?php
+                $cases_favorite = carbon_get_post_meta(get_the_ID(), 'cases_favorite');
+              ?>
               <div class="proud__gallery">
-                  <article class="proud-card proud-card--has-callout">
-                      <div class="proud-card__hero">
-                          <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-1.jpg" alt="" class="proud-card__img"></picture>
-                          </a>
-                          <div class="proud-card__desc">
-                              <div class="proud-card__info">
-                                  <h3 class="proud-card__title">
-                                      <a href="#" class="proud-card__link">Лестница на металлокаркасе с&nbsp;интеллектуальной подсветкой</a>
-                                  </h3>
-                                  <ul class="proud-card-stats">
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Количество ступеней:</span>
-                                          <span class="proud-card-stats__value">26.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Каркас:</span>
-                                          <span class="proud-card-stats__value">ломаный косоур, зигзаг.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ограждение:</span>
-                                          <span class="proud-card-stats__value">закаленное стекло, толщиной 20 мм.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ступени:</span>
-                                          <span class="proud-card-stats__value">дуб.</span>
-                                      </li>
-                                  </ul>
+                  <?php foreach ($cases_favorite as $favorite_position => $favorite) : ?>
+                    <?php
+                      global $post;
+                      $favorite_post = get_post($favorite['case'][0]['id']);
+                      $post = $favorite_post;
+                      setup_postdata($favorite_post);
+                     ?>
+                    <article class="proud-card <?php echo ($favorite_position % 2 == 0) ? 'proud-card--has-callout' : ''; ?>">
+                        <div class="proud-card__hero">
+                            <a href="#" class="proud-card__media">
+                                <?php
+                                  $favorite_thumb = $favorite['photo']; 
+                                  if ($favorite_thumb == '') :
+                                    $favorite_thumb = carbon_get_post_meta(get_the_ID(), 'gallery')[0];
+                                  endif;
+                                ?>
+                                <picture class="proud-card__pic">
+                                  <img src="<?php echo boffeer_get_image_url_by_id($favorite_thumb); ?>" alt="<?php the_title(); ?>" class="proud-card__img">
+                                </picture>
+                            </a>
+                            <div class="proud-card__desc">
+                                <div class="proud-card__info">
+                                    <h3 class="proud-card__title">
+                                        <a href="#" class="proud-card__link"><?php echo carbon_get_post_meta(get_the_ID(), 'title')?></a>
+                                    </h3>
+                                    <?php $favorite_stats = explode_textarea_matrix(carbon_get_post_meta(get_the_ID(), 'stats')); ?>
+                                    <?php if (!empty($favorite_stats)) : ?>
+                                      <ul class="proud-card-stats">
+                                          <?php foreach($favorite_stats as $stat) : ?>
+                                            <?php $current_stat = boffeer_explode_textarea($stat); ?>
+                                            <?php if (isset($current_stat[0]) || isset($current_stat[1])) : ?>
+                                              <li class="proud-card-stats__item">
+                                                <span class="proud-card-stats__name"><?php echo $current_stat[0]; ?></span>
+                                                <span class="proud-card-stats__value"><?php echo isset($current_stat[1]) ? $current_stat[1] : ''; ?></span>
+                                              </li>
+                                            <?php endif; ?>
+                                          <?php endforeach; ?>
+                                      </ul>
+                                    <?php endif;?>
+                                </div>
+                                <button class="proud-card__cta link link--underlined" data-poppa-open="abouts"><span class="link__text">Хочу так же</span></button>
+                            </div>
+                        </div>
+                        <?php if ($favorite_position % 2 == 0) : ?>
+                          <div class="proud-card__callout" data-rellax-speed="1.3">
+                              <div class="proud-card__callout--box">
+                                <?php if ($favorite['desc'] != '') : ?>
+                                  <h4 class="porud-card__callout-title">
+                                    <?php echo nl2br($favorite['desc']); ?>
+                                  </h4>
+                                <?php endif; ?>
+                                <?php if ($favorite['video_url'] != '') : ?>
+                                  <button class="play-button">
+                                    <svg class="play-button__icon">
+                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play" />
+                                    </svg>
+                                    <span class="link link--underlined"><span class="link__text">Смотреть видео</span></span>
+                                  </button>
+                                <?php endif;?>
                               </div>
-                              <button class="proud-card__cta link link--underlined" data-poppa-open="abouts"><span class="link__text">Хочу так же</span></button>
                           </div>
-                      </div>
-                      <div class="proud-card__callout" data-rellax-speed="1.3">
-                          <div class="proud-card__callout--box">
-                              <h4 class="porud-card__callout-title">
-                                  Лестница, где ступени <br> подсвечиваются перед каждым <br> вашим шагом — это не магия. <br> Мы таких уже сделали 24.
-                              </h4>
-                              <button class="play-button">
-                              <svg class="play-button__icon">
-                              <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play" />
-                              </svg>
-                              <span class="link link--underlined"><span class="link__text">Смотреть видео</span></span>
-                          </button>
-                          </div>
-                      </div>
-                  </article>
-                  <article class="proud-card">
-                      <div class="proud-card__hero">
-                          <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-4.jpg" alt="" class="proud-card__img"></picture>
-                          </a>
-                          <div class="proud-card__desc">
-                              <div class="proud-card__info">
-                                  <h3 class="proud-card__title">
-                                      <a href="#" class="proud-card__link">Лестница на&nbsp;металлокаркасе</a>
-                                  </h3>
-                                  <ul class="proud-card-stats">
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Количество ступеней:</span>
-                                          <span class="proud-card-stats__value">16.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Каркас:</span>
-                                          <span class="proud-card-stats__value">ломаный косоур.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ограждение:</span>
-                                          <span class="proud-card-stats__value">несущее стекло.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ступени:</span>
-                                          <span class="proud-card-stats__value">дуб.</span>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <button class="proud-card__cta link link--underlined" data-poppa-open="abouts"><span class="link__text">Хочу так же</span></button>
-                          </div>
-                      </div>
-                  </article>
-
-                  <article class="proud-card proud-card--has-callout">
-                      <div class="proud-card__hero">
-                          <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-2.jpg" alt="" class="proud-card__img"></picture>
-                          </a>
-                          <div class="proud-card__desc">
-                              <div class="proud-card__info">
-                                  <h3 class="proud-card__title">
-                                      <a href="#" class="proud-card__link">Винтовая лестница на&nbsp;металлокаркасе</a>
-                                  </h3>
-                                  <ul class="proud-card-stats">
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Количество ступеней:</span>
-                                          <span class="proud-card-stats__value">14.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ограждение:</span>
-                                          <span class="proud-card-stats__value">стойки из круглой трубы, диаметром 25 мм.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ступени:</span>
-                                          <span class="proud-card-stats__value">дуб.</span>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <button class="proud-card__cta link link--underlined" data-poppa-open="abouts"><span class="link__text">Хочу так же</span></button>
-                          </div>
-                      </div>
-                      <div class="proud-card__callout">
-                          <div class="proud-card__callout--box">
-                              <h4 class="porud-card__callout-title">
-                                  Эта лестница была нашим первым "винтовым" проектом. Мы очень долго ее проектировали. Очень долго&nbsp;меняли разные детали и узлы сборки. Продумывали и&nbsp;передумывали. Это привело к&nbsp;тому,&nbsp;что сейчас проект винтовой лестницы мы делаем в течении 10-15&nbsp;минут. Не
-                                  шутка.
-                              </h4>
-                          </div>
-                      </div>
-                  </article>
-
-                  <article class="proud-card">
-                      <div class="proud-card__hero">
-                          <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-3.jpg" alt="" class="proud-card__img"></picture>
-                          </a>
-                          <div class="proud-card__desc">
-                              <div class="proud-card__info">
-                                  <h3 class="proud-card__title">
-                                      <a href="#" class="proud-card__link">Консольная лестница</a>
-                                  </h3>
-                                  <ul class="proud-card-stats">
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Количество ступеней:</span>
-                                          <span class="proud-card-stats__value">14.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ограждение:</span>
-                                          <span class="proud-card-stats__value">стойки из круглой трубы, диаметром 25 мм.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ступени:</span>
-                                          <span class="proud-card-stats__value">дуб.</span>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <button class="proud-card__cta link link--underlined" data-poppa-open="abouts"><span class="link__text">Хочу так же</span></button>
-                          </div>
-                      </div>
-                  </article>
-
-                  <article class="proud-card proud-card--has-callout">
-                      <div class="proud-card__hero">
-                          <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-5.jpg" alt="" class="proud-card__img"></picture>
-                          </a>
-                          <div class="proud-card__desc">
-                              <div class="proud-card__info">
-                                  <h3 class="proud-card__title">
-                                      <a href="#" class="proud-card__link">Винтовая лестница на&nbsp;металлокаркасе</a>
-                                  </h3>
-                                  <ul class="proud-card-stats">
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Количество ступеней:</span>
-                                          <span class="proud-card-stats__value">14.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Каркас:</span>
-                                          <span class="proud-card-stats__value">монокосур.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ограждение:</span>
-                                          <span class="proud-card-stats__value">стойки из круглой трубы, диаметром 25 мм.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ступени:</span>
-                                          <span class="proud-card-stats__value">дуб.</span>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <button class="proud-card__cta link link--underlined" data-poppa-open="abouts"><span class="link__text">Хочу так же</span></button>
-                          </div>
-                      </div>
-                      <div class="proud-card__callout">
-                          <div class="proud-card__callout--box">
-                              <h4 class="porud-card__callout-title">
-                                  Выглядит будто деревянная. <br> И никогда не заскрипит.
-                              </h4>
-                          </div>
-                      </div>
-                  </article>
-
-                  <article class="proud-card">
-                      <div class="proud-card__hero">
-                          <a href="#" class="proud-card__media">
-                              <picture class="proud-card__pic"><img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="" class="proud-card__img"></picture>
-                          </a>
-                          <div class="proud-card__desc">
-                              <div class="proud-card__info">
-                                  <h3 class="proud-card__title">
-                                      <a href="#" class="proud-card__link">Лестница на&nbsp;металлокаркасе</a>
-                                  </h3>
-                                  <ul class="proud-card-stats">
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Количество ступеней:</span>
-                                          <span class="proud-card-stats__value">16.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Каркас:</span>
-                                          <span class="proud-card-stats__value">ломаный косоур.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ограждение:</span>
-                                          <span class="proud-card-stats__value">металл.</span>
-                                      </li>
-                                      <li class="proud-card-stats__item">
-                                          <span class="proud-card-stats__name">Ступени:</span>
-                                          <span class="proud-card-stats__value">дуб.</span>
-                                      </li>
-                                  </ul>
-                              </div>
-                              <button class="proud-card__cta link link--underlined" data-poppa-open="abouts"><span class="link__text">Хочу так же</span></button>
-                          </div>
-                      </div>
-                  </article>
+                        <?php endif; ?>
+                    </article>
+                  <?php endforeach; ?>
+                  <?php wp_reset_postdata(); ?>
               </div>
-              <button class="proud_show-btn">Показать еще</button>
+              <!-- <button class="proud_show-btn">Показать еще</button> -->
           </div>
       </section>
 

@@ -8764,10 +8764,16 @@ select {
 
 .proud-card__media {
   display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 .proud-card__pic {
   display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .proud-card__desc {
@@ -9096,6 +9102,8 @@ select {
     max-height: 346px;
     height: 100%;
     width: auto;
+    max-width: 100%;
+    display: block;
   }
   .proud-card--has-callout:nth-of-type(2) .proud-card {
     width: 456px;

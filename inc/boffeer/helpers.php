@@ -58,6 +58,14 @@ if (!function_exists('boffeer_explode_textarea')) :
 	}
 endif;
 
+if (!function_exists('explode_textarea_matrix')) :
+	function explode_textarea_matrix($input)
+	{
+		$shift_enter = explode("\r\n\r\n", $input);
+		return $shift_enter;
+	}
+endif;
+
 if (!function_exists('explode_tinymc')) :
 	function explode_tinymc($input)
 	{

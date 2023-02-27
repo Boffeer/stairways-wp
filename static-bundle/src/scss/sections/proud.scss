@@ -292,11 +292,17 @@
 
 .proud-card__media {
     display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     // margin-bottom: 1.5rem;
 }
 
 .proud-card__pic {
     display: block;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .proud-card__desc {
@@ -581,6 +587,8 @@
                     max-height: 346px;
                     height: 100%;
                     width: auto;
+                    max-width: 100%;
+                    display: block;
                 }
             }
         }

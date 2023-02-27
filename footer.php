@@ -13,7 +13,7 @@
         <footer class="footer">
             <div class="container footer__container">
                 <div class="footer__about">
-                    <a href="#" class="logo footer__logo">
+                    <a href="<?php echo get_home_link(); ?>" class="logo footer__logo">
                         <picture class="logo__pic">
                             <img src="<?php echo THEME_STATIC; ?>/img/common/logo-white.svg" alt="Первя ступень" class="logo__img">
                         </picture>

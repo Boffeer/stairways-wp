@@ -29,6 +29,38 @@ Container::make('post_meta', 'page_info', 'Страница')
 			->set_value_type('url'),
 	));
 
+Container::make('post_meta', 'home_info', 'Настройки главной')
+	->where('post_id', '=', '34')
+	->add_fields(array(
+		Field::make('complex', 'cases_favorite', 'Избранные примеры работ')
+			->set_help_text('Выноска и видео отобразится только у 1, 3 и 5 работы, если не добавлять особую картинку, отобразится стандартная')
+			->set_layout('tabbed-horizontal')
+			->add_fields( array(
+		    Field::make( 'association', 'case', __( 'Кейс' ) )
+		    	->set_max(1)
+			    ->set_types( array(
+		        array(
+		          'type'      => 'post',
+		          'post_type' => 'cases',
+		        )
+		    ) ),
+	      Field::make( 'image', 'photo', __( 'Особая картинка для главной' ) )
+	      	->set_width(50),
+	      Field::make( 'textarea', 'desc', __( 'Выноска описание' ) )
+	      	->set_width(50),
+	      Field::make( 'text', 'video_url', __( 'Ссылка на видео' ) ),
+    )),
+	))
+	->add_fields(array(
+		    Field::make( 'association', 'home_reviews', __( 'Отзывы' ) )
+			    ->set_types( array(
+		        array(
+		          'type'      => 'post',
+		          'post_type' => 'reviews',
+		        )
+		    ) )
+	));
+
 /*
 
 	Stairs

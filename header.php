@@ -74,7 +74,7 @@
     <div class="header__container container">
 
         <div class="header__mobile">
-            <a href="" class="logo header__logo">
+            <a href="<?php echo get_home_link(); ?>" class="logo header__logo">
                 <picture class="logo__pic">
                     <img src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="Первя ступень" class="logo__img">
                 </picture>
@@ -122,12 +122,12 @@
                     </ul>
                 </nav>
                 <div class="header__contacts">
-                    <a href="#" class="header__contacts-calc">
+                    <button data-poppa-open="form-callback" class="header__contacts-calc">
                         <svg class="header__contacts-calc-icon">
                             <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/rocket.svg#rocket"></use>
                           </svg>
                         <span class="button__text">Рассчитать стоимость за 10 минут</span>
-                    </a>
+                    </button>
                     <a href="tel:+74959746937" class="header__contacts-call">
                         <span class="_only-desktop">+7 (495) 974-69-37</span>
                         <span class="_only-mobile">Позвонить нам</span>

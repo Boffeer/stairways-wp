@@ -29,6 +29,6 @@ if (document.querySelector('.reviews__container')) {
         el.querySelector('.reviews__photos-more').innerText = `+${countPhoto}`
     });
     setTimeout(() => {
-        msnr.layout();
+        // msnr.layout();
     }, 500)
 }
