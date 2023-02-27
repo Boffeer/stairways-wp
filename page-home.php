@@ -647,6 +647,13 @@
                         </div>
                       </div>
                       <div class="tabs-7p__more">
+                          <?php
+                            $categories = get_terms(array(
+                                'orderby' => 'none',
+                                'taxonomy' => 'categories',
+                                'hide_empty'    => false,
+                            ));
+                          ?>
                           <button class="tabs__toggler tabs-7p__more-button" title="">
                               Все категории
                               <span class="button-more__dot"></span>
@@ -654,58 +661,12 @@
                               <span class="button-more__dot"></span>                  
                           </button>
                           <div class="tabs-7p__industries-dropdown">
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Монокосоур</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Ломаный косоур</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Тетива из листа Perfect style</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Консольные лестницы</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Лестницы эконом</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Категория 1</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Категория 2</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Категория 3</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Категория 4</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Категория 5</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Категория 6</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Категория 7</span>
-                            </label>
-                            <label class="tabs-7p-tab">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
-                              <span class="tabs-7p-tab__text">Категория 8</span>
-                            </label>
+                            <?php foreach ($categories as $category) : ?>
+                              <label class="tabs-7p-tab">
+                                <input type="checkbox" name="filter" class="tabs-7p-tab__input" id="<?php echo $category->term_id; ?>">
+                                <span class="tabs-7p-tab__text"><?php echo $category->name; ?></span>
+                              </label>
+                            <?php endforeach; ?>
                           </div>
                       </div>
                     </div>
@@ -718,7 +679,7 @@
                                   Здесь отображается какой-то текст про все лестницы. Можно упомянуть о чем-то, что лежит не на поверхности в других разделах, или каких-то новых преимуществах. При переключении вкладок, на них рассказывается вкратце о типах и видах лестниц. А ссылка справа
                                   может меняться на более конкретную.
                               </p>
-                              <a href="" class="projects-top-link link link--underlined">
+                              <a href="cases" class="projects-top-link link link--underlined">
                                   <span class="link__text">
                                       Все проекты
                                   </span>
@@ -730,20 +691,41 @@
                                
                                   <div class="swiper projects-gallery-carousel">
                                       <div class="swiper-wrapper">
+
+                                        <?php
+                                          $home_cases = new WP_Query(array(
+                                              'post_type' => 'cases',
+                                              // 'post_per_page' => 1,
+                                          ));
+                                        ?>
+                                        <?php while ($home_cases->have_posts()) : ?>
+                                          <?php
+                                            $home_cases->the_post();
+                                            // global $post;
+                                            // $favorite_review = get_post($review['id']);
+                                            // $post = $favorite_review;
+                                            // setup_postdata($favorite_review);
+                                           ?>
+                                          <div class="swiper-slide reviews-slide">
+                                              <?php get_template_part( 'template-parts/content-cases', get_post_type() ); ?>
+                                          </div>
+                                        <?php endwhile; ?>
+                                        <?php wp_reset_postdata(); ?>
+                                        <?php /*
                                           <div class="swiper-slide projects-gallery-slide">
                                               <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
                                                   <div class="swiper-wrapper">
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
+                                                          <img src="" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
+                                                          <img src="" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
+                                                          <img src="" alt="">
                                                       </div>
                                                       <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
+                                                          <img src="" alt="">
                                                       </div>
                                                   </div>
                                                   <div class="swiper-pagination"></div>
@@ -767,118 +749,7 @@
                                                   <span class="link__text">Хочу так же</span>
                                               </button>
                                           </div>
-                                          <div class="swiper-slide projects-gallery-slide">
-                                              <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
-                                                  <div class="swiper-wrapper">
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                  </div>
-                                                  <div class="swiper-pagination"></div>
-                                              </div>
-                                              <p class="projects-gallery-title">Лестница на стальном монокосоуре <br> с забежными ступенями</p>
-                                              <ul class="projects-gallery-list">
-                                                  <li class="projects-gallery-list-element">
-                                                      Где и когда:
-                                                      <p>Пенза, 2022.</p>
-                                                  </li>
-                                                  <li class="projects-gallery-list-element">
-                                                      Ограждение:
-                                                      <p>стойки из круглой трубы, диаметром 25 мм.</p>
-                                                  </li>
-                                                  <li class="projects-gallery-list-element">
-                                                      Ступени:
-                                                      <p>дуб.</p>
-                                                  </li>
-                                              </ul>
-                                              <button class="link link--underlined" data-poppa-open="abouts">
-                                              <span class="link__text">Хочу так же</span>
-                                          </button>
-                                          </div>
-                                          <div class="swiper-slide projects-gallery-slide">
-                                              <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
-                                                  <div class="swiper-wrapper">
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                  </div>
-                                                  <div class="swiper-pagination"></div>
-                                              </div>
-                                              <p class="projects-gallery-title">Лестница на стальном <br> монокосоуре
-                                              </p>
-                                              <ul class="projects-gallery-list">
-                                                  <li class="projects-gallery-list-element">
-                                                      Где и когда:
-                                                      <p>Пенза, 2022.</p>
-                                                  </li>
-                                                  <li class="projects-gallery-list-element">
-                                                      Ограждение:
-                                                      <p>стойки из круглой трубы, диаметром 25 мм.</p>
-                                                  </li>
-                                                  <li class="projects-gallery-list-element">
-                                                      Ступени:
-                                                      <p>дуб.</p>
-                                                  </li>
-                                              </ul>
-                                              <button class="link link--underlined" data-poppa-open="abouts">
-                                              <span class="link__text">Хочу так же</span>
-                                          </button>
-                                          </div>
-                                          <div class="swiper-slide projects-gallery-slide">
-                                              <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
-                                                  <div class="swiper-wrapper">
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                      <div class="swiper-slide projects-gallery-children-slide">
-                                                          <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                                                      </div>
-                                                  </div>
-                                                  <div class="swiper-pagination"></div>
-                                              </div>
-                                              <p class="projects-gallery-title">Лестница на стальном <br> монокосоуре с площадкой</p>
-                                              <ul class="projects-gallery-list">
-                                                  <li class="projects-gallery-list-element">
-                                                      Где и когда:
-                                                      <p>Пенза, 2022.</p>
-                                                  </li>
-                                                  <li class="projects-gallery-list-element">
-                                                      Ограждение:
-                                                      <p>закаленное стекло, толщиной 20 мм.</p>
-                                                  </li>
-                                                  <li class="projects-gallery-list-element">
-                                                      Ступени:
-                                                      <p>ясень.</p>
-                                                  </li>
-                                              </ul>
-                                              <button class="link link--underlined" data-poppa-open="abouts">
-                                              <span class="link__text">Хочу так же</span>
-                                          </button>
-                                          </div>
+                                          <?php */ ?>
                                       </div>
                                   </div>
                                   <div class="swiper-buttons projects-gallery-buttons">
@@ -968,13 +839,13 @@
                   <div class="section-heading">
                       <h1 class="section-title reviews__title sect-otzyvi-page__title">Отзывы клиентов</h1>
                       <div class="section-heading__links">
-                          <a href="#" class="link-popup">
+                          <button data-poppa-open="otzyv-callback" class="link-popup">
                               <span class="link__text">НАПИСАТЬ ОТЗЫВ</span>
-                          </a>
-                          <a href="#" class="link link-regular">
+                          </button>
+                          <a href="reviews" class="link link-regular">
                               <span class="link__text">Отзывы на нашем сайте</span>
                           </a>
-                          <a href="#" class="link link-regular link--external">
+                          <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
                               <span class="link__text">Отзывы на Яндекс Картах</span>
                           </a>
                       </div>
@@ -983,271 +854,19 @@
                       data-swiper-touch>
                       <div class="swiper reviews-carousel">
                           <div class="swiper-wrapper">
+                            <?php $home_reviews = carbon_get_post_meta(get_the_ID(), 'home_reviews'); ?>
+                            <?php foreach ($home_reviews as $review_position => $review) : ?>
+                              <?php
+                                global $post;
+                                $favorite_review = get_post($review['id']);
+                                $post = $favorite_review;
+                                setup_postdata($favorite_review);
+                               ?>
                               <div class="swiper-slide reviews-slide">
-                                  <article class="reviews-card">
-                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
-                                    <p class="reviews-card__desc">
-                                      Я заказывал в этой фирме металлокаркас со ступенями
-                                      по своим размерам. Мне все расчитали, построили 3D
-                                      модель. Я проверил со своими размерами на месте,
-                                      все сошлось. Сделал заказ. Мой заказ исполнили
-                                      за 1 месяц. При монтаже проблем не испытал. Все
-                                      смонтировали за день. Спасибо за работу! В Пензе
-                                      оказалось заказать дешевле, чем в Москве.
-                                    </p>
-                                    <div class="reviews__photos">
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <button class="button reviews__photos-more">+5</button>
-                                    </div>
-                                  </article>
-
+                                  <?php get_template_part( 'template-parts/content-reviews', get_post_type() ); ?>
                               </div>
-                              <div class="swiper-slide reviews-slide">
-                                  <article class="reviews-card">
-                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
-                                    <p class="reviews-card__desc">
-                                      Я заказывал в этой фирме металлокаркас со ступенями
-                                      по своим размерам. Мне все расчитали, построили 3D
-                                      модель. Я проверил со своими размерами на месте,
-                                      все сошлось. Сделал заказ. Мой заказ исполнили
-                                      за 1 месяц. При монтаже проблем не испытал. Все
-                                      смонтировали за день. Спасибо за работу! В Пензе
-                                      оказалось заказать дешевле, чем в Москве.
-                                    </p>
-                                    <div class="reviews__photos">
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <button class="button reviews__photos-more">+5</button>
-                                    </div>
-                                  </article>
-
-                              </div>
-                              <div class="swiper-slide reviews-slide">
-                                  <article class="reviews-card">
-                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
-                                    <p class="reviews-card__desc">
-                                      Я заказывал в этой фирме металлокаркас со ступенями
-                                      по своим размерам. Мне все расчитали, построили 3D
-                                      модель. Я проверил со своими размерами на месте,
-                                      все сошлось. Сделал заказ. Мой заказ исполнили
-                                      за 1 месяц. При монтаже проблем не испытал. Все
-                                      смонтировали за день. Спасибо за работу! В Пензе
-                                      оказалось заказать дешевле, чем в Москве.
-                                    </p>
-                                    <div class="reviews__photos">
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <button class="button reviews__photos-more">+5</button>
-                                    </div>
-                                  </article>
-
-                              </div>
-                              <div class="swiper-slide reviews-slide">
-                                  <article class="reviews-card">
-                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
-                                    <p class="reviews-card__desc">
-                                      Я заказывал в этой фирме металлокаркас со ступенями
-                                      по своим размерам. Мне все расчитали, построили 3D
-                                      модель. Я проверил со своими размерами на месте,
-                                      все сошлось. Сделал заказ. Мой заказ исполнили
-                                      за 1 месяц. При монтаже проблем не испытал. Все
-                                      смонтировали за день. Спасибо за работу! В Пензе
-                                      оказалось заказать дешевле, чем в Москве.
-                                    </p>
-                                    <div class="reviews__photos">
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <button class="button reviews__photos-more">+5</button>
-                                    </div>
-                                  </article>
-
-                              </div>
-                              <div class="swiper-slide reviews-slide">
-                                  <article class="reviews-card">
-                                    <h3 class="reviews-card__title">Геннадий К. <br> г. Солнечногорск, Московская область</h3>
-                                    <p class="reviews-card__desc">
-                                      Я заказывал в этой фирме металлокаркас со ступенями
-                                      по своим размерам. Мне все расчитали, построили 3D
-                                      модель. Я проверил со своими размерами на месте,
-                                      все сошлось. Сделал заказ. Мой заказ исполнили
-                                      за 1 месяц. При монтаже проблем не испытал. Все
-                                      смонтировали за день. Спасибо за работу! В Пензе
-                                      оказалось заказать дешевле, чем в Москве.
-                                    </p>
-                                    <div class="reviews__photos">
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-1.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-2.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-3.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <a href="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" class="reviews__media">
-                                        <picture class="reviews__pic">
-                                          <img src="<?php echo THEME_STATIC; ?>/img/reviews/review-4.jpg" alt="" class="reviews__img">
-                                        </picture>
-                                      </a>
-                                      <button class="button reviews__photos-more">+5</button>
-                                    </div>
-                                  </article>
-
-                              </div>
+                              <?php endforeach; ?>
+                              <?php wp_reset_postdata(); ?>
                           </div>
                       </div>
                       <div class="swiper-pagination"></div>
