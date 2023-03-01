@@ -63,20 +63,8 @@ const debounce = (callback, wait) => {
 }
 
 header.addEventListener("header-hide", (e) => {
-  // const stickyHeader = document.querySelector('.page-heading--sticky-run');
-
-  const headerHeight = header.getBoundingClientRect().height;
-
-  if (!stickyHeader) return;
-
-  stickyHeader.style.transform = `translateY(-${headerHeight}px)`;
 });
 header.addEventListener("header-show", (e) => {
-  // const stickyHeader = document.querySelector('.page-heading--sticky-run');
-
-  if (!stickyHeader) return;
-
-  stickyHeader.style.transform = '';
 });
 
 function stickyHeader() {
