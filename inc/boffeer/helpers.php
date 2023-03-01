@@ -27,16 +27,13 @@ if (!function_exists('get_crb_contacts')) {
 			'email' => carbon_get_theme_option('email'),
 			'phone' => carbon_get_theme_option('phone'),
 			'phone_href' => 'tel:' . preg_replace('/\D/i', '', carbon_get_theme_option('phone')),
-			'telegram' => carbon_get_theme_option('telegram_url'),
-			'vk' => carbon_get_theme_option('vk_url'),
+			'viber' => carbon_get_theme_option('viber_url'),
 			'whatsapp' => carbon_get_theme_option('whatsapp_url'),	
-			'yandex' => carbon_get_theme_option('y_services_url'),
-			'avito' => carbon_get_theme_option('avito_url'),
+			'youtube' => carbon_get_theme_option('youtube_url'),
+			'vk' => carbon_get_theme_option('vk_url'),
 			'privacy' => carbon_get_theme_option('privacy_url'),
-			'designer_url' => carbon_get_theme_option('designer_url'),
 			'worktime' => carbon_get_theme_option('worktime'),
 			'og_default' => carbon_get_theme_option('default_og_img'),
-			'reviews_yandex_url' => carbon_get_theme_option('reviews_yandex_url'),
 		);
 	}
 }

@@ -93,7 +93,7 @@
                           <div class="offer__link--tooltip--text">
                               <p>ООО “Лестницы-стар” ИП Лестницын О.Н.</p><br><br>
                               <p>Свяжитесь с нами, все расскажем</p>
-                              <a href="tel:+74959746937">+7 (495) 974-69-37</a>
+                              <a href="<?php echo THEME_OPTIONS['phone_href'];?>"><?php echo THEME_OPTIONS['phone'];?></a>
                           </div>
                       </div>
                   </div>
@@ -104,7 +104,7 @@
                           <div class="offer__link--tooltip--text">
                               <p>ООО “Лестницы-стар” ИП Лестницын О.Н.</p><br><br>
                               <p>Свяжитесь с нами, все расскажем</p>
-                              <a href="tel:+74959746937">+7 (495) 974-69-37</a>
+                              <a href="<?php echo THEME_OPTIONS['phone_href'];?>"><?php echo THEME_OPTIONS['phone'];?></a>
                           </div>
                       </div>
                   </div>
@@ -116,7 +116,7 @@
                               <p>ООО “Лестницы-стар” ИП Лестницын О.Н.</p><br><br>
                               <p>Свяжитесь с нами, все расскажем</p>
                           </div>
-                          <a class="offer__link--tooltip--link" href="tel:+74959746937">+7 (495) 974-69-37</a>
+                          <a class="offer__link--tooltip--link" href="<?php echo THEME_OPTIONS['phone_href'];?>"><?php echo THEME_OPTIONS['phone'];?></a>
                       </div>
                   </div>
               </div>
@@ -159,7 +159,7 @@
                   <p class="quiz__hint">
                       Познакомьтесь с вариантами форм лестниц, типами каркаса и другими <br> параметрами. Выберите подходящий. Если есть вопросы — звоните.
                   </p>
-                  <a href="tel:+74959746937" class="quiz__phone js-phone">+7 (495) 974-69-37</a>
+                  <a href="<?php echo THEME_OPTIONS['phone_href'];?>" class="quiz__phone js-phone"><?php echo THEME_OPTIONS['phone'];?></a>
               </div>
               <picture class="quiz__pic"><img src="<?php echo THEME_STATIC; ?>/img/quiz/hero.png" alt="" class="quiz__img"></picture>
               <form action="./quiz.php" class="quiz__questions">
@@ -1035,10 +1035,10 @@
                       <p class="shifter__desc">
                           10 минут консультации заменят 2 часа поиска в интернете. Обычно ответ оказывается точным и полным, чем от&nbsp;бесконечных поисков по сайтам. Консультация бесплатна.
                       </p>
-                      <a href="tel:+78412234345" class="shifter__phone js-phone link link--underlined">
-                          <span class="link__text offer__link--text">+7 (8412) 23-43-45</span>
+                      <a href="<?php echo THEME_OPTIONS['phone_href'];?>" class="shifter__phone js-phone link link--underlined">
+                          <span class="link__text offer__link--text"><?php echo THEME_OPTIONS['phone'];?></span>
                       </a>
-                      <button class="button button--primary" data-poppa-open="callback">Заказать звонок</button>
+                      <button class="button button--primary" data-poppa-open="form-callback">Заказать звонок</button>
                   </div>
                   <picture class="shifter__pic">
                       <img src="<?php echo THEME_STATIC; ?>/img/shifter/question-hero.png" alt="" class="shifter__img">
@@ -1092,7 +1092,7 @@
                           <h3 class="work-bullet__title">
                               Позвоните нам или оставьте заявку на&nbsp;сайте
                           </h3>
-                          <a href="tel:+74955770347" class="work-bullet__phone js-phone">+7 (495) 577-03-47</a>
+                          <a href="<?php echo THEME_OPTIONS['phone_href'];?>" class="work-bullet__phone js-phone"><?php echo THEME_OPTIONS['phone'];?></a>
                           <p class="work-bullet__desc">
                               Опытные консультанты помогут подобрать тип и конструктив лестницы, наиболее подходящий для Вашего дома. Мы ответим на все Ваши вопросы, проконсультируем по материалам, сделаем предварительный расчёт стоимости Вашей лестницы.
                           </p>
@@ -1219,7 +1219,7 @@
                           <button class="button button--primary shifter-callback__submit" type="submit">Отправить</button>
                           <p class="shifter-callback__privacy">
                               Нажимая кнопку “Отправить”, вы даете согласие на <br> обработку 
-                              <a href="#" class="link">персональных данных</a>
+                              <a href="<?php echo THEME_OPTIONS['privacy_url'];?>" class="link">персональных данных</a>
                           </p>
                       </div>
                   </form>

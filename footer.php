@@ -20,15 +20,15 @@
                     </a>
                     <p class="footer__address">Офис в Москве: <br> ул. Большая Полянка, д. 31Г.</p>
                     <div class="footer__contacts">
-                        <a href="tel:+74959746937" class="footer__phone js-phone">+7 (495) 974-69-37</a>
-                        <a href="mailto:sale@steppnz.ru" class="footer__email">sale@steppnz.ru</a>
+                        <a href="<?php echo THEME_OPTIONS['phone_href']; ?>" class="footer__phone js-phone"><?php echo THEME_OPTIONS['phone']; ?></a>
+                        <a href="mailto:<?php echo THEME_OPTIONS['email']; ?>" class="footer__email"><?php echo THEME_OPTIONS['email']; ?></a>
                     </div>
-                    <p class="footer__worktime _only-mobile">Ежедневно с 10:00 до 20:00</p>
+                    <p class="footer__worktime _only-mobile"><?php echo THEME_OPTIONS['worktime']; ?></p>
                 </div>
                 <nav class="footer-nav">
                     <ul class="footer-nav__list">
                         <?php
-                            $clients_menu_id = 11; 
+                            $clients_menu_id = 10; 
                             $footer_menu = wp_get_nav_menu_items($clients_menu_id);
                         ?>
                         <li class="footer-nav__item"><?php echo wp_get_nav_menu_object($clients_menu_id)->name; ?></li>
@@ -71,35 +71,35 @@
                 </nav>
                 <div class="footer__socials">
                     <div class="footer__socials-buttons">
-                        <a href="" class="button button--secondary button--icon-right footer__button footer__button--has-text">
+                        <a href="<?php echo THEME_OPTIONS['viber']; ?>" class="button button--secondary button--icon-right footer__button footer__button--has-text">
                             <svg class="button__icon">
         						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/viber.svg#viber" />
         					</svg>
                             <span class="button__text">Написать в Viber</span>
                         </a>
-                        <a href="" class="button button--secondary button--icon-right footer__button footer__button--has-text">
+                        <a href="<?php echo THEME_OPTIONS['whatsapp']; ?>" class="button button--secondary button--icon-right footer__button footer__button--has-text">
                             <svg class="button__icon">
         						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/whatsapp.svg#whatsapp" />
         					</svg>
                             <span class="button__text">Написать в WhatsApp</span>
                         </a>
-                        <a href="" class="footer__button footer__button-vk button--ghost">
+                        <a href="<?php echo THEME_OPTIONS['vk']; ?>" class="footer__button footer__button-vk button--ghost">
                             <svg class="button__icon">
         						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/vk.svg#vk" />
         					</svg>
                         </a>
-                        <a href="" class="footer__button footer__button-yt button--ghost">
+                        <a href="<?php echo THEME_OPTIONS['youtube']; ?>" class="footer__button footer__button-yt button--ghost">
                             <svg class="button__icon" width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M26.9086 1.71686C25.8979 0.497419 24.0319 0 20.4681 0H7.53164C3.88631 0 1.98863 0.529505 0.981716 1.82778C0 3.09361 0 4.9587 0 7.54004V12.4601C0 17.4609 1.1648 20 7.53164 20H20.4682C23.5587 20 25.2712 19.5611 26.3791 18.4849C27.5152 17.3814 28 15.5795 28 12.4601V7.54004C28 4.8178 27.924 2.9417 26.9086 1.71686ZM17.9761 10.6793L12.1017 13.7954C11.9704 13.865 11.8267 13.8996 11.6833 13.8996C11.5209 13.8996 11.3589 13.8552 11.2154 13.767C10.9451 13.6008 10.7801 13.3035 10.7801 12.9829V6.77072C10.7801 6.45059 10.9447 6.15357 11.2144 5.98728C11.4842 5.82098 11.8197 5.80961 12.0996 5.95721L17.974 9.0532C18.2729 9.21069 18.4606 9.52385 18.461 9.86551C18.4614 10.2075 18.2745 10.5211 17.9761 10.6793Z" fill="white"/>
                             </svg>
                         </a>
                     </div>
-                    <p class="footer__socials-worktime ">Ежедневно с 10:00 до 20:00</p>
+                    <p class="footer__socials-worktime "><?php echo THEME_OPTIONS['worktime']; ?></p>
                 </div>
                 <div class="footer__bottom">
                     <p class="footer__copy">© 2014-2019. Все права защищены.</p>
-                    <a href="#" class="footer__link">Политика конфиденциальности данных</a>
-                    <a href="#" class="footer__creator">Сделано в СЕМЬ ПАП:</a>
+                    <a href="<?php echo THEME_OPTIONS['privacy']; ?>" class="footer__link">Политика конфиденциальности данных</a>
+                    <a href="https://7pap.ru/" class="footer__creator">Сделано в СЕМЬ ПАП:</a>
                 </div>
             </div>
         </footer>
@@ -356,7 +356,7 @@
                             <span class="button__text">Отправить</span>
                         </button>
                         <p class="form-policy-in-btn">
-                            Нажимая кнопку “Отправить”, вы даете согласие на <br>обработку персональных данных
+                            Нажимая кнопку “Отправить”, вы даете согласие на <br>обработку <a href="<?php echo THEME_OPTIONS['privacy_url'];?>">персональных данных</a>
                         </p>
                     </div>
                 </fieldset>
@@ -374,7 +374,7 @@
         <h2 class="modal__title">Спасибо<br> за обращение</h2>
         <div class="modal__group">
             <p class="modal-thanks__text">Наш менеджер свяжется с вами<br> в ближайшее время</p>
-            <a class="modal-thanks__link" href="">Перейти на главную</a>
+            <a class="modal-thanks__link" href="<?php home_url(); ?>">Перейти на главную</a>
         </div>
     </div>
 </section>

@@ -17,6 +17,9 @@
         height: 100%;
     }
 }
+.header--hidden {
+    transform: translateY(-200%);
+}
 
 .header--scrolled {
     background-color: #fff;

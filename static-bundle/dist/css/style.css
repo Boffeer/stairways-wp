@@ -5758,6 +5758,10 @@ select {
   }
 }
 
+.header--hidden {
+  transform: translateY(-200%);
+}
+
 .header--scrolled {
   background-color: #fff;
   border-bottom: 1px solid #c5cacf;
@@ -12928,6 +12932,7 @@ select {
 
 .footer-nav {
   position: absolute;
+  z-index: 2;
   right: 70px;
   top: 4px;
   display: grid;

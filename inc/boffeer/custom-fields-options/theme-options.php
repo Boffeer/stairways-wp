@@ -26,21 +26,17 @@ $basic_options_container = Container::make('theme_options', 'theme_header_settin
 Container::make('theme_options', 'theme_options', 'Контакты')
 	->set_page_parent($basic_options_container) // reference to a top level container
 	->add_tab('Ссылки', array(
-		Field::make('text', 'whatsapp_url', 'Whatsapp')
+		Field::make('text', 'viber_url', 'Viber')
 			->set_width(50),
-		Field::make('text', 'telegram_url', 'Telegram')
+		Field::make('text', 'whatsapp_url', 'Whatsapp')
 			->set_width(50),
 		Field::make('text', 'vk_url', 'VK')
 			->set_width(50),
-		Field::make('text', 'y_services_url', 'Яндекс.услуги')
-			->set_width(50),
-		Field::make('text', 'avito_url', 'Авито')
+		Field::make('text', 'youtube_url', 'YouTube')
 			->set_width(50),
 		Field::make('text', 'email', 'Email')
 			->set_width(50),
 		Field::make('text', 'phone', 'Телефон')
-			->set_width(50),
-		Field::make('text', 'designer_url', 'Ссылка на дизайнера')
 			->set_width(50),
 		Field::make('textarea', 'worktime', 'Рабочее время')
 			->set_width(50),
@@ -51,8 +47,6 @@ Container::make('theme_options', 'theme_options', 'Контакты')
 		Field::make('image', 'default_og_img', 'Стандартная картинка для соцсетей')
 			->set_width(50)
 			->set_value_type('url'),
-		Field::make('text', 'reviews_yandex_url', 'Ссылка на отзывы на Яндекс.Картах')
-			->set_width(50),
 	))
 	->add_tab('Адреса', array(
 		Field::make('complex', 'contacts_cities', 'Города')

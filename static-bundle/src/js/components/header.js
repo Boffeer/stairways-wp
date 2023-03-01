@@ -99,3 +99,4 @@ window.addEventListener('resize', () => { coordBlockCity() });
 // const cloneListCity = document.querySelector('.city_block__list').cloneNode(true);
 
 // appendList.innerHTML = cloneListCity.outerHTML;
+import "../unstable/sticky-header.js";

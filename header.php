@@ -128,8 +128,8 @@
                           </svg>
                         <span class="button__text">Рассчитать стоимость за 10 минут</span>
                     </button>
-                    <a href="tel:+74959746937" class="header__contacts-call">
-                        <span class="_only-desktop">+7 (495) 974-69-37</span>
+                    <a href="<?php echo THEME_OPTIONS['phone_href']; ?>" class="header__contacts-call">
+                        <span class="_only-desktop"><?php echo THEME_OPTIONS['phone'] ?></span>
                         <span class="_only-mobile">Позвонить нам</span>
                     </a>
                 </div>
@@ -156,8 +156,6 @@
                             'hide_empty'    => false,
                             'include' => $header_categories_ids,
                         ));
-                        // get_vd($header_categories);
-
                     ?>
                     <ul class="header__nav-list">
                         <?php foreach ($header_categories as $category) : ?>
@@ -252,7 +250,12 @@
                             <path d="M6 4.66688L10.6669 0L12 1.33312L7.33312 6L12 10.6669L10.6669 12L6 7.33312L1.33312 12L0 10.6669L4.66688 6L0 1.33312L1.33312 0L6 4.66688Z" fill="#2B3B50"/>
                         </svg>                            
                     </button>
-                    <img class="header_mobile_menu__logo" src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="">
+                    <!-- <img class="header_mobile_menu__logo" src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt=""> -->
+                    <a href="<?php echo get_home_link(); ?>" class="logo header__logo header_mobile_menu__logo">
+                        <picture class="logo__pic">
+                            <img src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="Первя ступень" class="logo__img">
+                        </picture>
+                    </a>
                     <ul class="header_mobile_menu__list-catalog">
                         <?php foreach ($header_categories as $category) : ?>
                             <?php
@@ -310,8 +313,8 @@
                         </ul>
                     </div>
 
-                    <a class="header_mobile_menu__btn header_mobile_menu__calc" href="">Рассчитать смету за 10 минут</a>
-                    <button class="header_mobile_menu__btn header_mobile_menu__feedback">Позвонить нам</button>
+                    <button class="header_mobile_menu__btn header_mobile_menu__calc" data-poppa-open="form-callback">Рассчитать смету за 10 минут</button>
+                    <a href="<?php echo THEME_OPTIONS['phone_href']; ?>" class="header_mobile_menu__btn header_mobile_menu__feedback">Позвонить нам</a>
 
                 </div>
             </div>
