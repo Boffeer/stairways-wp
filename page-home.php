@@ -836,6 +836,13 @@
           </div>
       </section>
 
+      <?php
+        $news = new WP_Query(array(
+            'post_type' => 'news',
+            'post_status' => 'publish',
+        ));
+      ?>
+      <?php if ($news->have_posts()) : ?>
       <section class="news">
           <div class="container news__container">
               <h2 class="section-title news__title">Статьи от наших экспертов</h2>
@@ -843,73 +850,13 @@
                   data-swiper-touch>
                   <div class="swiper news-carousel">
                       <div class="swiper-wrapper">
-                          <div class="swiper-slide news-slide">
-                              <article class="news-card">
-                                  <picture class="news-card__pic">
-                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-4.jpg" alt="" class="news-card__img">
-                                  </picture>
-                                  <h3 class="news-card__title">
-                                      <a href="#" class="nes-card__link">
-                                      Как самостоятельно замерить проем лестницы на второй этаж?
-                                    </a>
-                                  </h3>
-                              </article>
-                          </div>
-                          <div class="swiper-slide news-slide">
-                              <article class="news-card">
-                                  <picture class="news-card__pic">
-                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-3.jpg" alt="" class="news-card__img">
-                                  </picture>
-                                  <h3 class="news-card__title">
-                                      <a href="#" class="nes-card__link">
-                  Какую лестницу выбрать: деревянную или на&nbsp;металлокаркасе? Сравнение&nbsp;цен.
-                </a>
-                                  </h3>
-                              </article>
-                          </div>
-                          <div class="swiper-slide news-slide">
-                              <article class="news-card">
-                                  <picture class="news-card__pic">
-                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-2.jpg" alt="" class="news-card__img">
-                                  </picture>
-                                  <h3 class="news-card__title">
-                                      <a href="#" class="nes-card__link">
-                  Какой тип металлокаркаса
-                  для лестницы выбрать.
-                  Сколько стоят
-                  металлокаркасы лестниц.
-                </a>
-                                  </h3>
-                              </article>
-                          </div>
-                          <div class="swiper-slide news-slide">
-                              <article class="news-card">
-                                  <picture class="news-card__pic">
-                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-1.jpg" alt="" class="news-card__img">
-                                  </picture>
-                                  <h3 class="news-card__title">
-                                      <a href="#" class="nes-card__link">
-                  Расчет и установка
-                  автоматической подсветки
-                  лестницы своими руками.
-                </a>
-                                  </h3>
-                              </article>
-                          </div>
-                          <div class="swiper-slide news-slide">
-                              <article class="news-card">
-                                  <picture class="news-card__pic">
-                                      <img src="<?php echo THEME_STATIC; ?>/img/news/article-1.jpg" alt="" class="news-card__img">
-                                  </picture>
-                                  <h3 class="news-card__title">
-                                      <a href="#" class="nes-card__link">
-                  Расчет и установка
-                  автоматической подсветки
-                  лестницы своими руками.
-                </a>
-                                  </h3>
-                              </article>
-                          </div>
+                          <?php while ($news->have_posts()) : ?>
+                            <?php $news->the_post(); ?>
+                              <div class="swiper-slide news-slide">
+                                <?php get_template_part( 'template-parts/content-news', get_post_type() ); ?>
+                              </div>
+                          <?php endwhile; ?>
+                          <?php wp_reset_postdata(); ?>
                       </div>
                   </div>
                   <div class="swiper-buttons">
@@ -917,10 +864,17 @@
                       <div class="swiper-button-next"></div>
                   </div>
               </div>
-
           </div>
       </section>
+      <?php endif; ?>
 
+      <?php
+        $videos = new WP_Query(array(
+            'post_type' => 'videos',
+            'post_status' => 'publish',
+        ));
+      ?>
+      <?php if ($videos->have_posts()) : ?>
       <section class="videos section">
           <div class="container videos__container">
               <h2 class="section-title faq__title">Видео</h2>
@@ -940,12 +894,6 @@
                               data-swiper-touch>
                               <div class="swiper videos-carousel">
                                   <div class="swiper-wrapper">
-                                      <?php
-                                        $videos = new WP_Query(array(
-                                            'post_type' => 'videos',
-                                            'post_status' => 'publish',
-                                        ));
-                                      ?>
                                       <?php while ($videos->have_posts()) : ?>
                                         <?php
                                           $videos->the_post();
@@ -967,6 +915,7 @@
               </div>
           </div>
       </section>
+      <?php endif;?>
 
       <section class="faq">
           <div class="container faq__container">

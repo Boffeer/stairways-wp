@@ -177,7 +177,8 @@ function register_post_types(){
 			// 'show_in_nav_menus'   => null, // зависит от public
 			'show_in_menu'        => true, // показывать ли в меню адмнки
 			// 'show_in_admin_bar'   => null, // зависит от show_in_menu
-			'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+			// 'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+			'show_in_rest'       => true, // To use Gutenberg editor.
 			'rest_base'           => null, // $post_type. C WP 4.7
 			'menu_position'       => 4,
 			'menu_icon'           => 'dashicons-admin-site',
@@ -185,7 +186,7 @@ function register_post_types(){
 			//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
 			//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
 			'hierarchical'        => true,
-			'supports'            => [ 'title' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+			'supports'            => [ 'title', 'editor' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
 			'has_archive'         => true,
 			'rewrite'             => true,
 			'query_var'           => true,

@@ -152,11 +152,21 @@ Container::make('post_meta', 'review_info', 'Отзывы')
 	);
 
 /*
-	Cases
+	Videos
 */
 Container::make('post_meta', 'video_info', 'О видео')
 	->where('post_type', '=', 'videos')
 	->add_fields(array(
-      Field::make( 'image', 'thumb', __( 'Картинка вариации' ) ),
+      Field::make( 'image', 'thumb', __( 'Обложка видео' ) )
+      	->set_help_text('Если не добавлять, то автоматически поставит обложку видео с ютуба'),
       Field::make( 'text', 'video_url', __( 'Ссылка на видео на YoutTube' ) ),
+	));
+
+/*
+	News
+*/
+Container::make('post_meta', 'video_info', 'О новости')
+	->where('post_type', '=', 'news')
+	->add_fields(array(
+      Field::make( 'image', 'thumb', __( 'Обложка новости' ) ),
 	));
