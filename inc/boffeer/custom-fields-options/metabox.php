@@ -151,3 +151,12 @@ Container::make('post_meta', 'review_info', 'Отзывы')
 		)
 	);
 
+/*
+	Cases
+*/
+Container::make('post_meta', 'video_info', 'О видео')
+	->where('post_type', '=', 'videos')
+	->add_fields(array(
+      Field::make( 'image', 'thumb', __( 'Картинка вариации' ) ),
+      Field::make( 'text', 'video_url', __( 'Ссылка на видео на YoutTube' ) ),
+	));

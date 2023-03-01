@@ -695,6 +695,7 @@
                                         <?php
                                           $home_cases = new WP_Query(array(
                                               'post_type' => 'cases',
+                                              'post_status' => 'publish',
                                           ));
                                         ?>
                                         <?php while ($home_cases->have_posts()) : ?>
@@ -939,101 +940,21 @@
                               data-swiper-touch>
                               <div class="swiper videos-carousel">
                                   <div class="swiper-wrapper">
-                                      <div class="swiper-slide videos-slide">
-                                          <article class="videos-card">
-                                              <div class="videos-card__media">
-                                                  <picture class="videos-card__pic">
-                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-4.jpg" alt="" class="videos-card__img">
-                                                  </picture>
-                                                  <button class="videos-card__play">
-                                                  <svg class="videos-card__icon">
-                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
-                                                    </svg>
-                                              </button>
-                                              </div>
-                                              <h3 class="videos-card__title">
-                                                  <a href="#" class="videos-card__link">
-                                                  Консольная лестница
-                                                  в&nbsp;частном доме. Как сделать
-                                                  красиво!
-                                              </a>
-                                              </h3>
-                                          </article>
-                                      </div>
-                                      <div class="swiper-slide videos-slide">
-                                          <article class="videos-card">
-                                              <div class="videos-card__media">
-                                                  <picture class="videos-card__pic">
-                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-3.jpg" alt="" class="videos-card__img">
-                                                  </picture>
-                                                  <button class="videos-card__play">
-                                                  <svg class="videos-card__icon">
-                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
-                                                    </svg>
-                                              </button>
-                                              </div>
-                                              <h3 class="videos-card__title">
-                                                  <a href="#" class="videos-card__link">Лестница на монокосоуре</a>
-                                              </h3>
-                                          </article>
-                                      </div>
-                                      <div class="swiper-slide videos-slide">
-                                          <article class="videos-card">
-                                              <div class="videos-card__media">
-                                                  <picture class="videos-card__pic">
-                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-2.jpg" alt="" class="videos-card__img">
-                                                  </picture>
-                                                  <button class="videos-card__play">
-                                                  <svg class="videos-card__icon">
-                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
-                                                    </svg>
-                                              </button>
-                                              </div>
-                                              <h3 class="videos-card__title">
-                                                  <a href="#" class="videos-card__link">
-                                                    Лестница <br> на металлическом каркасе
-                                                  </a>
-                                              </h3>
-                                          </article>
-                                      </div>
-                                      <div class="swiper-slide videos-slide">
-                                          <article class="videos-card">
-                                              <div class="videos-card__media">
-                                                  <picture class="videos-card__pic">
-                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-1.jpg" alt="" class="videos-card__img">
-                                                  </picture>
-                                                  <button class="videos-card__play">
-                                                  <svg class="videos-card__icon">
-                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
-                                                    </svg>
-                                              </button>
-                                              </div>
-                                              <h3 class="videos-card__title">
-                                                  <a href="#" class="videos-card__link">
-                        Монтаж своими руками
-                      </a>
-                                              </h3>
-                                          </article>
-                                      </div>
-                                      <div class="swiper-slide videos-slide">
-                                          <article class="videos-card">
-                                              <div class="videos-card__media">
-                                                  <picture class="videos-card__pic">
-                                                      <img src="<?php echo THEME_STATIC; ?>/img/videos/video-1.jpg" alt="" class="videos-card__img">
-                                                  </picture>
-                                                  <button class="videos-card__play">
-                                                  <svg class="videos-card__icon">
-                                                      <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
-                                                    </svg>
-                                              </button>
-                                              </div>
-                                              <h3 class="videos-card__title">
-                                                  <a href="#" class="videos-card__link">
-                        Монтаж своими руками
-                      </a>
-                                              </h3>
-                                          </article>
-                                      </div>
+                                      <?php
+                                        $videos = new WP_Query(array(
+                                            'post_type' => 'videos',
+                                            'post_status' => 'publish',
+                                        ));
+                                      ?>
+                                      <?php while ($videos->have_posts()) : ?>
+                                        <?php
+                                          $videos->the_post();
+                                         ?>
+                                          <div class="swiper-slide videos-slide">
+                                              <?php get_template_part( 'template-parts/content-videos', get_post_type() ); ?>
+                                          </div>
+                                      <?php endwhile; ?>
+                                      <?php wp_reset_postdata(); ?>
                                   </div>
                               </div>
                               <div class="swiper-buttons videos-buttons">
