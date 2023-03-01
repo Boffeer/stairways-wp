@@ -3282,6 +3282,7 @@ input[type=search]::-webkit-search-cancel-button {
   z-index: -2;
   width: 100%;
   height: 100%;
+  background-color: var(--active-color);
 }
 
 .hero-categories-card__pic::after {
@@ -9549,6 +9550,21 @@ select {
     font-size: 16px;
     font-weight: 700;
   }
+}
+
+.news-card__pic {
+  display: block;
+  position: relative;
+  padding-bottom: 68%;
+}
+
+.news-card__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .videos-card__title {
