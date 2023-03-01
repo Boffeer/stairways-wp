@@ -175,156 +175,20 @@
         <h2 class="section-title">Произвели 130+ лестниц<br> на монокосоуре</h2>
         <div class="projects-gallery">
             <div class="projects-gallery-carousel">
-
-                <div class="projects-gallery-slide">
-                    <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
+                <?php
+                  $product_cases = new WP_Query(array(
+                      'post_type' => 'cases',
+                  ));
+                ?>
+                <?php while ($product_cases->have_posts()) : ?>
+                  <?php
+                    $product_cases->the_post();
+                   ?>
+                    <div class="projects-gallery-slide">
+                        <?php get_template_part( 'template-parts/content-cases', get_post_type() ); ?>
                     </div>
-                    <p class="projects-gallery-title">Лестница на стальном монокосоуре с площадкой</p>
-                    <ul class="projects-gallery-list">
-                        <li class="projects-gallery-list-element">
-                            Где и когда:
-                            <p>Пенза, 2022.</p>
-                        </li>
-                        <li class="projects-gallery-list-element">
-                            Ограждение:
-                            <p>закаленное стекло, толщиной 20 мм.</p>
-                        </li>
-                        <li class="projects-gallery-list-element">
-                            Ступени:
-                            <p>дуб.</p>
-                        </li>
-                    </ul>
-                    <button class="link link--underlined">
-                            <span class="link__text">Хочу так же</span>
-                        </button>
-                </div>
-                <div class="projects-gallery-slide">
-                    <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <p class="projects-gallery-title">Лестница на стальном монокосоуре с площадкой</p>
-                    <ul class="projects-gallery-list">
-                        <li class="projects-gallery-list-element">
-                            Где и когда:
-                            <p>Пенза, 2022.</p>
-                        </li>
-                        <li class="projects-gallery-list-element">
-                            Ограждение:
-                            <p>закаленное стекло, толщиной 20 мм.</p>
-                        </li>
-                        <li class="projects-gallery-list-element">
-                            Ступени:
-                            <p>дуб.</p>
-                        </li>
-                    </ul>
-                    <button class="link link--underlined">
-                            <span class="link__text">Хочу так же</span>
-                        </button>
-                </div>
-                <div class="projects-gallery-slide">
-                    <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <p class="projects-gallery-title">Лестница на стальном монокосоуре с площадкой</p>
-                    <ul class="projects-gallery-list">
-                        <li class="projects-gallery-list-element">
-                            Где и когда:
-                            <p>Пенза, 2022.</p>
-                        </li>
-                        <li class="projects-gallery-list-element">
-                            Ограждение:
-                            <p>закаленное стекло, толщиной 20 мм.</p>
-                        </li>
-                        <li class="projects-gallery-list-element">
-                            Ступени:
-                            <p>дуб.</p>
-                        </li>
-                    </ul>
-                    <button class="link link--underlined">
-                            <span class="link__text">Хочу так же</span>
-                        </button>
-                </div>
-                <div class="projects-gallery-slide">
-                    <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                            <div class="swiper-slide projects-gallery-children-slide">
-                                <img src="<?php echo THEME_STATIC; ?>/img/proud/case-6.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    <p class="projects-gallery-title">Лестница на стальном монокосоуре с площадкой</p>
-                    <ul class="projects-gallery-list">
-                        <li class="projects-gallery-list-element">
-                            Где и когда:
-                            <p>Пенза, 2022.</p>
-                        </li>
-                        <li class="projects-gallery-list-element">
-                            Ограждение:
-                            <p>закаленное стекло, толщиной 20 мм.</p>
-                        </li>
-                        <li class="projects-gallery-list-element">
-                            Ступени:
-                            <p>дуб.</p>
-                        </li>
-                    </ul>
-                    <button class="link link--underlined">
-                            <span class="link__text">Хочу так же</span>
-                        </button>
-                </div>
-
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
             <button class="prod-items__show" type="button">Показать еще</button>
         </div>

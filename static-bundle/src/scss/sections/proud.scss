@@ -107,6 +107,7 @@
         &:nth-of-type(3) {
             .proud-card__callout {
                 height: 692px;
+                // pointer-events: none;
             }
         }
         &:nth-of-type(2) {
@@ -348,6 +349,9 @@
     margin-bottom: 19px;
     font-family: var(--ff-title);
     font-weight: 600;
+    @media (max-width: 1500px) {
+        font-size: 1.3rem;
+    }
     @media (max-width: 1300px) {
         font-size: 20px;
         margin-bottom: 16px;

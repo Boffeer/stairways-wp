@@ -31,6 +31,7 @@ Container::make('post_meta', 'page_info', 'Страница')
 
 Container::make('post_meta', 'home_info', 'Настройки главной')
 	->where('post_id', '=', '34')
+	->or_where('post_id', '=', '39')
 	->add_fields(array(
 		Field::make('complex', 'cases_favorite', 'Избранные примеры работ')
 			->set_help_text('Выноска и видео отобразится только у 1, 3 и 5 работы, если не добавлять особую картинку, отобразится стандартная')

@@ -111,7 +111,7 @@
                             </div>
                         </li>
                         <?php
-                            $clients_pages_menu_id = 11; 
+                            $clients_pages_menu_id = 10; 
                             $header_menu = wp_get_nav_menu_items($clients_pages_menu_id);
                         ?>
                         <?php foreach ($header_menu as $nav) : ?>
@@ -136,7 +136,7 @@
             </div>
 
             <div class="header__bottom">
-                <a href="" class="logo header__logo">
+                <a href="<?php echo get_home_link(); ?>" class="logo header__logo">
                     <picture class="logo__pic">
                         <img src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="Первя ступень" class="logo__img">
                     </picture>
@@ -176,18 +176,24 @@
                                     <div class="dropdown__body dropdown__body--wide">
                                         <ul class="dropdown__body--list">
                                             <li class="dropdown__body--list-element">
-                                                <img
-                                                    src="<?php echo boffeer_get_image_url_by_id(carbon_get_term_meta($category->term_id, 'category_pic')); ?>"
-                                                    alt="<?php echo $category->name; ?>"
-                                                    class="dropdown__body--list-element-img">
+                                                <?php $category_image_id = carbon_get_term_meta($category->term_id, 'category_pic'); ?>
+                                                <?php if ($category_image_id != '') : ?>
+                                                    <img
+                                                        src="<?php echo boffeer_get_image_url_by_id($category_image_id); ?>"
+                                                        alt="<?php echo $category->name; ?>"
+                                                        class="dropdown__body--list-element-img">
+                                                <?php endif;?>
                                                 <a href="<?php echo get_term_link($category->term_id)?>"><?php echo $category->name; ?></a>
                                             </li>
                                             <?php foreach ($child_categories as $child) : ?>
                                             <li class="dropdown__body--list-element">
-                                                <img
-                                                    src="<?php echo boffeer_get_image_url_by_id(carbon_get_term_meta($child->term_id, 'category_pic')); ?>"
-                                                    alt="<?php echo $child->name; ?>"
-                                                    class="dropdown__body--list-element-img">
+                                                <?php $child_category_image_id = carbon_get_term_meta($child->term_id, 'category_pic'); ?>
+                                                <?php if ($child_category_image_id != '') : ?>
+                                                    <img
+                                                        src="<?php echo boffeer_get_image_url_by_id($child_category_image_id); ?>"
+                                                        alt="<?php echo $child->name; ?>"
+                                                        class="dropdown__body--list-element-img">
+                                                <?php endif;?>
                                                 <a href="<?php echo get_term_link($child->term_id)?>"><?php echo $child->name; ?></a>
                                             </li>
                                             <?php endforeach; ?>
