@@ -26,21 +26,29 @@
         </div>
         <div class="swiper-pagination"></div>
     </div>
-    <p class="projects-gallery-title"><?php the_title(); ?></p>
-    <ul class="projects-gallery-list">
-        <li class="projects-gallery-list-element">
-            Где и когда:
-            <p>Пенза, 2022.</p>
-        </li>
-        <li class="projects-gallery-list-element">
-            Ограждение:
-            <p>закаленное стекло, толщиной 20 мм.</p>
-        </li>
-        <li class="projects-gallery-list-element">
-            Ступени:
-            <p>дуб.</p>
-        </li>
-    </ul>
+    <?php 
+        $case_title = carbon_get_post_meta(get_the_ID(), 'title');
+        if ($case_title == '') :
+            $case_title = get_the_title();
+        endif;
+    ?>
+    <p class="projects-gallery-title">
+        <?php echo $case_title; ?>
+    </p>
+    <?php $case_stats = explode_textarea_matrix(carbon_get_post_meta(get_the_ID(), 'stats')); ?>
+    <?php if ($case_stats[0] != '') : ?>
+        <ul class="projects-gallery-list">
+        <?php foreach($case_stats as $stat) : ?>
+            <?php $current_stat = boffeer_explode_textarea($stat); ?>
+            <?php if (isset($current_stat[0]) || isset($current_stat[1])) : ?>
+                <li class="projects-gallery-list-element">
+                    <?php echo $current_stat[0]; ?>
+                    <p><?php echo isset($current_stat[1]) ? $current_stat[1] : ''; ?></p>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+      </ul>
+    <?php endif;?>
     <button class="link link--underlined" data-poppa-open="abouts">
         <span class="link__text">Хочу так же</span>
     </button>
