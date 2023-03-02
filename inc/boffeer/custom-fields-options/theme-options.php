@@ -40,6 +40,9 @@ Container::make('theme_options', 'theme_options', 'Настройки')
 			->set_width(50),
 		Field::make('textarea', 'worktime', 'Рабочее время')
 			->set_width(50),
+		Field::make('textarea', 'address_list', 'Адрес в подвале')
+			->set_help_text('Сохраняет переносы энтером')
+			->set_width(50),
 		Field::make('text', 'privacy_url', 'Политика конфиденциальности')
 			->set_width(50),
 		Field::make('textarea', 'leads_emails', 'Имейлы для заявок')
