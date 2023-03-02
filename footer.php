@@ -122,7 +122,7 @@
             <form action="./callback.php" class="form-callback shifter__form">
                 <fieldset class="radio__row">
                     <label class="radio">
-                        <input type="radio" name="user_connect" class="radio__input">
+                        <input type="radio" name="user_connect" class="radio__input" checked>
                         <span class="radio__check"></span>
                         <span class="radio__title">Телефон</span>
                     </label>
@@ -179,7 +179,7 @@
             <form action="./callback.php" class="form-callback shifter__form">
                 <fieldset class="radio__row">
                     <label class="radio">
-                      <input type="radio" name="user_connect" class="radio__input">
+                      <input type="radio" name="user_connect" class="radio__input" checked>
                       <span class="radio__check"></span>
                       <span class="radio__title">Телефон</span>
                     </label>
