@@ -245,3 +245,41 @@ if (!function_exists('get_multilevel_menu')) :
 		return $header_menu_items;
 	}
 endif;
+
+function get_breadcrumbs()
+{
+	ob_start();
+	$breadcrumbs = '';
+	if (function_exists('yoast_breadcrumb')) {
+		$breadcrumbs = yoast_breadcrumb('<ul class="breadcrumbs__list">', '</ul>', false);
+		$search  = [
+			'<span><a href',
+			'</a></span>',
+			'<span><span>',
+			'<span class="breadcrumb_last" aria-current="page"',
+			'</span></ul>',
+			'<span>',
+		];
+		$replace = [
+			'<li class="breadcrumbs__item><a  href',
+			' </a></li>',
+			'',
+			'<li class="breadcrumbs__item"',
+			'</ul>',
+			'</span>',
+		];
+		$breadcrumbs  = str_replace($search, $replace, $breadcrumbs);
+	}
+
+	// if (get_the_id()) {
+	// 	if (get_post_type(get_the_id()) == 'products') {
+	// 		$breadcrumbs  = str_replace('Главная', 'Главная </a></li><li class="breadcrumbs-list__element"><a href="' . get_the_permalink(77) . '">Каталог', $breadcrumbs);
+	// 	}
+	// }
+?>
+	<div class="breadcrumbs container">
+		<?php echo $breadcrumbs; ?>
+	</div>
+<?php
+	return ob_get_clean();
+}
