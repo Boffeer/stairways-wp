@@ -19,6 +19,7 @@ use Carbon_Fields\Field;
 
 */
 Container::make('post_meta', 'page_info', 'Страница')
+	->where('post_type', '!=', 'faq')
 	->add_fields(array(
 		Field::make('text', 'page_title', 'Заголовок для соцсетей')
 			->set_width(30),
@@ -71,6 +72,24 @@ Container::make('post_meta', 'home_info', 'Настройки главной')
 		          'post_type' => 'reviews',
 		        )
 		    ) )
+	))
+	->add_fields(array(
+		    Field::make( 'association', 'why_faq', __( 'ЧаВо в блоке с «Почему выбирают нас»' ) )
+			    ->set_types( array(
+		        array(
+		          'type'      => 'post',
+		          'post_type' => 'faq',
+		        )
+		    ) )
+	))
+	->add_fields(array(
+		    Field::make( 'association', 'home_faq', __( 'ЧаВо внизу страницы' ) )
+			    ->set_types( array(
+		        array(
+		          'type'      => 'post',
+		          'post_type' => 'faq',
+		        )
+		    ) )
 	));
 
 /*
@@ -94,6 +113,13 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 			      Field::make( 'text', 'title', __( 'Заголовок' ) ),
 			      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
 					))
+    )),
+    Field::make( 'association', 'stairs_faq', __( 'ЧаВо для этой лестницы' ) )
+	    ->set_types( array(
+        array(
+          'type'      => 'post',
+          'post_type' => 'faq',
+        )
     ))
 	));
 
@@ -180,4 +206,20 @@ Container::make('post_meta', 'video_info', 'О новости')
 	->where('post_type', '=', 'news')
 	->add_fields(array(
       Field::make( 'image', 'thumb', __( 'Обложка новости' ) ),
+	));
+
+/*
+	Faq
+*/
+Container::make('post_meta', 'faq', 'Ворпос и ответ')
+	->where('post_type', '=', 'faq')
+	->add_fields(array(
+      Field::make( 'image', 'thumb', __( 'Иконка вопроса' ) )
+      	->set_width(30)
+				->set_help_text('Не обязательна'),
+			Field::make('text', 'question', 'Вопрос')
+				->set_width(70)
+				->set_help_text('Этот текст вопроса отобразится на сайте'),
+			Field::make('textarea', 'answer', 'Ответ')
+				->set_help_text('Тест добавится с сохранением всех переносов строк, сделанных вручную нажатием энтера'),
 	));

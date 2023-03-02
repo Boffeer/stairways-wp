@@ -32,7 +32,7 @@
             $case_title = get_the_title();
         endif;
     ?>
-    <p class="projects-gallery-title">
+    <p class="projects-gallery-title js-get-content" data-content-get="cases" data-poppa-open="abouts">
         <?php echo $case_title; ?>
     </p>
     <?php $case_stats = explode_textarea_matrix(carbon_get_post_meta(get_the_ID(), 'stats')); ?>
@@ -49,7 +49,7 @@
         <?php endforeach; ?>
       </ul>
     <?php endif;?>
-    <button class="link link--underlined" data-poppa-open="abouts">
+    <button class="link link--underlined js-get-content" data-poppa-open="abouts" data-content-get="cases" type="button">
         <span class="link__text">Хочу так же</span>
     </button>
 </div>

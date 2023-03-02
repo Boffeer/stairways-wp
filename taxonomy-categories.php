@@ -17,9 +17,6 @@ get_header();
               <a href="/">Главная</a>
           </li>
           <li class="breadcrumbs__item">
-              <a href="">Лестницы</a>
-          </li>
-          <li class="breadcrumbs__item">
               На металлокаркасе
           </li>
       </ul>
@@ -27,12 +24,26 @@ get_header();
   <section class="catalog section-page-m">
       <div class="container">
 					<?php the_archive_title( '<h1 class="catalog-title section-title">', '</h1>' ); ?>
-					<?php if ( have_posts() ) : ?>
+					<?php
+
+					$stairs = new WP_Query( array(
+				    'post_type' => 'stairs',
+				    'post_status' => 'publish',
+						// 'numberposts' => -1,
+						'posts_per_page' => -1,
+						'tax_query' => array(
+							'field' => 'slug',
+							'terms'    => get_query_var('term'),
+							// 'operator' => 'IN'
+						),
+					) );
+					?>
+					<?php if ( $stairs->have_posts() ) : ?>
           <div class="catalog-items">
 						<?php
 						/* Start the Loop */
-						while ( have_posts() ) :
-							the_post();
+						while ( $stairs->have_posts() ) :
+							$stairs->the_post();
 
 							/*
 							 * Include the Post-Type-specific template for the content.
@@ -42,8 +53,9 @@ get_header();
 							get_template_part( 'template-parts/content-categories', get_post_type() );
 
 						endwhile;
+            wp_reset_postdata();
 
-						the_posts_navigation();
+						// the_posts_navigation();
 
 					else :
 
@@ -51,7 +63,7 @@ get_header();
 
 					endif;
 					?>
-					<?php if ( have_posts() ) : ?>
+					<?php if ( $stairs->have_posts() ) : ?>
 	          </div>
 	        <?php endif; ?> 
       </div>

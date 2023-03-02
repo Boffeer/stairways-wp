@@ -392,6 +392,10 @@
           </div>
       </section>
 
+      <?php
+        $why_faq = carbon_get_post_meta(get_the_ID(), 'why_faq');
+      ?>
+      <?php if (!empty($why_faq)) : ?>
       <section class="why section">
           <div class="container why__container">
               <div class="section-heading">
@@ -455,72 +459,22 @@
                       <div class="swiper-button-prev"></div>
                   </div>
                   <div class="why__faq">
-                      <article class="bayan accordion accordion--has-icon">
-                          <div class="accordion__head">
-                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-1.svg" alt="" class="accordion__icon">
-                              <h3 class="accordion__title">Почему мы так любим лестницы на металлическом каркасе?</h3>
-                          </div>
-                          <div class="accordion__body">
-                              <p class="accordion__desc">
-                                  Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                              </p>
-                          </div>
-                      </article>
-                      <article class="bayan accordion accordion--has-icon">
-                          <div class="accordion__head">
-                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-2.svg" alt="" class="accordion__icon">
-                              <h3 class="accordion__title">Почему мы красим свои лестницы только порошковыми красками на европейском оборудовании?</h3>
-                          </div>
-                          <div class="accordion__body">
-                              <p class="accordion__desc">
-                                  Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                              </p>
-                          </div>
-                      </article>
-                      <article class="bayan accordion accordion--has-icon">
-                          <div class="accordion__head">
-                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-3.svg" alt="" class="accordion__icon">
-                              <h3 class="accordion__title">Почему наши ступени такие долговечные?</h3>
-                          </div>
-                          <div class="accordion__body">
-                              <p class="accordion__desc">
-                                  Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                              </p>
-                          </div>
-                      </article>
-                      <article class="bayan accordion accordion--has-icon">
-                          <div class="accordion__head">
-                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-4.svg" alt="" class="accordion__icon">
-                              <h3 class="accordion__title">Почему наши лестницы совсем не скрипят?</h3>
-                          </div>
-                          <div class="accordion__body">
-                              <p class="accordion__desc">
-                                  Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                              </p>
-                          </div>
-                      </article>
-                      <article class="bayan accordion accordion--has-icon">
-                          <div class="accordion__head">
-                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-5.svg" alt="" class="accordion__icon">
-                              <h3 class="accordion__title">Почему наши лестницы собираются без сварки и резки?</h3>
-                          </div>
-                          <div class="accordion__body">
-                              <p class="accordion__desc">
-                                  Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                              </p>
-                          </div>
-                      </article>
-                      <article class="bayan accordion accordion--has-icon">
-                          <div class="accordion__head">
-                              <img src="<?php echo THEME_STATIC; ?>/img/why/i-why-6.svg" alt="" class="accordion__icon">
-                              <h3 class="accordion__title">Серьезно? Их можно собрать самостоятельно?</h3>
-                          </div>
-                          <div class="accordion__body">
-                              <p class="accordion__desc">
-                                  Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                              </p>
-                          </div>
-                      </article>
+                      <?php
+                        $why_faq_ids = array();
+                        foreach ($why_faq as $faq) :
+                          $why_faq_ids[] = $faq['id'];
+                        endforeach;
+                        $why_faq = new WP_Query(array(
+                            'post_type' => 'faq',
+                            'post_status' => 'publish',
+                            'post__in' => $why_faq_ids,
+                        ));
+                      ?>
+                      <?php while ($why_faq->have_posts()) : ?>
+                        <?php $why_faq->the_post(); ?>
+                        <?php get_template_part( 'template-parts/content-faq', get_post_type() ); ?>
+                      <?php endwhile; ?>
+                      <?php wp_reset_postdata(); ?>
                   </div>
               </div>
               <div class="why__numbers numbers-about">
@@ -539,6 +493,7 @@
               </div>
           </div>
       </section>
+      <?php endif; ?>
 
       <section class="shifter">
           <div class="container shifter__container">
@@ -917,113 +872,35 @@
       </section>
       <?php endif;?>
 
+      <?php
+        $home_faq_items = carbon_get_post_meta(get_the_ID(), 'home_faq');
+      ?>
+      <?php if (!empty($home_faq_items)) : ?>
       <section class="faq">
           <div class="container faq__container">
               <h2 class="section-title faq__title">Отвечаем на ваши вопросы</h2>
               <div class="faq__cards">
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">Можно ли рассчитать точную стоимость лестницы без выезда замерщика?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">Из чего складывается стоимость лестницы?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">Когда лучше заказывать лестницу? Какие сроки изготовления?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">На каком этапе проводить монтаж лестницы?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">Я хочу возместить НДФЛ 13% и мне нужен кассовый чек. Дадите?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">Как мне убедиться, что я получу именно то, что я заказываю?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">Что делать, если монтажники проведут работу некачественно?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">Какие гарантии вы прописываете в договоре?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
-                  <article class="bayan accordion">
-                    <div class="accordion__head">
-                      <h3 class="accordion__title">Конкуренты продают дешевле. Сделаете скидку?</h3>
-                    </div>
-                    <div class="accordion__body">
-                      <p class="accordion__desc">
-                        Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                      </p>
-                    </div>
-                  </article>
-
+                  <?php
+                    $home_faq_ids = array();
+                    foreach ($home_faq_items as $faq) :
+                      $home_faq_ids[] = $faq['id'];
+                    endforeach;
+                    $home_faq = new WP_Query(array(
+                        'post_type' => 'faq',
+                        'post_status' => 'publish',
+                        'post__in' => $home_faq_ids,
+                    ));
+                  ?>
+                  <?php while ($home_faq->have_posts()) : ?>
+                    <?php $home_faq->the_post(); ?>
+                    <?php get_template_part( 'template-parts/content-faq', get_post_type() ); ?>
+                  <?php endwhile; ?>
+                  <?php wp_reset_postdata(); ?>
               </div>
-              <button class="button button--primary button--primary-white button--wide faq__button">Показать еще</button>
+              <!-- <button class="button button--primary button--primary-white button--wide faq__button">Показать еще</button> -->
           </div>
       </section>
+      <?php endif; ?>
 
       <section class="shifter shifter-bottom section">
           <div class="container shifter__container">

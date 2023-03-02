@@ -80,6 +80,7 @@
   pointer-events: none;
 }
 .row-filters__select--has-label .choices__inner .select__item {
+  white-space: nowrap;
   @media (max-width: 1023px) {
     max-width: 50px;
     opacity: 0;

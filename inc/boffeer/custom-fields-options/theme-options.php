@@ -23,7 +23,7 @@ $basic_options_container = Container::make('theme_options', 'theme_header_settin
 	));
 
 // Add second options page under 'Basic Options'
-Container::make('theme_options', 'theme_options', 'Контакты')
+Container::make('theme_options', 'theme_options', 'Настройки')
 	->set_page_parent($basic_options_container) // reference to a top level container
 	->add_tab('Ссылки', array(
 		Field::make('text', 'viber_url', 'Viber')
@@ -65,4 +65,20 @@ Container::make('theme_options', 'theme_options', 'Контакты')
 		      Field::make( 'text', 'messenger_phone', __( 'Телефон мессенджеров' ) ),
 				))
     ))
+	))
+	->add_tab('Базовые настройки страницы товара', array(
+    Field::make( 'association', 'order_conditions', __( 'Условия заказа' ))
+	    ->set_types(array(
+        array(
+          'type'      => 'post',
+          'post_type' => 'faq',
+        )
+    )),
+    Field::make( 'association', 'base_product_faq', __( 'ЧаВо' ))
+	    ->set_types(array(
+        array(
+          'type'      => 'post',
+          'post_type' => 'faq',
+        )
+    )),
 	));

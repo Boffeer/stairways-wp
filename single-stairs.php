@@ -111,58 +111,35 @@
                     <a href="#section-product-consult" class="button button--primary-white product-page-btn__button">получить консультацию</a>
                 </div>
             </div>
-            <div class="product-page__accordions accordions">
-                <header class="accordions__header">
-                    <h2 class="accordions__title">Условия заказа</h2>
-                </header>
-                <div class="accordions__body">
-                    <article class="bayan accordion accordion--has-icon">
-                        <div class="accordion__head">
-                            <img src="<?php echo THEME_STATIC; ?>/img/product/product-bullets/product-bullet-1.svg" alt="" class="accordion__icon">
-                            <h3 class="accordion__title">Производство лестницы в Пензе</h3>
-                        </div>
-                        <div class="accordion__body">
-                            <p class="accordion__desc">
-                                Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                            </p>
-                        </div>
-                    </article>
+            <?php
+                $order_conditions = carbon_get_theme_option('order_conditions'); 
+            ?>
+            <?php if (!empty($order_conditions)) : ?>
+                <div class="product-page__accordions accordions">
+                    <header class="accordions__header">
+                        <h2 class="accordions__title">Условия заказа</h2>
+                    </header>
+                    <div class="accordions__body">
+                    <?php
+                        $order_conditions_ids = array();
+                        foreach ($order_conditions as $faq) :
+                            $order_conditions_ids[] = $faq['id'];
+                        endforeach;
 
-                    <article class="bayan accordion accordion--has-icon">
-                        <div class="accordion__head">
-                            <img src="<?php echo THEME_STATIC; ?>/img/product/product-bullets/product-bullet-2.svg" alt="" class="accordion__icon">
-                            <h3 class="accordion__title">Доставка в Москву</h3>
-                        </div>
-                        <div class="accordion__body">
-                            <p class="accordion__desc">
-                                Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                            </p>
-                        </div>
-                    </article>
-                    <article class="bayan accordion accordion--has-icon">
-                        <header class="accordion__head">
-                            <img src="<?php echo THEME_STATIC; ?>/img/product/product-bullets/product-bullet-3.svg" alt="" class="accordion__icon">
-                            <h3 class="accordion__title">Монтаж</h3>
-                        </header>
-                        <div class="accordion__body">
-                            <p class="accordion__desc">
-                                Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                            </p>
-                        </div>
-                    </article>
-                    <article class="bayan accordion accordion--has-icon">
-                        <header class="accordion__head">
-                            <img src="<?php echo THEME_STATIC; ?>/img/product/product-bullets/product-bullet-4.svg" alt="" class="accordion__icon">
-                            <h3 class="accordion__title">Наши представители в Москве</h3>
-                        </header>
-                        <div class="accordion__body">
-                            <p class="accordion__desc">
-                                Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-                            </p>
-                        </div>
-                    </article>
+                        $order_conditions_faq = new WP_Query(array(
+                            'post_type' => 'faq',
+                            'post_status' => 'publish',
+                            'post__in' => $order_conditions_ids,
+                        ));
+                      ?>
+                      <?php while ($order_conditions_faq->have_posts()) : ?>
+                        <?php $order_conditions_faq->the_post(); ?>
+                            <?php get_template_part( 'template-parts/content-faq', get_post_type() ); ?>
+                      <?php endwhile; ?>
+                      <?php wp_reset_postdata(); ?>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -311,71 +288,35 @@
         </div>
     </div>
 </section>
+<?php $base_product_faq = carbon_get_theme_option('base_product_faq'); ?>
+<?php if (!empty($base_product_faq)):?>
 <section class="faq section">
     <div class="container faq__container">
         <h2 class="section-title faq__title">Отвечаем на ваши вопросы</h2>
         <div class="faq__cards">
-         <div>
-         	<article class="bayan accordion">
-					  <div class="accordion__head">
-					    <h3 class="accordion__title">В чем отличие монокосоура от ломаного косоура и тетивы? Какой каркас лучше выбрать?</h3>
-					  </div>
-					  <div class="accordion__body">
-					    <p class="accordion__desc">
-					      Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-					    </p>
-					  </div>
-					</article>
-				 </div>
-            <div> <article class="bayan accordion">
-			  <div class="accordion__head">
-			    <h3 class="accordion__title">Какой угол подъема марша рекомендуется для удобства эксплуатации лестницы?</h3>
-			  </div>
-			  <div class="accordion__body">
-			    <p class="accordion__desc">
-			      Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-			    </p>
-			  </div>
-			</article>
-			 </div>
-			                        <div><article class="bayan accordion">
-			  <div class="accordion__head">
-			    <h3 class="accordion__title">Вы делаете каркас в форме монокосоура только из металла?</h3>
-			  </div>
-			  <div class="accordion__body">
-			    <p class="accordion__desc">
-			      Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-			    </p>
-			  </div>
-			</article>
-			</div>
-			                        <div><article class="bayan accordion">
-			  <div class="accordion__head">
-			    <h3 class="accordion__title">Какие разновидности у монокосоура?</h3>
-			  </div>
-			  <div class="accordion__body">
-			    <p class="accordion__desc">
-			      Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-			    </p>
-			  </div>
-			</article>
-			</div>
-			                        <div><article class="bayan accordion">
-			  <div class="accordion__head">
-			    <h3 class="accordion__title">Как справиться с монтажом самостоятельно?</h3>
-			  </div>
-			  <div class="accordion__body">
-			    <p class="accordion__desc">
-			      Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Quae dicta a accusamus dolorum itaque quod odio, illo adipisci asperiores laborioksam cumque minima sed fugiat harum distinctio corporis nesciunt reprehenderit pariatur?
-			    </p>
-			  </div>
-			</article>
-			</div>
+          <?php
+            $base_product_faq_ids = array();
+            foreach ($base_product_faq as $faq) :
+                $base_product_faq_ids[] = $faq['id'];
+            endforeach;
 
+            $base_product_faq = new WP_Query(array(
+                'post_type' => 'faq',
+                'post_status' => 'publish',
+                'post__in' => $base_product_faq_ids,
+            ));
+          ?>
+          <?php while ($base_product_faq->have_posts()) : ?>
+            <?php $base_product_faq->the_post(); ?>
+                <div>
+                    <?php get_template_part( 'template-parts/content-faq', get_post_type() ); ?>
+                <div>
+          <?php endwhile; ?>
+          <?php wp_reset_postdata(); ?>
         </div>
-
     </div>
 </section>
+<?php endif; ?>
 <section id="section-product-consult" class="shifter shifter-bottom">
     <div class="container shifter__container">
         <div class="shifter__card">

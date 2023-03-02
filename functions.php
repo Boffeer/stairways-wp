@@ -167,3 +167,4 @@ require get_template_directory() . '/inc/boffeer/functions.php';
  */
 require get_template_directory() . '/inc/stairs-functions.php';
 require get_template_directory() . '/inc/categories-functions.php';
+require get_template_directory() . '/inc/cases-functions.php';
