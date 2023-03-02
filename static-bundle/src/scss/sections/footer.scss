@@ -109,6 +109,15 @@
         font-family: 'OpenSans';
         margin-bottom: 42px;
     }
+    @media (max-width:1600px) {
+        &:first-child {
+            font-size: 1.2rem;
+            margin-bottom: 1em;
+        }
+        &:not(:last-child) {
+            margin-bottom: 0.8em;
+        }
+    }
     @media (max-width:1300px) {
         font-size: 12px;
         &:not(:last-child) {

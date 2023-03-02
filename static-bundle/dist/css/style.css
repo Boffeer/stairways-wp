@@ -12969,6 +12969,15 @@ select {
   font-family: "OpenSans";
   margin-bottom: 42px;
 }
+@media (max-width: 1600px) {
+  .footer-nav__item:first-child {
+    font-size: 1.2rem;
+    margin-bottom: 1em;
+  }
+  .footer-nav__item:not(:last-child) {
+    margin-bottom: 0.8em;
+  }
+}
 @media (max-width: 1300px) {
   .footer-nav__item {
     font-size: 12px;

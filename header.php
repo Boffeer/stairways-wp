@@ -111,14 +111,14 @@
                             </div>
                         </li>
                         <?php
-                            $clients_pages_menu_id = 10; 
+                            $clients_pages_menu_id = get_nav_menu_locations()['clients']; 
                             $header_menu = wp_get_nav_menu_items($clients_pages_menu_id);
                         ?>
-                        <?php foreach ($header_menu as $nav) : ?>
+                        <?php if (is_array($header_menu)) : foreach ($header_menu as $nav) : ?>
                             <li class="header__nav-item">
                                 <a href="<?php echo $nav->url;?>" class="header__nav-link <?php echo $nav->object_id == get_the_ID() ? 'header__nav-link--current' : ''?>"><?php echo $nav->title; ?></a>
                             </li>
-                        <?php endforeach; ?>
+                        <?php endforeach; endif; ?>
                     </ul>
                 </nav>
                 <div class="header__contacts">
@@ -208,39 +208,45 @@
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </ul>
-                    <ul class="header__nav-list">
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-link">Наши работы</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="#" class="header__nav-link">Отзывы</a>
-                        </li>
-                        <li class="header__nav-item header__nav-item-dropdown">
-                            <a href="#" class="header__nav-link header__nav-link-dropdown">О компании</a>
-                        <!--<span class="button-more">
-                                <span class="button-more__dot"></span>
-                                <span class="button-more__dot"></span>
-                                <span class="button-more__dot"></span>
-                            </span> -->                        
-                        </li>
-                    </ul>
-                    <?php /* Убирает временно меню
-                    <ul class="header__nav-list__dropdown-block">
-                        <li class="header__nav-list__dropdown-element">
-                            <a class="header__nav-list__dropdown-link" href="">Производство</a>
-                        </li>
-                        <li class="header__nav-list__dropdown-element _active">
-                            <a class="header__nav-list__dropdown-link" href="">Статьи</a>
-                        </li>
-                        <li class="header__nav-list__dropdown-element">
-                            <a class="header__nav-list__dropdown-link" href="">Вакансии</a>
-                        </li>
-                        <li class="header__nav-list__dropdown-element">
-                            <a class="header__nav-list__dropdown-link" href="">Контакты</a>
-                        </li>
-                    </ul>
-                    */
+
+                    <?php
+                        $about_menu_id = get_nav_menu_locations()['about']; 
+                        $header_about_menu = wp_get_nav_menu_items($about_menu_id);
                     ?>
+                    <?php if (is_array($header_about_menu)) : if (!empty($header_about_menu)) : ?>
+                        <ul class="header__nav-list">
+                            <?php foreach ($header_about_menu as $nav) : ?>
+                                <li class="header__nav-item">
+                                    <a href="<?php echo $nav->url;?>" class="header__nav-link"><?php echo $nav->title; ?></a>
+                                    <?php /*
+                                    <a href="#" class="header__nav-link header__nav-link-dropdown">О компании</a>
+                                    <span class="button-more">
+                                        <span class="button-more__dot"></span>
+                                        <span class="button-more__dot"></span>
+                                        <span class="button-more__dot"></span>
+                                    </span>
+                                    */ ?>
+                                    <?php /* Убирает временно меню
+                                    <ul class="header__nav-list__dropdown-block">
+                                        <li class="header__nav-list__dropdown-element">
+                                            <a class="header__nav-list__dropdown-link" href="">Производство</a>
+                                        </li>
+                                        <li class="header__nav-list__dropdown-element _active">
+                                            <a class="header__nav-list__dropdown-link" href="">Статьи</a>
+                                        </li>
+                                        <li class="header__nav-list__dropdown-element">
+                                            <a class="header__nav-list__dropdown-link" href="">Вакансии</a>
+                                        </li>
+                                        <li class="header__nav-list__dropdown-element">
+                                            <a class="header__nav-list__dropdown-link" href="">Контакты</a>
+                                        </li>
+                                    </ul>
+                                    */
+                                    ?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; endif; ?>
                 </nav>
             </div>
             <div class="header_mobile_menu" data-parent-block>
@@ -250,7 +256,6 @@
                             <path d="M6 4.66688L10.6669 0L12 1.33312L7.33312 6L12 10.6669L10.6669 12L6 7.33312L1.33312 12L0 10.6669L4.66688 6L0 1.33312L1.33312 0L6 4.66688Z" fill="#2B3B50"/>
                         </svg>                            
                     </button>
-                    <!-- <img class="header_mobile_menu__logo" src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt=""> -->
                     <a href="<?php echo get_home_link(); ?>" class="logo header__logo header_mobile_menu__logo">
                         <picture class="logo__pic">
                             <img src="<?php echo THEME_STATIC; ?>/img/common/logo.svg" alt="Первя ступень" class="logo__img">

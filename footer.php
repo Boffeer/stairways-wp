@@ -28,46 +28,47 @@
                 <nav class="footer-nav">
                     <ul class="footer-nav__list">
                         <?php
-                            $clients_menu_id = 10; 
-                            $footer_menu = wp_get_nav_menu_items($clients_menu_id);
+                            $clients_menu_id = get_nav_menu_locations()['clients']; 
+                            $footer_clients_menu = wp_get_nav_menu_items($clients_menu_id);
                         ?>
                         <li class="footer-nav__item"><?php echo wp_get_nav_menu_object($clients_menu_id)->name; ?></li>
-                        <?php foreach ($footer_menu as $nav) : ?>
+                        <?php foreach ($footer_clients_menu as $nav) : ?>
                             <li class="footer-nav__item">
                                 <a href="<?php echo $nav->url;?>" class="footer-nav__link <?php echo $nav->object_id == get_the_ID() ? 'footer-nav__link--current' : ''?>"><?php echo $nav->title; ?></a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
+                    
+                    <?php
+                        $products_menu_id = get_nav_menu_locations()['products']; 
+                        $footer_products_menu = wp_get_nav_menu_items($products_menu_id);
+                    ?>
+                    <?php if (is_array($footer_products_menu)) : if (!empty($footer_products_menu)) : ?>
                     <ul class="footer-nav__list">
-                        <li class="footer-nav__item">Лестницы</li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Каталог лестниц</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Наши работы</a>
-                        </li>
+                        <li class="footer-nav__item"><?php echo wp_get_nav_menu_object($products_menu_id)->name; ?></li>
+                        <?php foreach ($footer_products_menu as $nav) : ?>
+                            <li class="footer-nav__item">
+                                <a href="<?php echo $nav->url;?>" class="footer-nav__link"><?php echo $nav->title; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
+                    <?php endif; endif;?>
+
+                    <?php
+                        $about_menu_id = get_nav_menu_locations()['about']; 
+                        $footer_about_menu = wp_get_nav_menu_items($about_menu_id);
+                    ?>
+                    <?php if (is_array($footer_about_menu)) : if (!empty($footer_about_menu)) : ?>
                     <ul class="footer-nav__list">
-                        <li class="footer-nav__item">О компании</li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">О нас</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Производство</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Статьи</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Видео</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Вакансии</a>
-                        </li>
-                        <li class="footer-nav__item">
-                            <a href="#" class="footer-nav__link">Контакты</a>
-                        </li>
+                        <li class="footer-nav__item"><?php echo wp_get_nav_menu_object($about_menu_id)->name; ?></li>
+                        <?php foreach ($footer_about_menu as $nav) : ?>
+                            <li class="footer-nav__item">
+                                <a href="<?php echo $nav->url;?>" class="footer-nav__link"><?php echo $nav->title; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
+                    <?php endif; endif; ?>
+
                 </nav>
                 <div class="footer__socials">
                     <div class="footer__socials-buttons">
