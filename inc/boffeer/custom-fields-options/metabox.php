@@ -74,13 +74,14 @@ Container::make('post_meta', 'home_info', 'Настройки главной')
 		    ) )
 	))
 	->add_fields(array(
-		    Field::make( 'association', 'why_faq', __( 'ЧаВо в блоке с «Почему выбирают нас»' ) )
+		    Field::make( 'media_gallery', 'why_gallery', __( 'Картинки в блоке с «Почему выбирают нас»' ) ),
+		    Field::make( 'association', 'why_faq', __( 'ЧаВо в блоке «Почему выбирают нас»' ) )
 			    ->set_types( array(
 		        array(
 		          'type'      => 'post',
 		          'post_type' => 'faq',
 		        )
-		    ) )
+		    ) ),
 	))
 	->add_fields(array(
 		    Field::make( 'association', 'home_faq', __( 'ЧаВо внизу страницы' ) )

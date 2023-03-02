@@ -32,6 +32,7 @@
                   'taxonomy' => 'categories',
                   'hide_empty'    => false,
                   'include' => $hero_categories_ids,
+                  'orderby' => 'include',
               ));
             ?>
             <div class="hero-categories__gallery">
@@ -392,16 +393,12 @@
           </div>
       </section>
 
-      <?php
-        $why_faq = carbon_get_post_meta(get_the_ID(), 'why_faq');
-      ?>
-      <?php if (!empty($why_faq)) : ?>
       <section class="why section">
           <div class="container why__container">
               <div class="section-heading">
                   <h2 class="why__title section-title">Почему выбирают лестницы «Первая ступень»? </h2>
                   <div class="section-heading__links">
-                      <a href="" class="link link--underlined"><span class="link__text offer__link--text">О нашем производстве</span></a>
+                      <!-- <a href="" class="link link--underlined"><span class="link__text offer__link--text">О нашем производстве</span></a> -->
                   </div>
               </div>
               <p class="section__desc why__desc">
@@ -410,72 +407,73 @@
                   <br> мы уверенно несем ответственность за свою работу и даем честные гарантии.
               </p>
               <div class="why__content">
-                  <div class="why__content-slider">
-                      <div class="why__content-top">
-                          <div class="swiper why-carousel-top why-gallery">
-                              <div class="swiper-wrapper">
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                              </div>
-                              <div class="swiper-pagination why-pagination"></div>
-                          </div>
-                      </div>
-                      <div class="why__content-bottom">
-                          <div class="swiper why-carousel-bottom why-gallery">
-                              <div class="swiper-wrapper">
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                                  <div class="swiper-slide why-slide">
-                                      <picture class="why__pic"><img src="<?php echo THEME_STATIC; ?>/img/why/why-1.jpg" alt="" class="why__img"></picture>
-                                  </div>
-                              </div>
-                              <div class="swiper-pagination why-pagination"></div>
-                          </div>
-                      </div>
-                      <div class="swiper-button-next"></div>
-                      <div class="swiper-button-prev"></div>
-                  </div>
-                  <div class="why__faq">
-                      <?php
-                        $why_faq_ids = array();
-                        foreach ($why_faq as $faq) :
-                          $why_faq_ids[] = $faq['id'];
-                        endforeach;
-                        $why_faq = new WP_Query(array(
-                            'post_type' => 'faq',
-                            'post_status' => 'publish',
-                            'post__in' => $why_faq_ids,
-                        ));
-                      ?>
-                      <?php while ($why_faq->have_posts()) : ?>
-                        <?php $why_faq->the_post(); ?>
-                        <?php get_template_part( 'template-parts/content-faq', get_post_type() ); ?>
-                      <?php endwhile; ?>
-                      <?php wp_reset_postdata(); ?>
-                  </div>
+                  <?php $why_slides = carbon_get_post_meta(get_the_ID(), 'why_gallery'); ?>
+                  <?php if (!empty($why_slides)) : ?>
+                    <div class="why__content-slider">
+                        <div class="why__content-top">
+                            <div class="swiper why-carousel-top why-gallery">
+                                <div class="swiper-wrapper">
+                                  <?php foreach ($why_slides as $slide_position => $slide_id) : ?>
+                                    <div class="swiper-slide why-slide">
+                                        <picture class="why__pic">
+                                          <img
+                                            class="why__img"
+                                            src="<?php echo boffeer_get_image_url_by_id($slide_id); ?>"
+                                            alt="Фото <?php echo $slide_position; ?>"
+                                          >
+                                        </picture>
+                                    </div>
+                                  <?php endforeach; ?>
+                                </div>
+                                <div class="swiper-pagination why-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="why__content-bottom">
+                            <div class="swiper why-carousel-bottom why-gallery">
+                                <div class="swiper-wrapper">
+                                  <?php foreach ($why_slides as $thumb_position => $thumb_id) : ?>
+                                    <div class="swiper-slide why-slide">
+                                        <picture class="why__pic">
+                                          <img
+                                            class="why__img"
+                                            src="<?php echo boffeer_get_image_url_by_id($thumb_id); ?>"
+                                            alt="Фото <?php echo $thumb_position; ?>"
+                                          >
+                                        </picture>
+                                    </div>
+                                  <?php endforeach; ?>
+                                </div>
+                                <div class="swiper-pagination why-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                  <?php endif; ?>
+
+                  <?php $why_faq = carbon_get_post_meta(get_the_ID(), 'why_faq'); ?>
+                  <?php if (!empty($why_faq)) : ?>
+                    <div class="why__faq">
+                        <?php
+                          $why_faq_ids = array();
+                          foreach ($why_faq as $faq) :
+                            $why_faq_ids[] = $faq['id'];
+                          endforeach;
+                          $why_faq = new WP_Query(array(
+                              'post_type' => 'faq',
+                              'post_status' => 'publish',
+                              'post__in' => $why_faq_ids,
+                              'orderby' => 'post__in',
+                          ));
+                        ?>
+                        <?php while ($why_faq->have_posts()) : ?>
+                          <?php $why_faq->the_post(); ?>
+                          <?php get_template_part( 'template-parts/content-faq', get_post_type() ); ?>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    </div>
+                  <?php endif; ?>
+
               </div>
               <div class="why__numbers numbers-about">
                   <div class="numbers-about-card">
@@ -493,7 +491,6 @@
               </div>
           </div>
       </section>
-      <?php endif; ?>
 
       <section class="shifter">
           <div class="container shifter__container">
@@ -604,9 +601,9 @@
                       <div class="tabs-7p__more">
                           <?php
                             $categories = get_terms(array(
-                                'orderby' => 'none',
-                                'taxonomy' => 'categories',
-                                'hide_empty'    => false,
+                                'orderby'    => 'none',
+                                'taxonomy'   => 'categories',
+                                'hide_empty' => true,
                             ));
                           ?>
                           <button class="tabs__toggler tabs-7p__more-button" title="">
@@ -889,6 +886,7 @@
                         'post_type' => 'faq',
                         'post_status' => 'publish',
                         'post__in' => $home_faq_ids,
+                        'orderby' => 'post__in',
                     ));
                   ?>
                   <?php while ($home_faq->have_posts()) : ?>

@@ -130,6 +130,7 @@
                             'post_type' => 'faq',
                             'post_status' => 'publish',
                             'post__in' => $order_conditions_ids,
+                            'orderby' => 'post__in',
                         ));
                       ?>
                       <?php while ($order_conditions_faq->have_posts()) : ?>
@@ -304,6 +305,7 @@
                 'post_type' => 'faq',
                 'post_status' => 'publish',
                 'post__in' => $base_product_faq_ids,
+                'orderby' => 'post__in',
             ));
           ?>
           <?php while ($base_product_faq->have_posts()) : ?>
