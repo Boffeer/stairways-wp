@@ -3,19 +3,49 @@
 /*
 	@params $categories_ids array
  */
-function get_filtered_cases($categories_ids = 0) {
-	// $cases = new WP_Query( array(
-  //   'post_type' => 'cases',
-  //   'post_status' => 'publish',
-	// 	'numberposts' => 5,
-	// 	'tax_query' => array(
-	// 		'field' => 'term_id',
-	// 		'terms'    => $categories_ids,
-	// 		'operator' => 'IN'
-	// 	),
-	// ) );
-	// return $cases;
+
+add_action( 'wp_ajax_get_filtered_cases', 'get_filtered_cases' );
+add_action( 'wp_ajax_nopriv_get_filtered_cases', 'get_filtered_cases' );
+
+function get_filtered_cases() {
+	$categories_ids = json_decode(stripslashes($_POST['categories']));
+
+	$filtered_cases;
+
+	if (in_array(-1, $categories_ids)) {
+		$filtered_cases = new WP_Query( array(
+	    'post_type' => 'cases',
+	    'post_status' => 'publish',
+	    'posts_per_page' => '-1',
+		));
+	} else {
+		$filtered_cases = new WP_Query( array(
+	    'post_type' => 'cases',
+	    'post_status' => 'publish',
+	    'posts_per_page' => '-1',
+			'tax_query' => array(
+				array(
+	       'relation' => 'OR',
+	        [
+	            'taxonomy' => 'categories',
+	            'field' => 'tag_id',
+	            'terms' => $categories_ids,
+	        ],
+				),
+			),
+		));
+	}
+
+	$cases = array();
+	while ($filtered_cases->have_posts()) :
+		$filtered_cases->the_post();
+		ob_start();
+		get_template_part( 'template-parts/content-cases', get_post_type() );
+	endwhile;
+	echo ob_get_clean();
+	wp_die();
 }
+
 function get_case_stats($id) {
   $case_stats = explode_textarea_matrix(carbon_get_post_meta($id, 'stats'));
   if ($case_stats[0] != '') : ob_start(); ?>

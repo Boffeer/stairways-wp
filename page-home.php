@@ -603,11 +603,13 @@
               <h2 class="section-title projects__title">Наши новые проекты</h2>
               <div class="tabs">
                   <div class="tabs-7p">
-                    <div class="tabs-7p__industries tabs-7p__industries--clickable filters-7p">
+                    <form class="tabs-7p__industries tabs-7p__industries--clickable filters-7p"
+                          action="<?php echo admin_url( 'admin-ajax.php' );?>"
+                    >
                       <div class="filters-7p__scrollarea">
                         <div class="filters-7p__track">
                           <label class="tabs-7p-tab tabs-7p-tab--total">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input">
+                              <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1">
                               <span class="tabs-7p-tab__text">Все</span>
                           </label>
                         </div>
@@ -620,7 +622,7 @@
                                 'hide_empty' => true,
                             ));
                           ?>
-                          <button class="tabs__toggler tabs-7p__more-button" title="">
+                          <button class="tabs__toggler tabs-7p__more-button" title="" type="button">
                               Все категории
                               <span class="button-more__dot"></span>
                               <span class="button-more__dot"></span>
@@ -629,15 +631,15 @@
                           <div class="tabs-7p__industries-dropdown">
                             <?php foreach ($categories as $category) : ?>
                               <label class="tabs-7p-tab">
-                                <input type="checkbox" name="filter" class="tabs-7p-tab__input" id="<?php echo $category->term_id; ?>">
+                                <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="<?php echo $category->term_id; ?>">
                                 <span class="tabs-7p-tab__text"><?php echo $category->name; ?></span>
                               </label>
                             <?php endforeach; ?>
                           </div>
                       </div>
-                    </div>
+                    </form>
                   </div>
-                  <div class="tabs__page-container" data-tabs="projects">
+                  <div class="tabs__page-container tabs-7p__content" data-tabs="projects">
                       <div class="tabs__page">
                           
                           <div class="projects-top">

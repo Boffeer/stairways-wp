@@ -101,3 +101,49 @@ if ([...filterButtons].length > 0) {
     }
   });
 }
+
+const AJAX_ADMIN_URL = stairways.ajaxUrl
+const casesFilters = document.querySelectorAll('.tabs-7p');
+casesFilters.forEach(filter => {
+  const filterForm = filter.querySelector('form');
+  const gallery = filter.parentElement.querySelector('.projects-gallery').querySelector('.swiper-wrapper');
+  const checkboxes = filterForm.querySelectorAll('input[type="checkbox"]');
+
+  if (!filterForm || !gallery) return;
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', async (e) => {
+      e.preventDefault();
+      gallery.classList.add('gallery--wait')
+      const checked = filterForm.querySelectorAll('input:checked');
+      let categoriesIds = [];
+      checked.forEach(checkbox => {
+        categoriesIds.push(checkbox.value);
+      })
+      categoriesIds = JSON.stringify(categoriesIds);
+
+      const formData = new FormData();
+      formData.append('action', 'get_filtered_cases');
+      formData.append('categories', categoriesIds);
+      const caseObject = await fetch(AJAX_ADMIN_URL, {
+        method: "POST",
+        body: formData,
+      });
+      let result = await caseObject.text();
+
+
+      const cases = gallery.querySelectorAll('.projects-gallery-slide')
+      cases.forEach((caseItem) => {
+        caseItem.remove();
+      })
+      gallery.innerHTML = result;
+      window.initFormNameButtons();
+      window.initCaseButtons();
+      window.poppa.initButtons();
+      const carousel = filter.parentElement.querySelector('.projects-gallery-carousel ');
+      carousel.swiper.update();
+      carousel.swiper.updateProgress();
+      gallery.classList.remove('gallery--wait');
+    })
+  })
+})
