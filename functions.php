@@ -130,6 +130,11 @@ function stairways_widgets_init() {
 function stairways_scripts() {
 	wp_enqueue_style( 'stairways-style', THEME_STATIC . "/css/style.css", array(), _S_VERSION );
 	wp_enqueue_script( 'stairways-scripts', THEME_STATIC . '/js/index.js', array(), _S_VERSION, true );
+
+  $data = [
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+	];
+	wp_add_inline_script( 'stairways-scripts', 'const stairways = ' . wp_json_encode( $data ), 'before' );
 }
 add_action( 'wp_enqueue_scripts', 'stairways_scripts' );
 

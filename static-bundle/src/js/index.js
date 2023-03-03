@@ -23,6 +23,7 @@ import "./components/contacts_map.js";
 import "./components/product-page.js";
 import "./components/swiper_thumbs.js";
 import "./components/delivery.js";
+import "./components/cases.js";
 
 import "./unstable/inputster/input-tel-mask.js";
 

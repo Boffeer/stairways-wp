@@ -32,24 +32,19 @@
             $case_title = get_the_title();
         endif;
     ?>
-    <p class="projects-gallery-title js-get-content" data-content-get="cases" data-poppa-open="abouts">
+    <p class="projects-gallery-title js-button__get-content"
+        data-content-get="cases"
+        data-case-id="<?php the_ID(); ?>"
+        >
         <?php echo $case_title; ?>
     </p>
-    <?php $case_stats = explode_textarea_matrix(carbon_get_post_meta(get_the_ID(), 'stats')); ?>
-    <?php if ($case_stats[0] != '') : ?>
-        <ul class="projects-gallery-list">
-        <?php foreach($case_stats as $stat) : ?>
-            <?php $current_stat = boffeer_explode_textarea($stat); ?>
-            <?php if (isset($current_stat[0]) || isset($current_stat[1])) : ?>
-                <li class="projects-gallery-list-element">
-                    <?php echo $current_stat[0]; ?>
-                    <p><?php echo isset($current_stat[1]) ? $current_stat[1] : ''; ?></p>
-                </li>
-            <?php endif; ?>
-        <?php endforeach; ?>
-      </ul>
-    <?php endif;?>
-    <button class="link link--underlined js-get-content" data-poppa-open="abouts" data-content-get="cases" type="button">
+    <?php echo get_case_stats(get_the_ID()); ?>
+    <button
+        class="link link--underlined js-button__formname"
+        data-poppa-open="form-callback"
+        data-form="#form-callback .form-callback"
+        data-form-name="Хочу также: Кейс «<?php echo $case_title; ?>»"
+        type="button">
         <span class="link__text">Хочу так же</span>
     </button>
 </div>

@@ -16,3 +16,52 @@ function get_filtered_cases($categories_ids = 0) {
 	// ) );
 	// return $cases;
 }
+function get_case_stats($id) {
+  $case_stats = explode_textarea_matrix(carbon_get_post_meta($id, 'stats'));
+  if ($case_stats[0] != '') : ob_start(); ?>
+      <ul class="projects-gallery-list">
+      <?php foreach($case_stats as $stat) :
+          $current_stat = boffeer_explode_textarea($stat);
+          if (isset($current_stat[0]) || isset($current_stat[1])) : ?>
+              <li class="projects-gallery-list-element">
+                  <?php echo $current_stat[0]; ?>
+                  <p><?php echo isset($current_stat[1]) ? $current_stat[1] : ''; ?></p>
+              </li>
+          <?php endif; ?>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
+<?php 
+	return ob_get_clean();
+	wp_die();
+}
+
+add_action( 'wp_ajax_get_case', 'get_case' );
+add_action( 'wp_ajax_nopriv_get_case', 'get_case' );
+function get_case() {
+	$id = $_POST['id'];
+
+	$gallery = array();
+	foreach (carbon_get_post_meta($id, "gallery") as $key => $img) {
+		$gallery[] = wp_get_attachment_url($img);
+	}
+
+	$gallery_HTML = '';
+	foreach ($gallery as $img_key => $img_src) {
+		$gallery_HTML.= "<div class=\"swiper-slide poppa-slider--slide\"><img src=\"{$img_src}\" alt=\"Слайд {$img_key}\"></div>";
+	}
+
+	// $bullets = array();
+	// foreach (boffeer_explode_textarea(carbon_get_post_meta($id, "case_desc")) as $key => $bullet) {
+	// 	$bullets[] = esc_html($bullet);
+	// }
+
+	$case = array(
+		"gallery" => $gallery_HTML,
+		"title" => carbon_get_post_meta($id, "title"),
+		'stats' => get_case_stats($id),
+		"desc" => carbon_get_post_meta($id, "desc"),
+	);
+	echo json_encode($case);
+	die;
+}

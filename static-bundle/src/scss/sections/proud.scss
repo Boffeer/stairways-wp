@@ -534,6 +534,10 @@
     }
 }
 
+.proud-card:nth-child(2) {
+    position: relative;
+    z-index: 4;
+}
 .proud-card--has-callout {
     .proud-card {
         position: absolute;

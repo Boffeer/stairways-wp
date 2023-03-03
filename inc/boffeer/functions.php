@@ -110,29 +110,3 @@ function change_default_jquery( ){
     wp_dequeue_script( 'jquery');
     wp_deregister_script( 'jquery');   
 }
-
-add_action( 'wp_ajax_get_turnkey', 'get_turnkey' );
-add_action( 'wp_ajax_nopriv_get_turnkey', 'get_turnkey' );
-function get_turnkey() {
-	$id = $_POST['id'];
-
-	$gallery = array();
-	foreach (carbon_get_post_meta($id, "cases_gallery") as $key => $img) {
-		$gallery[] = wp_get_attachment_url($img);
-	}
-
-	$bullets = array();
-	foreach (boffeer_explode_textarea(carbon_get_post_meta($id, "case_desc")) as $key => $bullet) {
-		$bullets[] = esc_html($bullet);
-	}
-
-	$service = array(
-		"name" => carbon_get_post_meta($id, "case_name_pop"),
-		"badge" => carbon_get_post_meta($id, "case_badge"),
-		"thumb" => carbon_get_post_meta($id, "cases_thumb"),
-		"gallery" => $gallery,
-		"bullets" => $bullets,
-	);
-	echo json_encode($service);
-	die;
-}

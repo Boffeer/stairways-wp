@@ -120,6 +120,7 @@
         <h2 class="modal__title">Вам нужна винтовая лестница <br> на металлокаркасе?</h2>
         <div class="modal__group">
             <form action="./callback.php" class="form-callback shifter__form">
+                <input type="hidden" name="form_name" value="Вам нужна винтовая лестница на металлокаркасе?">
                 <fieldset class="radio__row">
                     <label class="radio">
                         <input type="radio" name="user_connect" class="radio__input" checked>
@@ -177,6 +178,7 @@
         <h2 class="modal__title">Наш менеджер позвонит <br> вам в течение 5 минут</h2>
         <div class="modal__group">
             <form action="./callback.php" class="form-callback shifter__form">
+                <input type="hidden" name="form_name" value="Перезвонить :">
                 <fieldset class="radio__row">
                     <label class="radio">
                       <input type="radio" name="user_connect" class="radio__input" checked>
@@ -238,19 +240,6 @@
                 <div class="swiper poppa-slider--swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide poppa-slider--slide">
-                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-video.jpg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-1.jpg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-1.jpg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-1.jpg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="<?php echo THEME_STATIC; ?>/img/common/about-1.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -258,27 +247,19 @@
             <div class="poppa__aligner">
                 <section class="poppa modal modal-abouts">
                     <div class="modal__inner">
-                        <h2 class="modal__title">Лестница на&nbsp;стальном монокосоуре с&nbsp;площадкой</h2>
+                        <h2 class="modal__title"></h2>
                         <div class="modal__group">
-                            <ul class="projects-gallery-list">
-                                <li class="projects-gallery-list-element">
-                                    Где и когда:
-                                    <p>Пенза, 2022.</p>
-                                </li>
-                                <li class="projects-gallery-list-element">
-                                    Ограждение:
-                                    <p>закаленное стекло, толщиной 20 мм.</p>
-                                </li>
-                                <li class="projects-gallery-list-element">
-                                    Ступени:
-                                    <p>дуб.</p>
-                                </li>
-                            </ul>
+                            <div class="modal-abouts__stats">
+                            </div>
                             <p class="modal__group--desc">
-                                Элегантная лестница на тетиве из листа толщиной 8 мм. Ограждение из стекла зажато между пластинами каркаса и не имеет видимых узлов соединений. Благодаря такому подходу конструкция смотрится монолитной. Ступени из ясеня со встроенной интеллектуальной
-                                подсветкой. Зажигается последовательно при приближении к лестнице. Скорость зажигания, время срабатывания, и множество других настроек можно изменить с помощью блока управления подсветкой.
                             </p>
-                            <button class="modal__group--btn">
+                            <button class="modal__group--btn modal-abouts__button js-button__formname"
+                                data-poppa-open="form-callback"
+                                data-poppa-close="abouts"
+                                data-form="#form-callback .form-callback"
+                                data-form-name-prefix="Хочу также: Кейс"
+                                type="button"
+                                >
                                 Хочу так же
                             </button>
                             <div class="modal__group--counter">
@@ -302,6 +283,7 @@
         <h2 class="modal__title modal__title--review">Оставьте свой отзыв о нашей<br> работе прямо сейчас</h2>
         <div class="modal__group">
             <form action="./callback.php" class="form-callback shifter__form">
+                <input type="hidden" name="form_name" value="Отзыв">
                 <fieldset class="form-callback__row">
                     <label class="input input--name">
                       <input

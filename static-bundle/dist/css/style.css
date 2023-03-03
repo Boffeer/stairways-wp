@@ -2667,6 +2667,7 @@ input[type=search]::-webkit-search-cancel-button {
   --icon-color: var(--button-color);
 }
 
+.button--wait,
 .button[disabled] {
   pointer-events: none;
   cursor: default;
@@ -2977,6 +2978,10 @@ input[type=search]::-webkit-search-cancel-button {
     color: var(--c-text-regular);
     background-size: 1px 1px;
   }
+}
+
+.link__text {
+  pointer-events: none;
 }
 
 :root {
@@ -9055,6 +9060,11 @@ select {
   }
 }
 
+.proud-card:nth-child(2) {
+  position: relative;
+  z-index: 4;
+}
+
 .proud-card--has-callout .proud-card {
   position: absolute;
   right: 4%;
@@ -9289,6 +9299,7 @@ select {
   font-size: 24px;
   line-height: 140%;
   margin: 23px 0 24px 0;
+  cursor: pointer;
 }
 @media (max-width: 1300px) {
   .projects-gallery-title {
@@ -9308,6 +9319,38 @@ select {
     font-size: 16px;
     margin: 16px 0;
   }
+}
+
+.projects-gallery-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding-bottom: 100%;
+  opacity: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.5s ease;
+  z-index: 3;
+  background: url("../img/common/circle-plus.svg");
+  background-size: 48px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 700px) {
+  .projects-gallery-title::before {
+    display: none;
+    width: 60%;
+  }
+}
+
+.projects-gallery-title:hover::before {
+  opacity: 1;
 }
 
 .projects-gallery-list {
@@ -9358,41 +9401,10 @@ select {
   }
 }
 
-.projects-gallery-slide .link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  padding-bottom: 100%;
-  opacity: 0;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all 0.5s ease;
-  z-index: 3;
-  background: url("../img/common/circle-plus.svg");
-  background-size: 48px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-@media (max-width: 700px) {
-  .projects-gallery-slide .link::before {
-    display: none;
-    width: 60%;
-  }
-}
 .projects-gallery-slide .link__text {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1;
-}
-
-.link:hover::before {
-  opacity: 1;
 }
 
 .projects-gallery-carousel .swiper-pagination {

@@ -537,7 +537,14 @@
                             <div class="proud-card__desc">
                                 <div class="proud-card__info">
                                     <h3 class="proud-card__title">
-                                        <a href="#" class="proud-card__link"><?php echo carbon_get_post_meta(get_the_ID(), 'title')?></a>
+                                        <?php $case_title = carbon_get_post_meta(get_the_ID(), 'title'); ?>
+                                        <a  class="proud-card__link js-button__get-content"
+                                            href="#" 
+                                            data-content-get="cases"
+                                            data-case-id="<?php the_ID(); ?>"
+                                        >
+                                          <?php echo $case_title; ?>
+                                        </a>
                                     </h3>
                                     <?php $favorite_stats = explode_textarea_matrix(carbon_get_post_meta(get_the_ID(), 'stats')); ?>
                                     <?php if (!empty($favorite_stats)) : ?>
@@ -554,7 +561,14 @@
                                       </ul>
                                     <?php endif;?>
                                 </div>
-                                <button class="proud-card__cta link link--underlined" data-poppa-open="abouts"><span class="link__text">Хочу так же</span></button>
+                                <button
+                                  class="proud-card__cta link link--underlined js-button__formname"
+                                  data-poppa-open="form-callback"
+                                  data-form="#form-callback .form-callback"
+                                  data-form-name="Хочу также: Кейс «<?php echo $case_title; ?>»"
+                                  data-poppa-open="abouts">
+                                    <span class="link__text">Хочу так же</span>
+                                  </button>
                             </div>
                         </div>
                         <?php if ($favorite_position % 2 == 0) : ?>
