@@ -959,19 +959,12 @@
                       <div class="dropdown__body">
                           <p class="dropdown__body-title">Выбор города</p>
                           <ul class="dropdown__body--list">
-                              <li class="dropdown__body--list-element"><a href="">Владимир</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Воронеж</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Казань</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Калуга</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Краснодар</a></li>
-                              <li class="dropdown__body--list-element _active"><a href="">Москва</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Нижний Новгород</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Пенза</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Рязань</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Саранск</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Смоленск</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Тверь</a></li>
-                              <li class="dropdown__body--list-element"><a href="">Тула</a></li>
+                            <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
+                            <?php foreach ($cities as $city) : ?>
+                                <li class="dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                    <?php echo $city['city']; ?>
+                                </li>
+                            <?php endforeach; ?>
                           </ul>
                       </div>
                   </div>

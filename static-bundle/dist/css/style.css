@@ -2980,8 +2980,12 @@ input[type=search]::-webkit-search-cancel-button {
   }
 }
 
-.link__text {
+.link__text:only-child {
   pointer-events: none;
+}
+
+.link__text.offer__link--text {
+  pointer-events: initial;
 }
 
 :root {
@@ -4879,6 +4883,7 @@ input[type=search]::-webkit-search-cancel-button {
 }
 
 .dropdown__body--list-element {
+  cursor: pointer;
   width: max-content;
   font-weight: 400;
   font-size: 0.85rem;

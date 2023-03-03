@@ -92,20 +92,13 @@
                                 <span class="dropdown--title" data-dropdown> г. Москва</span>
                                 <div class="dropdown__body">
                                     <h2 class="dropdown__body-title">Выбор города</h2>
+                                    <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
                                     <ul class="dropdown__body--list">
-                                        <li class="dropdown__body--list-element"><a href="">Владимир</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Воронеж</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Казань</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Калуга</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Краснодар</a></li>
-                                        <li class="dropdown__body--list-element _active"><a href="">Москва</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Нижний Новгород</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Пенза</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Рязань</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Саранск</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Смоленск</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Тверь</a></li>
-                                        <li class="dropdown__body--list-element"><a href="">Тула</a></li>
+                                        <?php foreach ($cities as $city) : ?>
+                                            <li class="dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                                <?php echo $city['city']; ?>
+                                            </li>
+                                        <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
@@ -302,19 +295,11 @@
                     <div class="city_block">
                         <p class="city_block__title">Ваш регион — Москва?</p>
                         <ul class="city_block__list">
-                            <li class="city_block__list-element"><a href="">Владимир</a></li>
-                            <li class="city_block__list-element"><a href="">Воронеж</a></li>
-                            <li class="city_block__list-element"><a href="">Казань</a></li>
-                            <li class="city_block__list-element"><a href="">Калуга</a></li>
-                            <li class="city_block__list-element"><a href="">Краснодар</a></li>
-                            <li class="city_block__list-element _active"><a href="">Москва</a></li>
-                            <li class="city_block__list-element"><a href="">Нижний Новгород</a></li>
-                            <li class="city_block__list-element"><a href="">Пенза</a></li>
-                            <li class="city_block__list-element"><a href="">Рязань</a></li>
-                            <li class="city_block__list-element"><a href="">Саранск</a></li>
-                            <li class="city_block__list-element"><a href="">Смоленск</a></li>
-                            <li class="city_block__list-element"><a href="">Тверь</a></li>
-                            <li class="city_block__list-element"><a href="">Тула</a></li>
+                            <?php foreach ($cities as $city) : ?>
+                                <li class="city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                    <?php echo $city['city']; ?>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </div>
 

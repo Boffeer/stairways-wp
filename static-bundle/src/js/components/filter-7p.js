@@ -140,9 +140,13 @@ casesFilters.forEach(filter => {
       window.initFormNameButtons();
       window.initCaseButtons();
       window.poppa.initButtons();
-      const carousel = filter.parentElement.querySelector('.projects-gallery-carousel ');
-      carousel.swiper.update();
-      carousel.swiper.updateProgress();
+      const carousel = filter.parentElement.querySelector('.projects-gallery-carousel');
+      if (carousel) {
+        if (carousel.swiper) {
+          carousel.swiper.update();
+          carousel.swiper.updateProgress();
+        }
+      }
       gallery.classList.remove('gallery--wait');
     })
   })

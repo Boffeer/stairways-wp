@@ -132,6 +132,9 @@
     }
 }
 
-.link__text {
+.link__text:only-child {
     pointer-events: none;
+}
+.link__text.offer__link--text {
+    pointer-events: initial;
 }
