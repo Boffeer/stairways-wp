@@ -119,7 +119,8 @@
     <div class="modal__inner">
         <h2 class="modal__title">Вам нужна винтовая лестница <br> на металлокаркасе?</h2>
         <div class="modal__group">
-            <form action="./callback.php" class="form-callback shifter__form">
+            <form action="<?php echo FORM_URLS['mail'];?>" class="form-callback shifter__form">
+              <input type="hidden" name="form_name" value="Вам нужна винтовая лестница на металлокаркасе?" readonly>
                 <input type="hidden" name="form_name" value="Вам нужна винтовая лестница на металлокаркасе?">
                 <fieldset class="radio__row">
                     <label class="radio">
@@ -177,8 +178,8 @@
     <div class="modal__inner">
         <h2 class="modal__title">Наш менеджер позвонит <br> вам в течение 5 минут</h2>
         <div class="modal__group">
-            <form action="./callback.php" class="form-callback shifter__form">
-                <input type="hidden" name="form_name" value="Перезвонить :">
+            <form action="<?php echo FORM_URLS['mail'];?>" class="form-callback shifter__form">
+                <input type="hidden" name="form_name" value="Перезвонить :" readonly>
                 <fieldset class="radio__row">
                     <label class="radio">
                       <input type="radio" name="user_connect" class="radio__input" checked>
@@ -282,7 +283,7 @@
     <div class="modal__inner">
         <h2 class="modal__title modal__title--review">Оставьте свой отзыв о нашей<br> работе прямо сейчас</h2>
         <div class="modal__group">
-            <form action="./callback.php" class="form-callback shifter__form">
+            <form action="<?php echo FORM_URLS['mail'];?>" class="form-callback shifter__form">
                 <input type="hidden" name="form_name" value="Отзыв">
                 <fieldset class="form-callback__row">
                     <label class="input input--name">

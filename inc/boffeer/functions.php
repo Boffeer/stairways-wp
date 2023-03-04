@@ -56,7 +56,7 @@ endif;
 
 define('THEME_URL', get_stylesheet_directory_uri());
 define('THEME_STATIC', THEME_URL . '/static-bundle/dist');
-define('FORM_URLS', array( 'mail' => get_stylesheet_directory_uri() . "/mail.php"));
+define('FORM_URLS', array( 'mail' => get_stylesheet_directory_uri() . "/inc/boffeer/mail.php"));
 
 
 require_once get_template_directory() . "/inc/boffeer/helpers.php";

@@ -163,7 +163,7 @@
                   <a href="<?php echo THEME_OPTIONS['phone_href'];?>" class="quiz__phone js-phone"><?php echo THEME_OPTIONS['phone'];?></a>
               </div>
               <picture class="quiz__pic"><img src="<?php echo THEME_STATIC; ?>/img/quiz/hero.png" alt="" class="quiz__img"></picture>
-              <form action="./quiz.php" class="quiz__questions">
+              <form action="<?php echo FORM_URLS['mail'];?>" class="quiz__questions">
                   <div class="quiz-status">
                       Шаг <span class="quiz-status__step">1/6</span>
                       <span class="quiz-status__name">Выберите форму лестницы</span>
@@ -698,7 +698,9 @@
                       <p class="shifter__desc">
                           Получите подборку из 50 наших лучших работ, <br> и вы точно найдете подходящий вам вариант! <br> Куда отправить?
                       </p>
-                      <form action="./callback.php" class="form form-callback shifter__form">
+                          
+                      <form action="<?php echo FORM_URLS['mail'];?>" class="form form-callback shifter__form">
+                          <input type="hidden" name="form_name" value="Получите подборку из 50 наших лучших работ, и вы точно найдете подходящий вам вариант!  Куда отправить?" readonly>
                           <div class="radio__row">
                               <label class="radio">
                                 <input type="radio" name="user_connect" class="radio__input" checked>
@@ -1086,7 +1088,11 @@
                           <br> Просто укажите известные размеры проема в заявке, а мы перезвоним вам и назовем точную стоимость лестницы.
                       </p>
                   </div>
-                  <form action="./callback.php" class="shifter-callback__form">
+                  <form
+                    class="shifter-callback__form"
+                    action="<?php echo FORM_URLS['mail'];?>"
+                  >
+                      <input type="hidden" name="form_name" value="Узнайте стоимость лестницы за 5 минут!" readonly>
                       <div class="shifter-callback__form-fields">
                           <label class="input input--tel">
                             <input
