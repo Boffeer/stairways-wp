@@ -31,8 +31,11 @@ get_header();
           </h2>
           <div class="tabs">
 				    <div class="tabs-7p">
-				      <form action="<?php echo admin_url( 'admin-ajax.php' );?>"
-					      	class="tabs-7p__industries tabs-7p__industries--clickable filters-7p">
+				      <form
+					      	class="tabs-7p__industries tabs-7p__industries--clickable filters-7p"
+							    action="<?php echo admin_url( 'admin-ajax.php' );?>"
+							    data-action="get_filtered_cases"
+				      	>
 				        <div class="filters-7p__scrollarea">
 				          <div class="filters-7p__track">
 				            <label class="tabs-7p-tab tabs-7p-tab--total">

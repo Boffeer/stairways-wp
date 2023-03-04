@@ -2,13 +2,6 @@ import {debounce} from "../utils/helpers.js";
 
 const filterContainer = document.querySelectorAll('.tabs-7p');
 
-const casesFilterIndustriesInner = document.querySelector(".filters-7p__track");
-const filterButtons = document.querySelectorAll(".tabs-7p-tab");
-const casesFilterMore = document.querySelector(".tabs-7p__more-button");
-const casesFilterDropdown = document.querySelector(
-  ".tabs-7p__industries-dropdown"
-);
-const filterTotal = document.querySelector('.tabs-7p-tab--total');
 
 
 function uncheckAllFilters(filters) {
@@ -20,15 +13,25 @@ function uncheckAllFilters(filters) {
 	})
 }
 
+filterContainer.forEach((filter, filterIndex) => {
+
+const casesFilterIndustriesInner = filter.querySelector(".filters-7p__track");
+const filterButtons = filter.querySelectorAll(".tabs-7p-tab");
+const casesFilterMore = filter.querySelector(".tabs-7p__more-button");
+const casesFilterDropdown = filter.querySelector(
+  ".tabs-7p__industries-dropdown"
+);
+const filterTotal = filter.querySelector('.tabs-7p-tab--total');
+
 if ([...filterButtons].length > 0) {
 
   filterButtons.forEach((button) => {
     button.querySelector('input').addEventListener("change", (e) => {
-    	if (button.classList.contains('tabs-7p-tab--total')) {
-				uncheckAllFilters(filterButtons);
-    		return;
-    	}
-    	filterTotal.querySelector('input').checked = false;
+      if (button.classList.contains('tabs-7p-tab--total')) {
+        uncheckAllFilters(filterButtons);
+        return;
+      }
+      filterTotal.querySelector('input').checked = false;
     });
   });
 
@@ -47,14 +50,16 @@ if ([...filterButtons].length > 0) {
 
   // Перемещает фильтры между дропдауном и скроллбаром
   function relocateFilterItems() {
-    let filtersMaxWidth = document.querySelector(".tabs-7p__industries").getBoundingClientRect().width - 360;
-    let filtersWidth = document.querySelector(".filters-7p__track").getBoundingClientRect().width;
+    let filtersMaxWidth = filter.querySelector(".tabs-7p__industries").getBoundingClientRect().width - 360;
+    let filtersWidth = filter.querySelector(".filters-7p__track").getBoundingClientRect().width;
     let filtersToSkip = [];
+
 
     filterButtons.forEach((item, index, arr) => {
       // Чтобы убрать все большие кнопки, которые больше половины
-      if (item.innerText.length > 16) {
+      if (item.innerText.length > 25) {
         filtersToSkip.push(item);
+        item.classList.add('js__filter-7p-tab--removed-initially')
         // console.log("Сразу убрать", item.innerText);
       }
     });
@@ -65,8 +70,16 @@ if ([...filterButtons].length > 0) {
       if (filtersWidth <= filtersMaxWidth - 100) {
         casesFilterIndustriesInner.appendChild(item);
         filtersWidth += item.getBoundingClientRect().width;
+        // console.log(filterIndex ,filtersWidth, '/',filtersMaxWidth);
       }
     });
+
+    const hiddenTabsCount = [...casesFilterDropdown.querySelectorAll('.tabs-7p-tab')].length;
+    if (hiddenTabsCount == 0) {
+      casesFilterMore.style.display = 'none';
+    } else {
+      casesFilterMore.style.display = '';
+    }
   }
 
   function changeFiltersPosition() {
@@ -101,13 +114,21 @@ if ([...filterButtons].length > 0) {
     }
   });
 }
+})
 
-try {
+
+// try {
 const AJAX_ADMIN_URL = stairways.ajaxUrl
 const casesFilters = document.querySelectorAll('.tabs-7p');
 casesFilters.forEach(filter => {
   const filterForm = filter.querySelector('form');
-  const gallery = filter.parentElement.querySelector('.projects-gallery').querySelector('.swiper-wrapper');
+  // let gallery = filter.parentElement.querySelector('.projects-gallery')
+  const gallery = filter.parentElement.querySelector('.swiper-wrapper');
+
+  if (!gallery) {
+    console.log('no gallery for',  filterForm.dataset.action)
+    return;
+  }
   const checkboxes = filterForm.querySelectorAll('input[type="checkbox"]');
 
   if (!filterForm || !gallery) return;
@@ -116,16 +137,26 @@ casesFilters.forEach(filter => {
     checkbox.addEventListener('change', async (e) => {
       e.preventDefault();
       gallery.classList.add('gallery--wait')
-      const checked = filterForm.querySelectorAll('input:checked');
+      let checked = [...filterForm.querySelectorAll('input:checked')];
+
+      if (checked.length == 0) {
+        const totalButton = filterForm.querySelector('.tabs-7p-tab--total').querySelector('input')
+        totalButton.checked = true;
+        checked.push(totalButton);
+      }
+
       let categoriesIds = [];
       checked.forEach(checkbox => {
         categoriesIds.push(checkbox.value);
       })
+
       categoriesIds = JSON.stringify(categoriesIds);
 
       const formData = new FormData();
-      formData.append('action', 'get_filtered_cases');
+      // console.log(filter.dataset)
+      formData.append('action', filterForm.dataset.action);
       formData.append('categories', categoriesIds);
+      // console.log(categoriesIds)
       const caseObject = await fetch(AJAX_ADMIN_URL, {
         method: "POST",
         body: formData,
@@ -133,7 +164,7 @@ casesFilters.forEach(filter => {
       let result = await caseObject.text();
 
 
-      const cases = gallery.querySelectorAll('.projects-gallery-slide')
+      const cases = gallery.querySelectorAll('.swiper-slide')
       cases.forEach((caseItem) => {
         caseItem.remove();
       })
@@ -141,7 +172,7 @@ casesFilters.forEach(filter => {
       window.initFormNameButtons();
       window.initCaseButtons();
       window.poppa.initButtons();
-      const carousel = filter.parentElement.querySelector('.projects-gallery-carousel');
+      const carousel = gallery.parentElement
       if (carousel) {
         if (carousel.swiper) {
           carousel.swiper.update();
@@ -153,6 +184,6 @@ casesFilters.forEach(filter => {
   })
 })
   
-} catch {
-  console.warn('There is no AJAX_ADMIN_URL in filter-7p.js')
-}
+// } catch {
+  // console.warn('There is no AJAX_ADMIN_URL in filter-7p.js')
+// }

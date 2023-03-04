@@ -605,6 +605,7 @@
                   <div class="tabs-7p">
                     <form class="tabs-7p__industries tabs-7p__industries--clickable filters-7p"
                           action="<?php echo admin_url( 'admin-ajax.php' );?>"
+                          data-action="get_filtered_cases"
                     >
                       <div class="filters-7p__scrollarea">
                         <div class="filters-7p__track">
@@ -654,7 +655,7 @@
                               </a>
                           </div>
                            
-                          <div class="projects-gallery" data-swiper="main" data-swiper-destroy="true" data-swiper-pagination data-swiper-navigation data-breakpoints='{"0": {"slidesPerView" : 1},"500": {"spaceBetween": 16}, "992": {"spaceBetween": 24}, "1300": {"spaceBetween": 36}}'
+                          <div class="projects-gallery" data-swiper="main" data-swiper-destroy="true" data-swiper-pagination data-swiper-navigation data-breakpoints='{"0": {"slidesPerView" : 1},"602": {"spaceBetween": 16}, "992": {"spaceBetween": 24}, "1300": {"spaceBetween": 36}}'
                               data-swiper-slide="3">
                                
                                   <div class="swiper projects-gallery-carousel">
@@ -814,7 +815,7 @@
       <section class="news">
           <div class="container news__container">
               <h2 class="section-title news__title">Статьи от наших экспертов</h2>
-              <div class="news-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"500": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
+              <div class="news-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"601": {"slidesPerView": 2}, "768": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
                   data-swiper-touch>
                   <div class="swiper news-carousel">
                       <div class="swiper-wrapper">
@@ -846,21 +847,48 @@
       <section class="videos section">
           <div class="container videos__container">
               <h2 class="section-title faq__title">Видео</h2>
-              <div class="tabs">
-                  <?php /*
-                  <div class="tabs-top-box">
-                      <div class="tabs__toggler-container" data-tabs="video" data-scroll>
-                          <div class="tabs__toggler--box">
-                              <button class="tabs__toggler">Все</button>
-                              <button class="tabs__toggler">Видео с объектов</button>
-                              <button class="tabs__toggler">Видеоинструкции и советы</button>
+               <div class="tabs">
+                  <div class="tabs-7p">
+                    <form class="tabs-7p__industries tabs-7p__industries--clickable filters-7p"
+                          action="<?php echo admin_url( 'admin-ajax.php' );?>"
+                          data-action="get_videos"
+                    >
+                      <div class="filters-7p__scrollarea">
+                        <div class="filters-7p__track">
+                          <label class="tabs-7p-tab tabs-7p-tab--total">
+                              <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1">
+                              <span class="tabs-7p-tab__text">Все</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="tabs-7p__more">
+                          <?php
+                            $videos_categories = get_terms(array(
+                                'orderby'    => 'none',
+                                'taxonomy'   => 'videos-categories',
+                                'hide_empty' => true,
+                            ));
+                          ?>
+                          <button class="tabs__toggler tabs-7p__more-button" title="" type="button">
+                              Все категории
+                              <span class="button-more__dot"></span>
+                              <span class="button-more__dot"></span>
+                              <span class="button-more__dot"></span>                  
+                          </button>
+                          <div class="tabs-7p__industries-dropdown">
+                            <?php foreach ($videos_categories as $category) : ?>
+                              <label class="tabs-7p-tab">
+                                <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="<?php echo $category->term_id; ?>">
+                                <span class="tabs-7p-tab__text"><?php echo $category->name; ?></span>
+                              </label>
+                            <?php endforeach; ?>
                           </div>
                       </div>
+                    </form>
                   </div>
-                  */?>
                   <div class="tabs__page-container" data-tabs="video">
                       <div class="tabs__page">
-                          <div class="videos-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"500": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
+                          <div class="videos-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"601": {"slidesPerView": 2}, "768": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
                               data-swiper-touch>
                               <div class="swiper videos-carousel">
                                   <div class="swiper-wrapper">
