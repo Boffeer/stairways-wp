@@ -32,10 +32,16 @@ get_header();
 						// 'numberposts' => -1,
 						'posts_per_page' => -1,
 						'tax_query' => array(
-							'field' => 'slug',
-							'terms'    => get_query_var('term'),
-							// 'operator' => 'IN'
+							array(
+				       'relation' => 'OR',
+				        [
+				            'taxonomy' => 'categories',
+				            'field' => 'slug',
+				            'terms' => get_query_var('term'),
+				        ],
+							),
 						),
+
 					) );
 					?>
 					<?php if ( $stairs->have_posts() ) : ?>

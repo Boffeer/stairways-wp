@@ -1,6 +1,7 @@
 'use strict';
 
-const AJAX_ADMIN_URL = stairways.ajaxUrl
+try {
+	let AJAX_ADMIN_URL= stairways.ajaxUrl;;
 
 function updateCaseText(title = '', stats = '', desc = '') {
 	const casePop = document.querySelector('.poppa-abouts');
@@ -47,6 +48,11 @@ function initCaseButtons() {
 	    const formData = new FormData();
 	    formData.append('action', 'get_case');
 	    formData.append('id', caseId);
+
+	    if (!AJAX_ADMIN_URL) {
+	    	console.error('no AJAX_ADMIN_URL in cases.js')
+	    	return;
+	    }
 
 			const caseObject = await fetch(AJAX_ADMIN_URL, {
 	      method: "POST",
@@ -98,3 +104,6 @@ function initFormNameButtons() {
 	})
 }
 window.initFormNameButtons = initFormNameButtons
+} catch {
+	console.warn('There is no AJAX_ADMIN_URL in cases.js')
+}

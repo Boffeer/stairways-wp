@@ -11,6 +11,7 @@
     }
     @media (max-width:992px) {
         max-height: 100%;
+        overflow: hidden;
     }
     @media (max-width: $mobile-break) {
         width: 100%;
@@ -135,7 +136,7 @@
         height: 36px;
         object-fit: cover;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 961px) {
         display: flex;
     }
     @media (max-width:600px) {
@@ -148,7 +149,7 @@
 }
 
 .header__desc {
-    @media (max-width: 768px) {
+    @media (max-width: 961px) {
         // position: fixed;
         // display: flex;
         // flex-direction: column;

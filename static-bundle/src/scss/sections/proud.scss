@@ -23,6 +23,10 @@
     }
 }
 
+.proud-card__img {
+    border-radius: 6px;
+}
+
 .proud-card--has-callout {
     display: grid;
     grid-template-columns: minmax(360px, 756px) auto;
@@ -35,6 +39,9 @@
     }
     .proud-card-stats {
         width: max-content;
+        @media (max-width: 992px) {
+            width: 100%;
+        }
         @media (max-width: 700px) {
             width: 90%;
             font-size: 14px;
@@ -140,7 +147,7 @@
         .proud-card {
             .proud-card__desc {
                 .proud-card__cta {
-                    margin-top: 16px;
+                    margin-top: 0;//16px;
                 }
             }
         }
@@ -159,7 +166,7 @@
                 }
             }
             .proud-card__info {
-                width: 70%
+                width: 68%;//70%
             }
         }
         &:nth-of-type(2) {
@@ -192,13 +199,7 @@
     @media (max-width: 1100px) {
         grid-template-columns: minmax(260px, 296px) auto;
         margin-bottom: 66px;
-        grid-gap: 68px;
-        &>.proud-card__hero {
-            .proud-card__desc {
-                flex-direction: column;
-                grid-gap: 16px;
-            }
-        }
+        grid-gap: 148px;//68px;
         .proud-card__desc {
             grid-gap: 25px;
             .proud-card__cta {
@@ -220,7 +221,7 @@
                 margin-top: auto;
                 margin-bottom: 25px;
                 &::before {
-                    margin-top: 35%
+                    margin-top: 10%;//35%
                 }
             }
         }
@@ -238,9 +239,28 @@
             grid-gap: 25px;
         }
     }
+    @media (max-width: 810px) {
+        grid-gap: 58px;
+        &> .proud-card__hero .proud-card__desc .proud-card__cta {
+            margin-top: 0;
+        }
+    }
     @media (max-width:992px) {
         &:nth-of-type(1) .proud-card__img {
             max-height: 188px;
+        }
+        &:nth-of-type(odd) {
+            .proud-card {
+                transform: translate(-24px, 65px);
+            }
+        }
+    }
+    @media (max-width: 961px) {
+        &>.proud-card__hero {
+            .proud-card__desc {
+                flex-direction: column;
+                grid-gap: 16px;
+            }
         }
     }
     @media (max-width:650px) {
@@ -638,9 +658,12 @@
             margin-top: 21px;
             width: 100%;
             .proud-card__hero {
+                flex-direction: row;
                 grid-gap: 16px;
                 img {
                     max-height: 204px;
+                    width: 100%;
+                    object-fit: cover;
                 }
             }
             .proud-card__desc {
@@ -682,6 +705,14 @@
                 margin-right: 0;
             }
         }
+        .proud-card .proud-card__hero .proud-card__media {
+            min-width: 60%;
+        }
+    }
+    @media (max-width: 810px) {
+        &:nth-of-type(2) .proud-card .proud-card__desc {
+            flex-direction: column;
+        }
     }
     @media (max-width: 650px) {
         .proud-card__hero {
@@ -710,7 +741,7 @@
             margin-top: 0;
         }
         .link--underlined .link__text {
-            padding: 19px 0 18px 0;
+            padding: 19px 20px 18px 20px;
             font-size: 12px;
             line-height: 160%;
         }

@@ -847,6 +847,7 @@
           <div class="container videos__container">
               <h2 class="section-title faq__title">Видео</h2>
               <div class="tabs">
+                  <?php /*
                   <div class="tabs-top-box">
                       <div class="tabs__toggler-container" data-tabs="video" data-scroll>
                           <div class="tabs__toggler--box">
@@ -856,6 +857,7 @@
                           </div>
                       </div>
                   </div>
+                  */?>
                   <div class="tabs__page-container" data-tabs="video">
                       <div class="tabs__page">
                           <div class="videos-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"500": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation

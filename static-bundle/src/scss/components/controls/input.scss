@@ -35,7 +35,7 @@
     color: var(--text-color);
     text-transform: uppercase;
     @media (max-width: 1300px) {
-        padding: 16px;
+        padding: 1.0666666666666667rem;//16px;
         font-size: 10px;
         line-height: 160%;
     }
@@ -52,7 +52,7 @@
     text-transform: uppercase;
     font-family: 'OpenSans';
     font-weight: 700;
-    font-size: 12px;
+    // font-size: 12px;
     @media (max-width: 650px) {
         line-height: 160%;
         color: var(--c-text-regular)

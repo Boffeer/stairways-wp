@@ -15,6 +15,37 @@
     }
 }
 
+.shifter__card .button {
+    padding: 24px 48px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    background: #8196B1;
+    margin-top: 24px;
+    @media (max-width: 1500px) {
+        margin-top: 32px;
+        font-size: 12px;
+        padding: 17px 36px;
+    }
+}
+.shifter__card .button:hover {
+    @media (any-hover:hover) {
+        background: transparent;
+    }
+}
+
+.shifter__card .shifter__phone .link__text {
+    @media (max-width: 1500px) {
+        font-size: 24px;
+    }
+    @media (max-width: 992px) {
+        font-size: 16px;
+    }
+}
+
 .shifter__card {
     display: grid;
     grid-template-columns: auto 29%;
@@ -22,43 +53,14 @@
     color: var(--c-text-on);
     padding: 72px 72px 137px 72px;
     border-radius: 4px;
-    .button {
-        padding: 24px 48px;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 100%;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #fff;
-        background: #8196B1;
-        margin-top: 24px;
-        &:hover {
-            background: transparent;
-        }
-    }
     @media (max-width:1500px) {
         grid-template-columns: auto 50%;
         padding: 48px;
-        .button {
-            margin-top: 32px;
-            font-size: 12px;
-            padding: 17px 36px;
-        }
-        .shifter__phone {
-            .link__text {
-                font-size: 24px;
-            }
-        }
     }
     @media (max-width:992px) {
         grid-template-columns: auto 52%;
         padding: 24px;
         padding-bottom: 33px;
-        .shifter__phone {
-            .link__text {
-                font-size: 16px;
-            }
-        }
     }
     @media (max-width:650px) {
         grid-template-columns: 100%;
@@ -66,54 +68,60 @@
     }
 }
 
-.shifter-bottom {
-    .shifter__desc {
-        font-size: 16px;
-        line-height: 160%;
-        margin-bottom: 24px;
-        max-width: 80%;
-    }
-    .shifter__card {
-        padding-bottom: 71px;
-    }
+.shifter-bottom .shifter__desc {
+    font-size: 16px;
+    line-height: 160%;
+    margin-bottom: 24px;
+    max-width: 80%;
     @media (max-width: 1300px) {
-        .shifter__desc {
-            font-size: 14px;
-            max-width: 100%;
-        }
-        .section-title {
-            font-size: 32px;
-            margin-bottom: 24px;
-        }
-        .shifter__card {
-            padding-bottom: 54px
-        }
+        font-size: 14px;
+        max-width: 100%;
+        padding-bottom: 3.857142857142857rem;//54px
     }
+}
+.shifter-bottom .shifter__card {
+    padding-bottom: 5.142857142857143rem;//71px;
+    @media (max-width: 1300px) {
+        padding-bottom: 2.142857142857143rem;
+    }
+}
+.shifter-bottom .section-title {
+    @media (max-width: 1300px) {
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+}
+
+.shifter-bottom {
     @media (max-width: 700px) {
         padding-bottom: 30px;
     }
 }
 
-.shifter-form-main {
-    .shifter__card {
-        padding-bottom: 68px;
-        padding-top: 68px;
-    }
+.shifter-form-main .shifter__card {
+    padding-bottom: 68px;
+    padding-top: 68px;
     @media (max-width: 1550px) {
-        .shifter__card {
-            grid-template-columns: auto 43.5%;
-        }
-        .form-callback__row .button {
-            padding: 0 31px;
-            font-size: 10px
-        }
+        grid-template-columns: auto 43.5%;
     }
     @media (max-width: 1300px) {
+        padding-bottom: 48px;
+        padding-top: 48px;
+    }
+    @media (max-width: 768px) {
+        
+    }
+}
+
+.shifter-form-main .form-callback__row .button {
+    @media (max-width: 1550px) {
+        padding: 0 31px;
+        font-size: 10px
+    }
+}
+.shifter-form-main {
+    @media (max-width: 1300px) {
         padding-top: 0;
-        .shifter__card {
-            padding-bottom: 48px;
-            padding-top: 48px;
-        }
     }
     @media (max-width: 992px) {
         .shifter__desc br {
@@ -385,6 +393,11 @@
     &:checked+.radio__check {
         border: 6px solid #FFFFFF;
     }
+    @media (max-width:962px) {
+        &:checked+.radio__check {
+            border: 2px solid #FFFFFF;
+        }
+    }
     @media (max-width:600px) {
         &:checked+.radio__check {
             border: 4px solid #FFFFFF;
@@ -464,7 +477,7 @@
             grid-template-columns: 53% 53%;
             grid-gap: 12px 16px;
             .button {
-                padding: 15px 23px;
+                padding: 1.0714285714285714rem 1.6428571428571428rem;//15px 23px;
                 .button__icon {
                     max-width: 8px;
                     width: 8px;
@@ -474,11 +487,7 @@
             }
         }
     }
-    @media (max-width: 600px) {
-        .shifter__card {
-            grid-template-columns: 100%;
-            padding-bottom: 36px;
-        }
+    @media (max-width: 768px) {
         .form-callback__row {
             grid-template-columns: 100%;
             grid-gap: 16px;
@@ -488,6 +497,15 @@
                 font-size: 12px;
                 line-height: 160%;
             }
+            .button__text {
+                width: auto;
+            }
+        }
+    }
+    @media (max-width: 600px) {
+        .shifter__card {
+            grid-template-columns: 100%;
+            padding-bottom: 36px;
         }
         .shifter__pic {
             position: static;
@@ -524,6 +542,10 @@
             width: 14px;
             height: 16px;
         }
+        @media (max-width: 810px) {
+            max-width: 100%;
+            width: 100%;
+        }
     }
     .choices__inner {
         width: 328px;
@@ -556,7 +578,7 @@
 
 .shifter-callback {
     @media (max-width: 1300px) {
-        padding-top: 75px;
+        padding-top: 5.357142857142857rem;//75px;
         .shifter-callback-card {
             padding: 48px;
             // grid-template-columns: 41% 55.7%;
@@ -719,12 +741,14 @@
     @media (max-width:992px) {
         font-size: 8px;
     }
+    @media (max-width:768px) {
+        br {
+            display: none;
+        }
+    }
     @media (max-width:650px) {
         font-size: 12px;
         line-height: 160%;
         margin-top: 24px;
-        br {
-            display: none;
-        }
     }
 }

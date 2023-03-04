@@ -37,8 +37,12 @@
     padding: 2rem;
     padding-top: 19.59rem;
     padding-left: 1rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
     @media (max-width: 1500px) {
-        max-width: 14.894%;
+        max-width: 15.694%;
         padding-bottom: 22px;
         padding-top: 21.171rem;
     }
@@ -122,6 +126,9 @@
 .hero-categories-card--current .hero-categories-card__title {
     line-height: 1;
     margin-bottom: 1rem;
+    @media (max-width: 1600px) {
+        margin-bottom: 0.5rem;
+    }
     @media (max-width: 1300px) {
         margin-bottom: 16px;
     }
@@ -149,13 +156,14 @@
     max-height: 1000px;
     a {
         text-transform: uppercase;
-        font-size: 12px;
+        // font-size: 12px;
+        font-size: 0.75rem;
     }
-    @media (max-width:1300px) {
-        a {
-            font-size: 10px;
-        }
-    }
+    // @media (max-width:1300px) {
+    //     a {
+    //         font-size: 10px;
+    //     }
+    // }
     @media (max-width: 1100px) {
         display: none;
     }
@@ -177,6 +185,10 @@
     display: inline-block;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    @media (max-width: 1600px) {
+        margin-left: 0.4rem;
+        margin-right: 0.3rem;
+    }
 }
 
 .hero-categories-card__subcategory:last-of-type::after {

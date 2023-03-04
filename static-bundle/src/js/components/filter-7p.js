@@ -102,6 +102,7 @@ if ([...filterButtons].length > 0) {
   });
 }
 
+try {
 const AJAX_ADMIN_URL = stairways.ajaxUrl
 const casesFilters = document.querySelectorAll('.tabs-7p');
 casesFilters.forEach(filter => {
@@ -151,3 +152,7 @@ casesFilters.forEach(filter => {
     })
   })
 })
+  
+} catch {
+  console.warn('There is no AJAX_ADMIN_URL in filter-7p.js')
+}

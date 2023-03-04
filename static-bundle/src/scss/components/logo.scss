@@ -3,7 +3,7 @@
     // max-width: 11.6rem;
     // height: 2.35rem;
     margin-right: 53px;
-    @media (max-width: 992px) {
+    @media (max-width: 768px) {
         margin-right: 0;
     }
 }
@@ -11,10 +11,10 @@
 .logo__img {
     display: block;
     object-fit: contain;
-    width: 185px;
-    height: 36px;
+    width: 13.214285714285714rem;//185px;
+    height: 2.5714285714285716rem;//36px;
     @media (max-width: 1300px) {
-        width: 185px;
-        height: 36px;
+        // width: 185px;
+        // height: 36px;
     }
 }

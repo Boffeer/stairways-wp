@@ -106,10 +106,10 @@
     transition: .45s;
     @media (max-width: 1300px) {
         &:not(.offer__link--text) {
-            font-size: 12px;
+            font-size: 0.9rem;
         }
     }
-    @media (max-width: 992px) {
+    @media (max-width: 961px) {
         &:not(.offer__link--text) {
             background: #E1E6EC;
             font-weight: 700;
