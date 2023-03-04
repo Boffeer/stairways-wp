@@ -1,0 +1,34 @@
+.sect-delivery__content {
+
+	.lwptoc {
+		margin: 0;
+	}
+
+	.lwptoc_items {
+		@extend .sect-delivery__list !optional;
+	}
+	.lwptoc_item {
+		@extend .sect-delivery__list--element !optional;
+		margin-bottom: 1.7142857142857142rem !important;
+	}
+	.lwptoc .lwptoc_items .lwptoc_item a {
+    color: #808996;
+	}
+	.lwptoc .lwptoc_items .lwptoc_item a:hover {
+		@media (any-hover:hover) {
+	    // color: var(--c-link-hover);
+      color: var(--c-text-regular);
+	    border-bottom: none !important;
+		}
+	}
+	.lwptoc-light .lwptoc_i {
+		padding: 0;
+		background-color: transparent;
+	}
+	.lwptoc_title {
+		@extend .sect-delivery__content--title;
+	}
+	.lwptoc_toggle {
+		display: none;
+	}
+}

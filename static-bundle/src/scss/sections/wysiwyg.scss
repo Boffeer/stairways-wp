@@ -1,0 +1,12 @@
+.wysiwyg {
+	h2 {
+		@extend .sect-delivery__step--title;
+	}
+	p {
+		@extend .sect-delivery__step--text;
+	}
+	.sect-delivery__step--download::after {
+		display: none;
+	}
+}
+
