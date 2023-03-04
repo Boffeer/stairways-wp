@@ -261,7 +261,7 @@ function get_breadcrumbs()
 			'<span>',
 		];
 		$replace = [
-			'<li class="breadcrumbs__item><a  href',
+			'<li class="breadcrumbs__item"><a href',
 			' </a></li>',
 			'',
 			'<li class="breadcrumbs__item"',

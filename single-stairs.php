@@ -1,22 +1,7 @@
 <?php get_header(); ?>
 
-<div class="breadcrumbs container">
-  <ul class="breadcrumbs__list">
-      <li class="breadcrumbs__item">
-          <a href="/">Главная</a>
-      </li>
-      <li class="breadcrumbs__item">
-          <a href="">Лестницы</a>
-      </li>
-      <li class="breadcrumbs__item">
-          На металлокаркасе
-      </li>
-  </ul>
-</div>
-
-<?php
-    $stair_product = get_stair_info(get_the_ID());
-?>
+<?php echo get_breadcrumbs(); ?>
+<?php $stair_product = get_stair_info(get_the_ID()); ?>
 <section class="product-page">
     <div class="container">
         <div class="product-page-content">

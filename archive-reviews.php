@@ -11,19 +11,7 @@ get_header();
 ?>
 
 <main>
-  <div class="breadcrumbs container">
-	    <ul class="breadcrumbs__list">
-	        <li class="breadcrumbs__item">
-	            <a href="/">Главная</a>
-	        </li>
-	        <li class="breadcrumbs__item">
-	            <a href="">Лестницы</a>
-	        </li>
-	        <li class="breadcrumbs__item">
-	            На металлокаркасе
-	        </li>
-	    </ul>
-	</div>
+	  <?php echo get_breadcrumbs(); ?>
     <section class="sect-otzyvi-page">
         <div class="container">
             <div class="reviews__container">

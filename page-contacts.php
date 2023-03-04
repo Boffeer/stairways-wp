@@ -1,18 +1,6 @@
 <?php get_header(); ?>
 <main>
-    <div class="breadcrumbs container">
-        <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item">
-                <a href="/">Главная</a>
-            </li>
-            <li class="breadcrumbs__item">
-                <a href="">Лестницы</a>
-            </li>
-            <li class="breadcrumbs__item">
-                На металлокаркасе
-            </li>
-        </ul>
-    </div>
+	<?php echo get_breadcrumbs(); ?>
     <section class="page-contacts section-page-m">
         <div class="container">
             <h1 class="section-title page-contacts__title"><?php the_title(); ?></h1>

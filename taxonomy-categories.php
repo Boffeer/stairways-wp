@@ -11,16 +11,7 @@ get_header();
 ?>
 
 <main>
-  <div class="breadcrumbs container">
-      <ul class="breadcrumbs__list">
-          <li class="breadcrumbs__item">
-              <a href="/">Главная</a>
-          </li>
-          <li class="breadcrumbs__item">
-              На металлокаркасе
-          </li>
-      </ul>
-  </div>
+	<?php echo get_breadcrumbs(); ?>
   <section class="catalog section-page-m">
       <div class="container">
 					<?php the_archive_title( '<h1 class="catalog-title section-title">', '</h1>' ); ?>

@@ -1,19 +1,7 @@
 <?php get_header(); ?>
 
       <main>
-          <div class="breadcrumbs container">
-              <ul class="breadcrumbs__list">
-                  <li class="breadcrumbs__item">
-                      <a href="/">Главная</a>
-                  </li>
-                  <li class="breadcrumbs__item">
-                      <a href="">Лестницы</a>
-                  </li>
-                  <li class="breadcrumbs__item">
-                      На металлокаркасе
-                  </li>
-              </ul>
-          </div>
+          <?php echo get_breadcrumbs(); ?>
           <section class="sect-delivery section-page-m">
               <div class="container">
                   <h1 class="section-title sect-delivery__title">Как заказать лестницу?</h1>
@@ -38,31 +26,32 @@
                                           <br> Просто укажите известные размеры проема в заявке, а мы перезвоним вам и назовем точную стоимость лестницы.
                                       </p>
                                   </div>
-                                  <form action="./callback.php" class="shifter-callback__form">
+                                  <form action="<?php echo FORM_URLS['mail'];?>" class="shifter-callback__form">
+                                    <input type="hidden" readonly name="form_name" value="Узнайте стоимость лестницы за 5 минут!"> 
                                       <div class="shifter-callback__form-fields">
                                           <label class="input input--tel input--init">
-    <input class="input__field" required="" name="user_tel" type="tel" placeholder="+7 (___) ___-__-__" maxlength="25" minlength="10" data-value-missing="Напишите телефон" data-value-invalid="Проверьте корректность телефона" autocomplete="tel">
-  </label>
-                                          <label class="input input--name input--init">
-    <input class="input__field" name="user_name" type="text" placeholder="Ваше имя" data-value-missing="Напишите имя" data-value-invalid="Что-то не так с введенным именем" autocomplete="name">
-  </label>
-                                          <label class="textarea" data-initial-height="94">
-    <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
-</label> <label class="input-attach @@className">
-    <input class="input-attach__field" name="user_file" type="file">
-    <span class="input-attach__box-icon">
-    <svg class="input-attach__icon">
-      <use xlink:href="./img/common/attach.svg#attach"></use>
-    </svg>
-  </span>
-    <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
-  </label>
+                                          <input class="input__field" required="" name="user_tel" type="tel" placeholder="+7 (___) ___-__-__" maxlength="25" minlength="10" data-value-missing="Напишите телефон" data-value-invalid="Проверьте корректность телефона" autocomplete="tel">
+                                        </label>
+                                                                                <label class="input input--name input--init">
+                                          <input class="input__field" name="user_name" type="text" placeholder="Ваше имя" data-value-missing="Напишите имя" data-value-invalid="Что-то не так с введенным именем" autocomplete="name">
+                                        </label>
+                                                                                <label class="textarea" data-initial-height="94">
+                                          <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
+                                      </label> <label class="input-attach @@className">
+                                          <input class="input-attach__field" name="user_file" type="file">
+                                          <span class="input-attach__box-icon">
+                                          <svg class="input-attach__icon">
+                                            <use xlink:href="./img/common/attach.svg#attach"></use>
+                                          </svg>
+                                        </span>
+                                          <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
+                                        </label>
                                       </div>
                                       <div class="shifter-callback__form--box">
                                           <button class="button button--primary shifter-callback__submit">Отправить</button>
                                           <p class="shifter-callback__privacy">
                                               Нажимая кнопку “Отправить”, вы даете согласие на<br> обработку
-                                              <a href="#" class="link">персональных данных</a>
+                                              <a href="<?php echo THEME_OPTIONS['privacy']; ?>" class="link">персональных данных</a>
                                           </p>
                                       </div>
                                   </form>
@@ -171,54 +160,55 @@
                               <br> Просто укажите известные размеры проема в заявке, а мы перезвоним вам и назовем точную стоимость лестницы.
                           </p>
                       </div>
-                      <form action="./callback.php" class="shifter-callback__form">
+                      <form action="<?php echo FORM_URLS['mail']; ?>" class="shifter-callback__form">
+                          <input type="hidden" readonly name="form_name" value="Узнайте стоимость лестницы за 5 минут!"> 
                           <div class="shifter-callback__form-fields">
                               <label class="input input--tel">
-<input
-  class="input__field"
-  required
-  name="user_tel"
-  type="tel"
-  placeholder="Телефон"
-  maxlength="25"
-  minlength="10"
-  data-value-missing="Напишите телефон"
-  data-value-invalid="Проверьте корректность телефона"
-  autocomplete="tel"
->
-</label>
-<label class="input input--name">
-<input
-  class="input__field"
-  name="user_name"
-  type="text"
-  placeholder="Ваше имя"
-  data-value-missing="Напишите имя"
-  data-value-invalid="Что-то не так с введенным именем"
-  autocomplete="name"
->
-</label>
-<label class="textarea">
-<textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
-</label> <label class="input-attach @@className">
-<input
-  class="input-attach__field"
-  name="user_file"
-  type="file"
->
-<span class="input-attach__box-icon">
-<svg class="input-attach__icon">
-  <use xlink:href="./img/common/attach.svg#attach" />
-</svg>
-</span>
-<span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
-</label>
+                                <input
+                                  class="input__field"
+                                  required
+                                  name="user_tel"
+                                  type="tel"
+                                  placeholder="Телефон"
+                                  maxlength="25"
+                                  minlength="10"
+                                  data-value-missing="Напишите телефон"
+                                  data-value-invalid="Проверьте корректность телефона"
+                                  autocomplete="tel"
+                                >
+                                </label>
+                                <label class="input input--name">
+                                <input
+                                  class="input__field"
+                                  name="user_name"
+                                  type="text"
+                                  placeholder="Ваше имя"
+                                  data-value-missing="Напишите имя"
+                                  data-value-invalid="Что-то не так с введенным именем"
+                                  autocomplete="name"
+                                >
+                                </label>
+                                <label class="textarea">
+                                <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
+                                </label> <label class="input-attach @@className">
+                                <input
+                                  class="input-attach__field"
+                                  name="user_file"
+                                  type="file"
+                                >
+                                <span class="input-attach__box-icon">
+                                <svg class="input-attach__icon">
+                                  <use xlink:href="./img/common/attach.svg#attach" />
+                                </svg>
+                                </span>
+                                <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
+                                </label>
                           </div>
                           <div class="shifter-callback__form--box">
                               <button class="button button--primary shifter-callback__submit">Отправить</button>
                               <p class="shifter-callback__privacy">
                                   Нажимая кнопку “Отправить”, вы даете согласие на обработку
-                                  <a href="#" class="link">персональных данных</a>
+                                  <a href="<?php echo THEME_OPTIONS['privacy']; ?>" class="link">персональных данных</a>
                               </p>
                           </div>
                       </form>
