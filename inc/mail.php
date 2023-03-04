@@ -1,5 +1,5 @@
 <?php
-require_once('../../../wp-load.php');
+require_once('../../../../wp-load.php');
 
 $leads_email = boffeer_explode_textarea(carbon_get_theme_option('leads_emails'));
 // $to = 'boffeechane@gmail.com';
