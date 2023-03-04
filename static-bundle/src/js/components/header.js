@@ -24,6 +24,28 @@ dropdownsVariable.forEach((dropdown) => {
 })
 
 
+const dropdownElements = [...document.querySelectorAll('.dropdown__body--list-element')];
+dropdownElements.forEach(dropdownElement => {
+    dropdownElement.addEventListener('click', (e) => {
+        const currentListElements = dropdownElement.parentElement.querySelectorAll('.dropdown__body--list-element');
+        currentListElements.forEach(currentListElement => {
+            currentListElement.classList.remove('_active');
+        })
+        dropdownElement.classList.add('_active');
+    })
+    // currentListElements.forEach(dropdownElement => {
+    //     dropdownElement.addEventListener('click', (e) => {
+    //         currentListElements.forEach((dropdownElem) => {
+    //             dropdownElem.classList.remove('_active');
+    //         })
+
+    //         dropdownElement.classList.add('_active')
+    //     })
+    // })
+})
+
+
+
 
 window.addEventListener('click', function(e) {
     if (e.target.classList.value === menu.className ||
