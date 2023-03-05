@@ -15,12 +15,19 @@ get_header();
   <section class="catalog section-page-m">
       <div class="container">
 					<?php the_archive_title( '<h1 class="catalog-title section-title">', '</h1>' ); ?>
-					<?php if ( have_posts() ) : ?>
+					<?php 
+						$stairs = new WP_Query(array(
+              'post_type' => 'stairs',
+              'post_status' => 'publish',
+              'posts_per_page' => -1,
+            ));
+					?>
+					<?php if ( $stairs->have_posts() ) : ?>
           <div class="catalog-items">
 						<?php
 						/* Start the Loop */
-						while ( have_posts() ) :
-							the_post();
+						while ( $stairs->have_posts() ) :
+							$stairs->the_post();
 
 							/*
 							 * Include the Post-Type-specific template for the content.
@@ -39,7 +46,7 @@ get_header();
 
 					endif;
 					?>
-					<?php if ( have_posts() ) : ?>
+					<?php if ( $stairs->have_posts() ) : ?>
 	          </div>
 	        <?php endif; ?> 
       </div>
@@ -47,5 +54,4 @@ get_header();
 </main>
 
 <?php
-get_sidebar();
 get_footer();
