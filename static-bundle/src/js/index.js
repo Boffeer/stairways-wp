@@ -96,3 +96,20 @@ import "./components/otzyvi_block.js";
 
 
 import "./components/filter-7p.js"
+
+const faqGalleries = document.querySelectorAll('.faq__cards');
+faqGalleries.forEach(gallery => {
+  gallery.querySelectorAll('.accordion').forEach((faq, index, allFaq) => {
+    if (index >= allFaq.length / 2) {
+      faq.classList.add('is-hidden');
+    }
+  })
+})
+const faqButton = document.querySelector('.faq__button');
+if (faqButton) {
+  faqButton.addEventListener('click', (e) => {
+    faqButton.parentElement.querySelector('.faq__cards').querySelectorAll('.accordion').forEach(card => card.classList.remove('is-hidden'))
+    faqButton.remove();
+  })
+}
+

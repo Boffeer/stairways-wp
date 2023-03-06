@@ -946,7 +946,7 @@
                   <?php endwhile; ?>
                   <?php wp_reset_postdata(); ?>
               </div>
-              <!-- <button class="button button--primary button--primary-white button--wide faq__button">Показать еще</button> -->
+              <button class="button button--primary button--primary-white button--wide faq__button">Показать еще</button>
           </div>
       </section>
       <?php endif; ?>

@@ -46,6 +46,35 @@ function get_filtered_cases() {
 	wp_die();
 }
 
+add_action( 'wp_ajax_get_more_cases', 'get_more_cases' );
+add_action( 'wp_ajax_nopriv_get_more_cases', 'get_more_cases' );
+function get_more_cases() {
+	$initial = json_decode(stripslashes($_POST['initial']));
+	$offset = json_decode(stripslashes($_POST['offset']));
+	$include = json_decode(stripslashes($_POST['include']));
+
+	$more_cases = new WP_Query( array(
+    'post_type' => 'cases',
+    'post_status' => 'publish',
+    'posts_per_page' => $offset,
+    // 'offset' => $offset,
+    'post__in' => $include,
+    'orderby' => 'post__in',
+	));
+
+	$cases = array();
+	while ($more_cases->have_posts()) :
+		$more_cases->the_post();
+		ob_start();?>
+      <div class="projects-gallery-slide projects-gallery-carousel__slide" dataset>
+			<?php get_template_part( 'template-parts/content-cases', get_post_type() ); ?>
+			</div>
+		<?php endwhile;
+	echo ob_get_clean();
+	wp_die();
+}
+
+
 function get_case_stats($id) {
   $case_stats = explode_textarea_matrix(carbon_get_post_meta($id, 'stats'));
   if ($case_stats[0] != '') : ob_start(); ?>

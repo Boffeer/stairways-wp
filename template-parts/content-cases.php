@@ -15,7 +15,7 @@
         'gallery' => carbon_get_post_meta(get_the_ID(), 'gallery'),
     );
 ?>
-<div id="case-<?php the_ID(); ?>" class="swiper-slide projects-gallery-slide">
+<div id="case-<?php the_ID(); ?>" data-id="<?php the_ID(); ?>" class="swiper-slide projects-gallery-slide">
     <div class="swiper projects-gallery-carousel-children" data-swiper="main" data-swiper-pagination data-swiper-touch>
         <div class="swiper-wrapper">
             <?php foreach ($case['gallery'] as $slide) : ?>

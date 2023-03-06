@@ -9,7 +9,9 @@ if (document.querySelector('.reviews__container')) {
         if (e.target.classList.contains('reviews__photos-more')) {
             e.target.parentElement.classList.toggle('reviews__photos--active');
             // mediaMin('650') ? msnr.layout() : '';
-            msnr.layout();
+            if (msnr) {
+                msnr.layout();
+            }
 
             if (e.target.parentElement.classList.contains('reviews__photos--active')) {
                 e.target.innerText = '-'

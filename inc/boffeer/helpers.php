@@ -31,6 +31,7 @@ if (!function_exists('get_crb_contacts')) {
 			'viber' => carbon_get_theme_option('viber_url'),
 			'whatsapp' => carbon_get_theme_option('whatsapp_url'),	
 			'youtube' => carbon_get_theme_option('youtube_url'),
+			'reviews_yandex_url' => carbon_get_theme_option('reviews_yandex_url'),
 			'vk' => carbon_get_theme_option('vk_url'),
 			'privacy' => carbon_get_theme_option('privacy_url'),
 			'worktime' => carbon_get_theme_option('worktime'),

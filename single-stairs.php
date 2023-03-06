@@ -149,7 +149,7 @@
                   <?php
                     $product_cases->the_post();
                    ?>
-                    <div class="projects-gallery-slide">
+                    <div class="projects-gallery-slide projects-gallery-carousel__slide" dataset>
                         <?php get_template_part( 'template-parts/content-cases', get_post_type() ); ?>
                     </div>
                 <?php endwhile; ?>
