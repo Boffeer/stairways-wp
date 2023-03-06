@@ -979,6 +979,12 @@
               <p class="location__desc">
                   Работаем по всей России. Для нас нет четких рамок и границ. Наше производство в Пензе.<br> Наши мастера и офисы — в 12 городах России, а наши лестницы установлены в 43 разных городах.3
               </p>
+              <div class="locatoin-addresses" style="display: none;" >
+                <?php $contacts_cities = carbon_get_theme_option('contacts_cities'); ?>
+                <?php foreach ($contacts_cities as $city) : foreach ($city['locations'] as $location) : ?>
+                  <span class="location-addresses__item" data-address="<?php echo $location['address']; ?>"></span>
+                <?php endforeach; endforeach;?>
+              </div>
               <div id="map"></div>
           </div>
       </section>
