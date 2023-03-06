@@ -27,7 +27,7 @@ get_header();
 				        <div class="filters-7p__scrollarea">
 				          <div class="filters-7p__track">
 				            <label class="tabs-7p-tab tabs-7p-tab--total">
-				                <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1">
+				                <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1" checked>
 				                <span class="tabs-7p-tab__text">Все</span>
 				            </label>
 				          </div>

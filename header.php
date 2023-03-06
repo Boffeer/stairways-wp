@@ -88,8 +88,8 @@
                 <nav class="header__nav header__top-nav">
                     <ul class="header__nav-list">
                         <li class="header__nav-item">
-                            <div class="dropdown">
-                                <span class="dropdown--title" data-dropdown> г. Москва</span>
+                            <div class="dropdown city-picker">
+                                <span class="dropdown--title city-picker__current" data-dropdown> г. Москва</span>
                                 <div class="dropdown__body">
                                     <h2 class="dropdown__body-title">Выбор города</h2>
                                     <?php $cities = carbon_get_theme_option('contacts_cities'); ?>

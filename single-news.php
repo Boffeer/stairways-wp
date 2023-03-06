@@ -96,7 +96,7 @@
                         >
                         <span class="input-attach__box-icon">
                         <svg class="input-attach__icon">
-                          <use xlink:href="./img/common/attach.svg#attach" />
+                          <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach.svg#attach" />
                         </svg>
                         </span>
                         <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>

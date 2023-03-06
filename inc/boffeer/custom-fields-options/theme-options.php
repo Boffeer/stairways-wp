@@ -30,6 +30,8 @@ Container::make('theme_options', 'theme_options', 'Настройки')
 			->set_width(50),
 		Field::make('text', 'whatsapp_url', 'Whatsapp')
 			->set_width(50),
+		Field::make('text', 'reviews_yandex_url', 'Ссылка на Яндекс отзывы')
+			->set_width(50),
 		Field::make('text', 'vk_url', 'VK')
 			->set_width(50),
 		Field::make('text', 'youtube_url', 'YouTube')

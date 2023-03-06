@@ -141,6 +141,8 @@
                 <?php
                   $product_cases = new WP_Query(array(
                       'post_type' => 'cases',
+                      'orderby' => 'rand',
+                      'posts_per_page' => 6,
                   ));
                 ?>
                 <?php while ($product_cases->have_posts()) : ?>
@@ -275,6 +277,14 @@
     </div>
 </section>
 <?php $base_product_faq = carbon_get_theme_option('base_product_faq'); ?>
+<?php
+    if (empty($base_product_faq)) :
+        $base_product_faq = carbon_get_post_meta(get_option('page_on_front'), 'home_faq');
+        // foreach ($home_faq as $faq) :
+        //     $order_conditions_ids[] = $faq['id'];
+        // endforeach;
+    endif;
+?>
 <?php if (!empty($base_product_faq)):?>
 <section class="faq section">
     <div class="container faq__container">

@@ -2831,8 +2831,13 @@ input[type=search]::-webkit-search-cancel-button {
   background-color: var(--link-icon);
 }
 
+.link-popup {
+  font-size: inherit;
+  margin-top: -6px;
+}
+
 .link-popup .link__text {
-  padding-bottom: 5px;
+  padding-bottom: 6px;
   background-image: linear-gradient(to right, rgb(149, 157, 167) 4px, transparent 4px);
   background-size: 8px 1px;
   background-repeat: repeat-x;
@@ -5774,7 +5779,7 @@ select {
 }
 
 .header--hidden {
-  transform: translateY(-200%);
+  top: -140%;
 }
 
 .header--scrolled {
@@ -8571,7 +8576,7 @@ select {
   object-fit: cover;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1500px) {
   .proud {
     padding-bottom: 7rem;
     padding-bottom: 13rem;
@@ -9339,7 +9344,6 @@ select {
   .projects {
     padding-top: 5.4rem;
     padding-bottom: 5.5rem;
-    margin-right: -30px;
   }
 }
 
@@ -11932,6 +11936,7 @@ select {
   width: 100%;
   height: 100%;
   opacity: 0;
+  transition: all 0.3s ease;
   pointer-events: none;
 }
 
@@ -12035,6 +12040,12 @@ select {
 @media (max-width: 992px) {
   .page-contacts__map {
     height: 282px;
+  }
+}
+@media (min-width: 993px) {
+  .page-contacts__map {
+    position: sticky;
+    top: 50px;
   }
 }
 

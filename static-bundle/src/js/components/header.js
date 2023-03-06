@@ -27,6 +27,12 @@ dropdownsVariable.forEach((dropdown) => {
 const dropdownElements = [...document.querySelectorAll('.dropdown__body--list-element')];
 dropdownElements.forEach(dropdownElement => {
     dropdownElement.addEventListener('click', (e) => {
+
+        const cityPickers = document.querySelectorAll('.city-picker');
+        cityPickers.forEach(picker => {
+            picker.querySelector('.city-picker__current').innerText = `г. ${dropdownElement.innerText}`;
+        })
+        
         const currentListElements = dropdownElement.parentElement.querySelectorAll('.dropdown__body--list-element');
         currentListElements.forEach(currentListElement => {
             currentListElement.classList.remove('_active');

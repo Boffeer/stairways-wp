@@ -23,8 +23,12 @@
     background-color: var(--link-icon);
 }
 
+.link-popup {
+    font-size: inherit;
+    margin-top: -6px;
+}
 .link-popup .link__text {
-    padding-bottom: 5px;
+    padding-bottom: 6px;
     background-image: linear-gradient(to right, rgba(149, 157, 167, 1) 4px, transparent 4px);
     background-size: 8px 1px;
     background-repeat: repeat-x;

@@ -19,7 +19,8 @@
     }
 }
 .header--hidden {
-    transform: translateY(-200%);
+    // transform: translateY(-200%);
+    top: -140%;
 }
 
 .header--scrolled {

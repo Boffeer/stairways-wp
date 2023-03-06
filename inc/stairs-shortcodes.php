@@ -98,7 +98,7 @@ function text_form($attrs) {
                 <input class="input-attach__field" name="user_file" type="file">
                 <span class="input-attach__box-icon">
                 <svg class="input-attach__icon">
-                  <use xlink:href="./img/common/attach.svg#attach"></use>
+                  <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach.svg#attach"></use>
                 </svg>
 	              </span>
 	                <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>

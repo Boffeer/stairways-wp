@@ -580,12 +580,12 @@
                                   </h4>
                                 <?php endif; ?>
                                 <?php if ($favorite['video_url'] != '') : ?>
-                                  <button class="play-button">
+                                  <a href="<?php echo $favorite['video_url']; ?>" data-fancybox class="play-button">
                                     <svg class="play-button__icon">
                                       <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play" />
                                     </svg>
                                     <span class="link link--underlined"><span class="link__text">Смотреть видео</span></span>
-                                  </button>
+                                  </a>
                                 <?php endif;?>
                               </div>
                           </div>
@@ -610,7 +610,7 @@
                       <div class="filters-7p__scrollarea">
                         <div class="filters-7p__track">
                           <label class="tabs-7p-tab tabs-7p-tab--total">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1">
+                              <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1" checked>
                               <span class="tabs-7p-tab__text">Все</span>
                           </label>
                         </div>
@@ -655,7 +655,7 @@
                               </a>
                           </div>
                            
-                          <div class="projects-gallery" data-swiper="main" data-swiper-destroy="true" data-swiper-pagination data-swiper-navigation data-breakpoints='{"0": {"slidesPerView" : 1},"602": {"spaceBetween": 16}, "992": {"spaceBetween": 24}, "1300": {"spaceBetween": 36}}'
+                          <div class="projects-gallery" data-swiper="main" data-swiper-destroy="true" data-swiper-pagination data-swiper-navigation data-breakpoints='{"0": {"slidesPerView" : 1, "autoHeight": true},"602": {"spaceBetween": 16}, "992": {"spaceBetween": 24}, "1300": {"spaceBetween": 36, "autoHeight": true}}'
                               data-swiper-slide="3">
                                
                                   <div class="swiper projects-gallery-carousel">
@@ -665,6 +665,7 @@
                                           $home_cases = new WP_Query(array(
                                               'post_type' => 'cases',
                                               'post_status' => 'publish',
+                                              'orderby' => 'rand',
                                           ));
                                         ?>
                                         <?php while ($home_cases->have_posts()) : ?>
@@ -773,9 +774,11 @@
                           <a href="reviews" class="link link-regular">
                               <span class="link__text">Отзывы на нашем сайте</span>
                           </a>
-                          <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
-                              <span class="link__text">Отзывы на Яндекс Картах</span>
-                          </a>
+                          <?php if (THEME_OPTIONS['reviews_yandex_url']) : ?>
+                            <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
+                                <span class="link__text">Отзывы на Яндекс Картах</span>
+                            </a>
+                          <?php endif; ?>
                       </div>
                   </div>
                   <div class="reviews-slider" data-swiper="main" data-swiper-slide="2" data-breakpoints='{"0": {"slidesPerView": 1}, "600": {"slidesPerView": 2, "spaceBetween": 16}, "992": {"spaceBetween": 24}, "1300": {"spaceBetween": 36}}' data-swiper-pagination data-swiper-navigation
@@ -858,7 +861,7 @@
                       <div class="filters-7p__scrollarea">
                         <div class="filters-7p__track">
                           <label class="tabs-7p-tab tabs-7p-tab--total">
-                              <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1">
+                              <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1" checked>
                               <span class="tabs-7p-tab__text">Все</span>
                           </label>
                         </div>
