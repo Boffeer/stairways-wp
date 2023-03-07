@@ -26,11 +26,12 @@
 <?php wp_body_open(); ?>
 <div class="wrapper">
 <div class="menu-city">
+    <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
     <p class="menu-city__text">Ваш город — </p>
     <svg class="menu-city__icon" width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5.99866 1C2.42773 1 0.401808 4.1275 1.15707 7.45201C1.69496 9.81942 4.94308 16 5.99869 16C6.98499 16 10.294 9.81741 10.8403 7.45201C11.6005 4.15991 9.59051 1 5.99866 1ZM6.00018 7.85256C4.96926 7.85256 4.13373 7.00386 4.13373 5.95662C4.13373 4.90937 4.96926 4.06067 6.00018 4.06067C7.03111 4.06067 7.86664 4.90937 7.86664 5.95662C7.86664 7.00386 7.03111 7.85256 6.00018 7.85256Z" stroke="#69788C"/>
     </svg>
-    <span class="menu-city__add-c">Москва?</span>
+    <span class="menu-city__add-c"><span class="city-picker__current">Москва?</span></span>
     <button class="menu-city__btn">
         <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L4 4L1 7" stroke="white" stroke-width="2"/>
@@ -48,23 +49,11 @@
             </div>
             <div class="menu-city__popup-list--bottom">
                 <ul class="city_block__list">
-                    <li class="city_block__list-element"><a href="">Владимир</a></li>
-                    <li class="city_block__list-element"><a href="">Воронеж</a></li>
-                    <li class="city_block__list-element"><a href="">Казань</a></li>
-                    <li class="city_block__list-element"><a href="">Калуга</a></li>
-                    <li class="city_block__list-element"><a href="">Краснодар</a></li>
-                </ul>
-                <ul class="city_block__list">
-                    <li class="city_block__list-element _active"><a href="">Москва</a></li>
-                    <li class="city_block__list-element"><a href="">Нижний Новгород</a></li>
-                    <li class="city_block__list-element"><a href="">Пенза</a></li>
-                    <li class="city_block__list-element"><a href="">Рязань</a></li>
-                    <li class="city_block__list-element"><a href="">Саранск</a></li>
-                </ul>
-                <ul class="city_block__list">
-                    <li class="city_block__list-element"><a href="">Смоленск</a></li>
-                    <li class="city_block__list-element"><a href="">Тверь</a></li>
-                    <li class="city_block__list-element"><a href="">Тула</a></li>
+                    <?php foreach ($cities as $city) : ?>
+                        <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                            <?php echo $city['city']; ?>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
@@ -92,10 +81,9 @@
                                 <span class="dropdown--title city-picker__current" data-dropdown> г. Москва</span>
                                 <div class="dropdown__body">
                                     <h2 class="dropdown__body-title">Выбор города</h2>
-                                    <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
                                     <ul class="dropdown__body--list">
                                         <?php foreach ($cities as $city) : ?>
-                                            <li class="dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                            <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
                                                 <?php echo $city['city']; ?>
                                             </li>
                                         <?php endforeach; ?>
@@ -264,14 +252,14 @@
                                     'parent' => $category->term_id,
                                 ));
                             ?>
-                                <li class="header_mobile_menu__list-element">
+                                <li class="header_mobile_menu__list-element <?php echo isCurrentUrlMatch(get_term_link($child->term_id)) ? '_active' : '';?>">
                                     <a href="<?php echo get_term_link($child->term_id); ?>">
                                         <?php echo $category->name;?>
                                     </a>
                                 </li>
                             <?php if (!empty($child_categories)) : ?>
                                 <?php foreach ($child_categories as $child) : ?>
-                                    <li class="header_mobile_menu__list-element">
+                                    <li class="header_mobile_menu__list-element <?php echo isCurrentUrlMatch(get_term_link($child->term_id)) ? '_active' : '';?>">
                                         <a href="<?php echo get_term_link($child->term_id);?>"><?php echo $child->name; ?></a>
                                     </li>
                                 <?php endforeach; ?>
@@ -281,22 +269,22 @@
 
                     <ul class="header_mobile_menu__list-all-menu">
                         <?php foreach ($header_menu as $nav) : ?>
-                            <li class="header_mobile_menu__list-all-element">
+                            <li class="header_mobile_menu__list-all-element <?php echo isCurrentUrlMatch($nav->url) ? '_active' : '';?>">
                                 <a href="<?php echo $nav->url;?>"><?php echo $nav->title; ?></a>
                             </li>
                         <?php endforeach; ?>
-                        <li class="header_mobile_menu__list-all-element"><a href="">Наши работы</a></li>
-                        <li class="header_mobile_menu__list-all-element"><a href="">О компании</a></li>
-                        <li class="header_mobile_menu__list-all-element"><a href="">Отзывы</a></li>
-                        <li class="header_mobile_menu__list-all-element"><a href="">Производство</a></li>
-                        <li class="header_mobile_menu__list-all-element"><a href="">Вакансии</a></li>
+                        <?php foreach ($header_about_menu as $nav) : ?>
+                            <li class="header_mobile_menu__list-all-element <?php echo isCurrentUrlMatch($nav->url) ? '_active' : '';?>">
+                                <a href="<?php echo $nav->url;?>"><?php echo $nav->title; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
 
                     <div class="city_block">
-                        <p class="city_block__title">Ваш регион — Москва?</p>
+                        <p class="city_block__title">Ваш регион — <span class="city-picker__current">Москва?</span></p>
                         <ul class="city_block__list">
                             <?php foreach ($cities as $city) : ?>
-                                <li class="city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
                                     <?php echo $city['city']; ?>
                                 </li>
                             <?php endforeach; ?>

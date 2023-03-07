@@ -48,15 +48,17 @@ if ([...filterButtons].length > 0) {
   }
 
   // Перемещает фильтры между дропдауном и скроллбаром
+  const WIDTH_MODIFIER = 230;
   function relocateFilterItems() {
-    let filtersMaxWidth = filter.querySelector(".tabs-7p__industries").getBoundingClientRect().width - 180;
+    let filtersMaxWidth = filter.querySelector(".tabs-7p__industries").getBoundingClientRect().width - WIDTH_MODIFIER;
     let filtersWidth = filter.querySelector(".filters-7p__track").getBoundingClientRect().width;
     let filtersToSkip = [];
 
 
     filterButtons.forEach((item, index, arr) => {
       // Чтобы убрать все большие кнопки, которые больше половины
-      if (item.innerText.length > 25) {
+      const MAX_TAB_CHARACTERS = 25;
+      if (item.innerText.length > MAX_TAB_CHARACTERS) {
         filtersToSkip.push(item);
         item.classList.add('js__filter-7p-tab--removed-initially')
         // console.log("Сразу убрать", item.innerText);
@@ -66,7 +68,7 @@ if ([...filterButtons].length > 0) {
     filterButtons.forEach((item, index, arr) => {
       if (index === 0 || filtersToSkip.includes(item)) return;
 
-      if (filtersWidth <= filtersMaxWidth - 200) {
+      if (filtersWidth <= filtersMaxWidth - WIDTH_MODIFIER) {
         casesFilterIndustriesInner.appendChild(item);
         filtersWidth += item.getBoundingClientRect().width;
         // console.log(filterIndex ,filtersWidth, '/',filtersMaxWidth);

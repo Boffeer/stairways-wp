@@ -24,30 +24,23 @@ dropdownsVariable.forEach((dropdown) => {
 })
 
 
-const dropdownElements = [...document.querySelectorAll('.dropdown__body--list-element')];
+const dropdownElements = [...document.querySelectorAll('.city-picker__element')];
 dropdownElements.forEach(dropdownElement => {
     dropdownElement.addEventListener('click', (e) => {
 
-        const cityPickers = document.querySelectorAll('.city-picker');
-        cityPickers.forEach(picker => {
-            picker.querySelector('.city-picker__current').innerText = `г. ${dropdownElement.innerText}`;
+        const cityPickersCurrent = document.querySelectorAll('.city-picker__current');
+        cityPickersCurrent.forEach(picker => {
+            picker.innerText = `г. ${dropdownElement.innerText}`;
         })
         
-        const currentListElements = dropdownElement.parentElement.querySelectorAll('.dropdown__body--list-element');
-        currentListElements.forEach(currentListElement => {
-            currentListElement.classList.remove('_active');
+        dropdownElements.forEach(city => {
+            city.classList.remove('_active');
+            
+            if (city.innerText.trim() == dropdownElement.innerText.trim()) {
+                city.classList.add('_active');
+            }
         })
-        dropdownElement.classList.add('_active');
     })
-    // currentListElements.forEach(dropdownElement => {
-    //     dropdownElement.addEventListener('click', (e) => {
-    //         currentListElements.forEach((dropdownElem) => {
-    //             dropdownElem.classList.remove('_active');
-    //         })
-
-    //         dropdownElement.classList.add('_active')
-    //     })
-    // })
 })
 
 

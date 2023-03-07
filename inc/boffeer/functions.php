@@ -110,3 +110,9 @@ function change_default_jquery( ){
     wp_dequeue_script( 'jquery');
     wp_deregister_script( 'jquery');   
 }
+
+function isCurrentUrlMatch($url) {
+	$currentUrl = preg_replace('%[^A-Za-zА-Яа-я0-9]%', '', home_url( $_SERVER['REQUEST_URI'] ));
+	$url = preg_replace('%[^A-Za-zА-Яа-я0-9]%', '', $url);
+	return $url == $currentUrl;
+}
