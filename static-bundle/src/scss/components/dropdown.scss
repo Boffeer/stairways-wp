@@ -131,6 +131,13 @@
 }
 .dropdown__body--wide .dropdown__body--list-element a {
     font-family: var(--ff-title);
+    color: var(--c-text-regular);
+    transition: all 0.3s ease;
+}
+.dropdown__body--wide .dropdown__body--list-element:hover a {
+    @media (any-hover:hover) {
+        color: var(--active-color);
+    }
 }
 .dropdown__body--wide .dropdown__body--list-element a::before {
     content: "";

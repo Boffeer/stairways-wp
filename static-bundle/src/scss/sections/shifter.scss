@@ -627,6 +627,9 @@
     @media (max-width: 800px) {
         padding-top: 2.757143rem;
     }
+    @media (max-width: 720px) {
+        padding-top: 0;
+    }
     @media (max-width:650px) {
         .shifter-callback-card {
             grid-template-columns: 100%;

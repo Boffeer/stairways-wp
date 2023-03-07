@@ -518,6 +518,7 @@
     display: inline-flex;
     align-items: center;
     margin-top: 39px;
+    pointer-events: all;
     .link__text {
         letter-spacing: 0.04em;
         text-transform: uppercase;
@@ -817,4 +818,14 @@
         max-width: 90%;
         padding-left: 1rem;
     }
+}
+
+.proud-card--has-callout:nth-of-type(2) .proud-card__callout {
+}
+
+.proud-card--has-callout {
+    pointer-events: none;
+}
+.proud-card__hero {
+    pointer-events: all;
 }
