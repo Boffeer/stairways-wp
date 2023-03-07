@@ -109,8 +109,11 @@
 }
 
 .shifter-bottom {
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
         padding-bottom: 30px;
+    }
+    @media (max-width: 650px) {
+        padding-bottom: 0;
     }
 }
 

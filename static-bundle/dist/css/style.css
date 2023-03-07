@@ -7567,9 +7567,14 @@ select {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 720px) {
   .shifter-bottom {
     padding-bottom: 30px;
+  }
+}
+@media (max-width: 650px) {
+  .shifter-bottom {
+    padding-bottom: 0;
   }
 }
 
@@ -8642,6 +8647,11 @@ select {
   position: relative;
 }
 @media (max-width: 982px) {
+  .sect-otzyvi-page .reviews-slider {
+    margin-bottom: 106px;
+  }
+}
+@media (max-width: 768px) {
   .sect-otzyvi-page .section-heading__links {
     display: flex;
     margin: auto;
@@ -8649,24 +8659,7 @@ select {
     left: 0;
     right: 0;
     bottom: -36px;
-  }
-  .sect-otzyvi-page .section-heading__links .link {
-    background: #E1E6EC;
-    border-radius: 4px;
-    border: none;
-  }
-  .sect-otzyvi-page .section-heading__links .link .link__text {
-    background: transparent;
-    padding: 12px 24px;
-    color: #1D2025;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 100%;
-  }
-  .sect-otzyvi-page .reviews-slider {
-    margin-bottom: 106px;
+    white-space: nowrap;
   }
 }
 
@@ -10053,7 +10046,10 @@ select {
     line-height: 140%;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 650px) {
+  .locations {
+    padding-top: 36px;
+  }
   .locations .section-title {
     margin-bottom: 19px;
     font-size: 24px;
@@ -12278,8 +12274,12 @@ select {
   }
 }
 
+.page-contacts-city.accordion {
+  background-color: transparent;
+}
+
 @media (any-hover: hover) {
-  .page-contacts-city:hover {
+  .page-contacts-city.accordion:hover {
     background-color: transparent;
   }
 }
@@ -12312,11 +12312,11 @@ select {
   background: transparent;
   margin-bottom: 48px;
 }
-.page-contacts__left .accordion.bayan--opened .bayan__bottom {
-  margin-top: 24px;
-}
 .page-contacts__left .accordion.bayan--opened .bayan__top {
   background: #8196B1;
+}
+.page-contacts__left .accordion.bayan--opened .bayan__bottom {
+  margin-top: 24px;
 }
 .page-contacts__left .accordion.bayan--opened .accordion__title {
   color: #fff;
@@ -12381,7 +12381,7 @@ select {
   margin-bottom: 24px;
 }
 @media (max-width: 1300px) {
-  .page-contacts__left .accordion.bayan--opened {
+  .page-contacts__left .accordion.bayan--opened:not(:last-child) {
     margin-bottom: 24px;
   }
   .page-contacts__left .accordion__title {
@@ -12420,9 +12420,6 @@ select {
   .page-contacts__left .accordion__body--container {
     padding-right: 26px;
   }
-  .page-contacts__left .accordion.bayan--opened .bayan__bottom {
-    margin-top: 24px;
-  }
 }
 
 .accordion__mess {
@@ -12430,6 +12427,12 @@ select {
   align-items: center;
   margin: 16px 0 24px;
 }
+@media (max-width: 1300px) {
+  .accordion__mess {
+    margin: 12px 0 16px;
+  }
+}
+
 .accordion__mess a {
   width: 32px;
   height: 32px;
@@ -12439,16 +12442,12 @@ select {
   align-items: center;
   justify-content: center;
 }
+
 .accordion__mess a:before {
   width: 12px;
   height: 12px;
   display: block;
   background: #8196B1;
-}
-@media (max-width: 1300px) {
-  .accordion__mess {
-    margin: 12px 0 16px;
-  }
 }
 
 .accordion__mess--viber:before {
@@ -12466,6 +12465,17 @@ select {
 .accordion__mess--whatsapp {
   margin-right: 8px;
 }
+@media (max-width: 992px) {
+  .accordion__mess--whatsapp {
+    margin-right: 4px;
+  }
+}
+@media (max-width: 600px) {
+  .accordion__mess--whatsapp {
+    margin-right: 8px;
+  }
+}
+
 .accordion__mess--whatsapp:before {
   content: "";
   -webkit-mask: url("../img/common/whatsapp.svg");
@@ -12477,16 +12487,6 @@ select {
   -webkit-mask-size: contain;
   mask-size: contain;
   transform: translate(0.5px, -1px);
-}
-@media (max-width: 992px) {
-  .accordion__mess--whatsapp {
-    margin-right: 4px;
-  }
-}
-@media (max-width: 600px) {
-  .accordion__mess--whatsapp {
-    margin-right: 8px;
-  }
 }
 
 .accordion__mess--phone {
