@@ -94,14 +94,17 @@ if (document.querySelector('.page-contacts__map')) {
             if (!isAddressCardClosing(addressCard)) {
                 addressCard.parentElement.querySelectorAll('.page-contacts-city').forEach(card =>{
                     if (card != addressCard) {
+                        if (card.classList.contains('bayan--opened')) {
+                            window.scroll({
+                                top: card.getBoundingClientRect().top + pageYOffset - 80,
+                                left: 0,
+                                behavior: 'smooth'
+                            })
+                        }
+
                         if (card.bayan) {
                             card.bayan.close();
                         }
-                        window.scroll({
-                            top: card.getBoundingClientRect().top + pageYOffset - 80,
-                            left: 0,
-                            behavior: 'smooth'
-                        })
                     }
                 })
             }
@@ -118,6 +121,12 @@ if (document.querySelector('.page-contacts__map')) {
         document.querySelectorAll('.accordion__mess--marshrut').forEach(el => {
             el.addEventListener('click', (e) => {
                 e.preventDefault();
+
+                window.scroll({
+                    top: document.querySelector('.page-contacts__map').getBoundingClientRect().top + pageYOffset - 80,
+                    left: 0,
+                    behavior: 'smooth'
+                })
                 let addresOffice = el.closest('.accordion__body--container').querySelector('.link--geo span:first-child').innerText
                 location.then(
                     (result) => {

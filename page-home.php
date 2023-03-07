@@ -993,22 +993,24 @@
       <section class="work section">
           <div class="container work__container">
               <div class="work__top">
-                  <div class="text-dropdown dropdown link--underlined">
-                      <h2 class="section-title work__title">
+                  <div class="text-dropdown link--underlined">
+                      <h2 class="section-title work__title city-picker">
                           Как мы работаем в
-                          <span class="link__text offer__link--text" data-dropdown>Москве</span>
+                          <span class="dropdown">
+                            <span class="link__text offer__link--text city-picker__current" data-dropdown>г. Москва</span>
+                            <span class="dropdown__body">
+                                <p class="dropdown__body-title">Выбор города</p>
+                                <ul class="dropdown__body--list">
+                                  <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
+                                  <?php foreach ($cities as $city) : ?>
+                                      <li class="dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                          <?php echo $city['city']; ?>
+                                      </li>
+                                  <?php endforeach; ?>
+                                </ul>
+                            </span>
+                          </span>
                       </h2>
-                      <div class="dropdown__body">
-                          <p class="dropdown__body-title">Выбор города</p>
-                          <ul class="dropdown__body--list">
-                            <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
-                            <?php foreach ($cities as $city) : ?>
-                                <li class="dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
-                                    <?php echo $city['city']; ?>
-                                </li>
-                            <?php endforeach; ?>
-                          </ul>
-                      </div>
                   </div>
               </div>
 
