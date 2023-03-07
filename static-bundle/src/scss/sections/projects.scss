@@ -21,6 +21,11 @@
             font-size: 12px;
         }
     }
+    @media (max-width:800px) {
+        .link .link__text {
+            font-size: 0.7rem;
+        }
+    }
     @media (max-width: 650px) {
         .link .link__text {
             padding: 19px 0 18px 0;

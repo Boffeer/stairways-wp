@@ -27,6 +27,9 @@
             margin-bottom: 19px;
         }
     }
+    @media (max-width:800px) {
+        padding-top: 2.714285714285714rem;
+    }
     @media (max-width:600px) {
         .tabs__toggler-container {
             margin-bottom: 24px;
@@ -52,7 +55,6 @@
     position: relative;
     @media (max-width: 600px) {
         .videos-card__img {
-            height: 240px;
             object-fit: cover;
         }
     }

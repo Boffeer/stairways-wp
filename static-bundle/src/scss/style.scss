@@ -432,3 +432,25 @@ a:hover {
     display: none !important;
     visibility: hidden !important;
 }
+
+.sect-delivery__step .reviews__container .reviews__photos {
+}
+.sect-delivery__step .reviews__container .reviews__media,
+.sect-delivery__step .reviews__container .reviews__photos-more {
+    width: 128px;
+    height: 128px;
+    background-color: #f8f8f8;
+    @media (max-width: 1300px) {
+        width: 72px;
+        height: 72px;
+    }
+    @media (max-width: 900px) {
+        width: 48px;
+        height: 48px;
+    }
+}
+.sect-delivery__step .reviews__container .reviews__media:not(:last-child) {
+    @media (max-width: 900px) {
+        margin-right: 12px;
+    }
+}

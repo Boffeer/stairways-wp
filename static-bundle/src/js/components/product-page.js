@@ -18,6 +18,11 @@
             variation.classList.add('_active')
             productVariationsPic[index].classList.add('_active');
             productVariationsDesc[index].classList.add('_active');
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
         });
     });
 })();

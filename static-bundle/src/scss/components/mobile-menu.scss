@@ -147,6 +147,10 @@
     font-family: 'OpenSans';
     text-transform: uppercase;
     border-radius: var(--radius-border);
+    text-align: center;
+    @media (max-width: 800px) {
+        max-width: 304px;
+    }
     @media (max-width: 600px) {
         height: 48px;
         display: flex;

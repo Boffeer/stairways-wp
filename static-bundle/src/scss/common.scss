@@ -100,14 +100,14 @@
 }
 
 .section-page-m {
-    margin: 88px 0 96px 0;
+    margin: 88px 0 76px 0;
     display: block;
     h1 {
         font-size: 64px;
         line-height: 100%;
         font-family: var(--ff-title);
         font-weight: 600;
-        margin-bottom: 56px;
+        margin-bottom: 74px;
     }
     @media (max-width:1300px) {
         margin: 66px 0 72px 0;
@@ -130,6 +130,13 @@
         }
         margin: 32px 0
     }
+}
+.section-page-m .shifter-callback__title {
+    font-size: 2rem;
+    margin-bottom: 1em;
+}
+.section-page-m ~ .shifter-callback {
+    padding-top: 0;
 }
 
 

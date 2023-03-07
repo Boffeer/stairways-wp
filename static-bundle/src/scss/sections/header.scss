@@ -345,8 +345,11 @@
     background: var(--dots-color);
     transition: background 0.3s ease;
 }
+.button-more__dot:first-child {
+    margin-left: -0.4rem;
+}
 .button-more__dot:not(:last-child) {
-    margin-right: 8px;
+    margin-right: 0;
 }
 
 .header__bottom-nav {

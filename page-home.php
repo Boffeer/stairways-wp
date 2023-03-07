@@ -820,7 +820,7 @@
       <section class="news">
           <div class="container news__container">
               <h2 class="section-title news__title">Статьи от наших экспертов</h2>
-              <div class="news-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"601": {"slidesPerView": 2}, "768": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
+              <div class="news-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"601": {"slidesPerView": 2}, "720": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
                   data-swiper-touch>
                   <div class="swiper news-carousel">
                       <div class="swiper-wrapper">
@@ -893,7 +893,7 @@
                   </div>
                   <div class="tabs__page-container" data-tabs="video">
                       <div class="tabs__page">
-                          <div class="videos-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"601": {"slidesPerView": 2}, "768": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
+                          <div class="videos-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"601": {"slidesPerView": 2}, "720": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
                               data-swiper-touch>
                               <div class="swiper videos-carousel">
                                   <div class="swiper-wrapper">

@@ -99,6 +99,24 @@
                                   в договоре заранее">изготовления.</span> По окончанию, мы отправим вам фото-видео отчет о проделанной работе. Когда вы ознакомитесь с отчетом, нужно доплатить оставшуюся часть стоимости изготовления, а нам подготовить
                                   лестницу к отправке и монтажу.
                               </p>
+                              <p class="sect-delivery__step--text section-text--bold">
+                                Пример фото-видео отчета:
+                              </p>
+                              <div class="reviews__container">
+                                <div class="reviews__photos">
+                                    <?php $review = carbon_get_post_meta(312, 'review_gallery');?>
+                                    <?php foreach ($review as $slide) : ?>
+                                        <a href="<?php echo boffeer_get_image_url_by_id($slide); ?>" data-fancybox="reviews" class="reviews__media">
+                                            <picture class="reviews__pic">
+                                                <img
+                                                    src="<?php echo boffeer_get_image_url_by_id($slide); ?>"
+                                                    alt="" class="reviews__img">
+                                            </picture>
+                                        </a>
+                                    <?php endforeach; ?>
+                                    <button class="button reviews__photos-more">+5</button>
+                                </div>
+                              </div>
                           </div>
                           <div class="sect-delivery__step" data-step="5" id="step-5">
                               <span class="sect-delivery__step--count">5 этап</span>

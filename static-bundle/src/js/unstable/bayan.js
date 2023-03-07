@@ -77,13 +77,18 @@ function createBayans(bayans) {
       bayanToggler.classList.add('bayan__toggler');
       bayanTopContent.appendChild(bayanToggler)
 
-
       bayanObject.top.bayan.addEventListener("click", (event) => {
         toggleBayan(bayanObject);
       });
     }
 
     createBayanStructure(bayanObject);
+    // bayan._bayan = () => { toggleBayan(bayanObject) }
+    bayan.bayan = {
+      toggle: () => { toggleBayan(bayanObject)},
+      open: () => { openBayan(bayanObject)},
+      close: () => { closeBayan(bayanObject)},
+    }
   });
 }
 

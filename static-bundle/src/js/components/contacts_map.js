@@ -88,7 +88,20 @@ if (document.querySelector('.page-contacts__map')) {
 
         window.addEventListener('click', function(e) {
             const addressCard = getClickedAddressCard(e);
+
             if (!addressCard) return;
+
+            if (!isAddressCardClosing(addressCard)) {
+                addressCard.parentElement.querySelectorAll('.page-contacts-city').forEach(card =>{
+                    if (card != addressCard) {
+                        console.log(card)
+                        if (card.bayan) {
+                            card.bayan.close();
+                        }
+                    }
+                })
+            }
+
             if (isAddressCardClosing(addressCard)) return
 
             addressCard.querySelectorAll('.page-contacts-city__location').forEach(location => {

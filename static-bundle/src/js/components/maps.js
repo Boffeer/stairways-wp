@@ -11,7 +11,7 @@ if (document.querySelector('#map')) {
         let myMap = new ymaps.Map('map',
             {
                 center: [55.751574, 37.573856],
-                zoom: 12,
+                zoom: 1,
             },
             {
                 searchControlProvider: 'yandex#search'
@@ -81,7 +81,7 @@ if (document.querySelector('#map')) {
             myMap.destroy();
             myMap = new ymaps.Map("map", {
                 center: [55.76, 37.64],
-                zoom: 20
+                zoom: 5
             });
 
             ymaps.geocode(address,
@@ -110,10 +110,10 @@ if (document.querySelector('#map')) {
                 // Добавляем первый найденный геообъект на карту.
                 // myMap.geoObjects.add(firstGeoObject);
                 // Масштабируем карту на область видимости геообъекта.
-                myMap.setCenter(coords, 7, {
+                // myMap.setCenter(coords, 7, {
                     // Проверяем наличие тайлов на данном масштабе.
-                    checkZoomRange: true
-                });
+                    // checkZoomRange: true
+                // });
 
                 let myPlacemark = new ymaps.Placemark(coords,
                     {

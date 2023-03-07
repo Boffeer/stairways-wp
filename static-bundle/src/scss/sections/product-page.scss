@@ -570,6 +570,9 @@
 
 .prod-info {
     margin-bottom: 72px;
+    @media (max-width: 600px) {
+        margin-bottom: 36px;
+    }
 }
 
 .prod-info-text__title {
@@ -848,6 +851,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    @media (max-width: 600px) {
+        border-radius: 0;
+        
+    }
 }
 
 .sect-photo__title {
@@ -1299,7 +1306,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 221%;
-    background: url(/img/proud/golden-back.png);
+    background: url("../img/proud/golden-back.png");
     @media (max-width: 660px) {
         height: 481px;
         transform: matrix(0, -1, -1, 0, 0, 0);

@@ -80,32 +80,20 @@ window.addEventListener('click', function(e) {
                 el => el.classList.remove('_active'));
         }
     }
-
-
-    if ((e.target.hasAttribute('data-dropdown'))) {
-        e.target.closest('.dropdown').classList.toggle('_active');
-        coordBlockCity();
-        // e.target.classList.contains('_active') ?
-        //     e.target.classList.remove('_active') :
-        //     e.target.closest('.dropdown').classList.remove('_active');
-
-        // e.target.classList.contains('dropdown') ?
-        //     e.target.classList.add('_active') :
-        //     e.target.closest('.dropdown').classList.add('_active');
-
-    }
-
-
-
-    if (!e.target.closest('.dropdown')) {
-        if (document.querySelector('.dropdown._active')) {
-            document.querySelectorAll('.dropdown._active').forEach(
-                el => el.classList.remove('_active'));
-        }
-    }
-
-
 });
+
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', (e) => {
+        if (!dropdown.classList.contains('_active')) {
+            dropdown.classList.add('_active')
+            coordBlockCity();
+        } else {
+            dropdown.classList.remove('_active')
+        }
+    })
+})
+
 
 const headerElem = document.querySelector('.header__top');
 const elemInStyle = headerElem.querySelector('.dropdown');

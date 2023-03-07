@@ -24,7 +24,7 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #FFFFFF;
-    margin-bottom: 36px;
+    margin-bottom: 30px;
     width: max-content;
     @media (max-width: 1300px) {
         padding: 16px 24px;
@@ -44,7 +44,7 @@
     line-height: 140%;
     font-family: var(--ff-title);
     font-weight: 600;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     @media (max-width: 1300px) {
         font-size: 32px;
     }
@@ -245,7 +245,7 @@
     }
     .shifter-callback__form {
         margin-left: 0;
-        width: 70.4%;
+        width: 78.4%;
     }
     @media (max-width:1300px) {
         .shifter-callback__form-fields {
@@ -258,10 +258,10 @@
         .shifter-callback-card {
             grid-gap: 37px;
         }
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
+        // .section-title {
+        //     font-size: 24px;
+        //     margin-bottom: 16px;
+        // }
         .shifter-callback__form {
             width: 80%
         }
@@ -301,7 +301,7 @@
 
 .sect-delivery__step {
     &:not(:last-child) {
-        margin-bottom: 128px;
+        margin-bottom: 130px;
     }
     &[data-step="2"] {
         .sect-delivery__step--text--info:after {

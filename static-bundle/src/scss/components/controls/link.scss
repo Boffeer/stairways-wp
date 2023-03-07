@@ -26,6 +26,10 @@
 .link-popup {
     font-size: inherit;
     margin-top: -6px;
+    white-space: nowrap;
+    @media (max-width: 800px) {
+    margin-top: 0;
+    }
 }
 .link-popup .link__text {
     padding-bottom: 6px;
@@ -113,7 +117,12 @@
             font-size: 0.9rem;
         }
     }
-    @media (max-width: 961px) {
+    @media (max-width: 800px) {
+        &:not(.offer__link--text) {
+            font-size: 0.7rem;
+        }
+    }
+    @media (max-width: 600px) {
         &:not(.offer__link--text) {
             background: #E1E6EC;
             font-weight: 700;

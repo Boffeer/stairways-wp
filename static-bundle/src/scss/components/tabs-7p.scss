@@ -178,9 +178,9 @@
   letter-spacing: -100em;
   color: transparent;
   margin-right: 0;
-  @media (max-width: 750px) {
-    display: none;
-  }
+  // @media (max-width: 750px) {
+  //   display: none;
+  // }
 }
 .tabs-7p__more-button:hover {
   --dots-color: var(--c-text-on);

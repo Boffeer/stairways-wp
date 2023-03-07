@@ -24,10 +24,13 @@
     @media (max-width: 992px) {
         grid-gap: 16px 44%;
         grid-template-columns: 23% 28%;
+        justify-content: space-between;
     }
     @media (max-width:768px) {
-        grid-template-columns: 100%;
         grid-gap: 36px;
+    }
+    @media (max-width: 600px) {
+        grid-template-columns: 100%;
     }
 }
 
@@ -52,9 +55,12 @@
     }
     @media (max-width:768px) {
         transform: translate(2px, -7px);
-        position: static;
         height: 300px;
         width: 304px;
+        top: 0;
+    }
+    @media (max-width: 600px) {
+        position: static;
     }
 }
 
@@ -68,7 +74,7 @@
         font-size: 20px;
     }
     @media (max-width: 992px) {
-        font-size: 1.3305rem;
+        font-size: 1.085rem;
         margin-bottom: 0.7em;
         br {
             display: none;

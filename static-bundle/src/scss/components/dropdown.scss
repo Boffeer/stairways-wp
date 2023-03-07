@@ -109,13 +109,14 @@
     font-weight: 400;
     font-size: 0.85rem;
     line-height: 100%;
-    color: var(--c-text-regular);
+    color: #8196B1;
     font-family: 'Inter';
     cursor: pointer;
-    &._active {
-        color: #8196B1;
-    }
 }
+.dropdown__body--list-element._active {
+    color: var(--c-text-regular);
+}
+
 .dropdown__body--wide .dropdown__body--list-element {
     width: 100%;
     width: 122px;
