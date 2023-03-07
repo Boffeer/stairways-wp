@@ -1310,6 +1310,7 @@
     background-size: cover;
     background-position: 221%;
     background: url("../img/proud/golden-back.png");
+    background-position: right;
     @media (max-width: 660px) {
         height: 481px;
         transform: matrix(0, -1, -1, 0, 0, 0);
