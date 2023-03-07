@@ -80,7 +80,7 @@ if (document.querySelector('#map')) {
             // myMap.container.fitToViewport();
             myMap.destroy();
             myMap = new ymaps.Map("map", {
-                center: [55.76, 37.64],
+                center: [55.76, 42.64],
                 zoom: 5
             });
 

@@ -63,7 +63,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    &.file-error {
-        color: var(--error)
+    @media (max-width: 720px) {
+        justify-content: flex-start;
     }
+}
+.file-info.file-error {
+    color: var(--error)
 }

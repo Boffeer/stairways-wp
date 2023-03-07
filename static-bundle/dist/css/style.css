@@ -3666,6 +3666,12 @@ input[type=search]::-webkit-search-cancel-button {
   align-items: center;
   justify-content: flex-end;
 }
+@media (max-width: 720px) {
+  .file-info {
+    justify-content: flex-start;
+  }
+}
+
 .file-info.file-error {
   color: var(--error);
 }
@@ -8651,20 +8657,27 @@ select {
 .sect-otzyvi-page .reviews__container {
   position: relative;
 }
+.sect-otzyvi-page .reviews-slider {
+  margin-bottom: 64px;
+}
 @media (max-width: 982px) {
   .sect-otzyvi-page .reviews-slider {
-    margin-bottom: 106px;
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 768px) {
   .sect-otzyvi-page .section-heading__links {
     display: flex;
-    margin: auto;
     justify-content: center;
     left: 0;
     right: 0;
     bottom: -36px;
     white-space: nowrap;
+  }
+}
+@media (max-width: 650px) {
+  .sect-otzyvi-page .reviews-slider {
+    margin-bottom: 0;
   }
 }
 
@@ -8940,17 +8953,6 @@ select {
     transform: translate(-24px, 65px);
   }
 }
-@media (max-width: 720px) {
-  .proud-card--has-callout:nth-of-type(odd) .proud-card {
-    transform: translate(6px, 0);
-  }
-  .proud-card--has-callout:nth-of-type(2) .proud-card__callout {
-    transform: translate(0, 17px);
-  }
-  .proud-card--has-callout .proud-card .proud-card__desc .proud-card__cta {
-    margin-top: 0;
-  }
-}
 @media (max-width: 961px) {
   .proud-card--has-callout > .proud-card__hero .proud-card__desc {
     flex-direction: column;
@@ -8960,6 +8962,15 @@ select {
 @media (max-width: 720px) {
   .proud-card--has-callout > .proud-card__hero .proud-card__info {
     width: 100%;
+  }
+  .proud-card--has-callout:nth-of-type(odd) .proud-card {
+    transform: translate(6px, 0);
+  }
+  .proud-card--has-callout:nth-of-type(2) .proud-card__callout {
+    transform: translate(0, 17px);
+  }
+  .proud-card--has-callout .proud-card .proud-card__desc .proud-card__cta {
+    margin-top: 0;
   }
 }
 @media (max-width: 650px) {
@@ -9067,6 +9078,7 @@ select {
 @media (max-width: 650px) {
   .proud-card-stats {
     width: 70%;
+    font-size: 14px;
   }
 }
 
@@ -9101,6 +9113,11 @@ select {
 @media (max-width: 700px) {
   .proud-card__title {
     line-height: 1.6;
+  }
+}
+@media (max-width: 650px) {
+  .proud-card__title {
+    font-size: 16px;
   }
 }
 
@@ -9728,8 +9745,10 @@ select {
   transition: all 0.3s ease;
 }
 
-.projects-gallery-slide:hover .swiper-slide-active {
-  transform: scale(1.25);
+@media (any-hover: hover) {
+  .projects-gallery-slide:hover .swiper-slide-active {
+    transform: scale(1.25);
+  }
 }
 
 .projects-top {

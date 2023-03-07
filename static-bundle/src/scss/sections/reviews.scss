@@ -295,20 +295,28 @@
     .reviews__container {
         position: relative;
     }
+    .reviews-slider {
+        margin-bottom: 64px;
+    }
     @media (max-width:982px) {
         .reviews-slider {
-            margin-bottom: 106px;
+            margin-bottom: 30px;
         }
     }
     @media (max-width:768px) {
         .section-heading__links {
             display: flex;
-            margin: auto;
+            // margin: auto;
             justify-content: center;
             left: 0;
             right: 0;
             bottom: -36px;
             white-space: nowrap;
+        }
+    }
+    @media (max-width: 650px) {
+        .reviews-slider {
+            margin-bottom: 0;
         }
     }
 }

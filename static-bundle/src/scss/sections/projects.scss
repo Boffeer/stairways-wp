@@ -208,7 +208,9 @@
     transition: all 0.3s ease;
 }
 .projects-gallery-slide:hover .swiper-slide-active {
-    transform: scale(1.25);
+    @media (any-hover:hover) {
+        transform: scale(1.25);
+    }
 }
 
 .projects-top {

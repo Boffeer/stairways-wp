@@ -33,7 +33,7 @@ if (!function_exists('get_crb_contacts')) {
 			'youtube' => carbon_get_theme_option('youtube_url'),
 			'reviews_yandex_url' => carbon_get_theme_option('reviews_yandex_url'),
 			'vk' => carbon_get_theme_option('vk_url'),
-			'privacy' => carbon_get_theme_option('privacy_url'),
+			'privacy_url' => carbon_get_theme_option('privacy_url'),
 			'worktime' => carbon_get_theme_option('worktime'),
 			'address_list' => carbon_get_theme_option('address_list'),
 			'og_default' => carbon_get_theme_option('default_og_img'),
