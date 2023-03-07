@@ -43,14 +43,13 @@ if ([...filterButtons].length > 0) {
   }
   function moveFiltersToScrollbar() {
     filterButtons.forEach((item, index) => {
-      if (index === 0) return;
       casesFilterIndustriesInner.appendChild(item);
     });
   }
 
   // Перемещает фильтры между дропдауном и скроллбаром
   function relocateFilterItems() {
-    let filtersMaxWidth = filter.querySelector(".tabs-7p__industries").getBoundingClientRect().width - 360;
+    let filtersMaxWidth = filter.querySelector(".tabs-7p__industries").getBoundingClientRect().width - 180;
     let filtersWidth = filter.querySelector(".filters-7p__track").getBoundingClientRect().width;
     let filtersToSkip = [];
 
@@ -67,7 +66,7 @@ if ([...filterButtons].length > 0) {
     filterButtons.forEach((item, index, arr) => {
       if (index === 0 || filtersToSkip.includes(item)) return;
 
-      if (filtersWidth <= filtersMaxWidth - 100) {
+      if (filtersWidth <= filtersMaxWidth - 200) {
         casesFilterIndustriesInner.appendChild(item);
         filtersWidth += item.getBoundingClientRect().width;
         // console.log(filterIndex ,filtersWidth, '/',filtersMaxWidth);

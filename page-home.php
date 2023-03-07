@@ -838,6 +838,7 @@
                       <div class="swiper-button-next"></div>
                   </div>
               </div>
+              <button class="button button--primary button--wide _only-mobile news__button-more" type="button">Смотреть больше</button>
           </div>
       </section>
       <?php endif; ?>
@@ -893,7 +894,7 @@
                   </div>
                   <div class="tabs__page-container" data-tabs="video">
                       <div class="tabs__page">
-                          <div class="videos-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"601": {"slidesPerView": 2}, "720": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
+                          <div class="videos-slider" data-swiper="main" data-swiper-destroy="true" data-breakpoints='{"601": {"slidesPerView": 2, "autoHeight": true}, "720": {"slidesPerView": 3, "spaceBetween": 16}, "992": {"slidesPerView": 4, "spaceBetween": 24}, "1300": {"slidesPerView": 4, "spaceBetween": 36}}' data-swiper-navigation
                               data-swiper-touch>
                               <div class="swiper videos-carousel">
                                   <div class="swiper-wrapper">

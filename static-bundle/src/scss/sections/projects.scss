@@ -30,6 +30,7 @@
         .link .link__text {
             padding: 19px 0 18px 0;
             line-height: 160%;
+            font-size: 12px;
         }
         &>.swiper>.swiper-wrapper {
             display: flex;
@@ -66,9 +67,11 @@
         margin-left: 0;
         margin-right: 0;
     }
-    @media (max-width:650px) {
+    @media (max-width:720px) {
         padding-top: 0;
         padding-bottom: 36px;
+        margin-top: -10px;
+        padding-bottom: 2.3rem;
     }
 }
 
@@ -243,10 +246,14 @@
             font-size: 12px;
         }
     }
+    @media (max-width: 720px) {
+        .projects-top-text {
+            width: 100%;
+        }
+    }
     @media (max-width:650px) {
         .projects-top-text {
             font-size: 14px;
-            width: 100%;
         }
     }
 }

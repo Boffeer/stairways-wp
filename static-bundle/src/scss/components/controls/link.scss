@@ -28,7 +28,7 @@
     margin-top: -6px;
     white-space: nowrap;
     @media (max-width: 800px) {
-    margin-top: 0;
+    margin-top: -4px;
     }
 }
 .link-popup .link__text {
@@ -122,7 +122,7 @@
             font-size: 0.7rem;
         }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 720px) {
         &:not(.offer__link--text) {
             background: #E1E6EC;
             font-weight: 700;

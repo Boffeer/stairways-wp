@@ -26,6 +26,9 @@
   //   width: calc(100% + 8px);
   //   margin-left: -5px;
   // }
+  @media (max-width: 720px) and (min-width: 610px) {
+    margin-bottom: 1.428571rem; 
+  }
 }
 .tabs-7p__industries {
   position: relative;

@@ -17,3 +17,7 @@
         margin-top: 24px;
     }
 }
+
+.faq .accordion:last-of-type {
+    border-bottom: 1px solid var(--accordion-border-color);
+}

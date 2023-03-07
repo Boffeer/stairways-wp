@@ -454,3 +454,9 @@ a:hover {
         margin-right: 12px;
     }
 }
+
+.single-stairs .shifter-bottom {
+    @media (max-width: 600px) {
+        padding-bottom: 0;
+    }
+}

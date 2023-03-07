@@ -8,6 +8,9 @@
     --fw-button: 700;
     --bg-button-primary: var(--c-text-regular);
     --bg-button-secondary: var(--c-text-secondary);
+    @media (max-width: 650px) {
+        --fz-button: 12px;
+    }
 }
 
 .button {

@@ -141,11 +141,11 @@
     }
     @media (max-width:1300px) {
         .accordion {
-            margin-bottom: 16px;
+            // margin-bottom: 16px;
             &.bayan--opened {
-                margin-bottom: 32px;
+                margin-bottom: 24px;
                 .bayan__bottom {
-                    margin-top: 16px;
+                    // margin-top: 16px;
                 }
             }
         }
@@ -183,7 +183,7 @@
             //     margin-bottom: 0;
             // }
             .bayan__bottom {
-                margin-top: 16px;
+                // margin-top: 16px;
             }
         }
     }
@@ -257,6 +257,13 @@
     @media (max-width: 1300px) {
         font-size: 12px;
     }
+}
+
+.accordion__mess .accordion__mess--phone {
+    width: 100%;
+    margin-left: auto;
+    border-radius: 0;
+    text-align: right;
 }
 
 .accordion__contacts {
@@ -354,10 +361,19 @@
         padding: 15px 25px;
     }
     @media (max-width:600px) {
-        margin-top: 76px;
+        // margin-top: 76px;
+        margin-top: 16px;
     }
 }
 
 .page-contacts__right {
     width: 66%
+}
+// .page-contacts-city .accordion__body {
+//     padding-top: 24px;
+// }
+
+.accordion__body {
+    width: 100%;
+    max-width: 100%;
 }

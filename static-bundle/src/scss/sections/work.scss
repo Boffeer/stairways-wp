@@ -84,31 +84,37 @@
 .work-bullet {
     list-style-type: none;
     counter-increment: list;
-    &:before {
-        content: counter(list) " ";
-        font-weight: 600;
-        font-size: 64px;
-        line-height: 100%;
-        color: var(--c-text-regular);
-        font-family: var(--ff-title);
-        @media (max-width: 1300px) {
-            font-size: 40px
-        }
-        @media (max-width:992px) {
-            font-size: 24px
-        }
-        @media (max-width:600px) {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--c-text-regular);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            padding-bottom: 3px;
-            padding-right: 1px;
-        }
+}
+.work-bullet:before {
+    content: counter(list) " ";
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 100%;
+    color: var(--c-text-regular);
+    font-family: var(--ff-title);
+    @media (max-width: 1300px) {
+        font-size: 40px
+    }
+    @media (max-width:992px) {
+        font-size: 24px
+    }
+    @media (max-width:600px) {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--c-text-regular);
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        color: #fff;
+        padding-bottom: 3px;
+        padding-right: 1px;
+        line-height: 1;
+    }
+}
+body:not(.os-windows):not(.os-linux) .work-bullet:before {
+    @media (max-width: 600px) {
+        padding-top: 8px;
     }
 }
 

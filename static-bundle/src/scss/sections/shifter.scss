@@ -5,6 +5,16 @@
             margin-bottom: 16px;
         }
     }
+    @media (max-width: 720px) {
+        .section-title {
+            font-size: 1.24rem;
+            margin-bottom: 0.6em;
+        }
+        .shifter__desc {
+            font-size: 0.77rem;
+            max-width: 240px;
+        }
+    }
     @media (max-width: 650px) {
         .container {
             padding: 0
@@ -76,7 +86,7 @@
     @media (max-width: 1300px) {
         font-size: 14px;
         max-width: 100%;
-        padding-bottom: 3.857142857142857rem;//54px
+        padding-bottom: 0;//54px
     }
     @media (max-width: 800px) {
         padding-bottom: 0;
@@ -85,6 +95,9 @@
 .shifter-bottom .shifter__card {
     padding-bottom: 5.142857142857143rem;//71px;
     @media (max-width: 1300px) {
+        padding-bottom: 4rem;
+    }
+    @media (max-width: 800px) {
         padding-bottom: 2.142857142857143rem;
     }
 }
@@ -113,6 +126,8 @@
     }
     @media (max-width: 768px) {
         grid-template-columns: 0.65fr;
+        padding-bottom: 24px;
+        padding-top: 24px;
     }
 }
 

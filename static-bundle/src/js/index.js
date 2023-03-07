@@ -113,3 +113,11 @@ if (faqButton) {
   })
 }
 
+
+const newsButtonMore = document.querySelector('.news__button-more')
+if (newsButtonMore) {
+  newsButtonMore.addEventListener('click', (e) => {
+    e.target.parentElement.querySelector('.news-slider').classList.add('news-slider--opened');
+    e.target.remove();
+  })  
+}

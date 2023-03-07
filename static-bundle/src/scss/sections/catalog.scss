@@ -111,7 +111,7 @@
     content: "+";
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: #{'calc(50% - 24px)'};
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;

@@ -94,10 +94,14 @@ if (document.querySelector('.page-contacts__map')) {
             if (!isAddressCardClosing(addressCard)) {
                 addressCard.parentElement.querySelectorAll('.page-contacts-city').forEach(card =>{
                     if (card != addressCard) {
-                        console.log(card)
                         if (card.bayan) {
                             card.bayan.close();
                         }
+                        window.scroll({
+                            top: card.getBoundingClientRect().top + pageYOffset - 80,
+                            left: 0,
+                            behavior: 'smooth'
+                        })
                     }
                 })
             }
