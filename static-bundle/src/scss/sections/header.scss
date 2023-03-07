@@ -254,8 +254,9 @@
             font-weight: 400;
             font-size: 20px;
             line-height: 120%;
+            color: #8196B1;
             &._active {
-                color: #8196B1;
+                color: var(--c-text-regular);
             }
             &:not(:last-child) {
                 // margin-bottom: 24px;

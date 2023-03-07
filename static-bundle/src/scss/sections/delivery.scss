@@ -411,7 +411,8 @@
         width: 100%;
     }
     @media (max-width: 650px) {
-        margin-bottom: 48px;
+        // margin-bottom: 48px;
+        margin-bottom: 0;
     }
 }
 
@@ -445,5 +446,11 @@
         opacity: 1;
         transform: translateY(0);
         visibility: visible;
+    }
+}
+
+.section-page-m ~ .shifter-bottom {
+    @media (max-width: 650px) {
+        padding-top: 0;
     }
 }

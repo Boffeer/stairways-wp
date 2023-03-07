@@ -3,11 +3,14 @@
         padding-bottom: 7rem;
         padding-bottom: 13rem
     }
-    @media (max-width: 1300px) and (min-width: 610px) {
-        padding-bottom: 17rem;
+    @media (max-width: 1300px) and (min-width: 720px) {
+        padding-bottom: 0;
     }
     @media (max-width: 992px) {
         overflow: hidden;
+    }
+    @media (max-width: 992px) and (min-width: 650px) {
+        padding-bottom: 17rem;
     }
 }
 
@@ -149,8 +152,7 @@
         .proud-card {
             .proud-card__desc {
                 .proud-card__cta {
-                    margin-top: 0;//16px;
-                    // margin-top: 1rem;
+                    margin-top: 1rem;
                 }
             }
         }
@@ -269,6 +271,14 @@
                 transform: translate(0, 17px);
             }
         }
+        .proud-card {
+            .proud-card__desc {
+                .proud-card__cta {
+                    margin-top: 0;
+                }
+            }
+        }
+
     }
     @media (max-width: 961px) {
         &>.proud-card__hero {
