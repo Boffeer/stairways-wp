@@ -132,6 +132,9 @@
         padding-bottom: 24px;
         padding-top: 24px;
     }
+    @media (max-width: 650px) {
+        padding-top: 34px;
+    }
 }
 
 .shifter-form-main .form-callback__row .button {
@@ -154,7 +157,7 @@
             padding-right: 0;
         }
         .section-title {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             font-size: 22px;
         }
         .shifter__desc {
@@ -327,7 +330,10 @@
     margin-bottom: 24px;
     @media (max-width: 1300px) {
         font-size: 14px;
-        margin-bottom: 24px;
+        margin-bottom: 30px;//24px;
+    }
+    @media (max-width: 720px) {
+        margin-bottom: 12px;//24px;
     }
 }
 
@@ -393,7 +399,18 @@
             height: 16px;
         }
     }
-    @media (max-width:600px) {
+    @media (max-width:720px) {
+        margin-bottom: 16px;
+        label:not(:last-child) {
+            margin-right: 20px;
+        }
+        .radio__check {
+            width: 12px;
+            height: 12px;
+        }
+    }
+    @media (max-width:650px) {
+        margin-bottom: 22px;
         label {
             &:not(:last-child) {
                 margin-right: 16px;
@@ -454,8 +471,10 @@
     }
     @media (max-width:800px) {
         margin-top: auto;
+        margin-bottom: auto;
     }
     @media (max-width:650px) {
+        margin-bottom: unset;
         img {
             max-width: 100%;
             position: static;
@@ -676,6 +695,9 @@
         .section-title {
             font-size: 24px;
             line-height: 150%;
+        }
+        .shifter-callback__desc {
+            font-size: 12px;
         }
     }
 }

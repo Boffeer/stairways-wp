@@ -362,7 +362,7 @@
                                     >
                                   </label>
                                    <label class="textarea">
-                                    <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
+                                    <textarea class="textarea__field" name="user_message" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
                                   </label> <label class="input-attach input-attach--on">
                                     <input
                                       class="input-attach__field"
@@ -704,17 +704,17 @@
                           <input type="hidden" name="form_name" value="Получите подборку из 50 наших лучших работ, и вы точно найдете подходящий вам вариант!  Куда отправить?" readonly>
                           <div class="radio__row">
                               <label class="radio">
-                                <input type="radio" name="user_connect" class="radio__input" checked>
+                                <input type="radio" name="user_connect" value="Телефон" class="radio__input" checked>
                                 <span class="radio__check"></span>
                                 <span class="radio__title">Телефон</span>
                               </label>
-                                              <label class="radio">
-                                <input type="radio" name="user_connect" class="radio__input">
+                              <label class="radio">
+                                <input type="radio" name="user_connect" value="Telegram" class="radio__input">
                                 <span class="radio__check"></span>
                                 <span class="radio__title">Telegram</span>
                               </label>
                                               <label class="radio">
-                                <input type="radio" name="user_connect" class="radio__input">
+                                <input type="radio" name="user_connect" value="WhatsApp" class="radio__input">
                                 <span class="radio__check"></span>
                                 <span class="radio__title">WhatsApp</span>
                               </label>
@@ -747,11 +747,11 @@
                               </label>
 
                               <button class="button button--secondary button--icon-left nt-btn">
-                <svg class="button__icon">
-                  <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/download.svg#download" />
-                </svg>
-                <span class="button__text">Получить каталог</span>
-              </button>
+                                <svg class="button__icon">
+                                  <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/download.svg#download" />
+                                </svg>
+                                <span class="button__text">Получить каталог</span>
+                              </button>
                           </div>
                       </form>
                   </div>
@@ -921,9 +921,7 @@
       </section>
       <?php endif;?>
 
-      <?php
-        $home_faq_items = carbon_get_post_meta(get_the_ID(), 'home_faq');
-      ?>
+      <?php $home_faq_items = carbon_get_post_meta(get_the_ID(), 'home_faq'); ?>
       <?php if (!empty($home_faq_items)) : ?>
       <section class="faq">
           <div class="container faq__container">
@@ -1132,8 +1130,8 @@
                             >
                           </label>
                            <label class="textarea">
-                            <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
-                          </label> <label class="input-attach @@className">
+                            <textarea class="textarea__field" name="user_message" placeholder="Опишите свою задачу и укажите известные размеры проема"></textarea>
+                          </label> <label class="input-attach">
                             <input
                               class="input-attach__field"
                               name="user_file"

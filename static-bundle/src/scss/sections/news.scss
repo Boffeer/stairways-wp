@@ -58,6 +58,9 @@
     display: block;
     position: relative;
     padding-bottom: 68%;
+    @media (max-width: 650px) {
+        padding-bottom: 79%;
+    }
 }
 .news-card__img {
     position: absolute;

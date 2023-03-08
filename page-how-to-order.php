@@ -32,18 +32,19 @@
                                           <label class="input input--tel input--init">
                                           <input class="input__field" required="" name="user_tel" type="tel" placeholder="+7 (___) ___-__-__" maxlength="25" minlength="10" data-value-missing="Напишите телефон" data-value-invalid="Проверьте корректность телефона" autocomplete="tel">
                                         </label>
-                                                                                <label class="input input--name input--init">
+                                        <label class="input input--name input--init">
                                           <input class="input__field" name="user_name" type="text" placeholder="Ваше имя" data-value-missing="Напишите имя" data-value-invalid="Что-то не так с введенным именем" autocomplete="name">
                                         </label>
-                                                                                <label class="textarea" data-initial-height="94">
+                                        <label class="textarea" data-initial-height="94">
                                           <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
-                                      </label> <label class="input-attach @@className">
+                                        </label>
+                                        <label class="input-attach">
                                           <input class="input-attach__field" name="user_file" type="file">
                                           <span class="input-attach__box-icon">
-                                          <svg class="input-attach__icon">
-                                            <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach.svg#attach"></use>
-                                          </svg>
-                                        </span>
+                                            <svg class="input-attach__icon">
+                                              <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach.svg#attach"></use>
+                                            </svg>
+                                          </span>
                                           <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
                                         </label>
                                       </div>
@@ -194,8 +195,8 @@
                                   data-value-invalid="Проверьте корректность телефона"
                                   autocomplete="tel"
                                 >
-                                </label>
-                                <label class="input input--name">
+                              </label>
+                              <label class="input input--name">
                                 <input
                                   class="input__field"
                                   name="user_name"
@@ -205,10 +206,11 @@
                                   data-value-invalid="Что-то не так с введенным именем"
                                   autocomplete="name"
                                 >
-                                </label>
-                                <label class="textarea">
-                                <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
-                                </label> <label class="input-attach @@className">
+                              </label>
+                              <label class="textarea">
+                                <textarea class="textarea__field" name="user_message" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
+                              </label>
+                              <label class="input-attach">
                                 <input
                                   class="input-attach__field"
                                   name="user_file"
@@ -220,7 +222,7 @@
                                 </svg>
                                 </span>
                                 <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
-                                </label>
+                              </label>
                           </div>
                           <div class="shifter-callback__form--box">
                               <button class="button button--primary shifter-callback__submit">Отправить</button>

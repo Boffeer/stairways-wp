@@ -89,7 +89,7 @@ function text_form($attrs) {
 
 	            <?php if ($attrs['message']) : ?>
 		            <label class="textarea" data-initial-height="94">
-		                <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
+		                <textarea class="textarea__field" name="user_message" placeholder="Опишите свою задачу и укажите известные размеры проема"></textarea>
 		            </label>
 		          <?php endif; ?>
 
@@ -109,7 +109,7 @@ function text_form($attrs) {
               <button class="button button--primary shifter-callback__submit">Отправить</button>
               <p class="shifter-callback__privacy">
                   Нажимая кнопку “Отправить”, вы даете согласие на<br> обработку
-                  <a href="<?php echo THEME_OPTIONS['privacy']; ?>" class="link">персональных данных</a>
+                  <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="link">персональных данных</a>
               </p>
           </div>
       </form>

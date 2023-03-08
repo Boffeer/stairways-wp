@@ -10,6 +10,7 @@
  */
 
 ?>
+    <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
         <footer class="footer">
             <div class="container footer__container">
                 <div class="footer__about">
@@ -108,7 +109,7 @@
                 </div>
                 <div class="footer__bottom">
                     <p class="footer__copy">© 2014-<?php echo date('Y'); ?>. Все права защищены.</p>
-                    <a href="<?php echo THEME_OPTIONS['privacy']; ?>" class="footer__link">Политика конфиденциальности данных</a>
+                    <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="footer__link">Политика конфиденциальности данных</a>
                     <a href="https://7pap.ru/" class="footer__creator">Сделано в СЕМЬ ПАП:</a>
                 </div>
             </div>
@@ -124,17 +125,17 @@
                 <input type="hidden" name="form_name" value="Вам нужна винтовая лестница на металлокаркасе?">
                 <fieldset class="radio__row">
                     <label class="radio">
-                        <input type="radio" name="user_connect" class="radio__input" checked>
+                        <input type="radio" name="user_connect" value="Телефон" class="radio__input" checked>
                         <span class="radio__check"></span>
                         <span class="radio__title">Телефон</span>
                     </label>
                     <label class="radio">
-                        <input type="radio" name="user_connect" class="radio__input">
+                        <input type="radio" name="user_connect" value="Telegram" class="radio__input">
                         <span class="radio__check"></span>
                         <span class="radio__title">Telegram</span>
                     </label>
                     <label class="radio">
-                        <input type="radio" name="user_connect" class="radio__input">
+                        <input type="radio" name="user_connect" value="WhatsApp" class="radio__input">
                         <span class="radio__check"></span>
                         <span class="radio__title">WhatsApp</span>
                     </label>
@@ -182,17 +183,17 @@
                 <input type="hidden" name="form_name" value="Перезвонить :" readonly>
                 <fieldset class="radio__row">
                     <label class="radio">
-                      <input type="radio" name="user_connect" class="radio__input" checked>
+                      <input type="radio" name="user_connect" value="Телефон" class="radio__input" checked>
                       <span class="radio__check"></span>
                       <span class="radio__title">Телефон</span>
                     </label>
-                                        <label class="radio">
-                      <input type="radio" name="user_connect" class="radio__input">
+                    <label class="radio">
+                      <input type="radio" name="user_connect" value="Telegram" class="radio__input">
                       <span class="radio__check"></span>
                       <span class="radio__title">Telegram</span>
                     </label>
-                                        <label class="radio">
-                      <input type="radio" name="user_connect" class="radio__input">
+                    <label class="radio">
+                      <input type="radio" name="user_connect" value="WhatsApp" class="radio__input">
                       <span class="radio__check"></span>
                       <span class="radio__title">WhatsApp</span>
                     </label>
@@ -307,12 +308,14 @@
                         data-value-invalid="Что-то не так с введенным фамилией"
                         autocomplete="name"
                       >
-                    </label> <select class="form-control select" data-trigger name="choices-single-default" id="choices-single-default">
+                    </label>
+                    <select class="form-control select" data-trigger name="choices-single-default" id="choices-single-default">
                         <option value="">Выберите город</option>
-                        <option value="msk">Москва</option>
-                        <option value="pnz">Пенза</option>
-                        <option value="krd">Краснодар</option>
-                    </select> <label class="input input--tel">
+                        <?php foreach ($cities as $city) : ?>
+                            <option value="<?php echo $city['city']; ?>"><?php echo $city['city']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <label class="input input--tel">
                       <input
                         class="input__field"
                         required
@@ -327,7 +330,7 @@
                       >
                     </label>
                      <label class="textarea">
-                      <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
+                      <textarea class="textarea__field" name="user_message" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
                     </label>
 
 
@@ -347,7 +350,7 @@
                       </label>
                     </div>
                     <div class="form-bottom-send">
-                        <button class="button button--secondary button--icon-right nt-btn" type="button">         
+                        <button class="button button--secondary button--icon-right nt-btn" type="submit">         
                             <span class="button__text">Отправить</span>
                         </button>
                         <p class="form-policy-in-btn">

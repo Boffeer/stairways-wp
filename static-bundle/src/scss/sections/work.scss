@@ -49,6 +49,11 @@
             margin-bottom: 38px;
         }
     }
+    @media (max-width: 650px) {
+        .section-title {
+            margin-bottom: 32px;
+        }
+    }
 }
 
 .work__title {

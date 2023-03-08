@@ -35,8 +35,8 @@
                     <p class="shifter__desc">
                         10 минут консультации заменят 2 часа поиска в интернете. Обычно ответ оказывается точным и полным, чем от бесконечных поисков по сайтам. Консультация бесплатна.
                     </p>
-                    <a href="tel:+78412234345" class="shifter__phone js-phone link link--underlined">
-                        <span class="link__text offer__link--text">+7 (8412) 23-43-45</span>
+                    <a href="<?php echo THEME_OPTIONS['phone_href']; ?>" class="shifter__phone js-phone link link--underlined">
+                        <span class="link__text offer__link--text"><?php echo THEME_OPTIONS['phone']; ?></span>
                     </a>
                     <button class="button button--primary" data-poppa-open="form-callback">Заказать звонок</button>
                 </div>
@@ -59,54 +59,55 @@
                     </p>
                 </div>
                 <form action="<?php echo FORM_URLS['mail']; ?>" class="shifter-callback__form">
-                  <input type="hidden" name="form_name" value="Узнайте стоимость лестницы за 5 минут!" readonly>
+                    <input type="hidden" name="form_name" value="Узнайте стоимость лестницы за 5 минут!" readonly>
                     <div class="shifter-callback__form-fields">
                         <label class="input input--tel">
-                        <input
-                          class="input__field"
-                          required
-                          name="user_tel"
-                          type="tel"
-                          placeholder="Телефон"
-                          maxlength="25"
-                          minlength="10"
-                          data-value-missing="Напишите телефон"
-                          data-value-invalid="Проверьте корректность телефона"
-                          autocomplete="tel"
-                        >
+                            <input
+                              class="input__field"
+                              required
+                              name="user_tel"
+                              type="tel"
+                              placeholder="Телефон"
+                              maxlength="25"
+                              minlength="10"
+                              data-value-missing="Напишите телефон"
+                              data-value-invalid="Проверьте корректность телефона"
+                              autocomplete="tel"
+                            >
                         </label>
                         <label class="input input--name">
-                        <input
-                          class="input__field"
-                          name="user_name"
-                          type="text"
-                          placeholder="Ваше имя"
-                          data-value-missing="Напишите имя"
-                          data-value-invalid="Что-то не так с введенным именем"
-                          autocomplete="name"
-                        >
+                            <input
+                              class="input__field"
+                              name="user_name"
+                              type="text"
+                              placeholder="Ваше имя"
+                              data-value-missing="Напишите имя"
+                              data-value-invalid="Что-то не так с введенным именем"
+                              autocomplete="name"
+                            >
                         </label>
                         <label class="textarea">
-                        <textarea class="textarea__field" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
-                        </label> <label class="input-attach @@className">
-                        <input
-                          class="input-attach__field"
-                          name="user_file"
-                          type="file"
-                        >
-                        <span class="input-attach__box-icon">
-                        <svg class="input-attach__icon">
-                          <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach.svg#attach" />
-                        </svg>
-                        </span>
-                        <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
+                            <textarea class="textarea__field" name="user_message" placeholder="Опишите свою задачу и укажите известные размеры проема"></textarea>
+                        </label>
+                        <label class="input-attach">
+                            <input
+                              class="input-attach__field"
+                              name="user_file"
+                              type="file"
+                            >
+                            <span class="input-attach__box-icon">
+                            <svg class="input-attach__icon">
+                              <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/attach.svg#attach" />
+                            </svg>
+                            </span>
+                            <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
                         </label>
                     </div>
                     <div class="shifter-callback__form--box">
                         <button class="button button--primary shifter-callback__submit">Отправить</button>
                         <p class="shifter-callback__privacy">
                             Нажимая кнопку “Отправить”, вы даете согласие на обработку
-                            <a href="#" class="link">персональных данных</a>
+                            <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="link">персональных данных</a>
                         </p>
                     </div>
                 </form>
