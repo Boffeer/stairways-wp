@@ -28,8 +28,10 @@
     }
     @media (max-width:768px) {
         grid-gap: 36px;
+        padding-bottom: 36px;
     }
     @media (max-width: 600px) {
+        padding-bottom: 0;
         grid-template-columns: 100%;
     }
 }

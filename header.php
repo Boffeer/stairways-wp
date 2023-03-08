@@ -252,8 +252,8 @@
                                     'parent' => $category->term_id,
                                 ));
                             ?>
-                                <li class="header_mobile_menu__list-element <?php echo isCurrentUrlMatch(get_term_link($child->term_id)) ? '_active' : '';?>">
-                                    <a href="<?php echo get_term_link($child->term_id); ?>">
+                                <li class="header_mobile_menu__list-element <?php echo isCurrentUrlMatch(get_term_link($category->term_id)) ? '_active' : '';?>">
+                                    <a href="<?php echo get_term_link($category->term_id); ?>">
                                         <?php echo $category->name;?>
                                     </a>
                                 </li>

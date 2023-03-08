@@ -55,11 +55,11 @@
 }
 
 .catalog-project {
+    margin-bottom: 160px;
     .tabs {
         overflow: visible;
     }
     &.catalog-project {
-        margin-bottom: 160px;
     }
     .tabs__toggler-container {
         width: 100%;
@@ -90,6 +90,9 @@
                 grid-template-columns: repeat(3, 32%);
             }
         }
+    }
+    @media (max-width: 720px) {
+        margin-bottom: 60px;
     }
     @media (max-width:600px) {
         .projects-gallery-carousel {
