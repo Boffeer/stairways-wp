@@ -20,7 +20,7 @@
                     </a>
                     <p class="footer__address"><?php echo THEME_OPTIONS['address_list']; ?></p>
                     <div class="footer__contacts">
-                        <a href="<?php echo THEME_OPTIONS['phone']; ?>" class="footer__phone js-phone"><?php echo THEME_OPTIONS['phone']; ?></a>
+                        <a href="<?php echo THEME_OPTIONS['phone_href']; ?>" class="footer__phone js-phone"><?php echo THEME_OPTIONS['phone']; ?></a>
                         <a href="mailto:<?php echo THEME_OPTIONS['email']; ?>" class="footer__email"><?php echo THEME_OPTIONS['email']; ?></a>
                     </div>
                     <p class="footer__worktime _only-mobile"><?php echo THEME_OPTIONS['worktime']; ?></p>
@@ -234,7 +234,7 @@
 </section>
 
 
-<div class="poppa poppa--no-scroll poppa--wide" id="abouts">
+<div class="poppa poppa--no-scroll poppa--wide" id="abouts" data-poppa-closer="inside">
     <div class="poppa-abouts">
         <div class="poppa__overlay--container">
             <div class="poppa-slider">

@@ -24,9 +24,14 @@ function updateCaseSlides(gallery = '') {
 	});
 
 	caseCarousel.querySelector('.swiper-wrapper').innerHTML = gallery;
-	caseCarousel.swiper.updateSlides();
-	caseCarousel.swiper.updateProgress();
-	caseCarousel.swiper.slideTo(0);
+	setTimeout(() => {
+		caseCarousel.swiper.updateSlides();
+		caseCarousel.swiper.updateProgress();
+		caseCarousel.swiper.slideTo(0);
+		caseCarousel.swiper.slideReset();
+		console.log(caseCarousel.swiper)
+	}, 100)
+	// caseCarousel.swiper.slidePrev();
 }
 function updateFormName(formElement, name) {
 	if (!formElement || !name) return;

@@ -153,6 +153,7 @@ class Poppa {
     overlay.append(aligner);
 
     const closerType = poppa.dataset.poppaCloser
+    console.log(poppa)
     if (closerType === "inside") {
       poppa.append(closer);
     } else {

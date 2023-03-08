@@ -830,19 +830,27 @@
     margin-right: auto;
 }
 .poppa__overlay--abouts .poppa__closer {
+    top: 0.5rem;
+    right: 1rem;
     @media (min-width: 1280px) {
-        top: 49px;
-        right: 12%;
+        // top: 49px;
+        // right: 12%;
         width: 36px;
         height: 36px;
     }
     @media (max-width: 1600px) {
-        right: 10%;
+        // right: 10%;
     }
     @media (max-width: 700px) {
         padding-top: 0;
     }
 }
+.poppa__overlay--abouts .poppa__overlay--container {
+    @media (min-width: 1280px) {
+        padding: 48px;  
+    }
+}
+
 .poppa__overlay--container {
     height: #{'calc(100 * 1vh)'};
 

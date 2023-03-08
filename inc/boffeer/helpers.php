@@ -20,14 +20,17 @@ if (!function_exists('get_vd')) {
 	}
 }
 
+function get_phone_href($phone) {
+	return 'tel:' . substr_replace( preg_replace( "/[^0-9]/" , '' ,  $phone) , '+7' , 0 , 1 );
+}
+
 if (!function_exists('get_crb_contacts')) {
 	function get_crb_theme_options()
 	{
 		return array(
 			'email' => carbon_get_theme_option('email'),
 			'phone' => carbon_get_theme_option('phone'),
-			'phone_href' => 'tel:' . carbon_get_theme_option('phone'),
-			'phone_href_2' => 'tel:' . preg_replace('/\D/i', '', carbon_get_theme_option('phone')),
+			'phone_href' => get_phone_href(carbon_get_theme_option('phone')),
 			'viber' => carbon_get_theme_option('viber_url'),
 			'whatsapp' => carbon_get_theme_option('whatsapp_url'),	
 			'youtube' => carbon_get_theme_option('youtube_url'),
