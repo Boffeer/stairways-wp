@@ -331,6 +331,7 @@
                     </label>
 
 
+                    <div class="input-attach__wrapper">
                     <label class="input-attach">
                         <input
                           class="input-attach__field"
@@ -344,6 +345,7 @@
                       </span>
                         <span class="input-attach__text link link--underlined"><span class="link__text">Прикрепить файл</span></span>
                       </label>
+                    </div>
                     <div class="form-bottom-send">
                         <button class="button button--secondary button--icon-right nt-btn" type="button">         
                             <span class="button__text">Отправить</span>

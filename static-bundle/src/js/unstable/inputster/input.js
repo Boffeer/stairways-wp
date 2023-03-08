@@ -207,8 +207,8 @@
 // });
 // #endregion form
 
-const FORMATFILE =
-    /(.jpg|.jpeg|.png|.pdf|.xls|.xlsx|.doc|.docx)$/i;
+const FILE_REGEX = new RegExp(/(.jpg|.jpeg|.png|.pdf|.xls|.xlsx|.doc|.docx)$/gm);
+const FORMATFILE = /(.jpg|.jpeg|.png|.pdf|.xls|.xlsx|.doc|.docx)$/i;
 
 const ERRORTEXT = 'Не верный формат, допустимый (jpg, jpeg, png, pdf, xlsx, doc)';
 
@@ -223,11 +223,11 @@ const fileValid = (input, name, error) => {
 
 document.querySelectorAll('.input-attach__field').forEach(el => {
     el.addEventListener('change', function(e) {
-        console.log(e.target.files)
+        // console.log(e.target.files)
         let type = e.target.files[0].type;
         let name = e.target.files[0].name;
 
-        if (!FORMATFILE.exec(type)) {
+        if (!FORMATFILE.exec(name)) {
             fileValid(e.target, ERRORTEXT, true);
         } else {
             fileValid(e.target, name);

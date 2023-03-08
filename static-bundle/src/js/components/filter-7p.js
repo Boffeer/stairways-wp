@@ -68,7 +68,7 @@ if ([...filterButtons].length > 0) {
     filterButtons.forEach((item, index, arr) => {
       if (index === 0 || filtersToSkip.includes(item)) return;
 
-      if (filtersWidth <= filtersMaxWidth - WIDTH_MODIFIER) {
+      if (filtersWidth <= filtersMaxWidth - 180) {
         casesFilterIndustriesInner.appendChild(item);
         filtersWidth += item.getBoundingClientRect().width;
         // console.log(filterIndex ,filtersWidth, '/',filtersMaxWidth);

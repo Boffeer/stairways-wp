@@ -7,7 +7,7 @@ new Swiper(".poppa-slider--swiper", {
     modules: [Mousewheel],
     direction: "vertical",
     slidesPerView: "auto",
-    height: '768',
+    // height: '768',
     mousewheel: true,
     pagination: {
         el: ".poppa-slider--swiper .swiper-pagination",

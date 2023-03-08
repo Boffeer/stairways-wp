@@ -64,7 +64,7 @@
                             <?php foreach ($child_categories as $child) : ?>
                               <?php $child_category_image_id = carbon_get_term_meta($child->term_id, 'category_pic'); ?>
                               <?php if ($child_category_image_id != '') : ?>
-                                <a href="<?php echo get_term_link($child->term_id)?>" class="hero-categories-card__subcategory">Ломаный косоур</a>
+                                <a href="<?php echo get_term_link($child->term_id)?>" class="hero-categories-card__subcategory"><?php echo $child->name; ?></a>
                                 <picture class="hero-categories-card__subcategory-pic">
                                   <img class="hero-categories-card__subcategory-img"
                                     src="<?php echo boffeer_get_image_url_by_id($child_category_image_id); ?>"

@@ -27,6 +27,21 @@
     align-items: center;
     width: max-content;
 }
+#otzyv-callback .input-attach {
+    margin-right: 1rem;
+}
+#otzyv-callback .input-attach__wrapper {
+    grid-column: 1/3;
+}
+#otzyv-callback .form-bottom-send {
+    grid-column: 1/2;
+}
+#otzyv-callback .button {
+    @media (max-width: 720px) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
 
 .poppa__overlay[data-poppa-name="abouts"] {
     //padding: 0 186px;
@@ -74,7 +89,7 @@
             flex-direction: column;
         }
         .modal__title {
-            font-size: 48px;
+            font-size: 3rem;//48px;
             line-height: 120%;
             font-weight: 600;
             font-family: var(--ff-title);
@@ -426,24 +441,33 @@
             }
         }
     }
+    @media (max-width: 720px) {
+        &[data-poppa-name="otzyv-callback"] .form-callback__row {
+            grid-template-columns: repeat(2, 48.5%);
+            grid-gap: 16px
+        }
+        &[data-poppa-name="otzyv-callback"] .nt-btn {
+            max-width: initial;
+            width: initial;
+        }
+    }
     @media (max-width:620px) {
-        &[data-poppa-name="otzyv-callback"] {
-            .form-callback__row {
-                display: flex;
-                flex-direction: column;
-                width: 100%
-            }
-            .form-bottom-send {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        &[data-poppa-name="otzyv-callback"] .form-callback__row {
+            display: flex;
+            flex-direction: column;
+            width: 100%
+        }
+        &[data-poppa-name="otzyv-callback"] .form-bottom-send {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        &[data-poppa-name="otzyv-callback"] .modal__inner {
+            padding-bottom: 68px;
         }
     }
     @media (max-width:600px) {
-        .form-callback__row {
-            .button {
-                width: 100%
-            }
+        .form-callback__row .button {
+            width: 100%
         }
         .input__field {
             padding: 14px 24px
@@ -749,12 +773,12 @@
 }
 
 .modal__title {
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 120%;
     font-family: var(--ff-title);
     margin-bottom: 24px;
     font-weight: 600;
-    @media (max-width: 650px) {
+    @media (max-width: 720px) {
         font-size: 36px;
     }
 }

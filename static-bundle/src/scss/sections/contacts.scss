@@ -59,6 +59,9 @@
         border: none;
         margin-bottom: 24px;
     }
+    .accordion:last-child {
+        margin-bottom: 0;
+    }
     .accordion.bayan--opened {
         background: transparent;
         margin-bottom: calc(24px * 2);

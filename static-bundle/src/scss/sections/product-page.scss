@@ -80,6 +80,7 @@
 }
 .product-page__accordions {
     grid-column: 2/2;
+    align-self: end;
     @media (max-width: 992px) {
         grid-column: 1/3;
     }

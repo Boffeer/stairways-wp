@@ -38,7 +38,7 @@
                     <a href="tel:+78412234345" class="shifter__phone js-phone link link--underlined">
                         <span class="link__text offer__link--text">+7 (8412) 23-43-45</span>
                     </a>
-                    <button class="button button--primary" data-poppa-open="callback">Заказать звонок</button>
+                    <button class="button button--primary" data-poppa-open="form-callback">Заказать звонок</button>
                 </div>
                 <picture class="shifter__pic">
                     <img src="<?php echo THEME_STATIC; ?>/img/shifter/question-hero.png" alt="" class="shifter__img">

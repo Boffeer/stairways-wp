@@ -15,10 +15,11 @@ function togglePrevVisibility(context) {
   }
 
 }
+function isQuestionFinal(context) {
+  return context.activeIndex == context.slides.length - 1;
+}
 function hideButtonsOnFinalQuestion(context) {
-  if (context.activeIndex == context.slides.length - 1) {
     context.el.querySelector('.quiz-buttons').style.display = 'none';
-  }
 }
 quizes.forEach((quiz, index) => {
   const SWIPER_NAME = 'quiz';
@@ -68,8 +69,23 @@ quizes.forEach((quiz, index) => {
         }
 
         togglePrevVisibility(this);
+        if (!isQuestionFinal(this)) return
+
         hideButtonsOnFinalQuestion(this);
-      }
+        this.params.autoHeight = false;
+        this.update();
+        const wrapper = this.el.querySelector('.swiper-wrapper');
+        wrapper.style.height = '';
+      },
+      // slideNextTransitionEnd: function() {
+
+      //   if (!isQuestionFinal(this)) return
+      //   const wrapper = this.el.querySelector('.swiper-wrapper');
+      //   setTimeout(() => {
+      //   console.log(warpper.style.height);
+      //     wrapper.style.height = '';
+      //   }, 3000)
+      // }
     }
   });
 })

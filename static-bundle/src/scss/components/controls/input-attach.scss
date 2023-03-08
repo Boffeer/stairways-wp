@@ -86,3 +86,13 @@
     font-size: 14px;
     font-weight: 500;
 }
+
+.input-attach__wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  @media (max-width: 720px) {
+    display: block;
+  }
+  
+}
