@@ -193,6 +193,9 @@
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
+    @media (min-width: 800px) {
+        display: none;
+    }
 }
 .projects-gallery-carousel-children .swiper-slide {
     padding-bottom: 100%;

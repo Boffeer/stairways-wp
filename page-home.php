@@ -182,7 +182,7 @@
           </div>
       </section>
 
-      <section class="quiz  container">
+      <section class="quiz container" id="quiz">
           <div class="quiz__container">
               <div class="quiz__desc">
                   <h2 class="quiz__title">
@@ -555,7 +555,7 @@
                      ?>
                     <article class="proud-card <?php echo ($favorite_position % 2 == 0) ? 'proud-card--has-callout' : ''; ?>">
                         <div class="proud-card__hero">
-                            <a href="#" class="proud-card__media">
+                            <a href="#" class="proud-card__media js-button__get-content" data-case-id="<?php the_id(); ?>">
                                 <?php
                                   $favorite_thumb = $favorite['photo']; 
                                   if ($favorite_thumb == '') :

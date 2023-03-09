@@ -109,3 +109,10 @@ window.addEventListener('resize', () => { coordBlockCity() });
 
 // appendList.innerHTML = cloneListCity.outerHTML;
 import "../unstable/sticky-header.js";
+
+const mobileQuizAnchor = document.querySelector('.header_mobile_menu__calc');
+if (mobileQuizAnchor) {
+    mobileQuizAnchor.addEventListener("click", (e) => {
+        document.querySelector('.header_mobile_menu').classList.remove('_active')
+    });
+}

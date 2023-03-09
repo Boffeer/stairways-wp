@@ -103,12 +103,12 @@
                     </ul>
                 </nav>
                 <div class="header__contacts">
-                    <button data-poppa-open="form-callback" class="header__contacts-calc">
+                    <a href="#quiz" class="header__contacts-calc">
                         <svg class="header__contacts-calc-icon">
                             <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/rocket.svg#rocket"></use>
                           </svg>
                         <span class="button__text">Рассчитать стоимость за 10 минут</span>
-                    </button>
+                    </a>
                     <a href="<?php echo THEME_OPTIONS['phone_href']; ?>" class="header__contacts-call">
                         <span class="_only-desktop"><?php echo THEME_OPTIONS['phone'] ?></span>
                         <span class="_only-mobile">Позвонить нам</span>
@@ -291,7 +291,7 @@
                         </ul>
                     </div>
 
-                    <button class="header_mobile_menu__btn header_mobile_menu__calc" data-poppa-open="form-callback">Рассчитать смету за 10 минут</button>
+                    <a href="#quiz" class="header_mobile_menu__btn header_mobile_menu__calc">Рассчитать смету за 10 минут</button>
                     <a href="<?php echo THEME_OPTIONS['phone_href']; ?>" class="header_mobile_menu__btn header_mobile_menu__feedback">Позвонить нам</a>
 
                 </div>

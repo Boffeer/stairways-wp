@@ -4223,11 +4223,8 @@ input[type=search]::-webkit-search-cancel-button {
   height: 100%;
 }
 .poppa-slider .swiper-slide {
-  height: 768px;
+  max-height: 80%;
   margin-bottom: 25px;
-}
-.poppa-slider .swiper-slide.poppa-slider--slide {
-  height: 347px;
 }
 .poppa-slider .swiper-slide img {
   object-fit: cover;
@@ -4237,11 +4234,7 @@ input[type=search]::-webkit-search-cancel-button {
     width: 456px;
   }
   .poppa-slider .swiper-slide {
-    height: 608px;
     margin-bottom: 20px;
-  }
-  .poppa-slider .swiper-slide.poppa-slider--slide {
-    height: 274px;
   }
 }
 @media (max-width: 1100px) {
@@ -4249,11 +4242,7 @@ input[type=search]::-webkit-search-cancel-button {
     width: 296px;
   }
   .poppa-slider .swiper-slide {
-    height: 395px;
     margin-bottom: 13px;
-  }
-  .poppa-slider .swiper-slide.poppa-slider--slide {
-    height: 178px;
   }
 }
 @media (max-width: 650px) {
@@ -4262,10 +4251,7 @@ input[type=search]::-webkit-search-cancel-button {
     pointer-events: none;
   }
   .poppa-slider .swiper-slide {
-    height: 405px;
-  }
-  .poppa-slider .swiper-slide.poppa-slider--slide {
-    height: 183px;
+    height: 50vh;
   }
 }
 
@@ -4838,6 +4824,7 @@ input[type=search]::-webkit-search-cancel-button {
 @media (min-width: 1280px) {
   .poppa__overlay--abouts .poppa__overlay--container {
     padding: 48px;
+    padding-bottom: 0;
   }
 }
 
@@ -9175,6 +9162,7 @@ select {
   display: block;
   width: 100%;
   max-width: 100%;
+  position: relative;
 }
 
 .proud-card__pic {
@@ -9691,6 +9679,37 @@ select {
   pointer-events: all;
 }
 
+.proud-card__media::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.5s ease;
+  z-index: 3;
+  background: url("../img/common/circle-plus.svg");
+  background-size: 48px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (max-width: 700px) {
+  .proud-card__media::before {
+    width: 60%;
+  }
+}
+
+.proud-card__media:hover::before {
+  opacity: 1;
+}
+
 @media (min-width: 1280px) {
   .projects {
     padding-top: 4.2rem;
@@ -9884,6 +9903,11 @@ select {
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
+}
+@media (min-width: 800px) {
+  .projects-gallery-carousel .swiper-pagination {
+    display: none;
+  }
 }
 
 .projects-gallery-carousel-children .swiper-slide {
