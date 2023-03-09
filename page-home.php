@@ -15,72 +15,104 @@
 <?php get_header(); ?>
   <main class="main">
       <?php
-              $hero_categories = carbon_get_post_meta(get_the_ID(), 'home_categories');
-              $hero_categories_ids = array();
-              
-              foreach ($hero_categories as $category) :
-                  $hero_categories_ids[] = $category['id'];
-              endforeach;
+        // $hero_categories = carbon_get_post_meta(get_the_ID(), 'home_categories');
+        // $hero_categories_ids = array();
+        
+        // foreach ($hero_categories as $category) :
+        //     $hero_categories_ids[] = $category['id'];
+        // endforeach;
       ?>
-      <?php if (!empty($hero_categories_ids)) : ?>
+      <?php //if (!empty($hero_categories_ids)) : ?>
       <div class="hero-categories">
           <div class="container hero-categories__container">
             <?php
 
-              $hero_categories = get_terms(array(
-                  'orderby' => 'none',
-                  'taxonomy' => 'categories',
-                  'hide_empty'    => false,
-                  'include' => $hero_categories_ids,
-                  'orderby' => 'include',
-              ));
+              // $hero_categories = get_terms(array(
+              //     'orderby' => 'none',
+              //     'taxonomy' => 'categories',
+              //     'hide_empty'    => false,
+              //     'include' => $hero_categories_ids,
+              //     'orderby' => 'include',
+              // ));
+
+              $metal_category_id = 4;
+              $hero_first_card_products_ids = array(45, 49, 329, 56);
+              $hero_products_ids = array(
+                $hero_first_card_products_ids,
+                58,
+                62,
+                64
+              );
             ?>
+
             <div class="hero-categories__gallery">
-                <?php foreach ($hero_categories as $category_index => $category) : ?>
-                  <article class="hero-categories-card <?php echo $category_index === 0 ? 'hero-categories-card--current' : '';?>">
-                      <?php $category_image_id = carbon_get_term_meta($category->term_id, 'category_pic'); ?>
+                <?php foreach ($hero_products_ids as $product_index => $product_id) : ?>
+                  <?php
+                    if (is_array($product_id)) :
+                      $category = get_term($metal_category_id, 'categories');
+                      $title = $category->name;
+                      $permalink = get_term_link($metal_category_id);
+                    else :
+                      global $post;
+                      $post = $product_id;
+                      setup_postdata($product_id);
+                      $title = get_the_title();
+                      $permalink = get_the_permalink();
+                    endif;
+                  ?>
+                  <article class="hero-categories-card <?php echo $product_index === 0 ? 'hero-categories-card--current' : '';?>">
+                        <?php
+                          if ($product_index == 0) :
+                            $card_image_id = carbon_get_term_meta($metal_category_id, 'category_pic');
+                          else :
+                            $card_image_id = carbon_get_post_meta(get_the_ID(), 'stairs_variations')[0]['photo'];
+                          endif;
+                        ?>
                         <picture class="hero-categories-card__pic">
-                          <?php if ($category_image_id != '') : ?>
+                          <?php if ($card_image_id != '') : ?>
                             <img
-                              src="<?php echo boffeer_get_image_url_by_id($category_image_id); ?>"
-                              alt="<?php echo $category->name; ?>"
+                              src="<?php echo boffeer_get_image_url_by_id($card_image_id); ?>"
+                              alt="<?php echo $title; ?>"
                               class="hero-categories-card__img"
                             >
                           <?php endif; ?>
                         </picture>
                       <h3 class="hero-categories-card__title">
-                          <a href="<?php echo get_term_link($category->term_id)?>" class="hero-categories-card__link"><?php echo $category->name; ?></a>
+                          <a href="<?php echo $permalink ?>" class="hero-categories-card__link">
+                            <?php echo $title; ?>
+                          </a>
                       </h3>
-                      <?php
-                        $child_categories = get_terms(array(
-                          'orderby' => 'none',
-                          'taxonomy' => 'categories',
-                          'hide_empty'    => false,
-                          'parent' => $category->term_id,
-                        ));
-                      ?>
-                      <?php if (!empty($child_categories)) : ?>
+                      <?php if (is_array($product_id)) : ?>
                         <div class="hero-categories-card__subcategories">
-                            <?php foreach ($child_categories as $child) : ?>
-                              <?php $child_category_image_id = carbon_get_term_meta($child->term_id, 'category_pic'); ?>
+                            <?php foreach ($product_id as $child_id) : ?>
+                              <?php
+                                global $post;
+                                $post = $child_id;
+                                setup_postdata($child_id);
+                                $title = get_the_title();
+                                $permalink = get_the_permalink();
+                              ?>
+                              <?php $child_category_image_id = carbon_get_post_meta($child_id, 'stairs_variations')[0]['photo']; ?>
                               <?php if ($child_category_image_id != '') : ?>
-                                <a href="<?php echo get_term_link($child->term_id)?>" class="hero-categories-card__subcategory"><?php echo $child->name; ?></a>
+                                <a href="<?php echo the_permalink()?>" class="hero-categories-card__subcategory">
+                                  <?php the_title(); ?>
+                                </a>
                                 <picture class="hero-categories-card__subcategory-pic">
                                   <img class="hero-categories-card__subcategory-img"
                                     src="<?php echo boffeer_get_image_url_by_id($child_category_image_id); ?>"
-                                    alt="<?php echo $child->name; ?>"
+                                    alt="<?php the_title(); ?>"
                                   >
                                 </picture>
                               <?php endif; ?>
-                            <?php endforeach;?>
+                            <?php endforeach; wp_reset_postdata(); ?>
                         </div>
                       <?php endif; ?>
                   </article>
-                <?php endforeach; ?>
+                <?php endforeach; wp_reset_postdata(); ?>
             </div>
           </div>
       </div>
-      <?php endif; ?>
+      <?php //endif; ?>
 
       <section class="offer section">
           <div class="container offer__container">
