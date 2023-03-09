@@ -52,7 +52,7 @@
                                           <button class="button button--primary shifter-callback__submit">Отправить</button>
                                           <p class="shifter-callback__privacy">
                                               Нажимая кнопку “Отправить”, вы даете согласие на<br> обработку
-                                              <a href="<?php echo THEME_OPTIONS['privacy']; ?>" class="link">персональных данных</a>
+                                              <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="link">персональных данных</a>
                                           </p>
                                       </div>
                                   </form>
@@ -228,7 +228,7 @@
                               <button class="button button--primary shifter-callback__submit">Отправить</button>
                               <p class="shifter-callback__privacy">
                                   Нажимая кнопку “Отправить”, вы даете согласие на обработку
-                                  <a href="<?php echo THEME_OPTIONS['privacy']; ?>" class="link">персональных данных</a>
+                                  <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="link">персональных данных</a>
                               </p>
                           </div>
                       </form>

@@ -372,7 +372,7 @@
         <h2 class="modal__title">Спасибо<br> за обращение</h2>
         <div class="modal__group">
             <p class="modal-thanks__text">Наш менеджер свяжется с вами<br> в ближайшее время</p>
-            <a class="modal-thanks__link" href="<?php home_url(); ?>">Перейти на главную</a>
+            <a class="modal-thanks__link" href="<?php home_url(); ?>">Вернуться назад</a>
         </div>
     </div>
 </section>

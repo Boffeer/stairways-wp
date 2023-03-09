@@ -38,7 +38,7 @@
             flex-direction: column;
             grid-gap: 24px;
             &>.swiper-slide {
-                &:nth-of-type(n+3) {
+                &:nth-of-type(n+6) {
                     display: none;
                 }
             }

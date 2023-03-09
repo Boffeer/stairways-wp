@@ -61,13 +61,21 @@ get_header();
 			        <div class="tabs__page">
 	                <div class="projects-gallery">
 	                    <div class="swiper projects-gallery-carousel">
+                          <?php
+                            $cases = new WP_Query(array(
+                                'post_type' => 'cases',
+                                'post_status' => 'publish',
+                                'orderby' => 'rand',
+                                'posts_per_page' => -1,
+                            ));
+                          ?>
 	                        <div class="swiper-wrapper">
-															<?php if ( have_posts() ) : ?>
+															<?php if ( $cases->have_posts() ) : ?>
 																<?php
 
 																/* Start the Loop */
-																while ( have_posts() ) :
-																	the_post();
+																while ( $cases->have_posts() ) :
+																	$cases->the_post();
 
 																	/*
 																	 * Include the Post-Type-specific template for the content.

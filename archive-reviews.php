@@ -12,7 +12,7 @@ get_header();
 
 <main>
 	  <?php echo get_breadcrumbs(); ?>
-    <section class="sect-otzyvi-page">
+    <section class="reviews sect-otzyvi-page page-reviews-masonry">
         <div class="container">
             <div class="reviews__container">
                 <div class="section-heading">

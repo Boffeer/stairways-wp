@@ -79,7 +79,7 @@ class Poppa {
     document.addEventListener("keydown", (e) => {
       const id = this.getLastOpenedId();
       if (e.key === "Escape" && id) {
-        console.log(id);
+        // console.log(id);
         this.closePop(id);
         // modal.classList.remove("_show");
         // bodyLock(false);
@@ -153,7 +153,7 @@ class Poppa {
     overlay.append(aligner);
 
     const closerType = poppa.dataset.poppaCloser
-    console.log(poppa)
+    // console.log(poppa)
     if (closerType === "inside") {
       poppa.append(closer);
     } else {

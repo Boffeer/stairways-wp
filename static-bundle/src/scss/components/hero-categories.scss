@@ -223,3 +223,25 @@
   opacity: 1;
 }
 
+.hero-categories-card:not(.hero-categories-card--current) .hero-categories-card__link::before {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.hero-categories-card .hero-categories-card__link::before {
+    @media (max-width: 900px) {
+        content: "";
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
