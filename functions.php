@@ -51,7 +51,9 @@ function stairways_setup() {
 		array(
 			'clients' => esc_html__( 'Клиентам — clients', 'stairways' ),
 			'about' => esc_html__( 'О нас — about', 'stairways' ),
+			'footer_clients' => esc_html__( 'Клиентам в подвале — footer_clients', 'stairways' ),
 			'products' => esc_html__( 'Лестницы — products', 'stairways' ),
+			'footer_company' => esc_html__( 'О нас в подвале — footer_company', 'stairways' ),
 		)
 	);
 

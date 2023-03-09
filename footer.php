@@ -30,7 +30,7 @@
                 <nav class="footer-nav">
                     <ul class="footer-nav__list">
                         <?php
-                            $clients_menu_id = get_nav_menu_locations()['clients']; 
+                            $clients_menu_id = get_nav_menu_locations()['footer_clients']; 
                             $footer_clients_menu = wp_get_nav_menu_items($clients_menu_id);
                         ?>
                         <li class="footer-nav__item"><?php echo wp_get_nav_menu_object($clients_menu_id)->name; ?></li>
@@ -41,6 +41,21 @@
                         <?php endforeach; ?>
                     </ul>
 
+                    <?php
+                        $about_menu_id = get_nav_menu_locations()['footer_company']; 
+                        $footer_about_menu = wp_get_nav_menu_items($about_menu_id);
+                    ?>
+                    <?php if (is_array($footer_about_menu)) : if (!empty($footer_about_menu)) : ?>
+                    <ul class="footer-nav__list">
+                        <li class="footer-nav__item"><?php echo wp_get_nav_menu_object($about_menu_id)->name; ?></li>
+                        <?php foreach ($footer_about_menu as $nav) : ?>
+                            <li class="footer-nav__item">
+                                <a href="<?php echo $nav->url;?>" class="footer-nav__link"><?php echo $nav->title; ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php endif; endif; ?>
+                    
                     <?php
                         $products_menu_id = get_nav_menu_locations()['products']; 
                         $footer_products_menu = wp_get_nav_menu_items($products_menu_id);
@@ -56,20 +71,6 @@
                     </ul>
                     <?php endif; endif;?>
 
-                    <?php
-                        $about_menu_id = get_nav_menu_locations()['about']; 
-                        $footer_about_menu = wp_get_nav_menu_items($about_menu_id);
-                    ?>
-                    <?php if (is_array($footer_about_menu)) : if (!empty($footer_about_menu)) : ?>
-                    <ul class="footer-nav__list">
-                        <li class="footer-nav__item"><?php echo wp_get_nav_menu_object($about_menu_id)->name; ?></li>
-                        <?php foreach ($footer_about_menu as $nav) : ?>
-                            <li class="footer-nav__item">
-                                <a href="<?php echo $nav->url;?>" class="footer-nav__link"><?php echo $nav->title; ?></a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                    <?php endif; endif; ?>
 
                 </nav>
                 <div class="footer__socials">

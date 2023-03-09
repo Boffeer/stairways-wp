@@ -13637,9 +13637,13 @@ select {
   grid-template-columns: repeat(3, max-content);
   grid-gap: 136px;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1600px) {
   .footer-nav {
     grid-gap: 96px;
+  }
+}
+@media (max-width: 1300px) {
+  .footer-nav {
     right: 126px;
     top: 1px;
   }

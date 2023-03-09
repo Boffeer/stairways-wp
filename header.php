@@ -154,7 +154,7 @@
                                     <span class="dropdown--title" data-dropdown><?php echo $category->name; ?></span>
                                     <div class="dropdown__body dropdown__body--wide">
                                         <ul class="dropdown__body--list">
-                                            <li class="dropdown__body--list-element">
+<!--                                             <li class="dropdown__body--list-element">
                                                 <?php $category_image_id = carbon_get_term_meta($category->term_id, 'category_pic'); ?>
                                                 <?php if ($category_image_id != '') : ?>
                                                     <img
@@ -164,6 +164,7 @@
                                                 <?php endif;?>
                                                 <a href="<?php echo get_term_link($category->term_id)?>"><?php echo $category->name; ?></a>
                                             </li>
+ -->                                            
                                             <?php foreach ($child_categories as $child) : ?>
                                             <li class="dropdown__body--list-element">
                                                 <?php $child_category_image_id = carbon_get_term_meta($child->term_id, 'category_pic'); ?>
