@@ -12,7 +12,7 @@
                               <span class="sect-delivery__step--count">1 этап</span>
                               <h2 class="sect-delivery__step--title">Определение стоимости лестницы</h2>
                               <p class="sect-delivery__step--text">Для расчета стоимости лестницы потребуются размеры проема. Замерить можно по нашей инструкции.</p>
-                              <a class="sect-delivery__step--download" href="" download>Скачать инструкцию</a>
+                              <a class="sect-delivery__step--download" href="https://fs.7pap-dev.ru/wp-content/uploads/2023/03/instrukcija-po-zameru.docx" download>Скачать инструкцию</a>
                               <p class="sect-delivery__step--text">Для более точного расчета пришлите нам несколько фото вашего проема. Мы укажем размеры, которые потребуются.</p>
                               <div class="sect-delivery__step--info">
                                   <p class="sect-delivery__step--info-text">Обращаем внимание, что делать замер — не страшно. Вся процедура занимает 5-10 минут. Удобнее проводить ее вдвоем. Это позволит точно рассчитать конфигурацию и стоимость лестницы</p>
@@ -127,7 +127,7 @@
                                   <br><br> Монтаж лестницы возможно провести самостоятельно. Мы изготовим лестницу таким образом, чтобы все собиралось умелыми мастерами с минимумом инструмента. Список совместимого инструмента для монтажа лестницы, вы
                                   можете скачать по кнопке ниже.
                               </p>
-                              <a class="sect-delivery__step--download" href="" download="">Скачать</a>
+                              <a class="sect-delivery__step--download" href="https://fs.7pap-dev.ru/wp-content/uploads/2023/03/spisok-instrumenta-dlja-montazha.docx" download>Скачать</a>
                               <p class="sect-delivery__step--text">Когда лестница установлена, остается лишь подписать акт выполненных работ, оплатить монтаж и пользоваться вашей новой лестницей!</p>
                           </div>
                       </div>
