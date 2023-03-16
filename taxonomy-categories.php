@@ -32,8 +32,9 @@ get_header();
 				        ],
 							),
 						),
-
 					) );
+
+
 					?>
 					<?php if ( $stairs->have_posts() ) : ?>
           <div class="catalog-items">
@@ -41,6 +42,12 @@ get_header();
 						/* Start the Loop */
 						while ( $stairs->have_posts() ) :
 							$stairs->the_post();
+							
+							if($stairs->post_count == 1) {
+						    $post_url = get_permalink();
+						    wp_safe_redirect($post_url , 302 );
+								exit;
+							}
 
 							/*
 							 * Include the Post-Type-specific template for the content.
