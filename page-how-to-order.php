@@ -5,7 +5,7 @@
           <section class="sect-delivery section-page-m">
               <div class="container">
                   <h1 class="section-title sect-delivery__title">Как заказать лестницу?</h1>
-                  <img class="sect-delivery__big" src="<?php echo THEME_STATIC; ?>/img/delivery/base.jpg" alt="">
+                  <!-- <img class="sect-delivery__big" src="<?php echo THEME_STATIC; ?>/img/delivery/base.jpg" alt=""> -->
                   <div class="sect-delivery__container">
                       <div class="sect-delivery__left">
                           <div class="sect-delivery__step" data-step="1" id="step-1">
@@ -141,6 +141,50 @@
                               <li class="sect-delivery__list--element" data-step-content="4"><a href="#step-4">Изготовление лестницы</a></li>
                               <li class="sect-delivery__list--element" data-step-content="5"><a href="#step-5">Доставка и монтаж</a></li>
                           </ol>
+
+                          <?php 
+                            // Получить ссылку на видео из первого
+                            global $post;
+                            $cases_favorite_first = carbon_get_post_meta(get_option('page_on_front'), 'cases_favorite')[0];
+                            $case_id = $cases_favorite_first['case'][0]['id'];
+                            $favorite_post = get_post($case_id);
+                            $post = $favorite_post;
+                            setup_postdata($favorite_post);
+
+                            $video_url = $cases_favorite_first['video_url'];//carbon_get_post_meta(get_the_ID(), 'video_url');
+                            $video_id = get_yt_id($video_url);
+
+                            $case_title = carbon_get_post_meta(get_the_ID(), 'title');
+
+                            $video_thumb = carbon_get_post_meta(get_the_ID(), 'thumb');
+                            $is_default_yt_thumb = false;
+                            if ($video_thumb == '') :
+                                $video_thumb = "https://i.ytimg.com/vi/{$video_id}/hqdefault.jpg";
+                                $is_default_yt_thumb = true;
+                            endif;
+
+                            if ($is_default_yt_thumb === false) :
+                                $video_thumb = boffeer_get_image_url_by_id($video_thumb);
+                            endif;
+                          ?>
+                          <article class="videos-card">
+                              <div class="videos-card__media">
+                                  <picture class="videos-card__pic">
+                                    <img src="<?php echo $video_thumb; ?>" alt="<?php echo $case_title; ?>" class="videos-card__img">
+                                  </picture>
+                                  <a class="videos-card__play" href="<?php echo $video_url; ?>" data-fancybox type="button">
+                                      <svg class="videos-card__icon">
+                                          <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
+                                      </svg>
+                                  </a>
+                              </div>
+                              <h3 class="videos-card__title">
+                                  <a href="<?php echo $video_url; ?>" data-fancybox class="videos-card__link">
+                                      <?php echo $case_title; ?>
+                                  </a>
+                              </h3>
+                          </article>
+                          <?php wp_reset_postdata(); ?>
                       </div>
                   </div>
               </div>

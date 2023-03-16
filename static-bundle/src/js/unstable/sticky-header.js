@@ -35,6 +35,7 @@ function showHeader() {
   header.dispatchEvent(event);
 }
 function hideHeader() {
+  if (!header.classList.contains('header--dynamic')) return
   header.classList.add('header--hidden');
 
   const event = new Event("header-hide");

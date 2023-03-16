@@ -13560,6 +13560,11 @@ select {
   }
 }
 
+.sect-delivery__content .videos-card {
+  max-width: 450px;
+  margin-top: 3rem;
+}
+
 .sect-payment__block {
   display: flex;
   justify-content: space-between;
