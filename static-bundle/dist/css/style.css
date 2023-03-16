@@ -10939,7 +10939,7 @@ select {
 
 .catalog-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 64px 36px;
 }
 @media (max-width: 1300px) {
@@ -10950,6 +10950,7 @@ select {
 @media (max-width: 992px) {
   .catalog-items {
     grid-gap: 24px 16px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 600px) {
@@ -11025,7 +11026,7 @@ select {
 }
 .catalog-project .projects-gallery-carousel > .swiper-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 31.4%);
+  grid-template-columns: repeat(4, 22%);
   grid-gap: 48px 36px;
 }
 .catalog-project .swiper-buttons {
@@ -11034,13 +11035,13 @@ select {
 @media (max-width: 1300px) {
   .catalog-project .projects-gallery-carousel > .swiper-wrapper {
     grid-gap: 48px 24px;
-    grid-template-columns: repeat(3, 32%);
+    grid-template-columns: repeat(4, 22%);
   }
 }
 @media (max-width: 992px) {
   .catalog-project .projects-gallery-carousel > .swiper-wrapper {
     grid-gap: 24px 16px;
-    grid-template-columns: repeat(3, 32%);
+    grid-template-columns: repeat(4, 22%);
   }
 }
 @media (max-width: 720px) {
@@ -11087,13 +11088,20 @@ select {
 }
 
 .catalog-items__pic {
+  position: relative;
   display: block;
   width: 100%;
+  padding-top: 100%;
   overflow: hidden;
   border-radius: var(--radius-border);
 }
 
 .catalog-items__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   transition: all 0.3s ease-out;
 }
 
@@ -14665,7 +14673,37 @@ a:hover {
 }
 
 .gallery--wait {
-  opacity: 0.5;
+  position: relative;
+}
+
+.gallery--wait::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.gallery--wait::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  margin-left: auto;
+  margin-right: auto;
+  top: 8rem;
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  background-image: url("../img/common/spinner-animated.svg");
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 .is-hidden {

@@ -125,7 +125,7 @@ try {
 			const currentCases = [...productCasesMore.parentElement.querySelectorAll('.projects-gallery-carousel__slide')];
 			// const currentCasesCount = [...currentCases].length;
 
-			console.log(currentCases)
+			// console.log(currentCases)
 			currentCases.forEach((caseItem) => {
 				includeCasesIds.push(caseItem.querySelector('.projects-gallery-slide').dataset.id);
 			})
