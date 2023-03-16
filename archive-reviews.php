@@ -19,14 +19,16 @@ get_header();
                 <div class="section-heading">
                     <h1 class="section-title reviews__title sect-otzyvi-page__title">Отзывы клиентов</h1>
                     <div class="section-heading__links">
-                        <button data-poppa-open="otzyv-callback" class="link-popup">
-                            <span class="link__text">НАПИСАТЬ ОТЗЫВ</span>
-                        </button>
-                        <?php if (THEME_OPTIONS['reviews_yandex_url']) : ?>
-                            <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
-                                <span class="link__text">Отзывы на Яндекс Картах</span>
-                            </a>
-                        <?php endif; ?>
+                        <div class="section-heading__links-track">
+                            <button data-poppa-open="otzyv-callback" class="link-popup">
+                                <span class="link__text">НАПИСАТЬ ОТЗЫВ</span>
+                            </button>
+                            <?php if (THEME_OPTIONS['reviews_yandex_url']) : ?>
+                                <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
+                                    <span class="link__text">Отзывы на Яндекс Картах</span>
+                                </a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
                 <div class="reviews-slider">

@@ -37,15 +37,18 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  @media (max-width: 600px) {
+    margin-left: -28px;
+    margin-right: -28px;
+    overflow: hidden;
+  }
 }
 
 .filters-7p__scrollarea {
-  @media (max-width: 576px) {
+  @media (max-width: 600px) {
     -webkit-overflow-scrolling: touch;
     overflow-x: auto;
     overflow-y: hidden;
-    margin-left: -28px;
-    margin-right: -28px;
     margin-bottom: -20px;
     padding-top: 1px;
     padding-bottom: 21px;
@@ -81,8 +84,13 @@
   @media (max-width:992px) {
     margin-right: 8px;
   }
-  @media (max-width:500px) {
+  @media (max-width:600px) {
     margin-right: 12px;
+  }
+}
+.tabs-7p-tab:last-child {
+  @media (max-width:600px) {
+    margin-right: 0;
   }
 }
 

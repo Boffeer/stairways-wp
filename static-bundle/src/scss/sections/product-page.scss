@@ -26,7 +26,9 @@
 }
 
 .product-page {
+    padding-top: 4rem;
     @media (max-width: 650px) {
+        padding-top: 1.5rem;
         .container {
             padding: 0
         }

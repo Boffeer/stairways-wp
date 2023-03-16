@@ -800,17 +800,21 @@
                   <div class="section-heading">
                       <h1 class="section-title reviews__title sect-otzyvi-page__title">Отзывы клиентов</h1>
                       <div class="section-heading__links">
-                          <button data-poppa-open="otzyv-callback" class="link-popup">
-                              <span class="link__text">НАПИСАТЬ ОТЗЫВ</span>
-                          </button>
-                          <a href="reviews" class="link link-regular">
-                              <span class="link__text">Отзывы на нашем сайте</span>
-                          </a>
-                          <?php if (THEME_OPTIONS['reviews_yandex_url']) : ?>
-                            <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
-                                <span class="link__text">Отзывы на Яндекс Картах</span>
+                        <div class="section-heading__links-scroll">
+                          <div class="section-heading__links-track">
+                            <button data-poppa-open="otzyv-callback" class="link-popup">
+                                <span class="link__text">НАПИСАТЬ ОТЗЫВ</span>
+                            </button>
+                            <a href="reviews" class="link link-regular">
+                                <span class="link__text">Отзывы на нашем сайте</span>
                             </a>
-                          <?php endif; ?>
+                            <?php if (THEME_OPTIONS['reviews_yandex_url']) : ?>
+                              <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
+                                  <span class="link__text">Отзывы на Яндекс Картах</span>
+                              </a>
+                            <?php endif; ?>
+                          </div>
+                        </div>
                       </div>
                   </div>
                   <div class="reviews-slider" data-swiper="main" data-swiper-slide="2" data-breakpoints='{"0": {"slidesPerView": 1}, "600": {"slidesPerView": 2, "spaceBetween": 16}, "992": {"spaceBetween": 24}, "1300": {"spaceBetween": 36}}' data-swiper-pagination data-swiper-navigation
@@ -1045,6 +1049,7 @@
               </div>
 
               <div class="work-block__overflow">
+                <div class="work-block__track">
                   <ol class="work__list">
                       <li class="work-bullet">
                           <h3 class="work-bullet__title">
@@ -1080,6 +1085,7 @@
                           </p>
                       </li>
                   </ol>
+                </div>
               </div>
           </div>
       </section>

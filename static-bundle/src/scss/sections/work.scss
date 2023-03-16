@@ -79,11 +79,16 @@
         grid-template-columns: repeat(5, 242px);
         padding-left: 26px;
         padding-right: 26px;
+        overflow-x: auto;
+        width: 100%;
+        margin-bottom: -20px;
+        padding-bottom: 20px;
     }
 }
 
 .work-block__overflow {
-    overflow-x: auto;
+    // overflow-x: auto;
+    overflow: hidden;
     position: relative;
     z-index: 1;
     @media (max-width: 800px) {
@@ -91,7 +96,7 @@
     }
     @media (max-width: 650px) {
         // margin-right: -26px;
-        padding-bottom: 24px;
+        // padding-bottom: 24px;
         @include macscrollbar;
         width: #{'calc(100% + 52px)'};
         margin-left: -26px;
