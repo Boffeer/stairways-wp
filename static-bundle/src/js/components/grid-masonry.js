@@ -19,7 +19,7 @@ const returnGutt = () => {
 
 const gridMasonry = document.querySelector('.grid-masonry');
 let msnr;
-if (gridMasonry && mediaMin('650')) {
+if (gridMasonry) {
     msnr = new Masonry(gridMasonry, {
         // options...
         itemSelector: '.grid-item-masonry',
@@ -28,6 +28,7 @@ if (gridMasonry && mediaMin('650')) {
         percentPosition: true
 
     });
+    window.msnr = msnr
 }
 
 export { msnr }
