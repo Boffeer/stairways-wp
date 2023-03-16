@@ -24,7 +24,7 @@ get_header();
                                 <span class="link__text">НАПИСАТЬ ОТЗЫВ</span>
                             </button>
                             <?php if (THEME_OPTIONS['reviews_yandex_url']) : ?>
-                                <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
+                                <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" target="_blank" class="link link-regular link--external">
                                     <span class="link__text">Отзывы на Яндекс Картах</span>
                                 </a>
                             <?php endif; ?>

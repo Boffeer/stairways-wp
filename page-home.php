@@ -809,7 +809,7 @@
                                 <span class="link__text">Отзывы на нашем сайте</span>
                             </a>
                             <?php if (THEME_OPTIONS['reviews_yandex_url']) : ?>
-                              <a href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" class="link link-regular link--external">
+                              <a class="link link-regular link--external"href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" target="_blank">
                                   <span class="link__text">Отзывы на Яндекс Картах</span>
                               </a>
                             <?php endif; ?>
