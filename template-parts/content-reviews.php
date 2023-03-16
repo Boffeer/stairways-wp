@@ -19,7 +19,6 @@
     );
 ?>
 
-
 <article class="reviews-card">
     <h3 class="reviews-card__title">
         <?php echo $review['name']; ?>
@@ -31,6 +30,7 @@
     <p class="reviews-card__desc">
         <?php echo nl2br($review['desc']); ?>
     </p>
+    <?php if (count($review['gallery'])) : ?>
     <div class="reviews__photos">
         <?php foreach ($review['gallery'] as $slide) : ?>
             <a href="<?php echo boffeer_get_image_url_by_id($slide); ?>" data-fancybox="reviews-<?php the_ID(); ?>" class="reviews__media">
@@ -43,4 +43,5 @@
         <?php endforeach; ?>
         <button class="button reviews__photos-more">+5</button>
     </div>
+    <?php endif; ?>
 </article>

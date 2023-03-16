@@ -126,6 +126,11 @@
     margin-right: 10px;
     margin-left: 10px;
 }
+.dropdown__body--less-9 .dropdown__body--list-element:first-child {
+    @media (min-width: 1280px) {
+        margin-left: auto;
+    }
+}
 .dropdown__body--wide .dropdown__body--list-element:last-child {
     margin-right: auto;
 }

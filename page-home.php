@@ -39,9 +39,9 @@
               $hero_first_card_products_ids = array(45, 49, 329, 56);
               $hero_products_ids = array(
                 $hero_first_card_products_ids,
+                64,
                 58,
                 62,
-                64
               );
             ?>
 
