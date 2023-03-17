@@ -50,7 +50,7 @@
             <div class="menu-city__popup-list--bottom">
                 <ul class="city_block__list">
                     <?php foreach ($cities as $city) : ?>
-                        <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                        <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
                             <?php echo $city['city']; ?>
                         </li>
                     <?php endforeach; ?>
@@ -83,7 +83,7 @@
                                     <h2 class="dropdown__body-title">Выбор города</h2>
                                     <ul class="dropdown__body--list">
                                         <?php foreach ($cities as $city) : ?>
-                                            <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                            <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
                                                 <?php echo $city['city']; ?>
                                             </li>
                                         <?php endforeach; ?>
@@ -285,7 +285,7 @@
                         <p class="city_block__title">Ваш регион — <span class="city-picker__current">Москва?</span></p>
                         <ul class="city_block__list">
                             <?php foreach ($cities as $city) : ?>
-                                <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
                                     <?php echo $city['city']; ?>
                                 </li>
                             <?php endforeach; ?>

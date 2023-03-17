@@ -24,26 +24,53 @@ dropdownsVariable.forEach((dropdown) => {
 })
 
 
+function setCurrentCity(city, prefix = '') {
+    const cityPickersCurrent = document.querySelectorAll('.city-picker__current');
+    cityPickersCurrent.forEach(picker => {
+        picker.innerText = `${prefix}${city}`;
+    })
+
+    markMenusActiveCity(city);
+}
+function markMenusActiveCity(currentCityName) {
+    const dropdownElements = [...document.querySelectorAll('.city-picker__element')];
+
+    dropdownElements.forEach(city => {
+        city.classList.remove('_active');
+        
+        if (city.innerText.trim() == currentCityName.trim()) {
+            city.classList.add('_active');
+        }
+    })
+}
+
+function saveCurrentCity(city) {
+    localStorage.setItem('city_picker', city);
+}
+function getCurrentCity() {
+    return localStorage.getItem('city_picker');
+}
+
 const dropdownElements = [...document.querySelectorAll('.city-picker__element')];
 dropdownElements.forEach(dropdownElement => {
     dropdownElement.addEventListener('click', (e) => {
 
-        const cityPickersCurrent = document.querySelectorAll('.city-picker__current');
-        cityPickersCurrent.forEach(picker => {
-            picker.innerText = `г. ${dropdownElement.innerText}`;
-        })
-        
-        dropdownElements.forEach(city => {
-            city.classList.remove('_active');
-            
-            if (city.innerText.trim() == dropdownElement.innerText.trim()) {
-                city.classList.add('_active');
-            }
-        })
+        const currentCityName = dropdownElement.innerText;
+        setCurrentCity(currentCityName, 'г. ');
+
+        const cityToSave = dropdownElement.dataset.city;
+        if (!cityToSave) return
+
+        saveCurrentCity(cityToSave)
     })
 })
 
+window.addEventListener('DOMContentLoaded', (event) => {
+    const city = getCurrentCity();
 
+    if (city == null || city == undefined) return;
+    setCurrentCity(city, 'г. ');
+});
 
 
 window.addEventListener('click', function(e) {

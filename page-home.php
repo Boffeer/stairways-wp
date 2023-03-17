@@ -1037,7 +1037,7 @@
                                 <ul class="dropdown__body--list">
                                   <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
                                   <?php foreach ($cities as $city) : ?>
-                                      <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>">
+                                      <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
                                           <?php echo $city['city']; ?>
                                       </li>
                                   <?php endforeach; ?>
