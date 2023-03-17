@@ -45,7 +45,7 @@ function markMenusActiveCity(currentCityName) {
     })
     dropdownElements.forEach(city => {
         const isCurrentCity = city.dataset.city.trim().includes(currentCityName.trim())
-        
+
         city.classList.add('_active');
     })
 }
@@ -55,12 +55,25 @@ function getCityPhones() {
 
     return stairways.phones;
 }
+
+function excludePhoneElements(elements) {
+    const EXCLUDE_CLASSES = ['city-picker__element', 'accordion__body-tel'];
+
+    return [...elements].filter(phone => {
+        const excludeStatus = EXCLUDE_CLASSES.map(excludeClass => {
+            return phone.classList.contains(excludeClass)
+        })
+
+        return !excludeStatus.includes(true)
+    })
+}
+
 function setCityPhones(city) {
-    const phoneElements = document.querySelectorAll('a[href*="tel:"]');
+    const phoneElements = excludePhoneElements(document.querySelectorAll('a[href*="tel:"]'));
     const cityPhones = getCityPhones();
 
-
     if (!cityPhones) return;
+    // console.log(phoneElements)
 
     phoneElements.forEach(phone => {
         if (!cityPhones[city].href || !cityPhones[city].text) return;

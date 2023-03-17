@@ -26,7 +26,7 @@
 	                                            <span class="link--line"><?php echo $location['address'];?></span>
 	                                            <span class="link--line"><span>Режим работы:</span> <?php echo $location['worktime']?></span>
 	                                        </a>
-	                                        <a href="<?php echo get_phone_url($location['phone']);?>" class="link link--tel"><?php echo $location['phone']; ?></a>
+	                                        <a href="<?php echo get_phone_url($location['phone']);?>" class="accordion__body-tel link link--tel"><?php echo $location['phone']; ?></a>
 	                                        <a href="mailto:<?php echo $location['email'];?>" class="link link--email"><?php echo $location['email']?></a>
 	                                    </div>
 	                                    <div class="accordion__mess">
