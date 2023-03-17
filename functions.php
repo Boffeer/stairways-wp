@@ -133,8 +133,19 @@ function stairways_scripts() {
 	wp_enqueue_style( 'stairways-style', THEME_STATIC . "/css/style.css", array(), _S_VERSION );
 	wp_enqueue_script( 'stairways-scripts', THEME_STATIC . '/js/index.js', array(), _S_VERSION, true );
 
+	$contacts_cities = carbon_get_theme_option('contacts_cities');
+	$phones = array();
+	foreach ($contacts_cities as $city) {
+		$tel = $city['locations'][0]['phone'];
+		$phones[$city['city']] = array(
+			'href' => get_phone_href($tel),
+			'text' => $tel,
+		);
+	}
+
   $data = [
 		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+		'phones' => $phones,
 	];
 	wp_add_inline_script( 'stairways-scripts', 'const stairways = ' . wp_json_encode( $data ), 'before' );
 }

@@ -24,6 +24,9 @@ dropdownsVariable.forEach((dropdown) => {
 })
 
 
+/*
+    Выбор города меняет телефоны на сайте
+*/
 function setCurrentCity(city, prefix = '') {
     const cityPickersCurrent = document.querySelectorAll('.city-picker__current');
     cityPickersCurrent.forEach(picker => {
@@ -31,16 +34,39 @@ function setCurrentCity(city, prefix = '') {
     })
 
     markMenusActiveCity(city);
+
+    setCityPhones(city);
 }
 function markMenusActiveCity(currentCityName) {
     const dropdownElements = [...document.querySelectorAll('.city-picker__element')];
 
     dropdownElements.forEach(city => {
         city.classList.remove('_active');
+    })
+    dropdownElements.forEach(city => {
+        const isCurrentCity = city.dataset.city.trim().includes(currentCityName.trim())
         
-        if (city.innerText.trim() == currentCityName.trim()) {
-            city.classList.add('_active');
-        }
+        city.classList.add('_active');
+    })
+}
+
+function getCityPhones() {
+    if (!stairways) return false;
+
+    return stairways.phones;
+}
+function setCityPhones(city) {
+    const phoneElements = document.querySelectorAll('a[href*="tel:"]');
+    const cityPhones = getCityPhones();
+
+
+    if (!cityPhones) return;
+
+    phoneElements.forEach(phone => {
+        if (!cityPhones[city].href || !cityPhones[city].text) return;
+
+        phone.href = cityPhones[city].href;
+        phone.innerText = cityPhones[city].text;
     })
 }
 
