@@ -7564,7 +7564,7 @@ select {
 }
 @media (max-width: 600px) {
   .numbers-about {
-    padding-top: 8px;
+    padding-top: 24px;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 24px;
   }
