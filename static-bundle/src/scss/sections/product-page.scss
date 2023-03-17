@@ -1005,18 +1005,20 @@
     background: var(--c-text-regular);
     padding-top: 64px;
     text-align: center;
-    margin-top: 96px;
+    // margin-top: 96px;
     height: 604px;
+    height: 80vh;
     position: relative;
     overflow: hidden;
     @media (max-width: 1300px) {
-        margin-top: 144px;
-        height: 572px;
+        // margin-top: 144px;
+        // height: 572px;
     }
     @media (max-width: 992px) {
-        margin-top: 34px;
-        height: 324px;
+        // margin-top: 34px;
+        // height: 324px;
         padding-top: 36px;
+        border-radius: 0;
     }
     @media (max-width:600px) {
         padding: 24px 15px 0 24px;
@@ -1097,6 +1099,12 @@
     bottom: -23px;
     left: 0;
     right: 0;
+    @media (max-width: 1800px) {
+        height: 267px;
+    }
+    @media (max-width: 1300px) {
+        height: 167px;
+    }
     @media (max-width: 992px) {
         width: 496px;
         height: 166px;
@@ -1104,19 +1112,47 @@
     @media (max-width: 600px) {
         height: 148px;
         width: 266px;
-        bottom: -47px;
+        // bottom: -47px;
+        bottom: -17px;
         object-fit: cover;
         padding: 12px;
     }
 }
+.section-product-difference {
+    padding-bottom: 0;
+}
+.sect-carcas__container {
+    margin-bottom: 96px;
+    @media (max-width: 1300px) {
+        margin-bottom: 144px;
+    }
+    @media (max-width: 992px) {
+        margin-bottom: 34px;
+    }
+}
 
+.product-details-shifter__container {
+    @media (max-width: 1300px) {
+        max-width: 920px;
+        padding-left: 0;
+        padding-right: 0;
+        
+    }
+}
 .sect-colors {
     padding: 52px 0;
     background: var(--c-text-regular);
     position: relative;
     overflow: hidden;
+    margin-top: -12vh;
     .container {
         display: flex;
+    }
+    @media (max-width: 1300px) {
+        margin-top: -15vh;
+    }
+    @media (max-width:992px) {
+        margin-top: 0;
     }
     @media (max-width:660px) {
         .container {

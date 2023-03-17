@@ -1,3 +1,9 @@
+import { gsap, Timeline } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+
+gsap.registerPlugin(ScrollTrigger);
+
+
 (() => {
     if (!document.querySelector('.product-page-seciton')) return
 
@@ -79,3 +85,32 @@ hotspotCircles.forEach((hotspot, index) => {
         }
     })
 });
+
+
+
+if (windowWidth > 922) {
+    const boltsBlock =  gsap.timeline({
+        scrollTrigger: {
+            // trigger: ".product-details-shifter",
+            trigger: ".section-product-difference",
+            start: "7.5%",
+            // start: "-60%",
+            scrub: 1,
+            pinSpacing: true, 
+            pin: true,
+            markers: true,
+        }
+    });
+    boltsBlock.to(".product-details-shifter__container", {
+        width: "100%",
+        maxWidth: "100%",
+        yPercent: -20,
+        height: "-=20%",
+    })
+    boltsBlock.to(".sect-carcas__inner", {
+        yPercent: 50
+    }, "<")
+}
+// boltsBlock.to(".product-details-shifter__container", {
+//     yPercent: 0,
+// }, ">")
