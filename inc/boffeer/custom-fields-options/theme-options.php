@@ -63,7 +63,8 @@ Container::make('theme_options', 'theme_options', 'Настройки')
 		      Field::make( 'text', 'title', __( 'Заголовок открытой карточки' ) ),
 		      Field::make( 'text', 'address', __( 'Адрес' ) ),
 		      Field::make( 'text', 'worktime', __( 'Рабочее время' ) ),
-		      Field::make( 'text', 'phone', __( 'Телефон' ) ),
+		      Field::make( 'text', 'phone', __( 'Телефон' ) )
+		       ->set_help_text('Для переключалки города телефон будет браться из первого офиса каждого города'),
 		      Field::make( 'text', 'email', __( 'Email' ) ),
 		      Field::make( 'text', 'whatsapp', __( 'Whats App ссылка' ) ),
 		      Field::make( 'text', 'viber', __( 'Viber ссылка' ) ),
