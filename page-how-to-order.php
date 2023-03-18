@@ -132,15 +132,6 @@
                           </div>
                       </div>
                       <div class="sect-delivery__content">
-                          <span class="sect-delivery__content--title">Содержание</span>
-                          <ol class="sect-delivery__list">
-                              <li class="sect-delivery__list--element _active" data-step-content="1"><a href="#step-1">Определение стоимости лестницы</a></li>
-                              <li class="sect-delivery__list--element" data-step-content="2"><a href="#step-2">Заключение договора, внесение
-                              предоплаты</a></li>
-                              <li class="sect-delivery__list--element" data-step-content="3"><a href="#step-3">Проектирование и согласование</a></li>
-                              <li class="sect-delivery__list--element" data-step-content="4"><a href="#step-4">Изготовление лестницы</a></li>
-                              <li class="sect-delivery__list--element" data-step-content="5"><a href="#step-5">Доставка и монтаж</a></li>
-                          </ol>
 
                           <?php 
                             // Получить ссылку на видео из первого
@@ -185,6 +176,16 @@
                               </h3>
                           </article>
                           <?php wp_reset_postdata(); ?>
+                          
+                          <span class="sect-delivery__content--title">Содержание</span>
+                          <ol class="sect-delivery__list">
+                              <li class="sect-delivery__list--element _active" data-step-content="1"><a href="#step-1">Определение стоимости лестницы</a></li>
+                              <li class="sect-delivery__list--element" data-step-content="2"><a href="#step-2">Заключение договора, внесение
+                              предоплаты</a></li>
+                              <li class="sect-delivery__list--element" data-step-content="3"><a href="#step-3">Проектирование и согласование</a></li>
+                              <li class="sect-delivery__list--element" data-step-content="4"><a href="#step-4">Изготовление лестницы</a></li>
+                              <li class="sect-delivery__list--element" data-step-content="5"><a href="#step-5">Доставка и монтаж</a></li>
+                          </ol>
                       </div>
                   </div>
               </div>

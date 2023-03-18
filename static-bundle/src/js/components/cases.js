@@ -145,17 +145,17 @@ try {
 	    	return;
 	    }
 
+	    const gallery = productCasesMore.parentElement.querySelector('.projects-gallery-carousel');
+	    gallery.classList.add('gallery--wait');
+
 			const caseObject = await fetch(AJAX_ADMIN_URL, {
 	      method: "POST",
 	      body: formData,
 			});
 
 	    let result = await caseObject.text();
-	    const gallery = productCasesMore.parentElement.querySelector('.projects-gallery-carousel');
 	    gallery.innerHTML = result;
-	    // gallery.innerHTML = gallery.innerHTML + result;
-	    // const {title, stats, desc, gallery} = JSON.parse(result);
-	    // await updateCaseText(title, stats, desc);
+
 	    setTimeout(() => {
 		    window.initCaseButtons();
 		    window.poppa.initButtons()
@@ -163,6 +163,7 @@ try {
 	    },10);
 
 			productCasesMore.classList.remove('button--wait')
+	    gallery.classList.remove('gallery--wait');
 		})
 	}
 } catch {

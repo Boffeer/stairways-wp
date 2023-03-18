@@ -562,7 +562,8 @@
 .prod-items {
     .projects-gallery-carousel {
         display: grid;
-        grid-template-columns: repeat(3, 31.943%);
+        grid-template-columns: repeat(3, 30.943%);
+        justify-content: space-between;
         grid-gap: 48px 36px;
         @media (max-width: 1300px) {
             grid-gap: 48px 24px;
@@ -1396,7 +1397,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 221%;
-    background: url("../img/proud/golden-back.png");
+    // background: url("../img/proud/golden-back.png");
     background-position: right;
     @media (max-width: 660px) {
         height: 481px;
@@ -1466,4 +1467,9 @@
         padding-top: 12px;
         padding-bottom: 12px;
     }
+}
+
+.prod-items .gallery--wait::after {
+    top: unset;
+    bottom: 8rem;
 }

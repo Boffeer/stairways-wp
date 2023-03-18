@@ -47,6 +47,7 @@
     justify-content: flex-end;
     margin-right: 30px;
     transition: all 0.4s ease-out;
+    overflow: hidden;
     @media (max-width: 1500px) {
         // max-width: 15.694%;
         padding-bottom: 22px;
@@ -74,8 +75,14 @@
 .hero-categories__gallery:hover .hero-categories-card {
     flex: 1;
 }
+.hero-categories__gallery:hover .hero-categories-card__subcategories {
+    display: none;
+}
 .hero-categories__gallery .hero-categories-card:hover {
     flex: 4;
+}
+.hero-categories__gallery .hero-categories-card:hover .hero-categories-card__subcategories {
+    display: initial;
 }
 
 
@@ -153,7 +160,6 @@
 }
 
 .hero-categories-card--current .hero-categories-card__title {
-    /*
     line-height: 1;
     margin-bottom: 1rem;
     @media (max-width: 1600px) {
@@ -165,7 +171,6 @@
     @media (max-width: 768px) {
         margin-bottom: 20px;
     }
-    */
 }
 
 .hero-categories-card__subcategories {
@@ -176,6 +181,7 @@
     transition: all 0.3s ease;
     font-weight: 600;
     color: #979797;
+    white-space: nowrap;
     @media (max-width: 1300px) {
         font-size: 10px;
         line-height: 1;
@@ -185,7 +191,7 @@
 .hero-categories-card--current .hero-categories-card__subcategories {
     max-width: 100%;
     max-height: 1000px;
-    display: none; // По правкам скрывает
+    // display: none; // По правкам скрывает
     @media (max-width: 1100px) {
         display: none;
     }
@@ -252,8 +258,8 @@
   opacity: 1;
 }
 
-.hero-categories-card .hero-categories-card__link::before {
-// .hero-categories-card:not(.hero-categories-card--current) .hero-categories-card__link::before {
+// .hero-categories-card .hero-categories-card__link::before {
+.hero-categories-card:not(.hero-categories-card--current) .hero-categories-card__link::before {
     content: "";
     position: absolute;
     z-index: 3;

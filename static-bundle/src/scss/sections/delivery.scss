@@ -345,7 +345,8 @@
     border-top: 2px solid #E1E6EC;
     padding-top: 24px;
     position: sticky;
-    top: 20%;
+    // top: 20%;
+    top: 0;
     height: 100%;
     @media (max-width: 992px) {
         display: none;
@@ -458,5 +459,8 @@
 
 .sect-delivery__content .videos-card {
     max-width: 450px;
-    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.sect-delivery__content .videos-card__pic {
+    padding-bottom: 56%;
 }
