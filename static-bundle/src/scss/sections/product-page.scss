@@ -146,6 +146,7 @@
         transform: translateY(0);
         opacity: 1;
         z-index: 2;
+        pointer-events: all;
     }
     svg {
         transform: rotate(45deg);
@@ -284,6 +285,7 @@
     z-index: -1;
     display: flex;
     flex-direction: column;
+    pointer-events: none;
     @media (max-width: 992px) {
         width: 366px;
     }
@@ -1180,12 +1182,13 @@
     background: var(--c-text-regular);
     position: relative;
     overflow: hidden;
-    margin-top: -12vh;
+    margin-top: -2px;
+    // margin-top: -12vh;
     .container {
         display: flex;
     }
     @media (max-width: 1300px) {
-        margin-top: -15vh;
+        // margin-top: -15vh;
     }
     @media (max-width:992px) {
         margin-top: 0;

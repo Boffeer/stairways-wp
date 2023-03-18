@@ -104,11 +104,12 @@ if (window.innerWidth > 922) {
     boltsBlock.to(".product-details-shifter__container", {
         width: "100%",
         maxWidth: "100%",
-        yPercent: -20,
-        height: "-=20%",
+        // yPercent: -20,
+        // height: "-=20%",
     })
-    boltsBlock.to(".sect-carcas__inner", {
-        yPercent: 50
+    // boltsBlock.to(".sect-carcas__inner", {
+    boltsBlock.to(".sect-carcas--background--img", {
+        yPercent: -40
     }, "<")
 }
 // boltsBlock.to(".product-details-shifter__container", {

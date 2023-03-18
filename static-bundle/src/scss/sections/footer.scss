@@ -670,6 +670,11 @@
     min-width: var(--size);
     width: var(--size);
     height: var(--size);
+    @media (max-width: 600px) {
+        position: absolute;
+        top: 0;
+        right: 40px;
+    }
 }
 .footer__button-top:hover {
     @media (any-hover:hover) {

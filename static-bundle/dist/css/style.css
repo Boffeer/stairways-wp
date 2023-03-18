@@ -11270,6 +11270,7 @@ select {
   transform: translateY(0);
   opacity: 1;
   z-index: 2;
+  pointer-events: all;
 }
 .product-page--circle._active svg {
   transform: rotate(45deg);
@@ -11360,6 +11361,7 @@ select {
   z-index: -1;
   display: flex;
   flex-direction: column;
+  pointer-events: none;
 }
 @media (max-width: 992px) {
   .product-page--circle--popup {
@@ -12380,15 +12382,10 @@ select {
   background: var(--c-text-regular);
   position: relative;
   overflow: hidden;
-  margin-top: -12vh;
+  margin-top: -2px;
 }
 .sect-colors .container {
   display: flex;
-}
-@media (max-width: 1300px) {
-  .sect-colors {
-    margin-top: -15vh;
-  }
 }
 @media (max-width: 992px) {
   .sect-colors {
@@ -14508,6 +14505,13 @@ select {
   min-width: var(--size);
   width: var(--size);
   height: var(--size);
+}
+@media (max-width: 600px) {
+  .footer__button-top {
+    position: absolute;
+    top: 0;
+    right: 40px;
+  }
 }
 
 @media (any-hover: hover) {
