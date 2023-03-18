@@ -110,7 +110,7 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 				Field::make('complex', 'hotspots', 'Плюсики на кратинке вариации')
 					->set_layout('tabbed-horizontal')
 					->add_fields( array(
-			      Field::make( 'image', 'photo', __( 'Кариации' ) ),
+			      Field::make( 'image', 'photo', __( 'Вариации' ) ),
 			      Field::make( 'text', 'title', __( 'Заголовок' ) ),
 			      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
 			      Field::make( 'text', 'x_offset', __( 'Горизонтальный отступ' ) )

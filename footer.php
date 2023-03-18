@@ -71,6 +71,7 @@
                     </ul>
                     <?php endif; endif;?>
 
+                    <button class="footer__button-top"></button>
 
                 </nav>
                 <div class="footer__socials">
