@@ -70,7 +70,7 @@
     right: 70px;
     top: 4px;
     display: grid;
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(4, max-content);
     grid-gap: 136px;
     @media (max-width: 1600px) {
         grid-gap: 96px;
@@ -658,5 +658,21 @@
     @media (max-width: 601px) {
         margin-right: 0;
         margin-bottom: 7px;
+    }
+}
+.footer__button-top {
+    @include getmask("../img/common/arrow-down-sharp.svg");
+    transition: all 0.3s ease;
+    background-color: #fff;
+    transform: scale(-1);
+    --size: 2.2222222222222223rem;
+    max-width: var(--size);
+    min-width: var(--size);
+    width: var(--size);
+    height: var(--size);
+}
+.footer__button-top:hover {
+    @media (any-hover:hover) {
+        background-color: var(--c-text-secondary);
     }
 }

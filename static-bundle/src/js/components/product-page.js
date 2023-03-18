@@ -88,7 +88,7 @@ hotspotCircles.forEach((hotspot, index) => {
 
 
 
-if (windowWidth > 922) {
+if (window.innerWidth > 922) {
     const boltsBlock =  gsap.timeline({
         scrollTrigger: {
             // trigger: ".product-details-shifter",
@@ -98,7 +98,7 @@ if (windowWidth > 922) {
             scrub: 1,
             pinSpacing: true, 
             pin: true,
-            markers: true,
+            // markers: true,
         }
     });
     boltsBlock.to(".product-details-shifter__container", {

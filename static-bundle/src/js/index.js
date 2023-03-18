@@ -121,3 +121,12 @@ if (newsButtonMore) {
     e.target.remove();
   })  
 }
+
+const footerButtonTop = document.querySelector('.footer__button-top');
+footerButtonTop.addEventListener('click', (e) => {
+  window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+  })
+})

@@ -113,6 +113,10 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 			      Field::make( 'image', 'photo', __( 'Кариации' ) ),
 			      Field::make( 'text', 'title', __( 'Заголовок' ) ),
 			      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
+			      Field::make( 'text', 'x_offset', __( 'Горизонтальный отступ' ) )
+				      ->set_width(50),
+			      Field::make( 'text', 'y_offset', __( 'Вертикальный отступ' ) )
+				      ->set_width(50),
 					))
     )),
     Field::make( 'association', 'stairs_faq', __( 'ЧаВо для этой лестницы' ) )

@@ -80,6 +80,8 @@ header.addEventListener("header-show", (e) => {
 });
 
 function stickyHeader() {
+  if (!header.classList.contains('header--sticky')) return;
+  
   if (isWindowScrolled()) {
     header.classList.add(HEADER_SCROLLED_CLASS);
   } else {

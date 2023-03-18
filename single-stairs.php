@@ -18,7 +18,7 @@
                                 $hotspot['title'] != "" || 
                                 $hotspot['desc'] != ""
                             ) : ?>
-                                <button class="product-page--circle">
+                                <button class="product-page--circle" style="--left-offset: <?php echo $hotspot['x_offset'];?>; --top-offset: <?php echo $hotspot['y_offset']; ?>">
                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.00065 0.833344C9.64498 0.833344 10.1673 1.35568 10.1673 2.00001V7.83334H16.0007C16.645 7.83334 17.1673 8.35568 17.1673 9.00001C17.1673 9.64434 16.645 10.1667 16.0007 10.1667H10.1673V16C10.1673 16.6443 9.64498 17.1667 9.00065 17.1667C8.35632 17.1667 7.83398 16.6443 7.83398 16V10.1667H2.00065C1.35632 10.1667 0.833984 9.64434 0.833984 9.00001C0.833984 8.35568 1.35632 7.83334 2.00065 7.83334L7.83398 7.83334V2.00001C7.83398 1.35568 8.35632 0.833344 9.00065 0.833344Z" fill="white"/>
                                     </svg>
