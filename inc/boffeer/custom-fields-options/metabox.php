@@ -125,7 +125,17 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
           'type'      => 'post',
           'post_type' => 'faq',
         )
-    ))
+    )),
+	  Field::make( 'radio', 'bolts_visibility', __( 'Блок с болтами' ) )
+			->set_options( array(
+				'show' => __('Отображать'),
+				'hide' => __('Скрыть'),
+		)),
+	  Field::make( 'radio', 'pretty_visibility', __( 'Блок «красиво» с цветами' ) )
+			->set_options( array(
+				'show' => __('Отображать'),
+				'hide' => __('Скрыть'),
+		)),
 	));
 
 Container::make('term_meta', 'stairs_category_info', 'Категория')

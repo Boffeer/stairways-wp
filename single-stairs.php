@@ -216,60 +216,65 @@
         </div>
     </div>
 
-     <div class="container product-details-shifter__container">
-        <div class="sect-carcas--background">
-            <div class="sect-carcas__inner">
-                <p class="sect-carcas--background--pod">Быстро</p>
-                <h2 class="sect-carcas--background--title">Сборка на болтах</h2>
-                <p class="sect-carcas--background--descr">Все элементы каркаса собираются на болтах и не требуют сварки и покраски на монтаже. Каркас можно установить даже самостоятельно по нашей инструкции</p>
-            </div>
-            <img class="sect-carcas--background--img" src="<?php echo THEME_STATIC; ?>/img/proud/bolt.png" alt="">
-        </div>
-    </div>
-</section>
-<section class="sect-colors">
-    <div class="sect-colors--background"></div>
-    <div class="container">
-        <img src="<?php echo THEME_STATIC; ?>/img/proud/block-color.jpg" alt="" class="sect-colors__picture">
-        <div class="sect-colors__content">
-            <p class="sect-colors-pod">КРАСИВО</p>
-            <h2 class="sect-colors-title">Красим только<br> порошковой краской</h2>
-            <p class="sect-colors-descr">Мы красим каркас лестницы на монокосоуре порошковой краской на высокотехнологичном оборудовании. Это дает самый качественный результат и высокую стойкость по сравнению с любыми другими красками. Красим в любой цвет по RAL с использованием
-                спецэффектов шагрень, муар, глянец, матовый, металлик.</p>
-            <div class="sect-colors-bottom">
-                <div class="sect-colors-bottom__left">
-                    <p class="sect-colors-bottom__title">Цвета</p>
-                    <img class="sect-colors-bottom__left-img" src="<?php echo THEME_STATIC; ?>/img/proud/colors.svg" alt="">
+    <?php if (carbon_get_post_meta(get_the_ID(), 'bolts_visibility') == 'show') : ?>
+        <div class="container product-details-shifter__container">
+            <div class="sect-carcas--background">
+                <div class="sect-carcas__inner">
+                    <p class="sect-carcas--background--pod">Быстро</p>
+                    <h2 class="sect-carcas--background--title">Сборка на болтах</h2>
+                    <p class="sect-carcas--background--descr">Все элементы каркаса собираются на болтах и не требуют сварки и покраски на монтаже. Каркас можно установить даже самостоятельно по нашей инструкции</p>
                 </div>
-                <div class="sect-colors-bottom__right">
-                    <p class="sect-colors-bottom__title">Текстуры</p>
-                    <ul class="sect-colors-bottom__list">
-                        <li class="sect-colors-bottom__element">
-                            <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-1.svg" alt="">
-                            <p class="sect-colors-bottom__element-title">Шагрень</p>
-                        </li>
-                        <li class="sect-colors-bottom__element">
-                            <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-2.svg" alt="">
-                            <p class="sect-colors-bottom__element-title">Муар</p>
-                        </li>
-                        <li class="sect-colors-bottom__element">
-                            <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-3.svg" alt="">
-                            <p class="sect-colors-bottom__element-title">Металлик</p>
-                        </li>
-                        <li class="sect-colors-bottom__element">
-                            <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-4.svg" alt="">
-                            <p class="sect-colors-bottom__element-title">Глянец</p>
-                        </li>
-                        <li class="sect-colors-bottom__element">
-                            <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-5.svg" alt="">
-                            <p class="sect-colors-bottom__element-title">Матовый</p>
-                        </li>
-                    </ul>
-                </div>
+                <img class="sect-carcas--background--img" src="<?php echo THEME_STATIC; ?>/img/proud/bolt.png" alt="">
             </div>
         </div>
-    </div>
+    <?php endif; ?>
 </section>
+
+<?php if (carbon_get_post_meta(get_the_ID(), 'pretty_visibility') == 'show') : ?>
+    <section class="sect-colors">
+        <div class="sect-colors--background"></div>
+        <div class="container">
+            <img src="<?php echo THEME_STATIC; ?>/img/proud/block-color.jpg" alt="" class="sect-colors__picture">
+            <div class="sect-colors__content">
+                <p class="sect-colors-pod">КРАСИВО</p>
+                <h2 class="sect-colors-title">Красим только<br> порошковой краской</h2>
+                <p class="sect-colors-descr">Мы красим каркас лестницы на монокосоуре порошковой краской на высокотехнологичном оборудовании. Это дает самый качественный результат и высокую стойкость по сравнению с любыми другими красками. Красим в любой цвет по RAL с использованием
+                    спецэффектов шагрень, муар, глянец, матовый, металлик.</p>
+                <div class="sect-colors-bottom">
+                    <div class="sect-colors-bottom__left">
+                        <p class="sect-colors-bottom__title">Цвета</p>
+                        <img class="sect-colors-bottom__left-img" src="<?php echo THEME_STATIC; ?>/img/proud/colors.svg" alt="">
+                    </div>
+                    <div class="sect-colors-bottom__right">
+                        <p class="sect-colors-bottom__title">Текстуры</p>
+                        <ul class="sect-colors-bottom__list">
+                            <li class="sect-colors-bottom__element">
+                                <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-1.svg" alt="">
+                                <p class="sect-colors-bottom__element-title">Шагрень</p>
+                            </li>
+                            <li class="sect-colors-bottom__element">
+                                <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-2.svg" alt="">
+                                <p class="sect-colors-bottom__element-title">Муар</p>
+                            </li>
+                            <li class="sect-colors-bottom__element">
+                                <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-3.svg" alt="">
+                                <p class="sect-colors-bottom__element-title">Металлик</p>
+                            </li>
+                            <li class="sect-colors-bottom__element">
+                                <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-4.svg" alt="">
+                                <p class="sect-colors-bottom__element-title">Глянец</p>
+                            </li>
+                            <li class="sect-colors-bottom__element">
+                                <img src="<?php echo THEME_STATIC; ?>/img/proud/texture-5.svg" alt="">
+                                <p class="sect-colors-bottom__element-title">Матовый</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
 <?php $base_product_faq = carbon_get_theme_option('base_product_faq'); ?>
 <?php
     if (empty($base_product_faq)) :

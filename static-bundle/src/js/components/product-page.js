@@ -88,7 +88,12 @@ hotspotCircles.forEach((hotspot, index) => {
 
 
 
-if (window.innerWidth > 922) {
+if (document.querySelector('.section-product-difference') &&
+    document.querySelector('.product-details-shifter__container') &&
+    document.querySelector('.sect-carcas--background--img') &&
+    window.innerWidth > 922) 
+{
+
     const boltsBlock =  gsap.timeline({
         scrollTrigger: {
             // trigger: ".product-details-shifter",
@@ -112,6 +117,3 @@ if (window.innerWidth > 922) {
         yPercent: -40
     }, "<")
 }
-// boltsBlock.to(".product-details-shifter__container", {
-//     yPercent: 0,
-// }, ">")
