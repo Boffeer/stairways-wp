@@ -165,9 +165,15 @@
         <?php foreach ($stair_features as $feature_index => $feature) : ?>
             <div class="prod-info-sect">
                 <div class="prod-info-text">
-                    <p class="prod-info-text__pod"><?php echo $feature['suptitle']; ?></p>
-                    <h2 class="prod-info-text__title section-title"><?php echo $feature['title']; ?></h2>
-                    <p class="prod-info-text__descr"><?php echo $feature['desc']; ?></p>
+                    <?php if ($feature['suptitle']) : ?>
+                        <p class="prod-info-text__pod"><?php echo $feature['suptitle']; ?></p>
+                    <?php endif ;?>
+                    <?php if ($feature['title']) : ?>
+                        <h2 class="prod-info-text__title section-title"><?php echo $feature['title']; ?></h2>
+                    <?php endif; ?>
+                    <?php if ($feature['desc']) : ?>
+                        <p class="prod-info-text__descr"><?php echo $feature['desc']; ?></p>
+                    <?php endif; ?>
                     <?php if (count($feature['pics']) > 0) : ?>
                         <div class="prod-info-text__img">
                             <?php foreach ($feature['pics'] as $pic_id) : ?>
