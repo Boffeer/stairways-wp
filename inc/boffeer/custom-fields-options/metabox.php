@@ -13,6 +13,8 @@ use Carbon_Fields\Field;
 // 		Field::make('image', 'crb_photo'),
 // 	));
 
+$shortcode_help_text = 'Чтобы добавиь ссылку, напишите [link href="полная ссылка"]Текст текст ссылки[/link]';
+
 /*
 
 	Page
@@ -106,8 +108,9 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 			->add_fields( array(
 	      Field::make( 'text', 'title', __( 'Название вариации' ) ),
 	      Field::make( 'image', 'photo', __( 'Картинка вариации' ) ),
-	      Field::make( 'textarea', 'desc', __( 'Описание вариации' ) ),
-				Field::make('complex', 'hotspots', 'Плюсики на кратинке вариации')
+	      Field::make( 'textarea', 'desc', __( 'Описание вариации' ) )
+	      	->set_help_text($shortcode_help_text),
+				Field::make( 'complex', 'hotspots', 'Плюсики на кратинке вариации')
 					->set_layout('tabbed-horizontal')
 					->add_fields( array(
 			      Field::make( 'image', 'photo', __( 'Вариации' ) ),

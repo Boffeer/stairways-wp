@@ -55,6 +55,7 @@
     }
     @media (max-width: 1128px) {
         max-width: 100%;
+        min-height: 350px;
     }
     @media (max-width: 768px) {
         padding: 0;
@@ -63,6 +64,12 @@
         display: flex;
         align-items: flex-end;
         padding-bottom: 0;
+    }
+    @media (min-width: 1501px) {
+        min-height: 350px;
+    }
+    @media (min-width: 1200px) and (max-width: 1440px) {
+        min-height: 435px;
     }
 }
 .hero-categories-card:last-child {

@@ -3314,6 +3314,7 @@ input[type=search]::-webkit-search-cancel-button {
 @media (max-width: 1128px) {
   .hero-categories-card {
     max-width: 100%;
+    min-height: 350px;
   }
 }
 @media (max-width: 768px) {
@@ -3324,6 +3325,16 @@ input[type=search]::-webkit-search-cancel-button {
     display: flex;
     align-items: flex-end;
     padding-bottom: 0;
+  }
+}
+@media (min-width: 1501px) {
+  .hero-categories-card {
+    min-height: 350px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1440px) {
+  .hero-categories-card {
+    min-height: 435px;
   }
 }
 

@@ -66,7 +66,7 @@
                     <div class="product-page--views--block-text">
                         <?php foreach ($stair_product['variations'] as $key => $variation) : ?>
                             <p class="product-page--views--block-text-descr <?php echo $key == 0 ? '_active' : ''; ?>">
-                                <?php echo nl2br($variation['desc']);?>
+                                <?php echo nl2br(do_shortcode($variation['desc']));?>
                             </p>
                         <?php endforeach; ?>
                     </div>

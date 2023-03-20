@@ -25,6 +25,17 @@ function bold_title($attrs, $content) {
 	<?php return ob_get_clean();
 }
 
+add_shortcode( 'link', 'text_link' );
+function text_link($attrs, $content) {
+	$attrs = shortcode_atts( [
+		'href' => '',
+	], $attrs );
+
+	ob_start(); ?>
+    <a href="<?php echo $attrs['href']?>" class="link-regular"><span class="link__text"><?php echo $content; ?></span></a>
+	<?php return ob_get_clean();
+}
+
 add_shortcode( 'big_link', 'big_link' );
 function big_link($attrs, $content) {
 	$attrs = shortcode_atts( [
