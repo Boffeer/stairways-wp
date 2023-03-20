@@ -63,15 +63,19 @@
                   <article class="hero-categories-card <?php echo $product_index === 0 ? 'hero-categories-card--current' : '';?>">
                         <?php
                           if ($product_index == 0) :
-                            $card_image_id = carbon_get_term_meta($metal_category_id, 'category_pic');
+                            $thumbnail = boffeer_get_image_url_by_id(carbon_get_term_meta($metal_category_id, 'category_pic'));
                           else :
-                            $card_image_id = carbon_get_post_meta(get_the_ID(), 'stairs_variations')[0]['photo'];
+                            $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                            if ($thumbnail == "") {
+                                $card_image_id = carbon_get_post_meta(get_the_ID(), 'stairs_variations')[0]['photo'];
+                                $thumbnail = boffeer_get_image_url_by_id($card_image_id);
+                            }
                           endif;
                         ?>
                         <picture class="hero-categories-card__pic">
-                          <?php if ($card_image_id != '') : ?>
+                          <?php if ($thumbnail != '') : ?>
                             <img
-                              src="<?php echo boffeer_get_image_url_by_id($card_image_id); ?>"
+                              src="<?php echo $thumbnail; ?>"
                               alt="<?php echo $title; ?>"
                               class="hero-categories-card__img"
                             >
@@ -92,14 +96,20 @@
                                 $title = get_the_title();
                                 $permalink = get_the_permalink();
                               ?>
-                              <?php $child_category_image_id = carbon_get_post_meta($child_id, 'stairs_variations')[0]['photo']; ?>
+                              <?php
+                                $child_thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                                if ($child_thumbnail == "") {
+                                    $child_category_image_id = carbon_get_post_meta(get_the_ID(), 'stairs_variations')[0]['photo'];
+                                    $child_thumbnail = boffeer_get_image_url_by_id($child_category_image_id);
+                                }
+                              ?>
                               <?php if ($child_category_image_id != '') : ?>
                                 <a href="<?php echo the_permalink()?>" class="hero-categories-card__subcategory">
                                   <?php the_title(); ?>
                                 </a>
                                 <picture class="hero-categories-card__subcategory-pic">
                                   <img class="hero-categories-card__subcategory-img"
-                                    src="<?php echo boffeer_get_image_url_by_id($child_category_image_id); ?>"
+                                    src="<?php echo $child_thumbnail; ?>"
                                     alt="<?php the_title(); ?>"
                                   >
                                 </picture>

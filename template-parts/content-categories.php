@@ -9,13 +9,21 @@
 
 ?>
 
+<?php 
+    $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+
+    if ($thumbnail == "") {
+        $categories_thumb_id = carbon_get_post_meta(get_the_ID(), 'stairs_variations')[0]['photo'];
+        $thumbnail = boffeer_get_image_url_by_id($categories_thumb_id);
+    }
+?>
 <div id="categories-<?php the_ID(); ?>" class="catalog-items--block">
     <a href="<?php the_permalink(); ?>" class="catalog-items--link">
-        <?php $categories_thumb_id = carbon_get_post_meta(get_the_ID(), 'stairs_variations')[0]['photo']; ?>
-        <?php if ($categories_thumb_id != '') : ?>
+        <?php  ?>
+        <?php if ($thumbnail != '') : ?>
             <picture class="catalog-items__pic">
                 <img
-                  src="<?php echo boffeer_get_image_url_by_id($categories_thumb_id); ?>"
+                  src="<?php echo $thumbnail; ?>"
     	            alt="<?php the_title(); ?>" class="catalog-items__img">
             </picture>
         <?php endif; ?>
