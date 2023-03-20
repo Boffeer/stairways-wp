@@ -136,21 +136,25 @@ Container::make('term_meta', 'stairs_category_info', 'Категория')
 	));
 
 
-Container::make('post_meta', 'stairs_cases', 'Кейсы')
-	->where('post_type', '=', 'stairs')
-	->add_fields(array(
-    Field::make( 'association', 'product_cases', __( 'Кейсы' ) )
-	    ->set_types( array(
-        array(
-          'type'      => 'post',
-          'post_type' => 'cases',
-        )
-    ) )
-  ));
+// Container::make('post_meta', 'stairs_cases', 'Кейсы')
+// 	->where('post_type', '=', 'stairs')
+// 	->add_fields(array(
+//     Field::make( 'association', 'product_cases', __( 'Кейсы' ) )
+// 	    ->set_types( array(
+//         array(
+//           'type'      => 'post',
+//           'post_type' => 'cases',
+//         )
+//     ) )
+//   ));
 Container::make('post_meta', 'c_stairs_features', 'Преимущества')
 	->where('post_type', '=', 'stairs')
 	->add_fields(array(
 		Field::make('complex', 'stairs_features', 'Преимущества')
+			->setup_labels(array(
+		    'plural_name' => 'преимущества',
+		    'singular_name' => 'преимущество',
+			))
 			->add_fields( array(
 	      Field::make( 'text', 'suptitle', __( 'Над заголовокм' ) )
 		      ->set_attribute('placeholder', 'Надежно'),
@@ -158,7 +162,8 @@ Container::make('post_meta', 'c_stairs_features', 'Преимущества')
 	      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
 	      Field::make( 'image', 'photo', __( 'Большая картинка' ) ),
 				Field::make('media_gallery', 'pics', __('Картинки под описанием'))
-    )),
+	    ))
+			->set_help_text('В нечетных картинка справа, в четных — слева'),
 	));
 
 

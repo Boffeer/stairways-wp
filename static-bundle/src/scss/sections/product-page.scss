@@ -679,7 +679,7 @@
         flex-direction: column;
     }
 }
-.prod-info-sect:nth-of-type(odd) {
+.prod-info-sect:not(:last-child) {
     margin-bottom: 109px;
     @media (max-width:1500px) {
         margin-bottom: 58px;
@@ -798,6 +798,7 @@
 .prod-info-sect:nth-of-type(even) .prod-info-picture {
     width: 81.7%;
     height: 822px;
+    order: -1;
     @media (max-width:1300px) {
         height: 600px;
         width: 552px;

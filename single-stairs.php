@@ -161,37 +161,26 @@
 </section>
 <section id="section-product-features" class="prod-info">
     <div class="container">
-        <div class="prod-info-sect">
-            <div class="prod-info-text">
-                <p class="prod-info-text__pod">Надежно</p>
-                <h2 class="prod-info-text__title section-title">Делаем каркас на балке <br> из стальной трубы</h2>
-                <p class="prod-info-text__descr">
-                    Мы изготавливаем каркас лестницы на центральной балке из двух видов трубы: 120*80*4 мм и 140*100*5 мм для длинных маршей. Эти трубы надежны и гармонично вписываются в концепцию лестницы.
-                </p>
-                <div class="prod-info-text__img">
-                    <img src="<?php echo THEME_STATIC; ?>/img/proud/r-1.svg" alt="">
-                    <img src="<?php echo THEME_STATIC; ?>/img/proud/r-2.svg" alt="">
+        <?php $stair_features = carbon_get_post_meta(get_the_ID(), 'stairs_features'); ?>
+        <?php foreach ($stair_features as $feature_index => $feature) : ?>
+            <div class="prod-info-sect">
+                <div class="prod-info-text">
+                    <p class="prod-info-text__pod"><?php echo $feature['suptitle']; ?></p>
+                    <h2 class="prod-info-text__title section-title"><?php echo $feature['title']; ?></h2>
+                    <p class="prod-info-text__descr"><?php echo $feature['desc']; ?></p>
+                    <?php if (count($feature['pics']) > 0) : ?>
+                        <div class="prod-info-text__img">
+                            <?php foreach ($feature['pics'] as $pic_id) : ?>
+                            <img src="<?php echo boffeer_get_image_url_by_id($pic_id); ?>" alt="">
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="prod-info-picture">
+                    <img src="<?php echo boffeer_get_image_url_by_id($feature['photo']); ?>" alt="">
                 </div>
             </div>
-            <div class="prod-info-picture">
-                <img src="<?php echo THEME_STATIC; ?>/img/proud/carcase.png" alt="">
-            </div>
-        </div>
-        <div class="prod-info-sect">
-            <div class="prod-info-picture">
-                <img src="<?php echo THEME_STATIC; ?>/img/proud/photo-2.png" alt="">
-            </div>
-            <div class="prod-info-text">
-                <p class="prod-info-text__pod">Комфортно</p>
-                <h2 class="prod-info-text__title section-title">Стальной лист<br> крепленияы</h2>
-                <p class="prod-info-text__descr">
-                    Стальной лист крепления ступени толщиной 5 мм надежно выполняет свою функцию и имеет незначительные боковые качения, которые не заметны при движении даже при больших нагрузках.
-                </p>
-                <div class="prod-info-text__img">
-                    <img src="<?php echo THEME_STATIC; ?>/img/proud/r-3.svg" alt="">
-                </div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </section>
 <section class="sect-photo">
