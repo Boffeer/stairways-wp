@@ -16,13 +16,13 @@ function get_filtered_cases() {
 		$filtered_cases = new WP_Query( array(
 	    'post_type' => 'cases',
 	    'post_status' => 'publish',
-	    'posts_per_page' => '-1',
+	    'posts_per_page' => '12',
 		));
 	} else {
 		$filtered_cases = new WP_Query( array(
 	    'post_type' => 'cases',
 	    'post_status' => 'publish',
-	    'posts_per_page' => '-1',
+	    'posts_per_page' => '12',
 			'tax_query' => array(
 				array(
 	       'relation' => 'OR',
@@ -52,25 +52,40 @@ function get_more_cases() {
 	$initial = json_decode(stripslashes($_POST['initial']));
 	$offset = json_decode(stripslashes($_POST['offset']));
 	$include = json_decode(stripslashes($_POST['include']));
+	$categories = json_decode(stripslashes($_POST['categories']));
 
-	$more_cases = new WP_Query( array(
+	$more_cases_args =  array(
     'post_type' => 'cases',
     'post_status' => 'publish',
     'posts_per_page' => $offset,
     // 'offset' => $offset,
     'post__in' => $include,
     'orderby' => 'post__in',
-	));
+	);
 
-	$cases = array();
-	while ($more_cases->have_posts()) :
-		$more_cases->the_post();
-		ob_start();?>
-      <div class="projects-gallery-slide projects-gallery-carousel__slide" dataset>
+	if ($categories != ["-1"] && !empty($categories)) {
+    $more_cases_args['tax_query'] = array(
+			array(
+				'taxonomy' => 'categories',
+				'field'    => 'term_id',
+				'terms'    => $categories,
+			)
+		);
+	}
+	$more_cases = new WP_Query($more_cases_args);
+
+	ob_start();
+	while ($more_cases->have_posts()) : $more_cases->the_post();
+	?>
+    <div class="projects-gallery-slide projects-gallery-carousel__slide" dataset>
 			<?php get_template_part( 'template-parts/content-cases', get_post_type() ); ?>
-			</div>
-		<?php endwhile;
-	echo ob_get_clean();
+		</div>
+	<?php
+	wp_reset_postdata();
+	endwhile;
+	$cases = ob_get_contents();
+	ob_get_clean();
+
 	wp_die();
 }
 

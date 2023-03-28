@@ -66,7 +66,7 @@ get_header();
                                 'post_type' => 'cases',
                                 'post_status' => 'publish',
                                 'orderby' => 'rand',
-                                'posts_per_page' => -1,
+                                'posts_per_page' => 12,
                             ));
                           ?>
 	                        <div class="swiper-wrapper">
@@ -97,6 +97,9 @@ get_header();
 	            </div>
 		        </div>
 			    </div>
+          <button class="button button--primary button--wide catalog-project__button-more" type="button">
+          	Показать еще
+          </button>
 			</div>
   </section>
 </main>

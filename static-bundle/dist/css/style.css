@@ -11214,6 +11214,10 @@ select {
   transform: scale(1.2);
 }
 
+.catalog-project__button-more {
+  margin-top: 2rem;
+}
+
 .product-page-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -14930,10 +14934,12 @@ a:hover {
   color: var(--c-link-hover);
 }
 
+.gallery--wait-bottom,
 .gallery--wait {
   position: relative;
 }
 
+.gallery--wait-bottom::before,
 .gallery--wait::before {
   content: "";
   position: absolute;
@@ -14946,6 +14952,7 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.gallery--wait-bottom::after,
 .gallery--wait::after {
   content: "";
   position: absolute;
@@ -14962,6 +14969,11 @@ a:hover {
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
+}
+
+.gallery--wait-bottom::after {
+  top: unset;
+  bottom: 8rem;
 }
 
 .is-hidden {

@@ -116,4 +116,5 @@ if (document.querySelector('.section-product-difference') &&
     boltsBlock.to(".sect-carcas--background--img", {
         yPercent: -40
     }, "<")
+    window.boltsBlock = boltsBlock;
 }

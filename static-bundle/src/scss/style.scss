@@ -424,10 +424,12 @@ a:hover {
     color: var(--c-link-hover);
 }
 
+.gallery--wait-bottom,
 .gallery--wait {
     // opacity: 0.5;
     position: relative;
 }
+.gallery--wait-bottom::before,
 .gallery--wait::before {
     content: "";
     position: absolute;
@@ -439,6 +441,7 @@ a:hover {
     height: 100%;
     background-color: rgba(255,255,255,0.5);
 }
+.gallery--wait-bottom::after,
 .gallery--wait::after {
     content: "";
     position: absolute;
@@ -456,6 +459,11 @@ a:hover {
     background-position: top center;
     background-repeat: no-repeat;
 }
+.gallery--wait-bottom::after {
+    top: unset;
+    bottom: 8rem;
+}
+
 
 .is-hidden {
     display: none !important;

@@ -29,7 +29,6 @@ function updateCaseSlides(gallery = '') {
 		caseCarousel.swiper.updateProgress();
 		caseCarousel.swiper.slideTo(0);
 		caseCarousel.swiper.slideReset();
-		console.log(caseCarousel.swiper)
 	}, 100)
 	// caseCarousel.swiper.slidePrev();
 }
@@ -114,24 +113,38 @@ try {
 }
 
 try {
-	let AJAX_ADMIN_URL= stairways.ajaxUrl;;
-	const productCasesMore = document.querySelector('.prod-items__show');
+	let AJAX_ADMIN_URL= stairways.ajaxUrl;
+
+	const productCasesMore = document.querySelector('.prod-items__show') || document.querySelector('.catalog-project__button-more');
 	if (productCasesMore) {
+
+		function getActiveFilters() {
+			const activeFilters = [...productCasesMore.parentElement.querySelectorAll('.tabs-7p-tab__input:checked')];
+
+			if (activeFilters.length < 1) return [];
+
+			return activeFilters.map(filter => {
+				return filter.value;
+			})
+		}
+
 		productCasesMore.dataset.fetchIteration = "1";
-		const INITIAL_CASES_COUNT = [...productCasesMore.parentElement.querySelectorAll('.projects-gallery-carousel__slide')].length;
+		const INITIAL_CASES_COUNT = [...productCasesMore.parentElement.querySelectorAll('.projects-gallery-slide')].length;
 
 		productCasesMore.addEventListener('click', async (e) => {
-			const includeCasesIds = [];
-			const currentCases = [...productCasesMore.parentElement.querySelectorAll('.projects-gallery-carousel__slide')];
-			// const currentCasesCount = [...currentCases].length;
 
-			// console.log(currentCases)
+			const includeCasesIds = [];
+			const currentCases = [...productCasesMore.parentElement.querySelectorAll('.projects-gallery-slide')];
 			currentCases.forEach((caseItem) => {
-				includeCasesIds.push(caseItem.querySelector('.projects-gallery-slide').dataset.id);
+				includeCasesIds.push(caseItem.dataset.id);
 			})
+
 
 			productCasesMore.classList.add('button--wait')
 	    productCasesMore.dataset.fetchIteration = +productCasesMore.dataset.fetchIteration + 1;
+	    const gallery = productCasesMore.parentElement.querySelector('.projects-gallery-carousel');
+	    gallery.classList.add('gallery--wait-bottom');
+
 
 	    const formData = new FormData();
 	    formData.append('action', 'get_more_cases');
@@ -139,33 +152,61 @@ try {
 	    formData.append('include', includeCasesIds);
 	    formData.append('offset', INITIAL_CASES_COUNT * +productCasesMore.dataset.fetchIteration);
 
-
-	    if (!AJAX_ADMIN_URL) {
-	    	console.error('no AJAX_ADMIN_URL in cases.js')
-	    	return;
+			const activeFilters = getActiveFilters();
+	    if (activeFilters != ["-1"]) {
+		    formData.append('categories', JSON.stringify(activeFilters));
 	    }
 
-	    const gallery = productCasesMore.parentElement.querySelector('.projects-gallery-carousel');
-	    gallery.classList.add('gallery--wait');
 
 			const caseObject = await fetch(AJAX_ADMIN_URL, {
 	      method: "POST",
 	      body: formData,
 			});
 
+
 	    let result = await caseObject.text();
-	    gallery.innerHTML = result;
+
+	    let resultNode;
+	    if (gallery.children[0].classList.contains('swiper-wrapper')) {
+		    resultNode = gallery.children[0];
+	    } else {
+		    resultNode = gallery;
+	    }
+
+	    const nodesBeforeAppendCases = [...resultNode.children].length
+
+
+	    resultNode.innerHTML = result
+	    const nodesAfterAppendCases = [...resultNode.children].length
+
+	    // if (nodesBeforeAppendCases === nodesAfterAppendCases) {
+	    	// productCasesMore.style.display = 'none';
+	    // }
+
 
 	    setTimeout(() => {
 		    window.initCaseButtons();
 		    window.poppa.initButtons()
 		    updateCaseSlides(gallery);
+
+		    if (window.boltsBlock) {
+			    window.boltsBlock.scrollTrigger.refresh();
+		    }
+
 	    },10);
 
+
 			productCasesMore.classList.remove('button--wait')
-	    gallery.classList.remove('gallery--wait');
+	    gallery.classList.remove('gallery--wait-bottom');
 		})
 	}
 } catch {
 	console.warn('There is no AJAX_ADMIN_URL in get_more.js')
 }
+
+// const casesMoreButton = document.querySelector('.catalog-project__button-more');
+// if (casesMoreButton) {
+// 	casesMoreButton.addEventListener("click", (e) => {
+// 		console.log(getActiveFilters())
+// 	});
+// }
