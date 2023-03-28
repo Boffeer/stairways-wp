@@ -71,9 +71,10 @@
                     </ul>
                     <?php endif; endif;?>
 
-                    <button class="footer__button-top"></button>
-
                 </nav>
+                
+                <button class="footer__button-top"></button>
+
                 <div class="footer__socials">
                     <div class="footer__socials-buttons">
                         <?php if (THEME_OPTIONS['viber'] != '') : ?>

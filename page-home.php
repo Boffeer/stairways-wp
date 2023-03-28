@@ -103,7 +103,7 @@
                                     $child_thumbnail = boffeer_get_image_url_by_id($child_category_image_id);
                                 }
                               ?>
-                              <?php if ($child_category_image_id != '') : ?>
+                              <?php if ($child_thumbnail != '') : ?>
                                 <a href="<?php echo the_permalink()?>" class="hero-categories-card__subcategory">
                                   <?php the_title(); ?>
                                 </a>
@@ -449,9 +449,15 @@
                   <br> мы уверенно несем ответственность за свою работу и даем честные гарантии.
               </p>
               <div class="why__content">
-                  <?php $why_slides = carbon_get_post_meta(get_the_ID(), 'why_gallery'); ?>
+                  <div class="why-media">
+                      <img class="why-media__img" src="<?php echo THEME_STATIC; ?>/img/why/why-hero.jpg">
+                      <p class="why-media__desc">
+                          На ваши вопросы отвечает основатель компании "Первая ступень" Алексей Марышев
+                      </p>
+                  </div>
+                  <?php $why_slides = [];//carbon_get_post_meta(get_the_ID(), 'why_gallery'); ?>
                   <?php if (!empty($why_slides)) : ?>
-                    <div class="why__content-slider">
+<!--                     <div class="why__content-slider">
                         <div class="why__content-top">
                             <div class="swiper why-carousel-top why-gallery">
                                 <div class="swiper-wrapper">
@@ -491,7 +497,7 @@
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
                     </div>
-                  <?php endif; ?>
+ -->                  <?php endif; ?>
 
                   <?php $why_faq = carbon_get_post_meta(get_the_ID(), 'why_faq'); ?>
                   <?php if (!empty($why_faq)) : ?>

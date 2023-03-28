@@ -81,7 +81,7 @@
     }
     @media (max-width: 992px) {
         grid-gap: 45px;
-        right: 56px;
+        right: 16px;
     }
     @media (max-width: $mobile-size) {
         position: static;
@@ -661,23 +661,52 @@
     }
 }
 .footer__button-top {
-    @include getmask("../img/common/arrow-down-sharp.svg");
+    z-index: 4;
+    opacity: 0;
+    pointer-events: none;
     transition: all 0.3s ease;
-    background-color: #fff;
     transform: scale(-1);
     --size: 3.2222222222222223rem;
     max-width: var(--size);
     min-width: var(--size);
     width: var(--size);
     height: var(--size);
-    @media (max-width: 600px) {
-        position: absolute;
-        top: 0;
-        right: 40px;
-    }
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    border: 1px solid #8196B1;
+    border-radius: 9999px;
+    background: #fff;
+
+    // @media (max-width: 600px) {
+    //     position: absolute;
+    //     top: 0;
+    //     right: 40px;
+    // }
+}
+.footer__button-top--visible {
+    opacity: 1;
+    pointer-events: initial;
+}
+.footer__button-top::after {
+    // @include getmask("../img/common/arrow-down-sharp.svg");
+    background-image: url("../img/common/arrow-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    content: "";
+    border-radius: 99999px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 60%;
+    height: 60%;
 }
 .footer__button-top:hover {
     @media (any-hover:hover) {
-        background-color: var(--c-text-secondary);
+        background-color: #f1f1f1;
     }
 }

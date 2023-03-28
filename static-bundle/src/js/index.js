@@ -158,3 +158,12 @@ const checkIsIOS = () =>
 if (checkIsIOS()) {
   disableIosTextFieldZoom();
 }
+
+
+window.addEventListener("scroll", (e) => {
+  if (window.pageYOffset > 1000) {
+    footerButtonTop.classList.add('footer__button-top--visible')
+  } else {
+    footerButtonTop.classList.remove('footer__button-top--visible')
+  }
+});

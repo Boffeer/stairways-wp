@@ -3295,7 +3295,6 @@ input[type=search]::-webkit-search-cancel-button {
   width: 100%;
   position: relative;
   padding: 2rem;
-  padding-top: 19.59rem;
   padding-left: 1rem;
   display: flex;
   align-items: flex-start;
@@ -3304,11 +3303,11 @@ input[type=search]::-webkit-search-cancel-button {
   margin-right: 30px;
   transition: all 0.4s ease-out;
   overflow: hidden;
+  min-height: 350px;
 }
 @media (max-width: 1500px) {
   .hero-categories-card {
     padding-bottom: 22px;
-    padding-top: 21.171rem;
   }
 }
 @media (max-width: 1128px) {
@@ -3325,6 +3324,7 @@ input[type=search]::-webkit-search-cancel-button {
     display: flex;
     align-items: flex-end;
     padding-bottom: 0;
+    min-height: initial;
   }
 }
 @media (min-width: 1501px) {
@@ -3631,7 +3631,7 @@ input[type=search]::-webkit-search-cancel-button {
   color: var(--c-text-regular);
   margin-right: 18px;
   padding: 16px 36px;
-  outline: 1px solid #DDE0E3;
+  border: 1px solid #DDE0E3;
   border-radius: 4px;
   display: inline-flex;
   align-items: center;
@@ -5891,7 +5891,7 @@ select {
   line-height: 140%;
   color: var(--c-text-regular);
   padding: 16px 36px;
-  outline: 1px solid #DDE0E3;
+  border: 1px solid #DDE0E3;
   border-radius: 4px;
   display: inline-flex;
   align-items: center;
@@ -7576,6 +7576,40 @@ select {
 @media (max-width: 650px) {
   .why .accordion__body {
     padding-left: 16px;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 601px) {
+  .why-media {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    align-items: center;
+  }
+}
+
+.why-media__img {
+  height: 440px;
+  object-fit: cover;
+  object-position: top;
+  margin-bottom: 1rem;
+  display: block;
+}
+@media (max-width: 992px) {
+  .why-media__img {
+    height: 370px;
+  }
+}
+
+.why-media__desc {
+  font-size: 18px;
+  color: #2b3b50;
+  line-height: 26px;
+}
+@media (max-width: 1280px) {
+  .why-media__desc {
+    font-size: 14px;
+    line-height: 20px;
   }
 }
 
@@ -9542,6 +9576,7 @@ select {
 
 .proud__gallery {
   position: relative;
+  z-index: 1;
 }
 @media (max-width: 650px) {
   .proud__gallery {
@@ -11263,16 +11298,16 @@ select {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  --radius-circle: 48px;
+  --radius-circle: calc((1vw + 1vh) * 0.855 * 2);
   --left-offset: 0;
   --top-offset: 0;
   left: calc(var(--radius-circle) + var(--left-offset));
   top: calc(var(--radius-circle) + var(--top-offset));
   transition: all 0.3s ease;
 }
-@media (max-width: 992px) {
+@media (max-width: 810px) {
   .product-page--circle {
-    --radius-circle: 32px;
+    --radius-circle: calc((1vw + 1vh) * 0.855 * 3);
   }
 }
 
@@ -11402,7 +11437,7 @@ select {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 990px) {
   .product-page__inner-pic .product-page--circle .product-page--circle--popup {
     position: fixed;
     top: 20%;
@@ -12305,6 +12340,11 @@ select {
   .sect-carcas--background {
     padding-top: 36px;
     border-radius: 0;
+  }
+}
+@media (min-width: 601px) and (max-width: 992px) {
+  .sect-carcas--background {
+    height: 310px;
   }
 }
 @media (max-width: 600px) {
@@ -13940,7 +13980,7 @@ select {
 @media (max-width: 992px) {
   .footer-nav {
     grid-gap: 45px;
-    right: 56px;
+    right: 16px;
   }
 }
 @media (max-width: 700px) {
@@ -14579,34 +14619,49 @@ select {
 }
 
 .footer__button-top {
-  -webkit-mask: url("../img/common/arrow-down-sharp.svg");
-  mask: url("../img/common/arrow-down-sharp.svg");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
+  z-index: 4;
+  opacity: 0;
+  pointer-events: none;
   transition: all 0.3s ease;
-  background-color: #fff;
   transform: scale(-1);
   --size: 3.2222222222222223rem;
   max-width: var(--size);
   min-width: var(--size);
   width: var(--size);
   height: var(--size);
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  border: 1px solid #8196B1;
+  border-radius: 9999px;
+  background: #fff;
 }
-@media (max-width: 600px) {
-  .footer__button-top {
-    position: absolute;
-    top: 0;
-    right: 40px;
-  }
+
+.footer__button-top--visible {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.footer__button-top::after {
+  background-image: url("../img/common/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  content: "";
+  border-radius: 99999px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 60%;
+  height: 60%;
 }
 
 @media (any-hover: hover) {
   .footer__button-top:hover {
-    background-color: var(--c-text-secondary);
+    background-color: #f1f1f1;
   }
 }
 

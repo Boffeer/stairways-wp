@@ -81,6 +81,9 @@ function initGallery(gallery) {
             showCards(gallery);
             moreButton.innerText = "−";
         }
+        setTimeout(() => {
+            window.msnr.layout()
+        })
     });
 }
 hiderContainers.forEach(gallery => {

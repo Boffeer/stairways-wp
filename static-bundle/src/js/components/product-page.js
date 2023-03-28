@@ -91,7 +91,7 @@ hotspotCircles.forEach((hotspot, index) => {
 if (document.querySelector('.section-product-difference') &&
     document.querySelector('.product-details-shifter__container') &&
     document.querySelector('.sect-carcas--background--img') &&
-    window.innerWidth > 922) 
+    window.innerWidth > 1000) 
 {
 
     const boltsBlock =  gsap.timeline({

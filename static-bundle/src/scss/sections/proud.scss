@@ -593,6 +593,7 @@
 
 .proud__gallery {
     position: relative;
+    z-index: 1;
     @media (max-width: 650px) {
         display: grid;
         grid-gap: 36px;
