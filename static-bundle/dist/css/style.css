@@ -3343,20 +3343,28 @@ input[type=search]::-webkit-search-cancel-button {
   flex: 4;
 }
 
-.hero-categories__gallery:hover .hero-categories-card {
-  flex: 1;
+@media (any-hover: hover) {
+  .hero-categories__gallery:hover .hero-categories-card {
+    flex: 1;
+  }
 }
 
-.hero-categories__gallery:hover .hero-categories-card__subcategories {
-  display: none;
+@media (any-hover: hover) {
+  .hero-categories__gallery:hover .hero-categories-card__subcategories {
+    display: none;
+  }
 }
 
-.hero-categories__gallery .hero-categories-card:hover {
-  flex: 4;
+@media (any-hover: hover) {
+  .hero-categories__gallery .hero-categories-card:hover {
+    flex: 4;
+  }
 }
 
-.hero-categories__gallery .hero-categories-card:hover .hero-categories-card__subcategories {
-  display: initial;
+@media (any-hover: hover) {
+  .hero-categories__gallery .hero-categories-card:hover .hero-categories-card__subcategories {
+    display: initial;
+  }
 }
 
 .hero-categories-card--current {
@@ -5061,6 +5069,12 @@ input[type=search]::-webkit-search-cancel-button {
   left: 0%;
   width: max-content;
   padding: 24px;
+}
+@media (max-width: 1400px) and (min-width: 992px) {
+  .dropdown__body--wide {
+    left: -100%;
+    max-width: 1176px;
+  }
 }
 
 .dropdown__body--more-8 {
@@ -11683,8 +11697,8 @@ select {
   text-transform: uppercase;
   color: #FFFFFF;
 }
-@media (max-width: 1300px) {
-  .product-page-btn button {
+@media (max-width: 1400px) {
+  .product-page-btn .button {
     padding: 23px 34px;
     font-size: 12px;
     line-height: 1;
@@ -11846,6 +11860,7 @@ select {
 @media (max-width: 600px) {
   .prod-info {
     margin-bottom: 36px;
+    overflow: hidden;
   }
 }
 
@@ -12358,10 +12373,15 @@ select {
   background: var(--c-text-regular);
   padding-top: 64px;
   text-align: center;
-  height: 604px;
   height: 80vh;
+  min-height: 900px;
   position: relative;
   overflow: hidden;
+}
+@media (max-width: 1700px) {
+  .sect-carcas--background {
+    min-height: 700px;
+  }
 }
 @media (max-width: 992px) {
   .sect-carcas--background {
@@ -12372,12 +12392,14 @@ select {
 @media (min-width: 601px) and (max-width: 992px) {
   .sect-carcas--background {
     height: 310px;
+    min-height: 310px;
   }
 }
 @media (max-width: 600px) {
   .sect-carcas--background {
     padding: 24px 15px 0 24px;
     height: 294px;
+    min-height: initial;
   }
 }
 

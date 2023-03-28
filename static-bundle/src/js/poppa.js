@@ -271,7 +271,7 @@ class Poppa {
       const hash = window.location.hash.substring(1);
       const poppa = document.querySelector(`.poppa#${hash}`);
       setTimeout(() => {
-        if (poppa) {
+        if (poppa && !poppa.classList.contains('poppa--no-hash')) {
           this.openPop(hash);
         }
       });

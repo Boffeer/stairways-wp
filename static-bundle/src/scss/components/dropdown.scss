@@ -60,6 +60,10 @@
      left: 0%;
      width: max-content;
      padding: 24px;
+    @media (max-width: 1400px) and (min-width: 992px) {
+        left: -100%;
+        max-width: 1176px;
+    }
 }
 .dropdown__body--more-8 {
     max-width: 952px;

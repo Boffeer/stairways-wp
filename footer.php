@@ -238,7 +238,7 @@
 </section>
 
 
-<div class="poppa poppa--no-scroll poppa--wide" id="abouts" data-poppa-closer="inside">
+<div class="poppa poppa--no-scroll poppa--wide poppa--no-hash" id="abouts" data-poppa-closer="inside">
     <div class="poppa-abouts">
         <div class="poppa__overlay--container">
             <div class="poppa-slider">

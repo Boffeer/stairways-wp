@@ -82,17 +82,24 @@
     flex: 4
 }
 .hero-categories__gallery:hover .hero-categories-card {
-    flex: 1;
+    @media (any-hover:hover) {
+        flex: 1;
+    }
 }
 .hero-categories__gallery:hover .hero-categories-card__subcategories {
-    display: none;
-    // opacity: 0;
+    @media (any-hover:hover) {
+        display: none;
+    }
 }
 .hero-categories__gallery .hero-categories-card:hover {
-    flex: 4;
+    @media (any-hover:hover) {
+        flex: 4;
+    }
 }
 .hero-categories__gallery .hero-categories-card:hover .hero-categories-card__subcategories {
-    display: initial;
+    @media (any-hover:hover) {
+        display: initial;
+    }
 }
 
 

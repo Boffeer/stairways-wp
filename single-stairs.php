@@ -183,7 +183,9 @@
                     <?php endif; ?>
                 </div>
                 <div class="prod-info-picture">
-                    <img src="<?php echo boffeer_get_image_url_by_id($feature['photo']); ?>" alt="">
+                    <?php if ($feature['photo'] != '') : ?>
+                        <img src="<?php echo boffeer_get_image_url_by_id($feature['photo']); ?>" alt="">
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endforeach; ?>
