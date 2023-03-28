@@ -82,7 +82,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px 32px;
-    grid-auto-flow: column;
+    // grid-auto-flow: column;
     grid-template-rows: repeat(5, 1fr);
 }
 .dropdown__body--wide .dropdown__body--list {

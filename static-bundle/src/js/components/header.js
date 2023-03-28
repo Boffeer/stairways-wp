@@ -46,6 +46,8 @@ function markMenusActiveCity(currentCityName) {
     dropdownElements.forEach(city => {
         const isCurrentCity = city.dataset.city.trim().includes(currentCityName.trim())
 
+        if (!isCurrentCity) return;
+
         city.classList.add('_active');
     })
 }

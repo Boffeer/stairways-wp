@@ -811,9 +811,17 @@
     width: max-content;
     margin: auto;
     border-radius: var(--radius-border);
+    transition: var(--tr-regular);
+
     @media (max-width: 650px) {
         font-size: 12px;
         padding: 21px 48px
+    }
+}
+.modal-thanks__link:hover {
+    @media (any-hover:hover) {
+        color: #fff;
+        background-color: #77828F;
     }
 }
 

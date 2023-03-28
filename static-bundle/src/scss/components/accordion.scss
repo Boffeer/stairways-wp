@@ -145,7 +145,7 @@
     }
 }
 .accordion--has-icon .accordion__desc {
-    max-width: 478px;
+    // max-width: 478px;
     @media (max-width:650px) {
         max-width: #{'calc(100% - 20px)'};
     }
