@@ -145,7 +145,7 @@ formsList.forEach((form) => {
     setTimeout(() => {
       let thanksName = 'thanks';
 
-      const thanksInput = form.querySelector['input[name="thanks_name"]']
+      const thanksInput = form.querySelector('input[name="thanks_name"]');
       if (thanksInput) {
         thanksName = thanksInput.value;
       }

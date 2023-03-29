@@ -85,11 +85,10 @@
     }
     @media (max-width: $mobile-size) {
         position: static;
-        // grid-gap: 27px 76px;
         margin-bottom: 48px;
-        // grid-template-columns: repeat( auto-fit, minmax(100px, 3fr));
-        columns: 2;
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap: unset;
     }
 }
 
@@ -98,6 +97,7 @@
     @media (max-width: 600px) {
         break-inside: avoid;
         margin-bottom: 30px;
+        flex-basis: 50%;
     }
 }
 
@@ -208,13 +208,15 @@
         background: #8196B1;
         border-color: transparent;
         &:hover {
-            background: transparent;
-            border: 1px solid #4F5C6D;
-            .button__text {
-                color: #fff
-            }
-            .button__icon {
-                fill: #fff
+            @media (any-hover:hover) {
+                background: transparent;
+                border: 1px solid #4F5C6D;
+                .button__text {
+                    color: #fff
+                }
+                .button__icon {
+                    fill: #fff
+                }
             }
         }
         .button__text {

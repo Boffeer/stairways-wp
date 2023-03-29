@@ -22,12 +22,18 @@
 	                                    	<?php echo $location['title']; ?>
 	                                    </h3>
 	                                    <div class="accordion__contacts">
-	                                        <a href="#" class="link link--geo">
-	                                            <span class="link--line"><?php echo $location['address'];?></span>
-	                                            <span class="link--line"><span>Режим работы:</span> <?php echo $location['worktime']?></span>
-	                                        </a>
-	                                        <a href="<?php echo get_phone_url($location['phone']);?>" class="accordion__body-tel link link--tel"><?php echo $location['phone']; ?></a>
-	                                        <a href="mailto:<?php echo $location['email'];?>" class="link link--email"><?php echo $location['email']?></a>
+	                                    	<?php if ($location['address']) : ?>
+		                                        <a href="#" class="link link--geo">
+		                                            <span class="link--line"><?php echo $location['address'];?></span>
+		                                            <span class="link--line"><span>Режим работы:</span> <?php echo $location['worktime']?></span>
+		                                        </a>
+		                                    <?php endif; ?>
+	                                    	<?php if ($location['phone']) : ?>
+		                                        <a href="<?php echo get_phone_url($location['phone']);?>" class="accordion__body-tel link link--tel"><?php echo $location['phone']; ?></a>
+		                                    <?php endif; ?>
+	                                    	<?php if ($location['email']) : ?>
+		                                        <a href="mailto:<?php echo $location['email'];?>" class="link link--email"><?php echo $location['email']?></a>
+		                                    <?php endif; ?>
 	                                    </div>
 	                                    <div class="accordion__mess">
 		                                    	<?php if ($location['whatsapp'] != '') : ?>

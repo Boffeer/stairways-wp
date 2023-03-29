@@ -14050,8 +14050,9 @@ select {
   .footer-nav {
     position: static;
     margin-bottom: 48px;
-    columns: 2;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: unset;
   }
 }
 
@@ -14059,6 +14060,7 @@ select {
   .footer-nav__list {
     break-inside: avoid;
     margin-bottom: 30px;
+    flex-basis: 50%;
   }
 }
 
@@ -14193,15 +14195,17 @@ select {
   background: #8196B1;
   border-color: transparent;
 }
-.footer__socials-buttons .button:hover {
-  background: transparent;
-  border: 1px solid #4F5C6D;
-}
-.footer__socials-buttons .button:hover .button__text {
-  color: #fff;
-}
-.footer__socials-buttons .button:hover .button__icon {
-  fill: #fff;
+@media (any-hover: hover) {
+  .footer__socials-buttons .button:hover {
+    background: transparent;
+    border: 1px solid #4F5C6D;
+  }
+  .footer__socials-buttons .button:hover .button__text {
+    color: #fff;
+  }
+  .footer__socials-buttons .button:hover .button__icon {
+    fill: #fff;
+  }
 }
 .footer__socials-buttons .button .button__text {
   letter-spacing: 0.04em;
