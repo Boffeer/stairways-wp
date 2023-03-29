@@ -155,7 +155,7 @@
                 <?php endwhile; ?>
                 <?php wp_reset_postdata(); ?>
             </div>
-            <button class="prod-items__show" type="button">Показать еще</button>
+            <button class="prod-items__show tabs-7p__more-content" type="button">Показать еще</button>
         </div>
     </div>
 </section>

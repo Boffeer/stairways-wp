@@ -123,7 +123,6 @@ const AJAX_ADMIN_URL = stairways.ajaxUrl
 const casesFilters = document.querySelectorAll('.tabs-7p');
 casesFilters.forEach(filter => {
   const filterForm = filter.querySelector('form');
-  // let gallery = filter.parentElement.querySelector('.projects-gallery')
   const gallery = filter.parentElement.querySelector('.swiper-wrapper');
 
   if (!gallery) {
@@ -136,10 +135,13 @@ casesFilters.forEach(filter => {
 
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', async (e) => {
+
+      // const moreButton = casesFilters.parentElement.parentElement.querySelector('.catalog-project__button-more')
+
       e.preventDefault();
       gallery.classList.add('gallery--wait')
-      let checked = [...filterForm.querySelectorAll('input:checked')];
 
+      let checked = [...filterForm.querySelectorAll('input:checked')];
       if (checked.length == 0) {
         const totalButton = filterForm.querySelector('.tabs-7p-tab--total').querySelector('input')
         totalButton.checked = true;
@@ -154,10 +156,8 @@ casesFilters.forEach(filter => {
       categoriesIds = JSON.stringify(categoriesIds);
 
       const formData = new FormData();
-      // console.log(filter.dataset)
       formData.append('action', filterForm.dataset.action);
       formData.append('categories', categoriesIds);
-      // console.log(categoriesIds)
       const caseObject = await fetch(AJAX_ADMIN_URL, {
         method: "POST",
         body: formData,
@@ -169,7 +169,21 @@ casesFilters.forEach(filter => {
       cases.forEach((caseItem) => {
         caseItem.remove();
       })
+
+      const beforeCasesCount = [...gallery.children].length;
       gallery.innerHTML = result;
+      const afterCasesCount = [...gallery.children].length;
+      const moreButton = gallery.parentElement.closest('.tabs').parentElement.querySelector('.tabs-7p__more-content');
+      if (afterCasesCount < 12) {
+        if (moreButton) {
+          moreButton.classList.add('is-hidden')
+        }
+      } else {
+        if (moreButton) {
+          moreButton.classList.remove('is-hidden')
+        }
+      }
+
       window.initFormNameButtons();
       window.initCaseButtons();
       window.poppa.initButtons();

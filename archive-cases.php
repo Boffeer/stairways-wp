@@ -96,10 +96,10 @@ get_header();
 	                </div>
 	            </div>
 		        </div>
+	          <button class="button button--primary button--wide catalog-project__button-more tabs-7p__more-content" type="button">
+	          	Показать еще
+	          </button>
 			    </div>
-          <button class="button button--primary button--wide catalog-project__button-more" type="button">
-          	Показать еще
-          </button>
 			</div>
   </section>
 </main>

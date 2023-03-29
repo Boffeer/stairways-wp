@@ -28,6 +28,19 @@ dropdownsVariable.forEach((dropdown) => {
     Выбор города меняет телефоны на сайте
 */
 function setCurrentCity(city, prefix = '') {
+
+    let isCityExist = false;
+    const dropdownElements = [...document.querySelectorAll('.city-picker__element')];
+    dropdownElements.forEach((item) => {
+        if (item.dataset.city == city) {
+            isCityExist = true;
+        }
+    })
+
+    if (isCityExist == false) {
+        city = 'Москва';
+    }
+
     const cityPickersCurrent = document.querySelectorAll('.city-picker__current');
     cityPickersCurrent.forEach(picker => {
         picker.innerText = `${prefix}${city}`;
@@ -37,6 +50,8 @@ function setCurrentCity(city, prefix = '') {
 
     setCityPhones(city);
 }
+window.setCurrentCity = setCurrentCity;
+
 function markMenusActiveCity(currentCityName) {
     const dropdownElements = [...document.querySelectorAll('.city-picker__element')];
 

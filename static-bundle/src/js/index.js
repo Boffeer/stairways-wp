@@ -167,3 +167,37 @@ window.addEventListener("scroll", (e) => {
     footerButtonTop.classList.remove('footer__button-top--visible')
   }
 });
+
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  ymaps.ready(() => {
+    var geolocation = ymaps.geolocation;
+    geolocation.get({
+        provider: 'browser',
+        // mapStateAutoApply: true
+    }).then(function (result) {
+        // getAddress(result.geoObjects.position);
+        
+        getAddress(result.geoObjects.position);
+    });
+
+    function getAddress(coords) {
+        // myPlacemark.properties.set('iconCaption', 'поиск...');
+        let currentAddress = '';
+        ymaps.geocode(coords).then(function (res) {
+            let firstGeoObject = res.geoObjects.get(0);
+            let address = firstGeoObject.getAddressLine();
+
+            currentAddress = address;
+
+            const city = address.split(',')[0];
+
+            window.ymapsCurrentCity = city;
+            // console.log(window.ymapsCurrentCity)
+            window.setCurrentCity(city, 'г. ');
+        });
+
+        return currentAddress
+    }
+  });
+});

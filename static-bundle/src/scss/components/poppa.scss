@@ -258,7 +258,7 @@
     width: inherit;
     height: 100%;
     height: #{'calc(100% + 48px)'};
-    // margin-top: -48px;
+    margin-top: -48px;
     padding-top: 48px;
     padding-bottom: 78px;
 
@@ -601,6 +601,11 @@
     transform: rotate(-45deg);
 }
 
+.poppa__closer:hover {
+    @media (any-hover:hover) {
+        transform: rotate(90deg);
+    }
+}
 .poppa__closer:hover::before,
 .poppa__closer:hover::after {
     background-color: #000;

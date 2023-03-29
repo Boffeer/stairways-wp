@@ -3157,7 +3157,7 @@ input[type=search]::-webkit-search-cancel-button {
 }
 
 .accordion__body {
-  padding: 0 1.5rem 1.5rem 5.625rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
   max-width: 48.4375rem;
 }
 @media (max-width: 700px) {
@@ -4313,6 +4313,7 @@ input[type=search]::-webkit-search-cancel-button {
   width: inherit;
   height: 100%;
   height: calc(100% + 48px);
+  margin-top: -48px;
   padding-top: 48px;
   padding-bottom: 78px;
 }
@@ -4666,6 +4667,12 @@ input[type=search]::-webkit-search-cancel-button {
 
 .poppa__closer::after {
   transform: rotate(-45deg);
+}
+
+@media (any-hover: hover) {
+  .poppa__closer:hover {
+    transform: rotate(90deg);
+  }
 }
 
 .poppa__closer:hover::before,
@@ -11982,7 +11989,7 @@ select {
   width: 528px;
   height: 553px;
   right: 0;
-  top: 25px;
+  top: 0;
   border-radius: var(--radius-border);
   font-family: var(--ff-title);
   background: var(--c-text-regular);

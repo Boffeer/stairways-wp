@@ -173,15 +173,25 @@ try {
 		    resultNode = gallery;
 	    }
 
-	    const nodesBeforeAppendCases = [...resultNode.children].length
+	    const beforeCasesCount = [...resultNode.children].length
 
 
 	    resultNode.innerHTML = result
-	    const nodesAfterAppendCases = [...resultNode.children].length
+	    const afterCasesCount = [...resultNode.children].length
 
 	    // if (nodesBeforeAppendCases === nodesAfterAppendCases) {
 	    	// productCasesMore.style.display = 'none';
 	    // }
+
+      if (afterCasesCount % 4 != 0) {
+        if (productCasesMore) {
+          productCasesMore.classList.add('is-hidden')
+        }
+      } else {
+        if (productCasesMore) {
+          productCasesMore.classList.remove('is-hidden')
+        }
+      }
 
 
 	    setTimeout(() => {
