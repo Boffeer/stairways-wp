@@ -136,7 +136,13 @@ function stairways_scripts() {
 	$contacts_cities = carbon_get_theme_option('contacts_cities');
 	$phones = array();
 	foreach ($contacts_cities as $city) {
-		$tel = $city['locations'][0]['phone'];
+
+		$tel = THEME_OPTIONS['phone'];
+
+		if (isset($city['locations'][0])) {
+			$tel = $city['locations'][0]['phone'];
+		}
+
 		$phones[$city['city']] = array(
 			'href' => get_phone_href($tel),
 			'text' => $tel,

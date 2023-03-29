@@ -120,8 +120,7 @@ formsList.forEach((form) => {
         "Content-Type": "application/x-www-form-urlencoded",
       },
     });
-    // try {
-    // let result = await response.json();
+
     const submitButton = form.querySelector('button[type="submit"]');
     if (submitButton) {
       submitButton.dataset.buttonText = submitButton.innerHTML;
@@ -140,16 +139,18 @@ formsList.forEach((form) => {
     form.dispatchEvent(sentEvent);
 
     const openedPop = document.querySelector('.poppa__overlay._show')
-      // console.log(openedPop)
     if (openedPop) {
       window.poppa.closePop(openedPop.querySelector('.poppa').id);
     }
     setTimeout(() => {
-      window.poppa.openPop('thanks')
+      let thanksName = 'thanks';
+
+      const thanksInput = form.querySelector['input[name="thanks_name"]']
+      if (thanksInput) {
+        thanksName = thanksInput.value;
+      }
+      window.poppa.openPop(thanksName);
     },400)
-    // } catch {
-    // console.log("error");
-    // }
   });
 });
 

@@ -288,6 +288,7 @@
         <h2 class="modal__title modal__title--review">Оставьте свой отзыв о нашей<br> работе прямо сейчас</h2>
         <div class="modal__group">
             <form action="<?php echo FORM_URLS['mail'];?>" class="form-callback shifter__form">
+                <input type="hidden" name="thanks_name" value="thanks-review">
                 <input type="hidden" name="form_name" value="Отзыв">
                 <fieldset class="form-callback__row">
                     <label class="input input--name">
@@ -375,6 +376,19 @@
         <h2 class="modal__title">Спасибо<br> за обращение</h2>
         <div class="modal__group">
             <p class="modal-thanks__text">Наш менеджер свяжется с вами<br> в ближайшее время</p>
+            <a class="modal-thanks__link" href="<?php home_url(); ?>">Вернуться назад</a>
+        </div>
+    </div>
+</section>
+ <section class="poppa modal modal-thanks" id="thanks-review">
+    <div class="modal__inner">
+        <div class="modal-thanks__icon">
+            <svg width="28" height="21" viewBox="0 0 28 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 10L10 18L26 2" stroke="white" stroke-width="4"/>
+            </svg>
+        </div>
+        <h2 class="modal__title">Спасибо<br> за отзыв</h2>
+        <div class="modal__group">
             <a class="modal-thanks__link" href="<?php home_url(); ?>">Вернуться назад</a>
         </div>
     </div>
