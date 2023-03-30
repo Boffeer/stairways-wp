@@ -113,15 +113,48 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 				Field::make( 'complex', 'hotspots', 'Плюсики на кратинке вариации')
 					->set_layout('tabbed-horizontal')
 					->add_fields( array(
-			      Field::make( 'image', 'photo', __( 'Вариации' ) ),
+			      Field::make( 'image', 'photo', __( 'Картика плюсика' ) ),
 			      Field::make( 'text', 'title', __( 'Заголовок' ) ),
 			      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
 			      Field::make( 'text', 'x_offset', __( 'Горизонтальный отступ' ) )
 				      ->set_width(50),
 			      Field::make( 'text', 'y_offset', __( 'Вертикальный отступ' ) )
 				      ->set_width(50),
+					)),
+			  Field::make( 'textarea', 'accuracy_title', __( 'Заголовок до блока с болтами' ) )
+			  	->set_width(30)
+			  	->set_default_value("Каркас вырезаем\nна автоматическом\nленточнопильном станке"),
+			  Field::make( 'textarea', 'accuracy_bullets', __( 'Буллеты до блока с болтами' ) )
+			  	->set_width(40)
+			  	->set_default_value("Все элементы каркаса мы вырезаем на автоматическом ленточнопильном станке с ЧПУ. Это самый качественный и точный способ изготовить лестницу.\n\nЭлементы из листа вырезаются только с помощью лазерной резки и имеют точную конфигурацию и красивый внешний вид."),
+			  Field::make( 'textarea', 'accuracy_hint', __( 'Подсказка до блока с болтами' ) )
+			  	->set_width(30)
+			  	->set_default_value("Погрешность при использовании\nтакого станка не превышает 0,1 мм на метр"),
+			  Field::make( 'radio', 'bolts_visibility', __( 'Блок с болтами' ) )
+					->set_options( array(
+						'show' => __('Отображать'),
+						'hide' => __('Скрыть'),
+				)),
+			  Field::make( 'radio', 'pretty_visibility', __( 'Блок «красиво» с цветами' ) )
+					->set_options( array(
+						'show' => __('Отображать'),
+						'hide' => __('Скрыть'),
+				)),
+				Field::make('complex', 'stairs_features', 'Преимущества')
+					->setup_labels(array(
+				    'plural_name' => 'преимущества',
+				    'singular_name' => 'преимущество',
 					))
-    )),
+					->add_fields( array(
+			      Field::make( 'text', 'suptitle', __( 'Над заголовокм' ) )
+				      ->set_attribute('placeholder', 'Надежно'),
+			      Field::make( 'text', 'title', __( 'Заголовок' ) ),
+			      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
+			      Field::make( 'image', 'photo', __( 'Большая картинка' ) ),
+						Field::make('media_gallery', 'pics', __('Картинки под описанием'))
+			    ))
+					->set_help_text('В нечетных картинка справа, в четных — слева'),
+		)),
     Field::make( 'association', 'stairs_faq', __( 'ЧаВо для этой лестницы' ) )
 	    ->set_types( array(
         array(
@@ -129,30 +162,6 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
           'post_type' => 'faq',
         )
     )),
-	  Field::make( 'textarea', 'accuracy_title', __( 'Заголовок до блока с болтами' ) )
-	  	->set_width(30)
-	  	->set_default_value("Каркас вырезаем
-на автоматическом
-ленточнопильном станке"),
-	  Field::make( 'textarea', 'accuracy_bullets', __( 'Буллеты до блока с болтами' ) )
-	  	->set_width(40)
-	  	->set_default_value("Все элементы каркаса мы вырезаем на автоматическом ленточнопильном станке с ЧПУ. Это самый качественный и точный способ изготовить лестницу.
-
-Элементы из листа вырезаются только с помощью лазерной резки и имеют точную конфигурацию и красивый внешний вид."),
-	  Field::make( 'textarea', 'accuracy_hint', __( 'Подсказка до блока с болтами' ) )
-	  	->set_width(30)
-	  	->set_default_value("Погрешность при использовании
-такого станка не превышает 0,1 мм на метр"),
-	  Field::make( 'radio', 'bolts_visibility', __( 'Блок с болтами' ) )
-			->set_options( array(
-				'show' => __('Отображать'),
-				'hide' => __('Скрыть'),
-		)),
-	  Field::make( 'radio', 'pretty_visibility', __( 'Блок «красиво» с цветами' ) )
-			->set_options( array(
-				'show' => __('Отображать'),
-				'hide' => __('Скрыть'),
-		)),
 	));
 
 Container::make('term_meta', 'stairs_category_info', 'Категория')
@@ -160,37 +169,6 @@ Container::make('term_meta', 'stairs_category_info', 'Категория')
 	->where('term_taxonomy', '=', 'categories')
 	->add_fields(array(
     Field::make( 'image', 'category_pic', __( 'Картинка категории' ) )
-	));
-
-
-// Container::make('post_meta', 'stairs_cases', 'Кейсы')
-// 	->where('post_type', '=', 'stairs')
-// 	->add_fields(array(
-//     Field::make( 'association', 'product_cases', __( 'Кейсы' ) )
-// 	    ->set_types( array(
-//         array(
-//           'type'      => 'post',
-//           'post_type' => 'cases',
-//         )
-//     ) )
-//   ));
-Container::make('post_meta', 'c_stairs_features', 'Преимущества')
-	->where('post_type', '=', 'stairs')
-	->add_fields(array(
-		Field::make('complex', 'stairs_features', 'Преимущества')
-			->setup_labels(array(
-		    'plural_name' => 'преимущества',
-		    'singular_name' => 'преимущество',
-			))
-			->add_fields( array(
-	      Field::make( 'text', 'suptitle', __( 'Над заголовокм' ) )
-		      ->set_attribute('placeholder', 'Надежно'),
-	      Field::make( 'text', 'title', __( 'Заголовок' ) ),
-	      Field::make( 'textarea', 'desc', __( 'Описание' ) ),
-	      Field::make( 'image', 'photo', __( 'Большая картинка' ) ),
-				Field::make('media_gallery', 'pics', __('Картинки под описанием'))
-	    ))
-			->set_help_text('В нечетных картинка справа, в четных — слева'),
 	));
 
 

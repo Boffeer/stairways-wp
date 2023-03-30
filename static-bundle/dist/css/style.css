@@ -12900,6 +12900,13 @@ select {
   bottom: 8rem;
 }
 
+.sect-colors:not(._active),
+.section-product-difference__variation:not(._active),
+.prod-info-variations__variation:not(._active) {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 .page-contacts__title {
   font-size: 64px;
   line-height: 100%;
