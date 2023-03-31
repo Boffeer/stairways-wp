@@ -199,9 +199,7 @@ try {
 		    window.poppa.initButtons()
 		    updateCaseSlides(gallery);
 
-		    if (window.boltsBlock) {
-			    window.boltsBlock.scrollTrigger.refresh();
-		    }
+		    window.updateBoltsGSAP();
 
 	    },10);
 
