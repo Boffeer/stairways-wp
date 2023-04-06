@@ -58,6 +58,7 @@ Container::make('theme_options', 'theme_options', 'Настройки')
 			->set_layout('tabbed-horizontal')
 			->add_fields( array(
 	      Field::make( 'text', 'city', __( 'Город' ) ),
+	      Field::make( 'text', 'url', __( 'Ссылка на сайт' ) ),
 				Field::make('complex', 'locations', 'Локации')
 				->add_fields( array(
 		      Field::make( 'text', 'title', __( 'Заголовок открытой карточки' ) ),

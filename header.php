@@ -51,7 +51,7 @@
                 <ul class="city_block__list">
                     <?php foreach ($cities as $city) : ?>
                         <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
-                            <?php echo $city['city']; ?>
+                            <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -84,7 +84,7 @@
                                     <ul class="dropdown__body--list">
                                         <?php foreach ($cities as $city) : ?>
                                             <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
-                                                <?php echo $city['city']; ?>
+                                                <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
@@ -103,7 +103,7 @@
                     </ul>
                 </nav>
                 <div class="header__contacts">
-                    <a href="#quiz" class="header__contacts-calc">
+                    <a href="<?php echo get_home_url(); ?>#quiz" class="header__contacts-calc">
                         <svg class="header__contacts-calc-icon">
                             <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/rocket.svg#rocket"></use>
                           </svg>
@@ -286,13 +286,14 @@
                         <ul class="city_block__list">
                             <?php foreach ($cities as $city) : ?>
                                 <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
-                                    <?php echo $city['city']; ?>
+                                    <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
+                                    
                                 </li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
 
-                    <a href="#quiz" class="header_mobile_menu__btn header_mobile_menu__calc">Рассчитать смету за 10 минут</button>
+                    <a href="<?php echo get_home_url(); ?>#quiz" class="header_mobile_menu__btn header_mobile_menu__calc">Рассчитать смету за 10 минут</button>
                     <a href="<?php echo THEME_OPTIONS['phone_href']; ?>" class="header_mobile_menu__btn header_mobile_menu__feedback">Позвонить нам</a>
 
                 </div>
