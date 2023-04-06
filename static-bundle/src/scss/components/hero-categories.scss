@@ -275,6 +275,11 @@
   opacity: 1;
 }
 
+.hero-categories-card__link:hover {
+    @media (any-hover:hover) {
+        color: #fff;
+    }
+}
 // .hero-categories-card .hero-categories-card__link::before {
 .hero-categories-card:not(.hero-categories-card--current) .hero-categories-card__link::before {
     content: "";

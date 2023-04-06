@@ -53,6 +53,8 @@ if (document.querySelector('.section-product-difference-pin') &&
         boltsVariations.forEach((section) => {
             section.classList.add('_loaded');
         })
+
+        window.dispatchEvent(new Event('resize'));
             
     }, 1000)
     

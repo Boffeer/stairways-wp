@@ -27,7 +27,7 @@ get_header();
 				        <div class="filters-7p__scrollarea">
 				          <div class="filters-7p__track">
 				            <label class="tabs-7p-tab tabs-7p-tab--total">
-				                <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="-1" checked>
+				                <input type="radio" name="filter" class="tabs-7p-tab__input" value="-1" checked>
 				                <span class="tabs-7p-tab__text">Все</span>
 				            </label>
 				          </div>
@@ -49,7 +49,7 @@ get_header();
 				            <div class="tabs-7p__industries-dropdown">
 				            	<?php foreach ($categories as $category) : ?>
 					              <label class="tabs-7p-tab">
-					                <input type="checkbox" name="filter" class="tabs-7p-tab__input" value="<?php echo $category->term_id; ?>">
+					                <input type="radio" name="filter" class="tabs-7p-tab__input" value="<?php echo $category->term_id; ?>">
 					                <span class="tabs-7p-tab__text"><?php echo $category->name; ?></span>
 					              </label>
 					            <?php endforeach; ?>

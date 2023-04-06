@@ -29,10 +29,11 @@ add_shortcode( 'link', 'text_link' );
 function text_link($attrs, $content) {
 	$attrs = shortcode_atts( [
 		'href' => '',
+		'a_attrs' => '',
 	], $attrs );
 
 	ob_start(); ?>
-    <a href="<?php echo $attrs['href']?>" class="link-regular"><span class="link__text"><?php echo $content; ?></span></a>
+    <a href="<?php echo $attrs['href']?>" <?php echo $attrs['a_attrs'];?> class="link-regular"><span class="link__text"><?php echo $content; ?></span></a>
 	<?php return ob_get_clean();
 }
 
@@ -40,10 +41,11 @@ add_shortcode( 'big_link', 'big_link' );
 function big_link($attrs, $content) {
 	$attrs = shortcode_atts( [
 		'href' => '',
+		'a_attrs' => '',
 	], $attrs );
 
 	ob_start(); ?>
-    <a href="<?php echo $attrs['href']?>" class="sect-delivery__step--download"><?php echo $content; ?></a>
+    <a href="<?php echo $attrs['href']?>" <?php echo $attrs['a_attrs']; ?> class="sect-delivery__step--download"><?php echo $content; ?></a>
 	<?php return ob_get_clean();
 }
 
@@ -119,8 +121,7 @@ function text_form($attrs) {
           <div class="shifter-callback__form--box">
               <button class="button button--primary shifter-callback__submit">Отправить</button>
               <p class="shifter-callback__privacy">
-                  Нажимая кнопку “Отправить”, вы даете согласие на<br> обработку
-                  <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="link">персональных данных</a>
+                  Нажимая кнопку “Отправить”, вы даете согласие на&nbsp;обработку <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="link">персональных данных</a>
               </p>
           </div>
       </form>

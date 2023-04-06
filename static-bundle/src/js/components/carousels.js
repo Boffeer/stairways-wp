@@ -271,3 +271,65 @@ if (document.querySelector('.product-cases-carousel')) {
     })
   }, 1000)
 }
+
+
+
+const articleCarousels = document.querySelectorAll('.wp-block-cb-carousel');
+articleCarousels.forEach((carousel, carouselIndex) => {
+  carousel.classList.add('swiper');
+
+  const carouselClass = `article-slider-${carouselIndex}`
+  carousel.classList.add(carouselClass);
+
+
+  const carouselContent = carousel.innerHTML;
+  carousel.innerHTML = '';
+
+  const swiperWrapper = document.createElement('div');
+  swiperWrapper.classList.add('swiper-wrapper')
+
+  carousel.append(swiperWrapper);
+
+  swiperWrapper.innerHTML = carouselContent;
+
+  carousel.querySelectorAll('.wp-block-cb-slide').forEach(slide => {
+    slide.classList.add('swiper-slide');
+  })
+
+  const bullets = document.createElement('div');
+  const bulletsClass = `swiper-pagination-${carouselIndex}`
+  bullets.classList.add('swiper-pagination')
+  bullets.classList.add(bulletsClass)
+  carousel.append(bullets);
+
+  const prevButton = document.createElement('div')
+  const prevButtonClass = `swiper-button-prev-${carouselIndex}`
+  prevButton.classList.add('swiper-button-prev')
+  prevButton.classList.add(prevButtonClass)
+  carousel.append(prevButton);
+
+  const nextButton = document.createElement('div')
+  const nextButtonClass = `swiper-button-next-${carouselIndex}`
+  nextButton.classList.add('swiper-button-next')
+  nextButton.classList.add(nextButtonClass)
+  carousel.append(nextButton);
+
+  new Swiper(`.${carouselClass}`, {
+    modules: [Navigation, Pagination],
+    // autoHeight: true,
+    spaceBetween: 10,
+    pagination: {
+      el: `.${bulletsClass}`,
+      clickable: true,
+    },
+    effect: 'fade',
+      fadeEffect: {
+      crossFade: true
+    },
+    navigation: {
+      nextEl: `.${nextButtonClass}`,
+      prevEl: `.${prevButtonClass}`,
+    },
+  });
+
+})

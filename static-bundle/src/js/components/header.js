@@ -90,7 +90,7 @@ function setCityPhones(city) {
     const cityPhones = getCityPhones();
 
     if (!cityPhones) return;
-    // console.log(phoneElements)
+    if (!cityPhones[city]) return;
 
     phoneElements.forEach(phone => {
         if (!cityPhones[city].href || !cityPhones[city].text) return;

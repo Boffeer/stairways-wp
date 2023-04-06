@@ -34,4 +34,9 @@
 	.lwptoc_item_number {
 		display: none;
 	}
+
+	.lwptoc .lwptoc_items .lwptoc_item._active a {
+		color: var(--c-text-regular);
+	}
 }
+

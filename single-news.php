@@ -10,7 +10,7 @@
                 $news_thumb = boffeer_get_image_url_by_id($news_thumb_id);
             ?>
             <?php if ($news_thumb_id != '') : ?>
-              <img class="sect-delivery__big" src="<?php echo $news_thumb; ?>" alt="<?php the_title(); ?>">
+              <!-- <img class="sect-delivery__big" src="<?php echo $news_thumb; ?>" alt="<?php the_title(); ?>"> -->
             <?php endif;?>
             <div class="sect-delivery__container wysiwyg">
                 <div class="sect-delivery__left">

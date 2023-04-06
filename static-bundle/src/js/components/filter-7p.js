@@ -129,7 +129,11 @@ casesFilters.forEach(filter => {
     console.log('no gallery for',  filterForm.dataset.action)
     return;
   }
-  const checkboxes = filterForm.querySelectorAll('input[type="checkbox"]');
+
+  let checkboxes = filterForm.querySelectorAll('input[type="checkbox"]');
+  if ([...checkboxes].length === 0) {
+    checkboxes = filterForm.querySelectorAll('input[type="radio"]');
+  }
 
   if (!filterForm || !gallery) return;
 

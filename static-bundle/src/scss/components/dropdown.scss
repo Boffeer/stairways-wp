@@ -84,10 +84,10 @@
 
 .dropdown__body--list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px 32px;
     // grid-auto-flow: column;
-    grid-template-rows: repeat(5, 1fr);
+    // grid-template-rows: repeat(5, 1fr);
 }
 .dropdown__body--wide .dropdown__body--list {
     column-gap: initial;
@@ -109,7 +109,7 @@
 
 .dropdown__body--list-element {
     cursor: pointer;
-    width: max-content;
+    width: auto;
     font-weight: 400;
     font-size: 0.85rem;
     line-height: 100%;
