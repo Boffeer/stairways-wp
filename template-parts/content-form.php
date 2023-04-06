@@ -36,7 +36,7 @@
                   >
                 </label>
                 <label class="textarea">
-                  <textarea class="textarea__field" name="user_message" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
+                  <textarea class="textarea__field" name="user_message" placeholder="Опишите свою задачу и укажите известные размеры проема"></textarea>
                 </label>
                 <!-- <div class="input-attach__wrapper"> -->
 	                <label class="input-attach">
