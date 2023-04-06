@@ -22,7 +22,7 @@
         </picture>
     <?php endif; ?>
     <h3 class="news-card__title">
-        <a href="<?php the_permalink(); ?>" class="nes-card__link">
+        <a href="<?php the_permalink(); ?>" class="news-card__link">
             <?php the_title()?>
         </a>
     </h3>
