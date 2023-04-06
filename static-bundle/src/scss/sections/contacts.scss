@@ -179,8 +179,9 @@
 }
 
 .accordion__mess a {
-    width: 32px;
-    height: 32px;
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: 1px solid #DCE1E6;
     display: flex;
@@ -188,8 +189,8 @@
     justify-content: center;
 }
 .accordion__mess a:before {
-    width: 12px;
-    height: 12px;
+    width: 18px;
+    height: 18px;
     display: block;
     background: #8196B1;
 }
@@ -231,6 +232,8 @@
     margin-left: auto;
     border-radius: 0;
     text-align: right;
+    justify-content: flex-end;
+    border: none;
 }
 
 .accordion__contacts {
