@@ -48,6 +48,7 @@ get_header();
 				            </button>
 				            <div class="tabs-7p__industries-dropdown">
 				            	<?php foreach ($categories as $category) : ?>
+					            	<?php if ($category->count < 2) continue; ?>
 					              <label class="tabs-7p-tab">
 					                <input type="radio" name="filter" class="tabs-7p-tab__input" value="<?php echo $category->term_id; ?>">
 					                <span class="tabs-7p-tab__text"><?php echo $category->name; ?></span>
