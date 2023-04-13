@@ -505,7 +505,7 @@
 
                           <div
                             class="swiper-slide quiz-slide quiz-slide--4-answers"
-                            data-step-name="В какой бюджет вы хотели бы уложиться"
+                            data-step-name="В какой бюджет вы хотели бы уложиться?"
                           >
                               <label class="quiz-answer">
                                 <input

@@ -148,6 +148,9 @@ quizes.forEach((quiz, index) => {
     let nextSlideCondition = prepareQuestionCondition(carousel, carousel.slides[currentIndex].dataset.condition)
 
     while(nextSlideCondition == false) {
+      carousel.slides[currentIndex].querySelectorAll('.quiz-answer__radio').forEach(input => {
+        input.disabled = true
+      })
       currentIndex++;
       nextSlideCondition = prepareQuestionCondition(carousel, carousel.slides[currentIndex].dataset.condition)
     }
@@ -161,6 +164,9 @@ quizes.forEach((quiz, index) => {
     let nextSlideCondition = prepareQuestionCondition(carousel, carousel.slides[currentIndex].dataset.condition)
 
     while(nextSlideCondition == false) {
+      carousel.slides[currentIndex].querySelectorAll('.quiz-answer__radio').forEach(input => {
+        input.disabled = false
+      })
       currentIndex--;
       nextSlideCondition = prepareQuestionCondition(carousel, carousel.slides[currentIndex].dataset.condition);
     }
