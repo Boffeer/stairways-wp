@@ -227,10 +227,10 @@
                                     data-value="1"
                                   >
                                   <span class="quiz-answer__check"></span>
-                                  <span class="quiz-answer__desc">Прямой марш</span>
                                   <picture class="quiz-answer__pic">
                                       <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-1.png" alt="" class="quiz-answer__img">
                                   </picture>
+                                  <span class="quiz-answer__desc">Прямой марш</span>
                               </label>
                               <label class="quiz-answer">
                                   <input
@@ -241,10 +241,10 @@
                                     data-value="2"
                                   >
                                   <span class="quiz-answer__check"></span>
-                                  <span class="quiz-answer__desc">Г-образная</span>
                                   <picture class="quiz-answer__pic">
                                       <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-2.png" alt="" class="quiz-answer__img">
                                   </picture>
+                                  <span class="quiz-answer__desc">Г-образная</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -254,10 +254,10 @@
                                   value="П-образная"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">П-образная</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-3.png" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">П-образная</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -267,10 +267,10 @@
                                   value="Винтовая"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Винтовая</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-4.png" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Винтовая</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -280,10 +280,10 @@
                                   value="Не решили"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Не решили</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/1-5.svg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Не решили</span>
                               </label>
                           </div>
                           <div
@@ -300,10 +300,10 @@
                                   checked
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">На металлокаркасе</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-1.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">На металлокаркасе</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -313,10 +313,10 @@
                                   value="Консольная"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Консольная</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-2.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Консольная</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -326,10 +326,10 @@
                                   value="Лестница для дачи"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc"> Эконом For Life <br> из дерева </span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-3.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc"> Эконом For Life <br> из дерева </span>
                               </label>
                           </div>
                           <div
@@ -346,10 +346,10 @@
                                   checked
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Ломаный косоур</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-1.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Ломаный косоур</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -359,10 +359,10 @@
                                   value="Монокосоур"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Монокосоур</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-2.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Монокосоур</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -372,10 +372,10 @@
                                   value="Тетива из листа Perfect"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Тетива из листа Perfect</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-3.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Тетива из листа Perfect</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -385,10 +385,10 @@
                                   value="Тетива из листа Z"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Тетива из листа Z</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-4.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Тетива из листа Z</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -398,10 +398,10 @@
                                   value="Монокосоур из листа"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Монокосоур из листа</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-5.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Монокосоур из листа</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -411,10 +411,10 @@
                                   value="Закрытый каркас"
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Закрытый каркас</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-6.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Закрытый каркас</span>
                               </label>
                           </div>
                           <div
@@ -430,10 +430,10 @@
                                   value="Ясень"
                                   checked>
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Ясень</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/4-1.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Ясень</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -442,11 +442,11 @@
                                   class="quiz-answer__radio"
                                   value="Дуб"
                                 >
-                              <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Дуб</span>
+                                <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/4-2.jpg" alt="" class="quiz-answer__img">
                                 </picture>
+                                <span class="quiz-answer__desc">Дуб</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -504,7 +504,7 @@
                           </div>
 
                           <div
-                            class="swiper-slide quiz-slide quiz-slide--prints quiz-slide--4-answers"
+                            class="swiper-slide quiz-slide quiz-slide--4-answers"
                             data-step-name="В какой бюджет вы хотели бы уложиться"
                           >
                               <label class="quiz-answer">

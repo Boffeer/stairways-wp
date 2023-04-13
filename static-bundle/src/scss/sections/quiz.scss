@@ -362,6 +362,14 @@
     }
 }
 
+.quiz-answer__check + .quiz-answer__desc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 .quiz-answer__desc {
     font-size: 1rem;
     line-height: 120%;
