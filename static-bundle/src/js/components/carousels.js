@@ -82,25 +82,6 @@ function getQuestionAppearCondition(context, question) {
   return  userCheckedAnswer;
 }
 
-function getNextSlideElement(context) {
-  const nextIndex = context.activeIndex + 1;
-  const nextSlide = context.slides[nextIndex];
-
-  if (nextSlide == undefined) {
-    const lastIndex = context.slides.length - 1;
-    const lastSlide = context.slides[lastIndex];
-    return {
-      el: lastSlide,
-      index: lastIndex
-    }
-  }
-
-  return {
-    el: nextSlide,
-    index: nextIndex
-  }
-}
-
 quizes.forEach((quiz, index) => {
   const SWIPER_NAME = 'quiz';
   const CURRENT_SWIPER_NAME = `${SWIPER_NAME}-${index}`;
@@ -126,10 +107,6 @@ quizes.forEach((quiz, index) => {
     fadeEffect: {
       crossFade: true
     },
-    navigation: {
-      nextEl: `#${CURRENT_SWIPER_NAME} .${SWIPER_NAME}-button-next`,
-      prevEl: `#${CURRENT_SWIPER_NAME} .${SWIPER_NAME}-button-prev`,
-    },
     on: {
       init: function() {
         togglePrevVisibility(this);
@@ -142,8 +119,6 @@ quizes.forEach((quiz, index) => {
       },
       slideChange: function() {
 
-        // const nextSlideCondition = getNextSlideElement(this).el.dataset.condition;
-
         togglePrevVisibility(this);
         if (!isQuestionFinal(this)) return
 
@@ -154,34 +129,42 @@ quizes.forEach((quiz, index) => {
         wrapper.style.height = '';
       },
       slideNextTransitionEnd: function () {
-        let nextSlideCondition = prepareQuestionCondition(this, this.slides[this.activeIndex].dataset.condition)
-        let currentIndex = this.activeIndex
-        while(nextSlideCondition == false) {
-          // this.slideNext();
-          currentIndex++;
-          nextSlideCondition = prepareQuestionCondition(this, this.slides[currentIndex].dataset.condition)
-          // nextSlideCondition = prepareQuestionCondition(this, this.slides[this.activeIndex].dataset.condition)
-          console.log(this.activeIndex);
-        }
-        this.slideTo(currentIndex)
       },
       slidePrevTransitionEnd: function () {
-        let nextSlideCondition = prepareQuestionCondition(this, this.slides[this.activeIndex].dataset.condition)
-        let currentIndex = this.activeIndex
-        while(nextSlideCondition == false) {
-          // this.slidePrev();
-          currentIndex--;
-          nextSlideCondition = prepareQuestionCondition(this, this.slides[currentIndex].dataset.condition)
-          // nextSlideCondition = prepareQuestionCondition(this, this.slides[this.activeIndex].dataset.condition)
-          console.log(this.activeIndex);
-        }
-        this.slideTo(currentIndex)
       },
       slideChangeTransitionEnd: function () {
-        changeStepIndex(this);
+        // changeStepIndex(this);
         changeStepName(this);
       }
     }
+  });
+
+
+  const nextButton = quiz.querySelector(`.${SWIPER_NAME}-button-next`);
+
+  nextButton.addEventListener('click', () => {
+    let currentIndex = carousel.activeIndex
+    currentIndex++
+    let nextSlideCondition = prepareQuestionCondition(carousel, carousel.slides[currentIndex].dataset.condition)
+
+    while(nextSlideCondition == false) {
+      currentIndex++;
+      nextSlideCondition = prepareQuestionCondition(carousel, carousel.slides[currentIndex].dataset.condition)
+    }
+    carousel.slideTo(currentIndex)
+  });
+
+  const prevButton = quiz.querySelector(`.${SWIPER_NAME}-button-prev`);
+  prevButton.addEventListener('click', () => {
+    let currentIndex = carousel.activeIndex;
+    currentIndex--;
+    let nextSlideCondition = prepareQuestionCondition(carousel, carousel.slides[currentIndex].dataset.condition)
+
+    while(nextSlideCondition == false) {
+      currentIndex--;
+      nextSlideCondition = prepareQuestionCondition(carousel, carousel.slides[currentIndex].dataset.condition);
+    }
+    carousel.slideTo(currentIndex)
   });
 })
 

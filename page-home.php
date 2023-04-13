@@ -207,7 +207,7 @@
               <picture class="quiz__pic"><img src="<?php echo THEME_STATIC; ?>/img/quiz/hero.png" alt="" class="quiz__img"></picture>
               <form action="<?php echo FORM_URLS['mail'];?>" class="quiz__questions">
                   <div class="quiz-status">
-                      Шаг <span class="quiz-status__step">1/6</span>
+                      <!-- Шаг <span class="quiz-status__step">1/6</span> -->
                       <span class="quiz-status__name">Выберите форму лестницы</span>
                   </div>
                   <div class="swiper quiz-carousel">
@@ -500,6 +500,52 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Нужен замерщик</span>
+                              </label>
+                          </div>
+
+                          <div
+                            class="swiper-slide quiz-slide quiz-slide--prints quiz-slide--4-answers"
+                            data-step-name="В какой бюджет вы хотели бы уложиться"
+                          >
+                              <label class="quiz-answer">
+                                <input
+                                  type="radio"
+                                  name="q6"
+                                  class="quiz-answer__radio"
+                                  value="До 100 тыс."
+                                  checked>
+                                <span class="quiz-answer__check"></span>
+                                <span class="quiz-answer__desc">До 100 тыс.</span>
+                              </label>
+                              <label class="quiz-answer">
+                                <input
+                                  type="radio"
+                                  name="q6"
+                                  class="quiz-answer__radio"
+                                  value="До 300 тыс."
+                                >
+                              <span class="quiz-answer__check"></span>
+                                <span class="quiz-answer__desc">До 300 тыс.</span>
+                              </label>
+                              <label class="quiz-answer">
+                                <input
+                                  type="radio"
+                                  name="q6"
+                                  class="quiz-answer__radio"
+                                  value="До 500 тыс."
+                                >
+                                <span class="quiz-answer__check"></span>
+                                <span class="quiz-answer__desc">До 500 тыс.</span>
+                              </label>
+                              <label class="quiz-answer">
+                                <input
+                                  type="radio"
+                                  name="q6"
+                                  class="quiz-answer__radio"
+                                  value="Мой бюджет ограничивается моими предпочтениями."
+                                >
+                                <span class="quiz-answer__check"></span>
+                                <span class="quiz-answer__desc">Мой бюджет ограничивается моими предпочтениями.</span>
                               </label>
                           </div>
                           <div class="swiper-slide quiz-slide" data-step-name="Опишите кратко свою задачу и известные вам параметры">
