@@ -1,7 +1,7 @@
 "use strict"
 
 import Swiper, { Navigation, Autoplay, Pagination, Thumbs, EffectFade } from "swiper";
-import {debounce} from "../utils/helpers.js";
+// import {debounce} from "../utils/helpers.js";
 
 
 const quizes = document.querySelectorAll('.quiz-carousel');
@@ -13,14 +13,92 @@ function togglePrevVisibility(context) {
     // context.el.querySelector('.quiz-button-prev').style.display = '';
     context.el.querySelector('.quiz-buttons').classList.add('quiz-buttons--not-first-slide')
   }
-
 }
+
+function changeStepIndex(context) {
+  const quiz = context.el;
+  const sliderStatusStepEl = quiz.parentElement.querySelector('.quiz-status__step');
+
+  if (sliderStatusStepEl) {
+    const TOTAL_STEPS = context.slides.length;
+    const CURRENT_STEP = context.activeIndex + 1;
+    const STEP_INDEX = ` ${CURRENT_STEP} / ${TOTAL_STEPS}`;
+
+    sliderStatusStepEl.innerText = STEP_INDEX;
+  }
+}
+
+function changeStepName(context) {
+  const quiz = context.el;
+  const stepNameEl = quiz.parentElement.querySelector('.quiz-status__name')
+
+  if (stepNameEl) {
+    const CURRENT_SLIDE = context.slides[context.activeIndex];
+    stepNameEl.innerText = CURRENT_SLIDE.dataset.stepName;
+  }
+}
+
 function isQuestionFinal(context) {
   return context.activeIndex == context.slides.length - 1;
 }
+
 function hideButtonsOnFinalQuestion(context) {
     context.el.querySelector('.quiz-buttons').style.display = 'none';
 }
+
+function processQuestionCondition(condition) {
+  if (condition.includes('!=')) {
+    condition = condition.split('!=');
+    console.log(condition[0], '!=', condition[2])
+    return condition[0] != condition[2]
+  } else if (condition.includes('==')) {
+    condition = condition.split('==');
+    return condition[0] == condition[2]
+  }
+}
+function prepareQuestionCondition(condition) {
+
+  if (condition == undefined) return true;
+  let mappedConditions;
+
+  console.log(condition)
+  if (condition.includes('&&')) {
+    let conditions = condition.split('&&'); 
+    mappedConditions = conditions.map(condition => {
+      return processQuestionCondition(condition);
+    });
+  } else {
+    mappedConditions = processQuestionCondition(condition);
+  }
+
+  return mappedConditions;
+  // console.log(mappedConditions)
+}
+
+function getQuestionAppearCondition(context, question) {
+  const condition = question.dataset.condition;
+  const userCheckedAnswer = context.el.querySelector(`[name="${question}"]:checked`).dataset.value
+}
+
+function getNextSlideElement(context) {
+  const nextIndex = context.activeIndex + 1;
+  const nextSlide = context.slides[nextIndex];
+
+  if (nextSlide == undefined) {
+    const lastIndex = context.slides.length - 1;
+    const lastSlide = context.slides[lastIndex];
+    return {
+      el: lastSlide,
+      index: lastIndex
+    }
+  }
+
+  return {
+    el: nextSlide,
+    index: nextIndex
+  }
+}
+
 quizes.forEach((quiz, index) => {
   const SWIPER_NAME = 'quiz';
   const CURRENT_SWIPER_NAME = `${SWIPER_NAME}-${index}`;
@@ -36,13 +114,14 @@ quizes.forEach((quiz, index) => {
     autoHeight: true,
     allowTouchMove: false,
     spaceBetween: 10,
+    slidesPerView: 1,
+    slidesPerGroup: 1,
     pagination: {
       el: `#${CURRENT_SWIPER_NAME} .${SWIPER_NAME}-pagination`,
-      // clickable: true,
       type: "progressbar",
     },
     effect: 'fade',
-      fadeEffect: {
+    fadeEffect: {
       crossFade: true
     },
     navigation: {
@@ -54,19 +133,10 @@ quizes.forEach((quiz, index) => {
         togglePrevVisibility(this);
       },
       slideChange: function() {
-        const CURRENT_SLIDE = this.slides[this.activeIndex];
 
-        const sliderStatusStepEl = quiz.parentElement.querySelector('.quiz-status__step');
-        if (sliderStatusStepEl) {
-          const TOTAL_STEPS = this.slides.length;
-          const CURRENT_STEP = this.activeIndex + 1;
-          sliderStatusStepEl.innerText = ` ${CURRENT_STEP} / ${TOTAL_STEPS}`;
-        }
+        console.log(getNextSlideElement(this).el.dataset.condition)
+        // prepareQuestionCondition()
 
-        const stepNameEl = quiz.parentElement.querySelector('.quiz-status__name')
-        if (stepNameEl) {
-          stepNameEl.innerText = CURRENT_SLIDE.dataset.stepName;
-        }
 
         togglePrevVisibility(this);
         if (!isQuestionFinal(this)) return
@@ -77,15 +147,10 @@ quizes.forEach((quiz, index) => {
         const wrapper = this.el.querySelector('.swiper-wrapper');
         wrapper.style.height = '';
       },
-      // slideNextTransitionEnd: function() {
-
-      //   if (!isQuestionFinal(this)) return
-      //   const wrapper = this.el.querySelector('.swiper-wrapper');
-      //   setTimeout(() => {
-      //   console.log(warpper.style.height);
-      //     wrapper.style.height = '';
-      //   }, 3000)
-      // }
+      slideChangeTransitionEnd: function () {
+        changeStepIndex(this);
+        changeStepName(this);
+      }
     }
   });
 })

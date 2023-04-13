@@ -213,9 +213,19 @@
                   <div class="swiper quiz-carousel">
                       <div class="swiper-pagination quiz-pagination"></div>
                       <div class="swiper-wrapper">
-                          <div class="swiper-slide quiz-slide quiz-slide--prints quiz-slide--5-answers" data-step-name="Выберите форму лестницы">
+                          <div
+                            class="swiper-slide quiz-slide quiz-slide--prints quiz-slide--5-answers"
+                            data-step-name="Выберите форму лестницы"
+                          >
                               <label class="quiz-answer">
-                                  <input type="radio" name="q1" class="quiz-answer__radio" checked>
+                                  <input
+                                    type="radio"
+                                    name="q1"
+                                    class="quiz-answer__radio"
+                                    checked
+                                    value="Прямой марш"
+                                    data-value="1"
+                                  >
                                   <span class="quiz-answer__check"></span>
                                   <span class="quiz-answer__desc">Прямой марш</span>
                                   <picture class="quiz-answer__pic">
@@ -223,7 +233,13 @@
                                   </picture>
                               </label>
                               <label class="quiz-answer">
-                                  <input type="radio" name="q1" class="quiz-answer__radio">
+                                  <input
+                                    type="radio"
+                                    name="q1"
+                                    class="quiz-answer__radio"
+                                    value="Г-образная"
+                                    data-value="2"
+                                  >
                                   <span class="quiz-answer__check"></span>
                                   <span class="quiz-answer__desc">Г-образная</span>
                                   <picture class="quiz-answer__pic">
@@ -231,7 +247,12 @@
                                   </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q1" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q1"
+                                  class="quiz-answer__radio"
+                                  value="П-образная"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">П-образная</span>
                                 <picture class="quiz-answer__pic">
@@ -239,7 +260,12 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q1" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q1"
+                                  class="quiz-answer__radio"
+                                  value="Винтовая"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Винтовая</span>
                                 <picture class="quiz-answer__pic">
@@ -247,7 +273,12 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q1" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q1"
+                                  class="quiz-answer__radio"
+                                  value="Не решили"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Не решили</span>
                                 <picture class="quiz-answer__pic">
@@ -255,9 +286,19 @@
                                 </picture>
                               </label>
                           </div>
-                          <div class="swiper-slide quiz-slide quiz-slide--3-answers" data-step-name="Выберите тип лестницы">
+                          <div
+                            class="swiper-slide quiz-slide quiz-slide--3-answers"
+                            data-step-name="Выберите тип лестницы"
+                            data-condition="q1!=4"
+                            >
                               <label class="quiz-answer">
-                                <input type="radio" name="q2" class="quiz-answer__radio" checked>
+                                <input
+                                  type="radio"
+                                  name="q2"
+                                  class="quiz-answer__radio"
+                                  value="На металлокаркасе"
+                                  checked
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">На металлокаркасе</span>
                                 <picture class="quiz-answer__pic">
@@ -265,7 +306,12 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q2" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q2"
+                                  class="quiz-answer__radio"
+                                  value="Консольная"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Консольная</span>
                                 <picture class="quiz-answer__pic">
@@ -273,17 +319,32 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q2" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q2"
+                                  class="quiz-answer__radio"
+                                  value="Лестница для дачи"
+                                >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Эконом For Life <br> из дерева</span>
+                                <span class="quiz-answer__desc"> Эконом For Life <br> из дерева </span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-3.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                           </div>
-                          <div class="swiper-slide quiz-slide quiz-slide--6-answers" data-step-name="Выберите тип каркаса">
+                          <div
+                            class="swiper-slide quiz-slide quiz-slide--6-answers"
+                            data-step-name="Выберите тип каркаса"
+                            data-condition="q1!=4&&q2==1"
+                          >
                               <label class="quiz-answer">
-                                <input type="radio" name="q3" class="quiz-answer__radio" checked>
+                                <input
+                                  type="radio"
+                                  name="q3"
+                                  class="quiz-answer__radio"
+                                  value="Ломаный косоур"
+                                  checked
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Ломаный косоур</span>
                                 <picture class="quiz-answer__pic">
@@ -291,7 +352,12 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q3" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q3"
+                                  class="quiz-answer__radio"
+                                  value="Монокосоур"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Монокосоур</span>
                                 <picture class="quiz-answer__pic">
@@ -299,7 +365,12 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q3" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q3"
+                                  class="quiz-answer__radio"
+                                  value="Тетива из листа Perfect"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Тетива из листа Perfect</span>
                                 <picture class="quiz-answer__pic">
@@ -307,7 +378,12 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q3" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q3"
+                                  class="quiz-answer__radio"
+                                  value="Тетива из листа Z"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Тетива из листа Z</span>
                                 <picture class="quiz-answer__pic">
@@ -315,7 +391,12 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q3" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q3"
+                                  class="quiz-answer__radio"
+                                  value="Монокосоур из листа"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Монокосоур из листа</span>
                                 <picture class="quiz-answer__pic">
@@ -323,7 +404,12 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q3" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q3"
+                                  class="quiz-answer__radio"
+                                  value="Закрытый каркас"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Закрытый каркас</span>
                                 <picture class="quiz-answer__pic">
@@ -331,9 +417,18 @@
                                 </picture>
                               </label>
                           </div>
-                          <div class="swiper-slide quiz-slide quiz-slide--4-answers" data-step-name="Выберите материал ступеней">
+                          <div
+                            class="swiper-slide quiz-slide quiz-slide--4-answers"
+                            data-step-name="Выберите материал ступеней"
+                            data-condition="q2!=3"
+                          >
                               <label class="quiz-answer">
-                                <input type="radio" name="q4" class="quiz-answer__radio" checked>
+                                <input
+                                  type="radio"
+                                  name="q4"
+                                  class="quiz-answer__radio"
+                                  value="Ясень"
+                                  checked>
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Ясень</span>
                                 <picture class="quiz-answer__pic">
@@ -341,37 +436,68 @@
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q4" class="quiz-answer__radio">
-                                <span class="quiz-answer__check"></span>
+                                <input
+                                  type="radio"
+                                  name="q4"
+                                  class="quiz-answer__radio"
+                                  value="Дуб"
+                                >
+                              <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Дуб</span>
                                 <picture class="quiz-answer__pic">
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/4-2.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q4" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q4"
+                                  class="quiz-answer__radio"
+                                  value="Без ступеней"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Без ступеней</span>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q4" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q4"
+                                  class="quiz-answer__radio"
+                                  value="Другой материал"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Другой материал</span>
                               </label>
                           </div>
                           <div class="swiper-slide quiz-slide quiz-slide--3-answers" data-step-name="Вам известны размеры проема?">
                               <label class="quiz-answer">
-                                <input type="radio" name="q5" class="quiz-answer__radio" checked>
+                                <input
+                                  type="radio"
+                                  name="q5"
+                                  class="quiz-answer__radio"
+                                  value="Да"
+                                  checked
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Да</span>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q5" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q5"
+                                  class="quiz-answer__radio"
+                                  value="Замерю сам, если расскажете как"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Замерю сам, если расскажете как</span>
                               </label>
                               <label class="quiz-answer">
-                                <input type="radio" name="q5" class="quiz-answer__radio">
+                                <input
+                                  type="radio"
+                                  name="q5"
+                                  class="quiz-answer__radio"
+                                  value="Нужен замерщик"
+                                >
                                 <span class="quiz-answer__check"></span>
                                 <span class="quiz-answer__desc">Нужен замерщик</span>
                               </label>
@@ -404,7 +530,7 @@
                                     >
                                   </label>
                                    <label class="textarea">
-                                    <textarea class="textarea__field" name="user_message" placeholder="Напишите пару интересных слов о нашей работе :)"></textarea>
+                                    <textarea class="textarea__field" name="user_message" placeholder="Опишите известные вам параметры проема и прикрепите фото  и схему ниже, если есть"></textarea>
                                   </label> <label class="input-attach input-attach--on">
                                     <input
                                       class="input-attach__field"
