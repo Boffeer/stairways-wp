@@ -46,38 +46,40 @@ function hideButtonsOnFinalQuestion(context) {
     context.el.querySelector('.quiz-buttons').style.display = 'none';
 }
 
-function processQuestionCondition(condition) {
+function processQuestionCondition(context, condition) {
   if (condition.includes('!=')) {
     condition = condition.split('!=');
-    console.log(condition[0], '!=', condition[2])
-    return condition[0] != condition[2]
+    condition[0] = getQuestionAppearCondition(context, condition[0]);
+    return condition[0] != condition[1]
   } else if (condition.includes('==')) {
     condition = condition.split('==');
-    return condition[0] == condition[2]
+    condition[0] = getQuestionAppearCondition(context, condition[0]);
+    return condition[0] == condition[1]
   }
 }
-function prepareQuestionCondition(condition) {
 
+function prepareQuestionCondition(context, condition) {
   if (condition == undefined) return true;
   let mappedConditions;
 
-  console.log(condition)
   if (condition.includes('&&')) {
     let conditions = condition.split('&&'); 
     mappedConditions = conditions.map(condition => {
-      return processQuestionCondition(condition);
+      return processQuestionCondition(context, condition);
     });
+    mappedConditions = Boolean( mappedConditions.reduce((totalAnswer, currentAnswer) => {
+      return totalAnswer * currentAnswer;
+    }) )
   } else {
-    mappedConditions = processQuestionCondition(condition);
+    mappedConditions = processQuestionCondition(context, condition);
   }
 
   return mappedConditions;
-  // console.log(mappedConditions)
 }
 
 function getQuestionAppearCondition(context, question) {
-  const condition = question.dataset.condition;
   const userCheckedAnswer = context.el.querySelector(`[name="${question}"]:checked`).dataset.value
+  return  userCheckedAnswer;
 }
 
 function getNextSlideElement(context) {
@@ -131,12 +133,16 @@ quizes.forEach((quiz, index) => {
     on: {
       init: function() {
         togglePrevVisibility(this);
+        this.slides.forEach((slide, index) => {
+          slide.dataset.index = index;
+          slide.querySelectorAll('.quiz-answer__radio').forEach((answer, index) => {
+            answer.dataset.value = index + 1;
+          })
+        })
       },
       slideChange: function() {
 
-        console.log(getNextSlideElement(this).el.dataset.condition)
-        // prepareQuestionCondition()
-
+        // const nextSlideCondition = getNextSlideElement(this).el.dataset.condition;
 
         togglePrevVisibility(this);
         if (!isQuestionFinal(this)) return
@@ -146,6 +152,30 @@ quizes.forEach((quiz, index) => {
         this.update();
         const wrapper = this.el.querySelector('.swiper-wrapper');
         wrapper.style.height = '';
+      },
+      slideNextTransitionEnd: function () {
+        let nextSlideCondition = prepareQuestionCondition(this, this.slides[this.activeIndex].dataset.condition)
+        let currentIndex = this.activeIndex
+        while(nextSlideCondition == false) {
+          // this.slideNext();
+          currentIndex++;
+          nextSlideCondition = prepareQuestionCondition(this, this.slides[currentIndex].dataset.condition)
+          // nextSlideCondition = prepareQuestionCondition(this, this.slides[this.activeIndex].dataset.condition)
+          console.log(this.activeIndex);
+        }
+        this.slideTo(currentIndex)
+      },
+      slidePrevTransitionEnd: function () {
+        let nextSlideCondition = prepareQuestionCondition(this, this.slides[this.activeIndex].dataset.condition)
+        let currentIndex = this.activeIndex
+        while(nextSlideCondition == false) {
+          // this.slidePrev();
+          currentIndex--;
+          nextSlideCondition = prepareQuestionCondition(this, this.slides[currentIndex].dataset.condition)
+          // nextSlideCondition = prepareQuestionCondition(this, this.slides[this.activeIndex].dataset.condition)
+          console.log(this.activeIndex);
+        }
+        this.slideTo(currentIndex)
       },
       slideChangeTransitionEnd: function () {
         changeStepIndex(this);
