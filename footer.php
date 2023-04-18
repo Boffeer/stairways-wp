@@ -112,7 +112,7 @@
                 </div>
                 <div class="footer__bottom">
                     <p class="footer__copy">© 2014-<?php echo date('Y'); ?>. Все права защищены.</p>
-                    <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="footer__link">Политика конфиденциальности данных</a>
+                    <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" target="_blank" class="footer__link">Политика конфиденциальности данных</a>
                     <a href="https://7pap.ru/" class="footer__creator">Сделано в СЕМЬ ПАП:</a>
                 </div>
             </div>

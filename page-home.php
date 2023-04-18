@@ -301,7 +301,7 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-1.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2/metal.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">На металлокаркасе</span>
                               </label>
@@ -314,7 +314,7 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-2.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2/console.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">Консольная</span>
                               </label>
@@ -327,7 +327,7 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2-3.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/2/for-life.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc"> Эконом For Life <br> из дерева </span>
                               </label>
@@ -347,7 +347,7 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-1.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3/curve-cosour.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">Ломаный косоур</span>
                               </label>
@@ -360,7 +360,7 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-2.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3/monocosour.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">Монокосоур</span>
                               </label>
@@ -373,7 +373,7 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-3.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3/perfect-string.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">Тетива из листа Perfect</span>
                               </label>
@@ -399,7 +399,7 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-5.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3/monocosour-list.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">Монокосоур из листа</span>
                               </label>
@@ -412,13 +412,13 @@
                                 >
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3-6.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/3/closed-carcass.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">Закрытый каркас</span>
                               </label>
                           </div>
                           <div
-                            class="swiper-slide quiz-slide quiz-slide--4-answers"
+                            class="swiper-slide quiz-slide quiz-slide--5-answers"
                             data-step-name="Выберите материал ступеней"
                             data-condition="q2!=3"
                           >
@@ -431,9 +431,22 @@
                                   checked>
                                 <span class="quiz-answer__check"></span>
                                 <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/4-1.jpg" alt="" class="quiz-answer__img">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/4/ash.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">Ясень</span>
+                              </label>
+                              <label class="quiz-answer">
+                                <input
+                                  type="radio"
+                                  name="q4"
+                                  class="quiz-answer__radio"
+                                  value="Береза"
+                                  checked>
+                                <span class="quiz-answer__check"></span>
+                                <picture class="quiz-answer__pic">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/4/birch.jpg" alt="" class="quiz-answer__img">
+                                </picture>
+                                <span class="quiz-answer__desc">Береза</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -1376,7 +1389,7 @@
                           <button class="button button--primary shifter-callback__submit" type="submit">Отправить</button>
                           <p class="shifter-callback__privacy">
                               Нажимая кнопку “Отправить”, вы даете согласие на <br> обработку 
-                              <a href="<?php echo THEME_OPTIONS['privacy_url'];?>" class="link">персональных данных</a>
+                              <a href="<?php echo THEME_OPTIONS['privacy_url'];?>" target="_blank" class="link">персональных данных</a>
                           </p>
                       </div>
                   </form>

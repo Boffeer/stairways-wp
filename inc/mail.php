@@ -2,8 +2,8 @@
 require_once('../../../../wp-load.php');
 
 $leads_email = boffeer_explode_textarea(carbon_get_theme_option('leads_emails'));
-// $to = 'boffeechane@gmail.com';
-$email_from = 'boffeer@beefheads.ru';
+$to = 'boffeechane@gmail.com';
+$email_from = 'info@stairways.ru';
 // $email_from = 'info@urem.ru';
 
 

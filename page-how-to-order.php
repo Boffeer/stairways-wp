@@ -52,7 +52,7 @@
                                           <button class="button button--primary shifter-callback__submit">Отправить</button>
                                           <p class="shifter-callback__privacy">
                                               Нажимая кнопку “Отправить”, вы даете согласие на<br> обработку
-                                              <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="link">персональных данных</a>
+                                              <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" target="_blank" class="link">персональных данных</a>
                                           </p>
                                       </div>
                                   </form>
@@ -143,7 +143,11 @@
                             setup_postdata($favorite_post);
 
                             $video_url = $cases_favorite_first['video_url'];//carbon_get_post_meta(get_the_ID(), 'video_url');
-                            $video_id = get_yt_id($video_url);
+                            $video_id = '';
+
+                            if ($video_url != '') {
+                              $video_id = get_yt_id($video_url);
+                            }
 
                             $case_title = carbon_get_post_meta(get_the_ID(), 'title');
 
@@ -158,23 +162,25 @@
                                 $video_thumb = boffeer_get_image_url_by_id($video_thumb);
                             endif;
                           ?>
-                          <article class="videos-card">
-                              <div class="videos-card__media">
-                                  <picture class="videos-card__pic">
-                                    <img src="<?php echo $video_thumb; ?>" alt="<?php echo $case_title; ?>" class="videos-card__img">
-                                  </picture>
-                                  <a class="videos-card__play" href="<?php echo $video_url; ?>" data-fancybox type="button">
-                                      <svg class="videos-card__icon">
-                                          <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
-                                      </svg>
-                                  </a>
-                              </div>
-                              <h3 class="videos-card__title">
-                                  <a href="<?php echo $video_url; ?>" data-fancybox class="videos-card__link">
-                                      <?php echo $case_title; ?>
-                                  </a>
-                              </h3>
-                          </article>
+                          <?php if ($video_id != '') : ?>
+                            <article class="videos-card">
+                                <div class="videos-card__media">
+                                    <picture class="videos-card__pic">
+                                      <img src="<?php echo $video_thumb; ?>" alt="<?php echo $case_title; ?>" class="videos-card__img">
+                                    </picture>
+                                    <a class="videos-card__play" href="<?php echo $video_url; ?>" data-fancybox type="button">
+                                        <svg class="videos-card__icon">
+                                            <use xlink:href="<?php echo THEME_STATIC; ?>/img/common/play-icon.svg#play"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <h3 class="videos-card__title">
+                                    <a href="<?php echo $video_url; ?>" data-fancybox class="videos-card__link">
+                                        <?php echo $case_title; ?>
+                                    </a>
+                                </h3>
+                            </article>
+                          <?php endif; ?>
                           <?php wp_reset_postdata(); ?>
                           
                           <span class="sect-delivery__content--title">Содержание</span>
@@ -273,7 +279,7 @@
                               <button class="button button--primary shifter-callback__submit">Отправить</button>
                               <p class="shifter-callback__privacy">
                                   Нажимая кнопку “Отправить”, вы даете согласие на обработку
-                                  <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" class="link">персональных данных</a>
+                                  <a href="<?php echo THEME_OPTIONS['privacy_url']; ?>" target="_blank" class="link">персональных данных</a>
                               </p>
                           </div>
                       </form>
