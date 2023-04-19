@@ -156,7 +156,7 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 					->set_help_text('В нечетных картинка справа, в четных — слева'),
 		)),
     Field::make( 'text', 'high_accuracy_video', __( 'Видео на Youtube для блока «Высокая точность конструкции»' ) ),
-    Field::make( 'text', 'high_accuracy_title', __( 'Заголовок для блока «Высокая точность конструкции»' ) )
+    Field::make( 'textarea', 'high_accuracy_title', __( 'Заголовок для блока «Высокая точность конструкции»' ) )
 	  	->set_default_value("Высокая\n точность\n конструкции"),
     Field::make( 'association', 'stairs_faq', __( 'ЧаВо для этой лестницы' ) )
 	    ->set_types( array(

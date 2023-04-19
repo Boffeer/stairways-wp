@@ -12441,7 +12441,7 @@ select {
 @media (max-width: 600px) {
   .sect-photo {
     padding: 0 0 32px 0;
-    height: 468px;
+    height: 228px;
     display: flex;
     align-items: flex-end;
   }
