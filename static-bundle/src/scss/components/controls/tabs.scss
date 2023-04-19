@@ -73,6 +73,9 @@
         font-weight: 600;
     }
 }
+.tabs__toggler:last-child {
+    margin-right: 0;
+}
 
 .tabs__toggler.tab--active {
     color: #fff;

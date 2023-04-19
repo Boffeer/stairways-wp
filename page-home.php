@@ -440,19 +440,6 @@
                                   type="radio"
                                   name="q4"
                                   class="quiz-answer__radio"
-                                  value="Береза"
-                                  checked>
-                                <span class="quiz-answer__check"></span>
-                                <picture class="quiz-answer__pic">
-                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/4/birch.jpg" alt="" class="quiz-answer__img">
-                                </picture>
-                                <span class="quiz-answer__desc">Береза</span>
-                              </label>
-                              <label class="quiz-answer">
-                                <input
-                                  type="radio"
-                                  name="q4"
-                                  class="quiz-answer__radio"
                                   value="Дуб"
                                 >
                                 <span class="quiz-answer__check"></span>
@@ -460,6 +447,19 @@
                                   <img src="<?php echo THEME_STATIC; ?>/img/quiz/4-2.jpg" alt="" class="quiz-answer__img">
                                 </picture>
                                 <span class="quiz-answer__desc">Дуб</span>
+                              </label>
+                              <label class="quiz-answer">
+                                <input
+                                  type="radio"
+                                  name="q4"
+                                  class="quiz-answer__radio"
+                                  value="Береза"
+                                  checked>
+                                <span class="quiz-answer__check"></span>
+                                <picture class="quiz-answer__pic">
+                                  <img src="<?php echo THEME_STATIC; ?>/img/quiz/4/birch.jpg" alt="" class="quiz-answer__img">
+                                </picture>
+                                <span class="quiz-answer__desc">Береза</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -488,11 +488,11 @@
                                   type="radio"
                                   name="q5"
                                   class="quiz-answer__radio"
-                                  value="Да"
+                                  value="Да, могу предоставить"
                                   checked
                                 >
                                 <span class="quiz-answer__check"></span>
-                                <span class="quiz-answer__desc">Да</span>
+                                <span class="quiz-answer__desc">Да, могу предоставить</span>
                               </label>
                               <label class="quiz-answer">
                                 <input
@@ -1010,8 +1010,8 @@
                             <a href="reviews" class="link link-regular">
                                 <span class="link__text">Отзывы на нашем сайте</span>
                             </a>
-                            <?php if (THEME_OPTIONS['reviews_yandex_url']) : ?>
-                              <a class="link link-regular link--external"href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" target="_blank">
+                            <?php if (false == 1 && THEME_OPTIONS['reviews_yandex_url']) : ?>
+                              <a class="link link-regular link--external" href="<?php echo THEME_OPTIONS['reviews_yandex_url']; ?>" target="_blank">
                                   <span class="link__text">Отзывы на Яндекс Картах</span>
                               </a>
                             <?php endif; ?>
@@ -1019,30 +1019,43 @@
                         </div>
                       </div>
                   </div>
-                  <div class="reviews-slider" data-swiper="main" data-swiper-slide="2" data-breakpoints='{"0": {"slidesPerView": 1}, "600": {"slidesPerView": 2, "spaceBetween": 16}, "992": {"spaceBetween": 24}, "1300": {"spaceBetween": 36}}' data-swiper-pagination data-swiper-navigation
-                      data-swiper-touch>
-                      <div class="swiper reviews-carousel">
-                          <div class="swiper-wrapper">
-                            <?php $home_reviews = carbon_get_post_meta(get_the_ID(), 'home_reviews'); ?>
-                            <?php foreach ($home_reviews as $review_position => $review) : ?>
-                              <?php
-                                global $post;
-                                $favorite_review = get_post($review['id']);
-                                $post = $favorite_review;
-                                setup_postdata($favorite_review);
-                               ?>
-                              <div class="swiper-slide reviews-slide">
-                                  <?php get_template_part( 'template-parts/content-reviews', get_post_type() ); ?>
+                  <div class="tabs__toggler-container" data-tabs="reviews">
+                    <button class="tabs__toggler" type="button">На нашем сайте</button>
+                    <button class="tabs__toggler" type="button">На Яндекс.Картах</button>
+                  </div>
+                  <div class="tabs__page-container" data-tabs="reviews">
+                    <div class="tabs__page">
+                      <div class="reviews-slider" data-swiper="main" data-swiper-slide="2" data-breakpoints='{"0": {"slidesPerView": 1}, "600": {"slidesPerView": 2, "spaceBetween": 16}, "992": {"spaceBetween": 24}, "1300": {"spaceBetween": 36}}' data-swiper-pagination data-swiper-navigation
+                          data-swiper-touch>
+                          <div class="swiper reviews-carousel">
+                              <div class="swiper-wrapper">
+                                <?php $home_reviews = carbon_get_post_meta(get_the_ID(), 'home_reviews'); ?>
+                                <?php foreach ($home_reviews as $review_position => $review) : ?>
+                                  <?php
+                                    global $post;
+                                    $favorite_review = get_post($review['id']);
+                                    $post = $favorite_review;
+                                    setup_postdata($favorite_review);
+                                   ?>
+                                  <div class="swiper-slide reviews-slide">
+                                      <?php get_template_part( 'template-parts/content-reviews', get_post_type() ); ?>
+                                  </div>
+                                  <?php endforeach; ?>
+                                  <?php wp_reset_postdata(); ?>
                               </div>
-                              <?php endforeach; ?>
-                              <?php wp_reset_postdata(); ?>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                          <div class="swiper-buttons reviews-gallery-buttons">
+                              <div class="swiper-button-prev projects-gallery-button-prev"></div>
+                              <div class="swiper-button-next projects-gallery-button-next"></div>
                           </div>
                       </div>
-                      <div class="swiper-pagination"></div>
-                      <div class="swiper-buttons reviews-gallery-buttons">
-                          <div class="swiper-button-prev projects-gallery-button-prev"></div>
-                          <div class="swiper-button-next projects-gallery-button-next"></div>
-                      </div>
+                    </div>
+                    <div class="tabs__page">
+                     <div style="overflow:hidden;position:relative;">
+                      <iframe style="width:100%;height:600px;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/80752297824?comments"></iframe>
+                      <a href="https://yandex.by/maps/org/pervaya_stupen/80752297824/" target="_blank" style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">Первая ступень на карте Пензы — Яндекс Карты</a></div> 
+                    </div>
                   </div>
               </div>
           </div>
