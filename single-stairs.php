@@ -196,8 +196,22 @@
         </div>
     </div>
 </section>
+
+<?php
+    $video_url = carbon_get_the_post_meta('high_accuracy_video');
+    if ($video_url === '') {
+        $video_url = carbon_get_theme_option('default_stairs_video');
+    }
+    $video_id = get_yt_id($video_url);
+    get_vd($video_url);
+    get_vd($video_id);
+?>
 <section class="sect-photo">
-    <img class="sect-photo__picture" src="<?php echo THEME_STATIC; ?>/img/proud/background.jpg" alt="Высокая точность конструкции">
+    <?php if ($video_id == '' && $video_id == null) : ?>
+        <img class="sect-photo__picture" src="<?php echo THEME_STATIC; ?>/img/proud/background.jpg" alt="Высокая точность конструкции">
+    <?php else : ?>
+      <div class="sect-photo__picture yt-video yt-video--bg" data-yt-id="<?php echo $video_id; ?>"></div>
+    <?php endif; ?>
     <div class="container">
         <h2 class="sect-photo__title">Высокая<br> точность
             <br> конструкции

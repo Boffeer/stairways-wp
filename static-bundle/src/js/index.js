@@ -27,6 +27,7 @@ import "./components/cases.js";
 
 import "./unstable/inputster/input-tel-mask.js";
 
+import "./b_components/yt-video.js";
 
 /**
  * Poppa

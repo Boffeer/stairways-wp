@@ -90,6 +90,9 @@ if (!function_exists('get_yt_id')) :
 	{
 		$url = parse_url($url, PHP_URL_QUERY);
 		parse_str($url, $query_params);
+
+		if (!isset($query_params['v'])) return null;
+		
 		return $query_params['v'];
 	}
 endif;

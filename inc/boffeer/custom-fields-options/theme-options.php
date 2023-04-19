@@ -74,6 +74,8 @@ Container::make('theme_options', 'theme_options', 'Настройки')
     ))
 	))
 	->add_tab('Базовые настройки страницы товара', array(
+    Field::make( 'text', 'default_stairs_video', __( 'Стандартное видео товара' ))
+    	->set_help_text('Стандартное видео, которое будет отображаться, если товару не задано другое видео'),
     Field::make( 'association', 'order_conditions', __( 'Условия заказа' ))
 	    ->set_types(array(
         array(
