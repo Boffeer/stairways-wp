@@ -1,22 +1,22 @@
 <?php
 require_once('../../../../wp-load.php');
 
+
 $leads_email = boffeer_explode_textarea(carbon_get_theme_option('leads_emails'));
-$to = 'boffeechane@gmail.com';
-$email_from = 'info@stairways.ru';
-// $email_from = 'info@urem.ru';
+// $to = 'boffeechane@gmail.com';
+$email_from = 'info@zenit.ru';
 
 
 
-// if (isset($_FILES)) {
-// 	if (!empty($_FILES['file']['tmp_name'])) {
-// 		$filepath = $_FILES['file']['tmp_name'];
-// 		$filename = $_FILES['file']['name'];
-// 	} else {
-// 		$filepath = '';
-// 		$filename = '';
-// 	}
+// $ff = ($_FILES['user_file']);
+// if (!empty($_FILES['user_file']['tmp_name'])) {
+// 	$filepath = $_FILES['user_file']['tmp_name'];
+// 	$filename = $_FILES['user_file']['name'];
+// } else {
+// 	$filepath = '';
+// 	$filename = '';
 // }
+
 
 $body = '';
 foreach ($_POST as $key => $value) {
@@ -24,7 +24,7 @@ foreach ($_POST as $key => $value) {
 		$customkey = $key;
 		if ($key == 'user_name') {
 			$customkey = "Имя:";
-		} elseif ($key == 'user_tel') {
+		} elseif ($key == 'user_phone') {
 			$customkey = 'Телефон:';
 		} elseif ($key == 'user_email') {
 			$customkey = 'E-mail:';
@@ -32,7 +32,7 @@ foreach ($_POST as $key => $value) {
 			$customkey = 'Город:';
 		} elseif ($key == 'user_message') {
 			$customkey = 'Сообщение:';
-		} elseif ($key == 'form_name') {
+		} elseif ($key == 'formname') {
 			$customkey = 'Форма:';
 		} elseif ($key == 'page') {
 			$customkey = 'Страница:';
@@ -48,39 +48,37 @@ foreach ($_POST as $key => $value) {
 
 
 $subject = 'Заявка с сайта';
-// $boundary = "--" . md5(uniqid(time())); // генерируем разделитель
+$boundary = "--" . md5(uniqid(time())); // генерируем разделитель
 $headers = "From: " . $email_from . "\r\n";
-// $headers .= "MIME-Version: 1.0\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
 // $headers .= "Content-Type: multipart/mixed; boundary=\"" . $boundary . "\"\r\n";
-// $multipart = "--" . $boundary . "\r\n";
-// $multipart .= "Content-type: text/plain; charset=\"utf-8\"\r\n";
-// $multipart .= "Content-Transfer-Encoding: quoted-printable\r\n\r\n";
+$headers .= "Content-Type: multipart/mixed; charset=\"utf-8\"; boundary=\"" . $boundary . "\"\r\n";
+$multipart = "--" . $boundary . "\r\n";
+$multipart .= "Content-type: text/plain; charset=\"utf-8\"\r\n";
+$multipart .= "Content-Transfer-Encoding: quoted-printable\r\n\r\n";
 
-// $body = $body . "\r\n\r\n";
+$body = $body . "\r\n\r\n";
 
 
-// $multipart .= $body;
-// $file = '';
-// if (!empty($filepath)) {
-// 	$fp = fopen($filepath, "r");
-// 	if ($fp) {
-// 		$content = fread($fp, filesize($filepath));
-// 		fclose($fp);
-// 		$file .= "--" . $boundary . "\r\n";
-// 		$file .= "Content-Type: application/octet-stream\r\n";
-// 		$file .= "Content-Transfer-Encoding: base64\r\n";
-// 		$file .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
-// 		$file .= chunk_split(base64_encode($content)) . "\r\n";
-// 	}
-// }
-
-// $multipart .= $file . "--" . $boundary . "--\r\n";
-
-$mail_log = array();
-foreach ($leads_email as $email) {
-	$mail_log[] = wp_mail($email, $subject, $body, $headers);
+$multipart .= $body;
+$file = '';
+if (!empty($filepath)) {
+	$fp = fopen($filepath, "r");
+	if ($fp) {
+		$content = fread($fp, filesize($filepath));
+		fclose($fp);
+		$file .= "--" . $boundary . "\r\n";
+		$file .= "Content-Type: application/octet-stream\r\n";
+		$file .= "Content-Transfer-Encoding: base64\r\n";
+		$file .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
+		$file .= chunk_split(base64_encode($content)) . "\r\n";
+	}
 }
 
-echo json_encode(array('status' => json_encode($mail_log), 'leads' => json_encode($leads_email)));
+$multipart .= $file . "--" . $boundary . "--\r\n";
 
-die;
+foreach ($leads_email as $email) {
+	wp_mail($email, $subject, $multipart, $headers);
+}
+
+echo json_encode(array('ok' => 'ok', 'leads' => json_encode($leads_email)));

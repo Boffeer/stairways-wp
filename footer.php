@@ -394,28 +394,6 @@
     </div>
 </section>
 
-<?php
-if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    $ip = $_SERVER['HTTP_CLIENT_IP'];
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-} else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-}
-?>
-
-<!-- <script>
-    fetch('https://ipinfo.io/<?php echo $ip; ?>?token=ad73d3f7227316', {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    }).then(result => {
-        console.log(result.body);
-    })
-</script>
- -->
-
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU&amp;apikey=55053583-9704-4e95-8a17-d5e58aa501ff&_v=20230217195447"></script>
 <?php wp_footer(); ?>
 

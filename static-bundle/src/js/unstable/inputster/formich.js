@@ -112,12 +112,12 @@ formsList.forEach((form) => {
       validateInput(input);
     });
 
-    const formBody = new URLSearchParams(new FormData(form));
+    const formBody = new FormData(form);
     let response = await fetch(form.action, {
       method: "POST",
       body: formBody,
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        // "Content-Type": "multipart/form-data",
       },
     });
 
