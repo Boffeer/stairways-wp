@@ -116,9 +116,9 @@ formsList.forEach((form) => {
     let response = await fetch(form.action, {
       method: "POST",
       body: formBody,
-      headers: {
-        // "Content-Type": "multipart/form-data",
-      },
+      // headers: {
+      //   "Content-Type": "multipart/form-data",
+      // },
     });
 
     const submitButton = form.querySelector('button[type="submit"]');

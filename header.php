@@ -26,12 +26,15 @@
 <?php wp_body_open(); ?>
 <div class="wrapper">
 <div class="menu-city">
-    <?php $cities = carbon_get_theme_option('contacts_cities'); ?>
+    <?php
+        $cities = carbon_get_theme_option('contacts_cities');
+        $default_city = $cities[0]['city'];
+    ?>
     <p class="menu-city__text">Ваш город — </p>
     <svg class="menu-city__icon" width="12" height="17" viewBox="0 0 12 17" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5.99866 1C2.42773 1 0.401808 4.1275 1.15707 7.45201C1.69496 9.81942 4.94308 16 5.99869 16C6.98499 16 10.294 9.81741 10.8403 7.45201C11.6005 4.15991 9.59051 1 5.99866 1ZM6.00018 7.85256C4.96926 7.85256 4.13373 7.00386 4.13373 5.95662C4.13373 4.90937 4.96926 4.06067 6.00018 4.06067C7.03111 4.06067 7.86664 4.90937 7.86664 5.95662C7.86664 7.00386 7.03111 7.85256 6.00018 7.85256Z" stroke="#69788C"/>
     </svg>
-    <span class="menu-city__add-c"><span class="city-picker__current">Москва?</span></span>
+    <span class="menu-city__add-c"><span class="city-picker__current"><?php echo $default_city; ?>?</span></span>
     <button class="menu-city__btn">
         <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L4 4L1 7" stroke="white" stroke-width="2"/>
@@ -50,7 +53,7 @@
             <div class="menu-city__popup-list--bottom">
                 <ul class="city_block__list">
                     <?php foreach ($cities as $city) : ?>
-                        <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
+                        <li class="city-picker__element city_block__list-element <?php echo $city['city'] === $default_city? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
                             <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
                         </li>
                     <?php endforeach; ?>
@@ -78,12 +81,12 @@
                     <ul class="header__nav-list">
                         <li class="header__nav-item">
                             <div class="dropdown city-picker">
-                                <span class="dropdown--title city-picker__current" data-dropdown> г. Москва</span>
+                                <span class="dropdown--title city-picker__current" data-dropdown> г. <?php echo $default_city; ?></span>
                                 <div class="dropdown__body">
                                     <h2 class="dropdown__body-title">Выбор города</h2>
                                     <ul class="dropdown__body--list">
                                         <?php foreach ($cities as $city) : ?>
-                                            <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
+                                            <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === $default_city? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
                                                 <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
                                             </li>
                                         <?php endforeach; ?>
@@ -282,10 +285,10 @@
                     </ul>
 
                     <div class="city_block">
-                        <p class="city_block__title">Ваш регион — <span class="city-picker__current">Москва?</span></p>
+                        <p class="city_block__title">Ваш регион — <span class="city-picker__current"><?php $default_city; ?>?</span></p>
                         <ul class="city_block__list">
                             <?php foreach ($cities as $city) : ?>
-                                <li class="city-picker__element city_block__list-element <?php echo $city['city'] === 'Москва' ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
+                                <li class="city-picker__element city_block__list-element <?php echo $city['city'] === $default_city ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
                                     <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
                                     
                                 </li>

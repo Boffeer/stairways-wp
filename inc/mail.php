@@ -4,18 +4,21 @@ require_once('../../../../wp-load.php');
 
 $leads_email = boffeer_explode_textarea(carbon_get_theme_option('leads_emails'));
 // $to = 'boffeechane@gmail.com';
-$email_from = 'info@zenit.ru';
+$email_from = 'boffeer@beefheads.ru';
 
 
 
-// $ff = ($_FILES['user_file']);
-// if (!empty($_FILES['user_file']['tmp_name'])) {
-// 	$filepath = $_FILES['user_file']['tmp_name'];
-// 	$filename = $_FILES['user_file']['name'];
-// } else {
-// 	$filepath = '';
-// 	$filename = '';
-// }
+if ($_FILES['user_file']['error'] !== UPLOAD_ERR_OK) {
+    die("File upload failed: " . $_POST['user_file']['error']);
+}
+$ff = ($_FILES['user_file']);
+if (!empty($_FILES['user_file']['tmp_name'])) {
+	$filepath = $_FILES['user_file']['tmp_name'];
+	$filename = $_FILES['user_file']['name'];
+} else {
+	$filepath = '';
+	$filename = '';
+}
 
 
 $body = '';
@@ -70,7 +73,7 @@ if (!empty($filepath)) {
 		$file .= "--" . $boundary . "\r\n";
 		$file .= "Content-Type: application/octet-stream\r\n";
 		$file .= "Content-Transfer-Encoding: base64\r\n";
-		$file .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
+		$file .= 'Content-Disposition: attachment; name="' . basename($filename) . '"; filename="' . basename($filename) . '"' . "\r\n\r\n";
 		$file .= chunk_split(base64_encode($content)) . "\r\n";
 	}
 }

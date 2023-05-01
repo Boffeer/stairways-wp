@@ -28,6 +28,7 @@ dropdownsVariable.forEach((dropdown) => {
     Выбор города меняет телефоны на сайте
 */
 function setCurrentCity(city, prefix = '') {
+    return; //выключает функционал автовыбора города
 
     let isCityExist = false;
     const dropdownElements = [...document.querySelectorAll('.city-picker__element')];
