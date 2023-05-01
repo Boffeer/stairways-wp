@@ -25,7 +25,17 @@ import "./components/swiper_thumbs.js";
 import "./components/delivery.js";
 import "./components/cases.js";
 
-import "./unstable/inputster/input-tel-mask.js";
+// import "./unstable/inputster/input-tel-mask.js";
+import "./libs/inputmask.js";
+const telInputs = document.querySelectorAll('input[type="tel"]');
+telInputs.forEach(tel => {
+  const maskOptions = {
+    mask: '+7(999) 999-99-99',
+    inputmode: 'tel',
+  };
+  new Inputmask(maskOptions).mask(tel);
+})
+
 
 import "./b_components/yt-video.js";
 
