@@ -54,7 +54,7 @@
                 <ul class="city_block__list">
                     <?php foreach ($cities as $city) : ?>
                         <li class="city-picker__element city_block__list-element <?php echo $city['city'] === $default_city? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
-                            <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
+                            <a href="https://<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -87,7 +87,7 @@
                                     <ul class="dropdown__body--list">
                                         <?php foreach ($cities as $city) : ?>
                                             <li class="city-picker__element dropdown__body--list-element <?php echo $city['city'] === $default_city? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
-                                                <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
+                                                <a href="https://<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
@@ -289,7 +289,7 @@
                         <ul class="city_block__list">
                             <?php foreach ($cities as $city) : ?>
                                 <li class="city-picker__element city_block__list-element <?php echo $city['city'] === $default_city ? '_active' : ''?>" data-city="<?php echo $city['city']; ?>">
-                                    <a href="<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
+                                    <a href="https://<?php echo $city['url']?>"><?php echo $city['city']; ?></a>
                                     
                                 </li>
                             <?php endforeach; ?>
