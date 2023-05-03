@@ -133,6 +133,7 @@
 
 
 
+<?php $main_category = get_the_terms(get_the_ID(), 'categories')[0]; ?>
 <section id="section-product-cases" class="prod-items section">
     <div class="container">
         <h2 class="section-title">Произвели 130+ лестниц<br> на монокосоуре</h2>
@@ -143,6 +144,13 @@
                       'post_type' => 'cases',
                       'orderby' => 'rand',
                       'posts_per_page' => 6,
+                      'tax_query' => array(
+                          array(
+                            'taxonomy' => 'categories',
+                            'field' => 'id',
+                            'terms' => $main_category->term_id,
+                          ),
+                      ),
                   ));
                 ?>
                 <?php while ($product_cases->have_posts()) : ?>
@@ -155,6 +163,7 @@
                 <?php endwhile; ?>
                 <?php wp_reset_postdata(); ?>
             </div>
+            <input type="checkbox" name="filter" class="tabs-7p-tab__input is-hidden" checked value="<?php echo $main_category->term_id; ?>">
             <button class="prod-items__show tabs-7p__more-content" type="button">Показать еще</button>
         </div>
     </div>

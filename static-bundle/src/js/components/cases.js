@@ -183,7 +183,7 @@ try {
 	    	// productCasesMore.style.display = 'none';
 	    // }
 
-      if (afterCasesCount % 4 != 0) {
+      if (afterCasesCount % 4 != 0 || afterCasesCount == 4) {
         if (productCasesMore) {
           productCasesMore.classList.add('is-hidden')
         }
