@@ -78,7 +78,7 @@
                 <div class="footer__socials">
                     <div class="footer__socials-buttons">
                         <?php if (THEME_OPTIONS['viber'] != '') : ?>
-                            <a href="<?php echo THEME_OPTIONS['viber']; ?>" class="button button--secondary button--icon-right footer__button footer__button--has-text">
+                            <a href="<?php echo THEME_OPTIONS['viber']; ?>" target="_blank" class="button button--secondary button--icon-right footer__button footer__button--has-text">
                                 <svg class="button__icon">
             						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/viber.svg#viber" />
             					</svg>
@@ -86,7 +86,7 @@
                             </a>
                         <?php endif; ?>
                         <?php if (THEME_OPTIONS['whatsapp'] != '') : ?>
-                            <a href="<?php echo THEME_OPTIONS['whatsapp']; ?>" class="button button--secondary button--icon-right footer__button footer__button--has-text">
+                            <a href="<?php echo THEME_OPTIONS['whatsapp']; ?>" target="_blank" class="button button--secondary button--icon-right footer__button footer__button--has-text">
                                 <svg class="button__icon">
             						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/whatsapp.svg#whatsapp" />
             					</svg>
@@ -94,14 +94,14 @@
                             </a>
                         <?php endif; ?>
                         <?php if (THEME_OPTIONS['vk'] != '') : ?>
-                            <a href="<?php echo THEME_OPTIONS['vk']; ?>" class="footer__button footer__button-vk button--ghost">
+                            <a href="<?php echo THEME_OPTIONS['vk']; ?>" target="_blank" class="footer__button footer__button-vk button--ghost">
                                 <svg class="button__icon">
             						<use xlink:href="<?php echo THEME_STATIC; ?>/img/common/vk.svg#vk" />
             					</svg>
                             </a>
                         <?php endif; ?>
                         <?php if (THEME_OPTIONS['youtube'] != '') : ?>
-                            <a href="<?php echo THEME_OPTIONS['youtube']; ?>" class="footer__button footer__button-yt button--ghost">
+                            <a href="<?php echo THEME_OPTIONS['youtube']; ?>" target="_blank" class="footer__button footer__button-yt button--ghost">
                                 <svg class="button__icon" width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M26.9086 1.71686C25.8979 0.497419 24.0319 0 20.4681 0H7.53164C3.88631 0 1.98863 0.529505 0.981716 1.82778C0 3.09361 0 4.9587 0 7.54004V12.4601C0 17.4609 1.1648 20 7.53164 20H20.4682C23.5587 20 25.2712 19.5611 26.3791 18.4849C27.5152 17.3814 28 15.5795 28 12.4601V7.54004C28 4.8178 27.924 2.9417 26.9086 1.71686ZM17.9761 10.6793L12.1017 13.7954C11.9704 13.865 11.8267 13.8996 11.6833 13.8996C11.5209 13.8996 11.3589 13.8552 11.2154 13.767C10.9451 13.6008 10.7801 13.3035 10.7801 12.9829V6.77072C10.7801 6.45059 10.9447 6.15357 11.2144 5.98728C11.4842 5.82098 11.8197 5.80961 12.0996 5.95721L17.974 9.0532C18.2729 9.21069 18.4606 9.52385 18.461 9.86551C18.4614 10.2075 18.2745 10.5211 17.9761 10.6793Z" fill="white"/>
                                 </svg>

@@ -155,6 +155,8 @@ Container::make('post_meta', 'stairs_info', 'Лестницы')
 			    ))
 					->set_help_text('В нечетных картинка справа, в четных — слева'),
 		)),
+    Field::make( 'textarea', 'cases_title', __( 'Заголовок над кейсами' ) )
+    	->set_help_text('Если не заполнять, то будет «Произвели 130+ лестниц»'),
     Field::make( 'text', 'high_accuracy_video', __( 'Видео на Youtube для блока «Высокая точность конструкции»' ) ),
     Field::make( 'textarea', 'high_accuracy_title', __( 'Заголовок для блока «Высокая точность конструкции»' ) )
 	  	->set_default_value("Высокая\n точность\n конструкции"),

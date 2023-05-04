@@ -136,7 +136,12 @@
 <?php $main_category = get_the_terms(get_the_ID(), 'categories')[0]; ?>
 <section id="section-product-cases" class="prod-items section">
     <div class="container">
-        <h2 class="section-title">Произвели 130+ лестниц<br> на монокосоуре</h2>
+        <?php $cases_title = carbon_get_the_post_meta('cases_title'); ?>
+        <?php if ($cases_title == '') : ?>
+            <h2 class="section-title">Произвели 130+ лестниц</h2>
+        <?php else : ?>
+            <h2 class="section-title"><?php echo nl2br($cases_title); ?></h2>
+        <?php endif; ?>
         <div class="projects-gallery">
             <div class="projects-gallery-carousel">
                 <?php
