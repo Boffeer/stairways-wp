@@ -115,18 +115,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
   }
 
-  function onPlayerReady(event) {
-    const video = event.target.h.closest('.yt-video');
-    event.target.setVolume(40);
-    event.target.playVideo();
-      setTimeout(() => {
-        video.classList.add('yt-video--video-play');
-      }, 1000);
+  function onPlayerReady(e) {
+    const videoId = e.target.h.g.videoId
+    const video = document.querySelector(`[data-yt-id="${videoId}"`);
+    video._ytVideo.player.setVolume(40);
+    video._ytVideo.player.playVideo();
+    setTimeout(() => {
+      video.classList.add('yt-video--video-play');
+    }, 1000);
   }
 
   function cahngePlayerState(e) {
-    // console.log('player change state', e)
-    const video = e.target.h.closest('.yt-video');
+    // const video = e.target.h.closest('.yt-video');
+    const videoId = e.target.h.g.videoId
+    const video = document.querySelector(`[data-yt-id="${videoId}"`);
 
     // show video when loaded instead of thumb
     if (e.data == 1) {
